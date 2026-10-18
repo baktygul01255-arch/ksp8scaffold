@@ -193,7 +193,7 @@ a.big{text-decoration:none}
 .dot{width:.8em;height:.8em;border-radius:50%;display:inline-block;flex:none}
 .cl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5em}
 .cl li{display:flex;gap:.7em;align-items:flex-start}
-.sc li{display:flex;flex-direction:column;gap:.35em;padding:.5em 0;border-bottom:1px solid var(--line)}.scq{display:flex;gap:.6em;justify-content:space-between;align-items:flex-start}.mx{flex:none;color:var(--accent);white-space:nowrap}.scb{display:flex;gap:.4em;flex-wrap:wrap}.sb{min-width:2.4em;height:2.4em;border-radius:.5em;border:2px solid var(--accent);background:var(--surface);color:var(--fg);font-weight:700;font-size:1em}.sb[aria-pressed=true]{background:var(--accent);color:var(--accent-fg)}.dtw{overflow-x:auto}.dtb th,.dtb td{font-size:.95em;vertical-align:top}
+.cgrp{border:2px solid var(--line);border-radius:.9em;padding:.6em .8em;margin-bottom:.6em}.cgh{font-weight:700;margin-bottom:.4em}.cl li{align-items:center}.cl li>span:not(.cbs){flex:1}.cpt{color:var(--muted,var(--accent));flex:none}.cbs{width:1.2em;height:1.2em;border:2px solid var(--line);border-radius:.3em;flex:none}.ctot{font-size:1.6em;font-weight:700}.ctot b{font-size:1.3em}[data-lvlbox]{align-items:center;gap:.8em;flex-wrap:wrap}.sc li{display:flex;flex-direction:column;gap:.35em;padding:.5em 0;border-bottom:1px solid var(--line)}.scq{display:flex;gap:.6em;justify-content:space-between;align-items:flex-start}.mx{flex:none;color:var(--accent);white-space:nowrap}.scb{display:flex;gap:.4em;flex-wrap:wrap}.sb{min-width:2.4em;height:2.4em;border-radius:.5em;border:2px solid var(--accent);background:var(--surface);color:var(--fg);font-weight:700;font-size:1em}.sb[aria-pressed=true]{background:var(--accent);color:var(--accent-fg)}.dtw{overflow-x:auto}.dtb th,.dtb td{font-size:.95em;vertical-align:top}
 .cb{width:1.9em;height:1.9em;border-radius:.5em;border:3px solid var(--accent);flex:none;display:grid;place-items:center;background:var(--surface);color:var(--accent-fg)}
 .cb[aria-checked=true]{background:var(--accent)}
 .cb svg{width:1.2em;height:1.2em;stroke-width:3.5;opacity:0}
@@ -325,7 +325,7 @@ ru:{
  tipsSor:{4:['Раздайте варианты СОР, 20 минут, индивидуально.','Баллы по дескрипторам (макс. 10).'],5:['Покажите эталон, ученики сверяют ответы и отмечают ошибки.','Баллы сообщите на следующем уроке.']},
  asT:['Диагностическое · «Учебные вопросы»','Формативное · «Большой палец»','Формативное · «Наблюдение» по чек-листу','Формативное · «Учебные вопросы»','Формативное · самопроверка по эталону','Формативное · «Две звезды и одно пожелание»','Самооценивание · «Самоанализ»'],
  asSor:{4:'Суммативное · баллы по дескрипторам',5:'Самооценивание по эталону'},
- critInfo:'Выставьте баллы за каждый критерий (всего 10).',levels:['9–10 баллов – высокий','5–8 – средний','0–4 – начальный'],bl:'б.',crit1:'Критерий',dsc:['Высокий','Средний','Начальный'],dd:['выполняет самостоятельно и верно','выполняет частично: с подсказкой или с 1–2 ошибками','не выполняет или нужна помощь'],tot:'Итого',dtl:'Шкала оценивания (10 баллов)',levelN:['Высокий уровень','Средний уровень','Начальный уровень'],
+ critInfo:'Отмечайте выполненные дескрипторы: 1 балл за каждый, всего 10.',levels:['Высокий: 9–10 баллов','средний: 6–8','низкий: 0–5'],cg:{h:['Объясняет и формулирует (понимание темы)','Применяет знания при решении задач','Работает в группе и делает вывод'],f:'формулирует: ',t1:'задача 1: выполняет по образцу, получает верный ответ ({a})',t2:'задача 2: выбирает верный способ решения (формулу), при необходимости переводит единицы в СИ',t3:'задача 2: получает верный ответ ({a})',t4:'задача 3: решает самостоятельно, получает верный ответ ({a})',g1:'выполняет свою роль в группе',g2:'фиксирует результат группы в листе задания',g2b:'соблюдает технику безопасности при работе с оборудованием',g3:'делает вывод: '},reset:'Сбросить отметки',bl:'б.',crit1:'Критерий',dsc:['Высокий','Средний','Начальный'],dd:['выполняет самостоятельно и верно','выполняет частично: с подсказкой или с 1–2 ошибками','не выполняет или нужна помощь'],tot:'Итого',dtl:'Шкала оценивания (10 баллов)',levelN:['Высокий уровень','Средний уровень','Начальный уровень'],
  resT:'Симуляторы, демонстрации, ссылки',sims:'Симуляторы (PhET)',simOpen:'Открыть',simNote:'Симуляторы открываются в новой вкладке: встраивание чужих сайтов в страницу заблокировано.',
  demo:'Демонстрация / оборудование',equip:'Оборудование',video:'Найти видео-демонстрацию',mySlots:'Мои ссылки к уроку (сохраняются на этом устройстве)',slotTitle:'Название',slotUrl:'https://…',
  svc:'Полезные сервисы',
@@ -367,7 +367,7 @@ kk:{
  tipsSor:{4:['БЖБ нұсқаларын таратыңыз, 20 минут, жеке.','Дескрипторлар бойынша балл (ең көбі 10).'],5:['Эталонды көрсетіңіз, оқушылар жауаптарын тексеріп, қателерін белгілейді.','Баллды келесі сабақта хабарлаңыз.']},
  asT:['Диагностикалық · «Оқу сұрақтары»','Қалыптастырушы · «Үлкен саусақ»','Қалыптастырушы · чек-парақ бойынша «Бақылау»','Қалыптастырушы · «Оқу сұрақтары»','Қалыптастырушы · эталон бойынша өзін-өзі тексеру','Қалыптастырушы · «Екі жұлдыз және бір тілек»','Өзін-өзі бағалау · «Өзін-өзі талдау»'],
  asSor:{4:'Жиынтық · дескрипторлар бойынша балл',5:'Эталон бойынша өзін-өзі бағалау'},
- critInfo:'Әр критерийге балл қойыңыз (барлығы 10).',levels:['9–10 балл – жоғары','5–8 – орта','0–4 – бастапқы'],bl:'б.',crit1:'Критерий',dsc:['Жоғары','Орта','Бастапқы'],dd:['өздігінен және дұрыс орындайды','ішінара орындайды: көмекпен немесе 1–2 қатемен','орындамайды немесе көмек керек'],tot:'Барлығы',dtl:'Бағалау шкаласы (10 балл)',levelN:['Жоғары деңгей','Орта деңгей','Бастапқы деңгей'],
+ critInfo:'Орындалған дескрипторларды белгілеңіз: әрқайсысы 1 балл, барлығы 10.',levels:['Жоғары: 9–10 балл','орта: 6–8','төмен: 0–5'],cg:{h:['Түсіндіреді және тұжырымдайды (тақырыпты түсіну)','Білімін есеп шығаруда қолданады','Топта жұмыс істейді және қорытынды жасайды'],f:'тұжырымдайды: ',t1:'1-есеп: үлгі бойынша орындайды, дұрыс жауап алады ({a})',t2:'2-есеп: дұрыс шешу тәсілін (формуланы) таңдайды, қажет болса бірліктерді СИ-ге ауыстырады',t3:'2-есеп: дұрыс жауап алады ({a})',t4:'3-есеп: өздігінен шешеді, дұрыс жауап алады ({a})',g1:'топта өз рөлін орындайды',g2:'топтың нәтижесін тапсырма парағына тіркейді',g2b:'жабдықпен жұмыс кезінде қауіпсіздік техникасын сақтайды',g3:'қорытынды жасайды: '},reset:'Белгілерді тазалау',bl:'б.',crit1:'Критерий',dsc:['Жоғары','Орта','Бастапқы'],dd:['өздігінен және дұрыс орындайды','ішінара орындайды: көмекпен немесе 1–2 қатемен','орындамайды немесе көмек керек'],tot:'Барлығы',dtl:'Бағалау шкаласы (10 балл)',levelN:['Жоғары деңгей','Орта деңгей','Бастапқы деңгей'],
  resT:'Симуляторлар, демонстрациялар, сілтемелер',sims:'Симуляторлар (PhET)',simOpen:'Ашу',simNote:'Симуляторлар жаңа бетте ашылады: басқа сайттарды бетке ендіруге тыйым салынған.',
  demo:'Демонстрация / жабдық',equip:'Жабдық',video:'Бейне-демонстрацияны іздеу',mySlots:'Сабаққа арналған сілтемелерім (осы құрылғыда сақталады)',slotTitle:'Атауы',slotUrl:'https://…',
  svc:'Пайдалы сервистер',
@@ -823,19 +823,28 @@ function tipsBlock(){
   return `<details class="tips"><summary>${esc(t.tips)} · ${esc(as)}</summary><ul>${list.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>`;
 }
 function head(){const t=T();return `<div class="ph"><h2>${S.st+1}. ${esc(stFull(S.st))}</h2><span class="chip">${TL()[S.st]} ${esc(t.min)}</span></div>`}
-function PT(n){return n===3?[4,3,3]:n===4?[3,3,2,2]:n===2?[5,5]:n===5?[2,2,2,2,2]:Array.from({length:n},(_,i)=>Math.floor(10/n)+(i<10%n?1:0))}
+function lc1(x){return /^[A-ZА-ЯЁӘІҢҒҮҰҚӨҺ][a-zа-яёәіңғүұқөһ]/.test(x)?x[0].toLowerCase()+x.slice(1):x}
+function ansS(x){x=(x||'').trim();if(x.length<=46)return x;const i=x.lastIndexOf('=');let r=i>0?x.slice(i+1).trim():x;return r.length>46?r.slice(0,44).replace(/[ ,;]+\S*$/,'')+'…':r}
+function CRG(l){
+  const t=T().cg,tk=l.tk,cr=l.cr,con=l.con,lab=l.kind==='lab',A=i=>ansS((tk[i]||['',''])[1]);
+  return [
+   {h:t.h[0],d:[lc1(cr[0]),lc1(cr[1]||cr[0]),t.f+lc1(con[0])]},
+   {h:t.h[1],d:[t.t1.replace('{a}',A(0)),t.t2,t.t3.replace('{a}',A(1)),t.t4.replace('{a}',A(2))]},
+   {h:t.h[2],d:[t.g1,lab?t.g2b:t.g2,t.g3+lc1(con[1]||con[0])]}
+  ];
+}
 function critList(){
-  const t=T(),l=L(),tk=S.ticks[S.n]||(S.ticks[S.n]=[]),pt=PT(l.cr.length);
-  return `<ul class="cl sc">${l.cr.map((c,i)=>`<li><div class="scq"><span>${esc(c)}</span><b class="mx">${pt[i]} ${esc(t.bl)}</b></div><div class="scb">${Array.from({length:pt[i]+1},(_,v)=>`<button class="sb" data-a="sc-${i}-${v}" data-i="${i}" aria-pressed="${(tk[i]||0)===v}" aria-label="${esc(c)}: ${v}">${v}</button>`).join('')}</div></li>`).join('')}</ul>`;
+  const l=L(),tk=S.ticks[S.n]||(S.ticks[S.n]=[]);let k=0;
+  return CRG(l).map((g,gi)=>`<div class="cgrp"><div class="cgh">${gi+1}. ${esc(g.h)}</div><ul class="cl">${g.d.map(d=>{const j=k++;return `<li><button class="cb" role="checkbox" aria-checked="${!!tk[j]}" data-a="tick-${j}" aria-label="${esc(d)}">${ic('check')}</button><span>${esc(d)}</span><b class="cpt">1</b></li>`}).join('')}</ul></div>`).join('');
 }
 function levelPill(){
-  const t=T(),l=L(),tk=S.ticks[S.n]||[],c=l.cr.reduce((a,_,i)=>a+(tk[i]||0),0);
-  const k=c>=9?0:c>=5?1:2;
-  return `<span class="level ${['hi','mid','lo'][k]}" data-lvl>${esc(t.levelN[k])} · ${c}/10</span>`;
+  const t=T(),tk=S.ticks[S.n]||[],c=tk.slice(0,10).filter(Boolean).length;
+  const k=c>=9?0:c>=6?1:2;
+  return `<span class="ctot"><b>${c}</b> / 10</span><span class="level ${['hi','mid','lo'][k]}" data-lvl>${esc(t.levelN[k])}</span><button class="big alt" data-a="tkreset">${esc(t.reset)}</button>`;
 }
 function descTable(){
-  const t=T(),l=L(),pt=PT(l.cr.length);
-  return `<div class="dtw"><table class="ptbl dtb"><thead><tr><th>${esc(t.crit1)}</th><th>${esc(t.dsc[0])}</th><th>${esc(t.dsc[1])}</th><th>${esc(t.dsc[2])}</th></tr></thead><tbody>${l.cr.map((c,i)=>{const m=pt[i],h=Math.ceil(m/2);return `<tr><th>${esc(c)}</th><td><b>${m} ${esc(t.bl)}</b> – ${esc(t.dd[0])}</td><td><b>${m>2?'1–'+(m-1):'1'} ${esc(t.bl)}</b> – ${esc(t.dd[1])}</td><td><b>0 ${esc(t.bl)}</b> – ${esc(t.dd[2])}</td></tr>`}).join('')}<tr><th>${esc(t.tot)}</th><td colspan="3"><b>10</b> · ${t.levels.map(esc).join(' · ')}</td></tr></tbody></table></div>`;
+  const t=T();
+  return CRG(L()).map((g,gi)=>`<div class="cgrp"><div class="cgh">${gi+1}. ${esc(g.h)}</div><ul class="cl">${g.d.map(d=>`<li><span class="cbs"></span><span>${esc(d)}</span><b class="cpt">1</b></li>`).join('')}</ul></div>`).join('')+`<div class="tmeta">${t.levels.map(esc).join(' · ')}</div>`;
 }
 function stageHTML(){
   const t=T(),l=L(),k=l.kind,i=S.st;let h=head(),b='';
@@ -968,7 +977,7 @@ function passHTML(){
    <table class="ptbl"><thead><tr><th>${esc(t.passH[0])}</th><th>${esc(t.passH[1])}</th></tr></thead><tbody>${l.pass.map(r=>`<tr><th>${esc(r[0])}</th><td><div class="mdl">${fm(r[1])}</div></td></tr>`).join('')}</tbody></table></div>
    <div class="panel"><div class="ph"><h2>${esc(t.crL)}</h2></div>
     <div class="tex"><div class="card"><span class="lab">${esc(t.codes)}</span><ul class="ol goal">${l.goals.map(g=>`<li><b>${esc(g.c)}</b> – ${esc(g.t)}</li>`).join('')}</ul></div>
-    <div class="card" style="grid-column:1/-1;order:3"><span class="lab">${esc(t.crit)} · ${esc(t.dtl)}</span>${descTable()}</div>
+    <div class="card" style="grid-column:1/-1;order:3"><span class="lab">${esc(t.crit)}</span>${descTable()}</div>
     <div class="card"><span class="lab">${esc(t.live)}</span><div>${esc(l.live)}</div><span class="lab" style="margin-top:.5em">${esc(t.equip)}</span><div>${esc(l.res)}</div></div></div></div>
    <div class="dgnote">${esc(t.twoScr)}</div>`;
 }
@@ -1038,7 +1047,6 @@ function critHTML(){
   return `<div class="card"><span class="lab">${esc(t.goals)}</span><ul class="ol goal">${l.goals.map(g=>`<li><b>${esc(g.c)}</b> – ${esc(g.t)}</li>`).join('')}</ul></div>
   <div class="card"><span class="lab">${esc(t.crit)}</span><div class="tmeta">${esc(t.critInfo)}</div>${critList()}<div class="row" data-lvlbox>${levelPill()}</div>
   <div class="tmeta">${t.levels.map(esc).join(' · ')}</div></div>
-  <div class="card"><span class="lab">${esc(t.dtl)}</span>${descTable()}</div>
   <div class="card"><span class="lab">Scaffold</span><div>${esc(l.compN.join(' · '))}</div></div>`;
 }
 function getLinks(){return LS.get('ph8_links_'+S.n,[{t:'',u:''},{t:'',u:''},{t:'',u:''}])}
@@ -1226,8 +1234,9 @@ document.addEventListener('click',e=>{
   if(a.startsWith('revc-')){const k=S.n+'c'+a.slice(5);S.rev[k]=!S.rev[k];renderStage();return}
   if(a.startsWith('ans-')){const k=S.n+'a'+a.slice(4);S.rev[k]=!S.rev[k];renderStage();return}
   if(a==='ansall'){const on=!L().tk.every((_,j)=>S.rev[S.n+'a'+j]);L().tk.forEach((_,j)=>S.rev[S.n+'a'+j]=on);renderStage();return}
-  if(a.startsWith('sc-')){const tk=S.ticks[S.n]||(S.ticks[S.n]=[]),[i,v]=a.slice(3).split('-').map(Number);tk[i]=v;
-    document.querySelectorAll('.sb[data-i="'+i+'"]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.a==='sc-'+i+'-'+v));refreshLvl();return}
+  if(a.startsWith('tick-')){const tk=S.ticks[S.n]||(S.ticks[S.n]=[]),i=+a.slice(5);tk[i]=!tk[i];
+    document.querySelectorAll('[data-a="tick-'+i+'"]').forEach(x=>x.setAttribute('aria-checked',!!tk[i]));refreshLvl();return}
+  if(a==='tkreset'){S.ticks[S.n]=[];document.querySelectorAll('[data-a^="tick-"]').forEach(x=>x.setAttribute('aria-checked','false'));refreshLvl();return}
   if(a.startsWith('c+')||a.startsWith('c-')){
     if(a==='c-reset'){S.cnt=[0,0,0]}
     else if(a.startsWith('c+')){S.cnt[+a.slice(2)]++}
