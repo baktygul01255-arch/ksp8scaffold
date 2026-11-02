@@ -260,6 +260,35 @@ textarea{min-height:10em;resize:vertical}
 .bigtimer{font-family:var(--serif);font-weight:700;font-size:min(22vw,9em);text-align:center;font-variant-numeric:tabular-nums;line-height:1}
 @media(max-width:700px){.top{position:static}}
 @media(max-width:560px){.dockb{min-width:3.9em}.pickbox{font-size:2em}}
+
+.termo{display:flex;flex-direction:column;gap:.7em;font-size:.7em}
+.termo *{box-sizing:border-box}
+.termo .tmn{display:flex;gap:.4em;flex-wrap:wrap}
+.termo .tmn button{border:2px solid var(--line);background:var(--surface);color:var(--fg);border-radius:.8em;padding:.45em .8em;cursor:pointer;font:inherit;font-weight:600;text-align:left}
+.termo .tmn button[aria-selected=true]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.termo .tmn small{display:block;font-weight:400;opacity:.85;font-size:.82em}
+.termo .tmg{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,1fr);gap:.8em;align-items:start}
+@media (max-width:900px){.termo .tmg{grid-template-columns:minmax(0,1fr)}}
+.termo .tmv{background:var(--surface);border:2px solid var(--line);border-radius:1em;padding:6px;min-width:0}
+.termo canvas{width:100%;height:auto;display:block;border-radius:.7em}
+.termo .tmp{display:flex;flex-direction:column;gap:.6em;min-width:0}
+.termo .tmc{background:var(--surface);border:2px solid var(--line);border-radius:1em;padding:.7em .85em;min-width:0}
+.termo .tmc h3{margin:0 0 .4em;font-size:.8em;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.termo .tmc ol{margin:0;padding-left:1.2em}
+.termo .tmk{border-color:var(--accent)}
+.termo .tmr{display:flex;gap:.4em;flex-wrap:wrap}
+.termo .tmb{border:2px solid var(--accent);background:var(--surface);color:var(--fg);border-radius:.7em;padding:.5em .85em;cursor:pointer;font:inherit;font-weight:700;user-select:none;touch-action:none}
+.termo .tmb.on,.termo .tmb:active{background:var(--accent);color:var(--accent-fg)}
+.termo .tmb.hot{border-color:var(--r)}.termo .tmb.hot:active,.termo .tmb.hot.on{background:var(--r);color:#fff}
+.termo .tmb.cold{border-color:#2b6cd9}.termo .tmb.cold:active,.termo .tmb.cold.on{background:#2b6cd9;color:#fff}
+.termo .tmb.alt{border-color:var(--line)}.termo .tmb.alt.on{border-color:var(--accent)}
+.termo .tms{display:grid;grid-template-columns:1fr auto;gap:.1em .6em;align-items:center;margin:.3em 0}
+.termo .tms input{grid-column:1/-1;width:100%;accent-color:var(--accent)}
+.termo .tmo{display:grid;grid-template-columns:1fr auto;gap:.15em .8em}
+.termo .tmo span:nth-child(odd){color:var(--muted)}
+.termo .tmo span:nth-child(even){font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.termo .tmh{font-weight:700;font-size:1.05em;padding:.2em .1em}
+.termo .tml{margin-top:.5em;padding:.5em .7em;border-radius:.7em;background:var(--surface2);font-weight:600}
 </style>
 </head>
 <body>
@@ -334,7 +363,7 @@ ru:{
  gsize:'Размер группы',make:'Составить группы',roles:'Роли (4 чел.)',group:'Группа',roleNames:['организатор','исполнитель','регистратор','докладчик'],
  lightT:'Светофор',mode:['Можно обсуждать в группе','Шёпотом','Тишина'],modeHint:'Режим работы класса (нажмите на цвет)',self:'Самооценка класса',
  timerT:'Таймер',fsA:'Размер текста',theme:'Тема',pt:{auto:'Авто',clear:'Очистить',undo:'Отмена',eraser:'Ластик',blank:'Чистая доска',close:'Закрыть'},close:'Закрыть',
- stageFor:'Этап',scr:['Ученики','Учитель'],scrT:['Экран для учащихся (крупно, для доски)','Экран учителя (с пояснениями)'],tv:{stage:'Ход этапа',pass:'Паспорт урока',all:'Весь ход урока'},tb2:{tch:'Действия педагога',stu:'Действия учеников',ass:'Оценивание',res:'Ресурсы'},onBoard:'На экране у учащихся',goStage:'Открыть этап',twoScr:'Два экрана: откройте приложение во втором окне или на втором мониторе (в одном браузере) — в одном выберите «Ученики», в другом «Учитель»; этапы, схемы и ползунки синхронизируются.',passH:['Карточка Scaffold','Решение для данного урока'],crL:'Критерии и дескрипторы',live:'Связь с жизнью',equip:'Оборудование и ресурсы',codes:'Цели обучения',ref:'Справочная таблица',fig:'Рисунок',tabs:{content:'Содержание',dg:'Схема / график',tbl:'Таблица и график',tasks:'Задачи',solve:'Решение'},sol:{task:'Задача',given:'Дано',si:'СИ',formula:'Формула',calc:'Расчёт',answer:'Ответ',bg:'Фон: клетка / линейка / чисто',addrow:'+ строка',mm:'Миллиметровка'}},
+ stageFor:'Этап',scr:['Ученики','Учитель'],scrT:['Экран для учащихся (крупно, для доски)','Экран учителя (с пояснениями)'],tv:{stage:'Ход этапа',pass:'Паспорт урока',all:'Весь ход урока'},tb2:{tch:'Действия педагога',stu:'Действия учеников',ass:'Оценивание',res:'Ресурсы'},onBoard:'На экране у учащихся',goStage:'Открыть этап',twoScr:'Два экрана: откройте приложение во втором окне или на втором мониторе (в одном браузере) — в одном выберите «Ученики», в другом «Учитель»; этапы, схемы и ползунки синхронизируются.',passH:['Карточка Scaffold','Решение для данного урока'],crL:'Критерии и дескрипторы',live:'Связь с жизнью',equip:'Оборудование и ресурсы',codes:'Цели обучения',ref:'Справочная таблица',fig:'Рисунок',tabs:{sim:'Симуляторы опытов',content:'Содержание',dg:'Схема / график',tbl:'Таблица и график',tasks:'Задачи',solve:'Решение'},sol:{task:'Задача',given:'Дано',si:'СИ',formula:'Формула',calc:'Расчёт',answer:'Ответ',bg:'Фон: клетка / линейка / чисто',addrow:'+ строка',mm:'Миллиметровка'}},
 kk:{
  app:'Физика 8',lessons:'Физика сабақтары, 8-сынып',quarter:['1-тоқсан','2-тоқсан','3-тоқсан','4-тоқсан'],lessonWord:'Сабақ',
  kinds:{new:'жаңа тақырып',lab:'зертх. жұмыс',sor:'БЖБ'},
@@ -376,7 +405,7 @@ kk:{
  gsize:'Топ өлшемі',make:'Топтарды құру',roles:'Рөлдер (4 оқушы)',group:'Топ',roleNames:['ұйымдастырушы','орындаушы','тіркеуші','баяндамашы'],
  lightT:'Бағдаршам',mode:['Топта талқылауға болады','Сыбырлап','Тыныштық'],modeHint:'Сыныптың жұмыс режимі (түсті басыңыз)',self:'Сыныптың өзін-өзі бағалауы',
  timerT:'Таймер',fsA:'Мәтін өлшемі',theme:'Тақырып',pt:{auto:'Авто',clear:'Тазалау',undo:'Болдырмау',eraser:'Өшіргіш',blank:'Таза тақта',close:'Жабу'},close:'Жабу',
- stageFor:'Кезең',scr:['Оқушылар','Мұғалім'],scrT:['Оқушыларға арналған экран (ірі, тақта үшін)','Мұғалім экраны (түсіндірмелермен)'],tv:{stage:'Кезең барысы',pass:'Сабақ паспорты',all:'Сабақтың бүкіл барысы'},tb2:{tch:'Педагогтің іс-әрекеті',stu:'Оқушының іс-әрекеті',ass:'Бағалау',res:'Ресурстар'},onBoard:'Оқушылардың экранында',goStage:'Кезеңді ашу',twoScr:'Екі экран: қолданбаны екінші терезеде немесе екінші мониторда (бір браузерде) ашыңыз — біреуінде «Оқушылар», екіншісінде «Мұғалім» таңдаңыз; кезеңдер, сызбалар және жүгірткілер синхрондалады.',passH:['Scaffold карточкасы','Осы сабаққа арналған шешім'],crL:'Критерийлер және дескрипторлар',live:'Өмірмен байланыс',equip:'Жабдық және ресурстар',codes:'Оқыту мақсаттары',ref:'Анықтамалық кесте',fig:'Сурет',tabs:{content:'Мазмұны',dg:'Сызба / график',tbl:'Кесте және график',tasks:'Есептер',solve:'Шешуі'},sol:{task:'Есеп',given:'Берілгені',si:'СИ',formula:'Формула',calc:'Есептеу',answer:'Жауабы',bg:'Фон: тор / жол / таза',addrow:'+ жол',mm:'Миллиметрлік қағаз'}}
+ stageFor:'Кезең',scr:['Оқушылар','Мұғалім'],scrT:['Оқушыларға арналған экран (ірі, тақта үшін)','Мұғалім экраны (түсіндірмелермен)'],tv:{stage:'Кезең барысы',pass:'Сабақ паспорты',all:'Сабақтың бүкіл барысы'},tb2:{tch:'Педагогтің іс-әрекеті',stu:'Оқушының іс-әрекеті',ass:'Бағалау',res:'Ресурстар'},onBoard:'Оқушылардың экранында',goStage:'Кезеңді ашу',twoScr:'Екі экран: қолданбаны екінші терезеде немесе екінші мониторда (бір браузерде) ашыңыз — біреуінде «Оқушылар», екіншісінде «Мұғалім» таңдаңыз; кезеңдер, сызбалар және жүгірткілер синхрондалады.',passH:['Scaffold карточкасы','Осы сабаққа арналған шешім'],crL:'Критерийлер және дескрипторлар',live:'Өмірмен байланыс',equip:'Жабдық және ресурстар',codes:'Оқыту мақсаттары',ref:'Анықтамалық кесте',fig:'Сурет',tabs:{sim:'Тәжірибе симуляторлары',content:'Мазмұны',dg:'Сызба / график',tbl:'Кесте және график',tasks:'Есептер',solve:'Шешуі'},sol:{task:'Есеп',given:'Берілгені',si:'СИ',formula:'Формула',calc:'Есептеу',answer:'Жауабы',bg:'Фон: тор / жол / таза',addrow:'+ жол',mm:'Миллиметрлік қағаз'}}
 };
 const SIMN={
  'energy-forms-and-changes':['Формы энергии и их превращения','Энергия түрлері және олардың түрленуі'],
@@ -887,15 +916,15 @@ function stageHTML(){
     b=`<div class="grid">${t.rq.map((q,j)=>`<div class="card qcard"><span class="n">${j+1}</span>${esc(q)}</div>`).join('')}</div>
     <div class="card"><span class="lab">${esc(t.reflLead)}</span>${trafficBlock()}</div>`;
   }
-  if(tabs.length&&tabs[tab]){const id=tabs[tab][0];if(id==='dg')b=dgView();else if(id==='tbl')b=tblView();else if(id==='solve')b=solView();else if(id==='ref')b=refView()}
+  if(tabs.length&&tabs[tab]){const id=tabs[tab][0];if(id==='dg')b=dgView();else if(id==='tbl')b=tblView();else if(id==='solve')b=solView();else if(id==='ref')b=refView();else if(id==='sim')b='<div id="termo-host"></div>'}
   return `<div class="panel">${h}${b}</div><div class="nav"><button class="big alt" data-a="prev" ${i===0?'disabled style="opacity:.4"':''}>${ic('prev')} ${esc(t.prev)}</button><button class="big" data-a="next" ${i===6?'disabled style="opacity:.4"':''}>${esc(t.next)} ${ic('next')}</button></div>`;
 }
 
 function stageTabs(i,k){
-  const t=T().tabs,has=!!DGMAP[S.n],rf=!!REFT[S.n],rt=[['ref',T().ref]];
+  const t=T().tabs,has=!!DGMAP[S.n],rf=!!REFT[S.n],rt=[['ref',T().ref]],sm=(S.n===9||EXP.has(S.n))?[['sim',t.sim]]:[];
   if(i===0)return has?[['c',t.content],['dg',T().fig]]:[];
-  if(i===2)return [['c',t.content]].concat(has?[['dg',t.dg]]:[]).concat(rf?rt:[]).concat(k==='lab'?[['tbl',t.tbl]]:[]);
-  if(i===3)return has?[['c',t.content],['dg',t.dg]]:[];
+  if(i===2)return [['c',t.content]].concat(has?[['dg',t.dg]]:[]).concat(sm).concat(rf?rt:[]).concat(k==='lab'?[['tbl',t.tbl]]:[]);
+  if(i===3)return (has?[['c',t.content],['dg',t.dg]]:[['c',t.content]]).concat(sm).filter((x,j,a)=>a.length>1);
   if(i===4)return [['c',t.tasks],['solve',t.solve]].concat(rf?rt:[]);
   return [];
 }
@@ -999,7 +1028,1323 @@ function sync(){
   const s={n:S.n,st:S.st,tab:S.tab,dgi:S.dgi,dp:S.dp,sj:S.sj,lg:S.lg,rev:S.rev,seen:S.seen,ticks:S.ticks,cnt:S.cnt,mode:S.mode};
   const j=JSON.stringify(s);if(j===lastSync)return;lastSync=j;try{BC.postMessage({v:1,s})}catch(e){}
 }
-function renderStage(){$('#stage').innerHTML=S.scr==='tc'?teacherHTML():stageHTML();sync()}
+const TERMO=(function(){
+
+const TX={ru:{
+ttl:'Симуляторы опытов: термодинамика',sub:'Первый закон термодинамики · работа газа и пара · необратимость · второй закон',
+tabs:[['Газ под поршнем','1-й закон'],['Пар и пробка','работа пара'],['Цикл и КПД','p–V диаграмма'],['Диффузия газа','необратимость'],['Теплообмен','2-й закон']],
+reset:'Сброс',task:'Опыт',concl:'Вывод',
+T:'Температура T',p:'Давление p',V:'Объём V',Q:'Теплота Q (получена газом)',A:'Работа газа A',dU:'Изменение ΔU',kj:'Дж',K:'К',kpa:'кПа',L:'л',
+m1:'Изобарный (p = const)',m2:'Изохорный (V = const)',m3:'Изотермический (T = const)',m4:'Адиабатный (Q = 0)',
+heat:'🔥 Нагревать (держать)',cool:'❄ Охлаждать (держать)',exp:'↑ Расширять (держать)',cmp:'↓ Сжимать (держать)',
+chk:'Проверка: Q = ΔU + A',
+s1task:['Выберите процесс и удерживайте кнопку «Нагревать».','Следите за Q, A и ΔU: на что расходуется теплота?','Сравните процессы: где A = 0? где ΔU = 0? где Q = 0?'],
+s1con:'Q = ΔU + A. При изохорном процессе A = 0, всё тепло идёт на ΔU; при изотермическом ΔU = 0, всё тепло идёт на работу; при адиабатном Q = 0, работа совершается за счёт внутренней энергии.',
+power:'Мощность нагревателя',tight:'Прочность пробки (давление вылета)',newcork:'Новая пробка',
+Tw:'Температура воды/пара',pp:'Давление пара',Qs:'Подведено теплоты Q',Ek:'Кинетическая энергия пробки',eta:'Доля энергии, ушедшая в работу',pa:'атм. давление',lim:'порог',popped:'Пробка вылетела! Пар совершил работу.',
+s2task:['Включите нагреватель: вода нагревается и закипает.','Пар в закрытой пробирке растёт давление.','Когда p пара превысит прочность пробки – пробка вылетает.','Сравните Q и энергию пробки.'],
+s2con:'Пар, расширяясь, совершает работу: внутренняя энергия пара переходит в кинетическую энергию пробки. Но в работу уходит лишь малая часть подведённой теплоты.',
+p1:'Давление нижнее p₁',p2:'Давление верхнее p₂',v1:'Объём меньший V₁',v2:'Объём больший V₂',run:'▶ Запустить цикл',stop:'⏸ Пауза',
+Qin:'Q₁ – получено от нагревателя',Qout:'Q₂ – отдано холодильнику',Aw:'Работа за цикл A = Q₁ − Q₂',etaR:'КПД η = A/Q₁',etaC:'Максимум по Карно (1 − Tмин/Tмакс)',
+l12:'1→2: изохорное нагревание (Q₁)',l23:'2→3: изобарное расширение (работа A, Q₁)',l34:'3→4: изохорное охлаждение (Q₂)',l41:'4→1: изобарное сжатие (Q₂)',
+s3task:['Меняйте p₁, p₂, V₁, V₂: площадь прямоугольника – работа за цикл.','Найдите, как увеличить КПД.','Сравните η с пределом Карно – превысить его нельзя.'],
+s3con:'Работа за цикл равна площади цикла на p–V диаграмме. Часть теплоты Q₂ обязательно отдаётся холодильнику, поэтому η < 1 и η не больше (1 − Tх/Tн).',
+N:'Число молекул N',spd:'Скорость молекул',open:'Убрать перегородку',close:'Вернуть перегородку (всё влево)',
+left:'Слева сейчас',allL:'Все молекул снова слева (раз)',prob:'Вероятность «всё слева»',frac:'Доля молекул слева во времени',
+s4task:['Уберите перегородку: газ заполняет весь сосуд.','Следите за графиком: доля слева колеблется около 50 %.','Увеличьте N: возврат «всё слева» становится практически невозможным.'],
+s4con:'Газ сам расширяется в пустоту, но самопроизвольно не собирается обратно: это невероятно (вероятность 1/2ᴺ). Тепловые процессы необратимы – направлены к более вероятному состоянию.',
+Th0:'Нач. температура горячего',Tc0:'Нач. температура холодного',contact:'Привести в контакт',sep:'Разделить',fr:'Холодильная машина (с работой)',frOff:'Выключить машину',
+Thn:'Горячее тело',Tcn:'Холодное тело',dS:'Изменение энтропии системы ΔS',Wd:'Затрачено работы W',Qh:'Теплота, переданная горячему',eq:'Равновесие: теплообмен прекратился',
+s5task:['Приведите тела в контакт: следите за температурами и графиком.','Попробуйте добиться, чтобы холодное нагрело горячее: само не получится.','Включите холодильную машину: она переносит теплоту «вверх», но тратит работу.'],
+s5con:'Теплота самопроизвольно переходит только от горячего тела к холодному (Клаузиус). Чтобы передать теплоту от холодного к горячему, нужна работа; при этом полная энтропия не убывает: ΔS ≥ 0.',
+JK:'Дж/К',C:'°C'},
+kk:{
+ttl:'Тәжірибе симуляторлары: термодинамика',sub:'Термодинамиканың бірінші заңы · газ бен будың жұмысы · қайтымсыздық · екінші заң',
+tabs:[['Поршеньдегі газ','1-заң'],['Бу және тығын','будың жұмысы'],['Цикл және ПӘК','p–V диаграмма'],['Газ диффузиясы','қайтымсыздық'],['Жылу алмасу','2-заң']],
+reset:'Бастапқы күй',task:'Тәжірибе',concl:'Қорытынды',
+T:'Температура T',p:'Қысым p',V:'Көлем V',Q:'Жылу мөлшері Q (газ алған)',A:'Газдың жұмысы A',dU:'Өзгеріс ΔU',kj:'Дж',K:'К',kpa:'кПа',L:'л',
+m1:'Изобаралық (p = const)',m2:'Изохоралық (V = const)',m3:'Изотермиялық (T = const)',m4:'Адиабаталық (Q = 0)',
+heat:'🔥 Қыздыру (басып тұру)',cool:'❄ Суыту (басып тұру)',exp:'↑ Кеңейту (басып тұру)',cmp:'↓ Сығу (басып тұру)',
+chk:'Тексеру: Q = ΔU + A',
+s1task:['Процесті таңдап, «Қыздыру» батырмасын басып тұрыңыз.','Q, A және ΔU мәндерін бақылаңыз: жылу неге жұмсалады?','Процестерді салыстырыңыз: қайда A = 0? ΔU = 0? Q = 0?'],
+s1con:'Q = ΔU + A. Изохоралық процесте A = 0, барлық жылу ΔU-ға жұмсалады; изотермиялық процесте ΔU = 0, барлық жылу жұмысқа жұмсалады; адиабаталық процесте Q = 0, жұмыс ішкі энергия есебінен орындалады.',
+power:'Қыздырғыш қуаты',tight:'Тығынның беріктігі (ұшып шығу қысымы)',newcork:'Жаңа тығын',
+Tw:'Су/бу температурасы',pp:'Бу қысымы',Qs:'Берілген жылу мөлшері Q',Ek:'Тығынның кинетикалық энергиясы',eta:'Жұмысқа айналған энергия үлесі',pa:'атм. қысым',lim:'шегі',popped:'Тығын ұшып шықты! Бу жұмыс атқарды.',
+s2task:['Қыздырғышты қосыңыз: су қызып, қайнайды.','Жабық түтікте будың қысымы артады.','Бу қысымы тығынның беріктігінен асқанда тығын ұшып шығады.','Q мен тығынның энергиясын салыстырыңыз.'],
+s2con:'Бу кеңейе отырып жұмыс атқарады: будың ішкі энергиясы тығынның кинетикалық энергиясына айналады. Бірақ берілген жылудың аз ғана бөлігі жұмысқа айналады.',
+p1:'Төменгі қысым p₁',p2:'Жоғарғы қысым p₂',v1:'Кіші көлем V₁',v2:'Үлкен көлем V₂',run:'▶ Циклды іске қосу',stop:'⏸ Үзіліс',
+Qin:'Q₁ – қыздырғыштан алынған',Qout:'Q₂ – суытқышқа берілген',Aw:'Цикл жұмысы A = Q₁ − Q₂',etaR:'ПӘК η = A/Q₁',etaC:'Карно бойынша шектік (1 − Tмин/Tмакс)',
+l12:'1→2: изохоралық қыздыру (Q₁)',l23:'2→3: изобаралық ұлғаю (жұмыс A, Q₁)',l34:'3→4: изохоралық суыту (Q₂)',l41:'4→1: изобаралық сығылу (Q₂)',
+s3task:['p₁, p₂, V₁, V₂ мәндерін өзгертіңіз: тіктөртбұрыштың ауданы – цикл жұмысы.','ПӘК-ті қалай арттыруға болатынын табыңыз.','η-ны Карно шегімен салыстырыңыз – одан асып түсу мүмкін емес.'],
+s3con:'Цикл жұмысы p–V диаграммасындағы цикл ауданына тең. Q₂ жылуы міндетті түрде суытқышқа беріледі, сондықтан η < 1 және η ≤ (1 − Tс/Tқ).',
+N:'Молекула саны N',spd:'Молекула жылдамдығы',open:'Қалқаны алу',close:'Қалқаны қайтару (бәрі солға)',
+left:'Қазір сол жақта',allL:'Бәрі қайта сол жақта (рет)',prob:'«Бәрі сол жақта» ықтималдығы',frac:'Сол жақтағы молекулалар үлесі',
+s4task:['Қалқаны алыңыз: газ бүкіл ыдысты толтырады.','Графикті бақылаңыз: сол жақтағы үлес 50 % шамасында тербеледі.','N-ді арттырыңыз: «бәрі сол жақта» күйіне қайту іс жүзінде мүмкін емес.'],
+s4con:'Газ бос кеңістікке өздігінен таралады, бірақ өздігінен қайта жиналмайды: бұл өте мүмкін емес (ықтималдығы 1/2ᴺ). Жылулық процестер қайтымсыз – олар ықтималдығы жоғары күйге қарай бағытталған.',
+Th0:'Ыстық дененің бастапқы температурасы',Tc0:'Суық дененің бастапқы температурасы',contact:'Түйістіру',sep:'Айыру',fr:'Тоңазытқыш машина (жұмыспен)',frOff:'Машинаны өшіру',
+Thn:'Ыстық дене',Tcn:'Суық дене',dS:'Жүйе энтропиясының өзгерісі ΔS',Wd:'Жұмсалған жұмыс W',Qh:'Ыстық денеге берілген жылу',eq:'Тепе-теңдік: жылу алмасу тоқтады',
+s5task:['Денелерді түйістіріңіз: температураны және графикті бақылаңыз.','Суық дененің ыстықты қыздыруына қол жеткізіп көріңіз: өздігінен болмайды.','Тоңазытқыш машинаны қосыңыз: ол жылуды «жоғары» тасиды, бірақ жұмыс жұмсайды.'],
+s5con:'Жылу өздігінен тек ыстық денеден суыққа беріледі (Клаузиус). Суықтан ыстыққа жылу беру үшін жұмыс керек; бұл кезде жүйенің толық энтропиясы кемімейді: ΔS ≥ 0.',
+JK:'Дж/К',C:'°C'}};
+let tab=0;try{tab=+localStorage.getItem('ts_tab')||0}catch(e){}
+const t=k=>TX[S.lg][k];
+let H=null;const $=s=>H&&H.querySelector(s);
+let cv=null,ctx=null;const dpr=Math.min(2,window.devicePixelRatio||1);
+let CL={};
+function isDark(){const r=document.documentElement;return r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches)}
+function colors(){const s=getComputedStyle(document.documentElement),g=n=>s.getPropertyValue(n).trim(),d=isDark();CL={bg:g('--surface'),fg:g('--fg'),muted:g('--muted'),line:g('--line'),accent:g('--accent'),hot:d?'#ff7a5c':'#d9482b',cold:d?'#6aa2ff':'#2b6cd9',good:g('--g'),warn:g('--y'),gas:g('--surface2'),glass:g('--accent-soft'),s2:g('--surface2')}}
+function txt(s,x,y,sz,col,al,w){ctx.font=(w||'600')+' '+sz+'px Onest,Segoe UI,system-ui,sans-serif';ctx.fillStyle=col||CL.fg;ctx.textAlign=al||'left';ctx.textBaseline='alphabetic';ctx.fillText(s,x,y)}
+function line(x1,y1,x2,y2,col,w,dash){ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.strokeStyle=col;ctx.lineWidth=w||2;ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([])}
+function arrow(x1,y1,x2,y2,col,w){const a=Math.atan2(y2-y1,x2-x1);line(x1,y1,x2,y2,col,w||3);ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-12*Math.cos(a-.4),y2-12*Math.sin(a-.4));ctx.lineTo(x2-12*Math.cos(a+.4),y2-12*Math.sin(a+.4));ctx.closePath();ctx.fillStyle=col;ctx.fill()}
+function rect(x,y,w,h,fill,stroke,lw,r){ctx.beginPath();if(r&&ctx.roundRect)ctx.roundRect(x,y,w,h,r);else ctx.rect(x,y,w,h);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw||2;ctx.stroke()}}
+function lerpC(a,b,k){return `rgb(${Math.round(a[0]+(b[0]-a[0])*k)},${Math.round(a[1]+(b[1]-a[1])*k)},${Math.round(a[2]+(b[2]-a[2])*k)})`}
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+function tempCol(k){k=clamp(k,0,1);return k<.5?lerpC([50,110,220],[225,140,30],k*2):lerpC([225,140,30],[215,55,40],(k-.5)*2)}
+function fmt(x,d){return (+x).toFixed(d==null?0:d).replace('.',',')}
+function fmtE(x){if(x>=0.01)return fmt(x*100,x>=.1?1:2)+'%';return fmt(x*100,3)+'%'}
+/* p–V diagram helper */
+function PVax(X,Y,W,H,Vm,pm){
+  line(X,Y+H,X+W,Y+H,CL.fg,2);line(X,Y,X,Y+H,CL.fg,2);
+  txt('V, '+t('L'),X+W,Y+H+36,15,CL.muted,'right');txt('p, '+t('kpa'),X-8,Y-8,15,CL.muted,'left');
+  for(let v=1;v<Vm;v++){const x=X+W*v/Vm;line(x,Y+H,x,Y+H+5,CL.fg,1.5);txt(v,x,Y+H+19,13,CL.muted,'center','500')}
+  for(let p=200;p<pm;p+=200){const y=Y+H-H*p/pm;line(X-5,y,X,y,CL.fg,1.5);line(X,y,X+W,y,CL.line,1,[3,4]);txt(p,X-8,y+4,13,CL.muted,'right','500')}
+  return {x:V=>X+W*V/Vm,y:p=>Y+H-H*p/pm};
+}
+/* ===== Sim 1: gas in cylinder ===== */
+const NR=0.1*8.314,GAM=5/3;
+const S1={mode:0,T:300,V:2.5,pref:100,Q:0,A:0,U0:0,trail:[],hold:0,parts:[],init(){this.T=300;this.V=2.5;this.pref=this.T*NR/this.V;this.Q=0;this.A=0;this.U0=1.5*NR*this.T;this.trail=[[this.V,this.p()]];this.hold=0;if(!this.parts.length)for(let i=0;i<30;i++){const a=Math.random()*6.28;this.parts.push([Math.random(),Math.random(),Math.cos(a),Math.sin(a)])}},
+ p(){return NR*this.T/this.V},
+ setMode(m){this.mode=m;this.pref=this.p()},
+ step(dt){
+  if(!this.hold)return;const s=this.hold,r0=this.T,V0=this.V;let dQ=0,dA=0;
+  const m=this.mode;
+  if(m===0){const p=this.pref;dQ=s*40*dt;let T=this.T+dQ/(2.5*NR);T=clamp(T,150,900);let V=NR*T/p;if(V>6.2){V=6.2;T=p*V/NR}if(V<1){V=1;T=p*V/NR}dA=p*(V-this.V);dQ=1.5*NR*(T-this.T)+dA;this.T=T;this.V=V}
+  else if(m===1){dQ=s*40*dt;let T=clamp(this.T+dQ/(1.5*NR),150,900);dQ=1.5*NR*(T-this.T);this.T=T}
+  else if(m===2){const dV=s*0.6*dt*this.V/2.5;let V=clamp(this.V+dV,1,6.2);dA=NR*this.T*Math.log(V/this.V);dQ=dA;this.V=V}
+  else{const dV=s*0.9*dt;let V=clamp(this.V+dV,1,6.2);let T=this.T*Math.pow(this.V/V,GAM-1);T=clamp(T,150,900);if(T===900||T===150){V=this.V;T=this.T}dA=-1.5*NR*(T-this.T);dQ=0;this.T=T;this.V=V}
+  this.Q+=dQ;this.A+=dA;
+  const l=this.trail[this.trail.length-1];if(Math.hypot(l[0]-this.V,(l[1]-this.p())/130)>0.02)this.trail.push([this.V,this.p()]);if(this.trail.length>900)this.trail.shift();
+ },
+ draw(dt){
+  this.step(dt);
+  const x0=50,x1=290,yb=430,H=this.V/6.5*370,yp=yb-H;
+  // bath / insulation
+  if(this.mode===2){rect(x0-26,yb-250,x1-x0+52,266,'rgba(60,130,230,.18)',CL.cold,2,10);txt('T = const',x0+10,yb+36,14,CL.cold,'left')}
+  if(this.mode===3){ctx.save();ctx.strokeStyle=CL.muted;ctx.lineWidth=2;for(let i=0;i<14;i++){const yy=yb-i*26;line(x0-20,yy,x0-4,yy-14,CL.muted,2);line(x1+4,yy,x1+20,yy-14,CL.muted,2)}ctx.restore();txt('Q = 0',x0+10,yb+36,14,CL.muted,'left')}
+  rect(x0,yp,x1-x0,H,lerpC([232,241,238],[255,208,190],clamp((this.T-150)/750,0,1)),null);
+  const dark=isDark();
+  if(dark)rect(x0,yp,x1-x0,H,'rgba(0,0,0,.45)');
+  // molecules
+  const sp=Math.sqrt(this.T/300)*0.55;
+  for(const q of this.parts){q[0]+=q[2]*sp*dt;q[1]+=q[3]*sp*dt*(250/Math.max(80,H))*1.2;if(q[0]<0||q[0]>1){q[2]*=-1;q[0]=clamp(q[0],0,1)}if(q[1]<0||q[1]>1){q[3]*=-1;q[1]=clamp(q[1],0,1)}
+   ctx.beginPath();ctx.arc(x0+8+q[0]*(x1-x0-16),yp+10+q[1]*(H-20),5,0,6.3);ctx.fillStyle=tempCol((this.T-150)/750);ctx.fill()}
+  // cylinder walls
+  line(x0,yb-380,x0,yb,CL.fg,4);line(x1,yb-380,x1,yb,CL.fg,4);line(x0-3,yb,x1+3,yb,CL.fg,4);
+  // piston
+  rect(x0+2,yp-16,x1-x0-4,16,CL.muted,CL.fg,2);line((x0+x1)/2,yp-16,(x0+x1)/2,yp-50,CL.fg,5);rect((x0+x1)/2-28,yp-62,56,12,CL.muted,CL.fg,2);
+  if(this.mode===0){const n=3;for(let i=0;i<n;i++)rect(x0+60,yp-62-(i+1)*22,x1-x0-120,20,CL.accent,null,0,3);txt('p = '+fmt(this.pref)+' '+t('kpa'),x1+12,yp-70,14,CL.accent,'left')}
+  if(this.mode===1){rect(x0-14,yp-22,14,28,CL.warn,CL.fg,2);rect(x1,yp-22,14,28,CL.warn,CL.fg,2)}
+  // flame
+  if(this.hold!==0&&this.mode!==3){const up=this.hold>0,c=up?CL.hot:CL.cold;for(let i=0;i<5;i++){const fx=x0+30+i*45,fh=(14+Math.random()*16);ctx.beginPath();ctx.moveTo(fx-12,yb+(this.mode===2?14:6));ctx.quadraticCurveTo(fx,yb+(this.mode===2?14:6)+(up?fh:-fh*.3),fx+12,yb+(this.mode===2?14:6));ctx.fillStyle=c;ctx.globalAlpha=.8;ctx.fill();ctx.globalAlpha=1}}
+  // PV
+  const m=PVax(400,50,370,330,6.5,800);
+  
+  for(let i=1;i<this.trail.length;i++){const a=this.trail[i-1],b=this.trail[i];ctx.beginPath();ctx.moveTo(m.x(a[0]),m.y(0));ctx.lineTo(m.x(a[0]),m.y(a[1]));ctx.lineTo(m.x(b[0]),m.y(b[1]));ctx.lineTo(m.x(b[0]),m.y(0));ctx.closePath();ctx.fillStyle=b[0]>=a[0]?'rgba(47,143,78,.28)':'rgba(217,72,43,.25)';ctx.fill()}
+  ctx.beginPath();this.trail.forEach((q,i)=>i?ctx.lineTo(m.x(q[0]),m.y(q[1])):ctx.moveTo(m.x(q[0]),m.y(q[1])));ctx.strokeStyle=CL.accent;ctx.lineWidth=3;ctx.stroke();
+  ctx.beginPath();ctx.arc(m.x(this.V),m.y(this.p()),8,0,6.3);ctx.fillStyle=CL.hot;ctx.fill();
+  txt('A = '+fmt(this.A,1)+' '+t('kj'),400+10,470,18,CL.good,'left');
+  txt('▮ A>0',680,470,14,CL.good,'left','500');txt('▮ A<0',740,470,14,CL.hot,'left','500');
+  // readouts
+  const set=(i,v)=>{const e=$('#r'+i);if(e)e.textContent=v};
+  set(0,fmt(this.T)+' '+t('K')+' ('+fmt(this.T-273.15)+' °C)');set(1,fmt(this.p(),0)+' '+t('kpa'));set(2,fmt(this.V,2)+' '+t('L'));set(3,fmt(this.Q,1)+' '+t('kj'));set(4,fmt(this.A,1)+' '+t('kj'));
+  const dU=1.5*NR*this.T-this.U0;set(5,fmt(dU,1)+' '+t('kj'));const lw=$('#law');if(lw)lw.textContent=fmt(this.Q,1)+' = '+fmt(dU,1)+' + '+fmt(this.A,1)+'   ('+t('chk')+')';
+ },
+ ui(){const ms=[t('m1'),t('m2'),t('m3'),t('m4')];const ad=this.mode===3;
+  return `<div class="tmc"><h3>${t('task')}</h3><ol>${t('s1task').map(x=>`<li>${x}</li>`).join('')}</ol></div>
+  <div class="tmc"><div class="tmr">${ms.map((m,i)=>`<button class="tmb alt ${this.mode===i?'on':''}" data-ta="mode${i}">${m}</button>`).join('')}</div>
+  <div class="tmr" style="margin-top:.6em"><button class="tmb hot" data-th="1">${ad?t('exp'):t('heat')}</button><button class="tmb cold" data-th="-1">${ad?t('cmp'):t('cool')}</button><button class="tmb alt" data-ta="reset">${t('reset')}</button></div></div>
+  <div class="tmc"><div class="tmo"><span>${t('T')}</span><span id="r0"></span><span>${t('p')}</span><span id="r1"></span><span>${t('V')}</span><span id="r2"></span><span>${t('Q')}</span><span id="r3"></span><span>${t('A')}</span><span id="r4"></span><span>${t('dU')}</span><span id="r5"></span></div><div class="tml" id="law"></div></div>
+  <div class="tmc tmk"><h3>${t('concl')}</h3>${t('s1con')}</div>`},
+ act(a){if(a.startsWith('mode')){this.setMode(+a[4]);buildPanel()}if(a==='reset'){this.init()}}
+};
+/* ===== Sim 2: steam & cork ===== */
+const S2={Tw:293,Q:0,pw:5,pop:250,popped:false,ck:null,t:0,hist:[],steam:[],ekMax:0,init(){this.Tw=293;this.Q=0;this.popped=false;this.ck=null;this.t=0;this.hist=[];this.steam=[];this.ekMax=0},
+ psat(T){return 101.3*Math.exp(4890*(1/373.15-1/T))},
+ p(){return this.Tw<373.15&&!this.popped?101.3:(this.popped?101.3:this.psat(this.Tw))},
+ draw(dt){
+  const P=this.pw*40;
+  if(!this.popped||this.Tw<373.15){const C=42;this.Q+=P*dt;if(this.Tw<373.15)this.Tw+=P*dt/C;else if(!this.popped)this.Tw+=P*dt/(C*5);else this.Tw=373.15}
+  if(this.Tw>=373.15&&this.popped)this.Tw=373.15,this.Q+=0;
+  if(this.popped)this.Q+=0;
+  this.t+=dt;
+  const p=this.p();
+  if(!this.popped&&p>=this.pop){this.popped=true;const v=3*Math.sqrt((p-101.3)/10);this.ck={y:170,vy:-v*38,v:v,ek:.5*.005*v*v,x:130,rest:false};this.ekMax=this.ck.ek;for(let i=0;i<40;i++)this.steam.push([130+Math.random()*30-15,180,(Math.random()-.5)*60,-80-Math.random()*160,1])}
+  if(this.ck&&!this.ck.rest){this.ck.vy+=420*dt;this.ck.y+=this.ck.vy*dt;if(this.ck.y>440){this.ck.y=440;this.ck.rest=true;this.ck.x=330}this.ck.x+=(this.ck.rest?0:30*dt)}
+  if(this.popped&&this.Tw>=373.15&&Math.random()<.5)this.steam.push([130+Math.random()*30-15,180,(Math.random()-.5)*50,-60-Math.random()*60,1]);
+  this.hist.push([this.t,this.Tw-273.15,p]);if(this.hist.length>600)this.hist.shift();
+  // tube
+  const x0=90,x1=170,yb=440,yt=180;
+  // burner
+  rect(90,yb+20,80,14,CL.muted,CL.fg,2,3);const fl=this.pw/10;for(let i=0;i<5;i++){const fx=98+i*16,fh=(10+Math.random()*34)*fl*1.6;ctx.beginPath();ctx.moveTo(fx-8,yb+20);ctx.quadraticCurveTo(fx,yb+20-fh,fx+8,yb+20);ctx.fillStyle=CL.hot;ctx.globalAlpha=.8;ctx.fill();ctx.globalAlpha=1}
+  // water
+  const wy=yb-110;rect(x0,wy,x1-x0,yb-wy,lerpC([110,170,235],[150,200,240],clamp((this.Tw-293)/100,0,1)),null);
+  if(this.Tw>=363){for(let i=0;i<6;i++){const bx=x0+8+Math.random()*(x1-x0-16),by=wy+Math.random()*100;ctx.beginPath();ctx.arc(bx,by,2+Math.random()*3,0,6.3);ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke()}}
+  // steam region tint
+  rect(x0,yt,x1-x0,wy-yt,this.Tw>=373?'rgba(200,200,200,.18)':null,null);
+  line(x0,yt-6,x0,yb,CL.fg,4);line(x1,yt-6,x1,yb,CL.fg,4);ctx.beginPath();ctx.arc((x0+x1)/2,yb,40,0,Math.PI);ctx.strokeStyle=CL.fg;ctx.lineWidth=4;ctx.stroke();
+  // molecules in steam
+  if(!this.popped&&this.Tw>=373){const n=Math.min(40,Math.round((p-90)/6));for(let i=0;i<n;i++){ctx.beginPath();ctx.arc(x0+8+Math.random()*(x1-x0-16),yt+6+Math.random()*(wy-yt-12),3,0,6.3);ctx.fillStyle=CL.hot;ctx.fill()}}
+  // cork
+  if(!this.popped)rect(x0+4,yt-18,x1-x0-8,22,'#b98550',CL.fg,2,3);else if(this.ck)rect(this.ck.x-36,this.ck.y-18,72,22,'#b98550',CL.fg,2,3);
+  // steam puffs
+  this.steam=this.steam.filter(q=>q[4]>0);for(const q of this.steam){q[0]+=q[2]*dt;q[1]+=q[3]*dt;q[4]-=dt*.8;ctx.beginPath();ctx.arc(q[0],q[1],8*(1.4-q[4]*.4),0,6.3);ctx.fillStyle=`rgba(200,205,210,${clamp(q[4]*.5,0,.5)})`;ctx.fill()}
+  // gauge
+  const gx=250,gy=90,gh=300;rect(gx,gy,34,gh,CL.s2,CL.fg,2,6);const fy=p/500*gh;rect(gx,gy+gh-fy,34,fy,p>=this.pop*.9?CL.hot:CL.accent,null);
+  const ly=gy+gh-this.pop/500*gh;line(gx-10,ly,gx+44,ly,CL.warn,3);txt(t('lim')+' '+fmt(this.pop),gx+44,ly-6,13,CL.warn,'left');
+  const ay=gy+gh-101.3/500*gh;line(gx-6,ay,gx+40,ay,CL.muted,2,[4,3]);txt(t('pa'),gx+46,ay+16,13,CL.muted,'left','500');txt('p, '+t('kpa'),gx,gy-10,14,CL.muted,'left');
+  // graph
+  const gx0=490,gy0=100,gw=290,gh0=200;rect(gx0,gy0,gw,gh0,null,CL.line,2);txt('T, °C',gx0,gy0-10,14,CL.cold,'left');txt('p',gx0+gw,gy0-10,14,CL.hot,'right');
+  ctx.beginPath();this.hist.forEach((h,i)=>{const x=gx0+gw*i/600,y=gy0+gh0-gh0*(h[1])/160;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.strokeStyle=CL.cold;ctx.lineWidth=3;ctx.stroke();
+  ctx.beginPath();this.hist.forEach((h,i)=>{const x=gx0+gw*i/600,y=gy0+gh0-gh0*(h[2])/500;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.strokeStyle=CL.hot;ctx.lineWidth=3;ctx.stroke();
+  if(this.popped)txt(t('popped'),40,485,17,CL.good,'left');
+  const set=(i,v)=>{const e=$('#q'+i);if(e)e.textContent=v};
+  set(0,fmt(this.Tw-273.15)+' °C');set(1,fmt(p)+' '+t('kpa'));set(2,fmt(this.Q)+' '+t('kj'));set(3,this.popped?fmt(this.ekMax,2)+' '+t('kj'):'—');set(4,this.popped?fmtE(this.ekMax/this.Q):'—');
+ },
+ ui(){return `<div class="tmc"><h3>${t('task')}</h3><ol>${t('s2task').map(x=>`<li>${x}</li>`).join('')}</ol></div>
+  <div class="tmc"><div class="tms"><span>${t('power')}</span><b id="pwv">${this.pw*40} Вт</b><input type="range" min="1" max="10" step="1" value="${this.pw}" data-ts="pw"></div>
+  <div class="tms"><span>${t('tight')}</span><b id="ptv">${this.pop} ${t('kpa')}</b><input type="range" min="150" max="400" step="10" value="${this.pop}" data-ts="pop"></div>
+  <div class="tmr"><button class="tmb alt" data-ta="reset">${t('newcork')}</button></div></div>
+  <div class="tmc"><div class="tmo"><span>${t('Tw')}</span><span id="q0"></span><span>${t('pp')}</span><span id="q1"></span><span>${t('Qs')}</span><span id="q2"></span><span>${t('Ek')}</span><span id="q3"></span><span>${t('eta')}</span><span id="q4"></span></div></div>
+  <div class="tmc tmk"><h3>${t('concl')}</h3>${t('s2con')}</div>`},
+ act(a){if(a==='reset')this.init()},
+ sl(k,v){this[k]=+v;if(k==='pw')$('#pwv').textContent=(v*40)+' Вт';else $('#ptv').textContent=v+' '+t('kpa')}
+};
+/* ===== Sim 3: cycle ===== */
+const S3={p1:100,p2:300,v1:1.5,v2:4,ph:0,run:true,init(){this.ph=0},
+ calc(){const a=this.p2-this.p1,b=this.v2-this.v1;const Q1=1.5*this.v1*a+2.5*this.p2*b,Q2=1.5*this.v2*a+2.5*this.p1*b,A=a*b;return{Q1,Q2,A,eta:A/Q1,car:1-this.p1*this.v1/(this.p2*this.v2)}},
+ draw(dt){
+  if(this.run)this.ph=(this.ph+dt*0.18)%1;
+  const c=this.calc(),m=PVax(60,40,400,340,6.5,700);
+  const pts=[[this.v1,this.p1],[this.v1,this.p2],[this.v2,this.p2],[this.v2,this.p1]];
+  ctx.beginPath();pts.forEach((q,i)=>i?ctx.lineTo(m.x(q[0]),m.y(q[1])):ctx.moveTo(m.x(q[0]),m.y(q[1])));ctx.closePath();ctx.fillStyle='rgba(47,143,78,.28)';ctx.fill();ctx.strokeStyle=CL.accent;ctx.lineWidth=4;ctx.stroke();
+  const lens=[this.p2-this.p1,this.v2-this.v1,this.p2-this.p1,this.v2-this.v1],tl=[(this.p2-this.p1)/700,(this.v2-this.v1)/6.5,(this.p2-this.p1)/700,(this.v2-this.v1)/6.5],sm=tl.reduce((a,b)=>a+b,0);
+  let u=this.ph*sm,leg=0;while(u>tl[leg]){u-=tl[leg];leg++}const f=u/tl[leg],A_=pts[leg],B_=pts[(leg+1)%4];
+  const cx=A_[0]+(B_[0]-A_[0])*f,cy=A_[1]+(B_[1]-A_[1])*f;
+  [1,2,3,4].forEach((n,i)=>txt(n,m.x(pts[i][0])+(i===0||i===1?-16:10),m.y(pts[i][1])+(i===0||i===3?18:-8),18,CL.accent,'left','700'));
+  arrow(m.x(this.v1),m.y((this.p1+this.p2)/2+10),m.x(this.v1),m.y((this.p1+this.p2)/2-10),CL.hot,3);arrow(m.x((this.v1+this.v2)/2-.2),m.y(this.p2),m.x((this.v1+this.v2)/2+.2),m.y(this.p2),CL.hot,3);
+  arrow(m.x(this.v2),m.y((this.p1+this.p2)/2-10),m.x(this.v2),m.y((this.p1+this.p2)/2+10),CL.cold,3);arrow(m.x((this.v1+this.v2)/2+.2),m.y(this.p1),m.x((this.v1+this.v2)/2-.2),m.y(this.p1),CL.cold,3);
+  ctx.beginPath();ctx.arc(m.x(cx),m.y(cy),9,0,6.3);ctx.fillStyle=(leg<2||leg===2)&&leg!==3&&leg!==2?CL.hot:(leg===2?CL.hot:CL.cold);ctx.fill();
+  const legsT=[t('l12'),t('l23'),t('l34'),t('l41')];txt(legsT[leg],60,452,16,leg<2?CL.hot:CL.cold,'left','700');
+  txt('A = '+fmt(c.A)+' '+t('kj'),(m.x(this.v1)+m.x(this.v2))/2,(m.y(this.p1)+m.y(this.p2))/2+6,20,CL.good,'center','700');
+  // energy bars
+  const bx=520,by=90,bh=300,sc=bh/Math.max(c.Q1,1);
+  txt('Q₁',bx+40,by-10,18,CL.hot,'center','700');txt('A',bx+130,by-10,18,CL.good,'center','700');txt('Q₂',bx+220,by-10,18,CL.cold,'center','700');
+  const h1=c.Q1*sc,hA=c.A*sc,h2=c.Q2*sc;
+  rect(bx,by+bh-h1,80,h1,CL.hot,null,0,4);rect(bx+90,by+bh-hA,80,hA,CL.good,null,0,4);rect(bx+180,by+bh-h2,80,h2,CL.cold,null,0,4);
+  txt(fmt(c.Q1),bx+40,by+bh-h1-6,15,CL.fg,'center');txt(fmt(c.A),bx+130,by+bh-hA-6,15,CL.fg,'center');txt(fmt(c.Q2),bx+220,by+bh-h2-6,15,CL.fg,'center');
+  line(bx-8,by+bh,bx+270,by+bh,CL.fg,2);txt('Q₁ = A + Q₂',bx+130,by+bh+30,16,CL.accent,'center');
+  const set=(i,v)=>{const e=$('#w'+i);if(e)e.textContent=v};
+  set(0,fmt(c.Q1)+' '+t('kj'));set(1,fmt(c.Q2)+' '+t('kj'));set(2,fmt(c.A)+' '+t('kj'));set(3,fmt(c.eta*100,1)+' %');set(4,fmt(c.car*100,1)+' %');
+ },
+ ui(){const sl=(k,lab,mn,mx,st,u)=>`<div class="tms"><span>${lab}</span><b id="sv_${k}">${this[k]} ${u}</b><input type="range" min="${mn}" max="${mx}" step="${st}" value="${this[k]}" data-ts="${k}"></div>`;
+  return `<div class="tmc"><h3>${t('task')}</h3><ol>${t('s3task').map(x=>`<li>${x}</li>`).join('')}</ol></div>
+  <div class="tmc">${sl('p1',t('p1'),50,300,10,t('kpa'))}${sl('p2',t('p2'),100,650,10,t('kpa'))}${sl('v1',t('v1'),0.5,3,0.1,t('L'))}${sl('v2',t('v2'),1.5,6,0.1,t('L'))}
+  <div class="tmr"><button class="tmb" data-ta="run">${this.run?t('stop'):t('run')}</button></div></div>
+  <div class="tmc"><div class="tmo"><span>${t('Qin')}</span><span id="w0"></span><span>${t('Qout')}</span><span id="w1"></span><span>${t('Aw')}</span><span id="w2"></span><span>${t('etaR')}</span><span id="w3"></span><span>${t('etaC')}</span><span id="w4"></span></div></div>
+  <div class="tmc tmk"><h3>${t('concl')}</h3>${t('s3con')}</div>`},
+ act(a){if(a==='run'){this.run=!this.run;buildPanel()}},
+ sl(k,v){this[k]=+v;if(this.p2<this.p1+50)this.p2=this.p1+50;if(this.v2<this.v1+0.5)this.v2=this.v1+0.5;
+  H.querySelectorAll('[data-ts]').forEach(i=>{const kk=i.dataset.ts;if(+i.value!==this[kk])i.value=this[kk]});
+  ['p1','p2','v1','v2'].forEach(kk=>{const e=$('#sv_'+kk);if(e)e.textContent=(+this[kk].toFixed(1))+' '+(kk[0]==='p'?t('kpa'):t('L'))})}
+};
+/* ===== Sim 4: diffusion ===== */
+const S4={N:40,spd:1,openP:false,parts:[],hist:[],t:0,allL:0,acc:0,init(){this.openP=false;this.t=0;this.allL=0;this.hist=[];this.acc=0;this.make()},
+ make(){this.parts=[];for(let i=0;i<this.N;i++){const a=Math.random()*6.28;this.parts.push([Math.random()*.47+.01,Math.random(),Math.cos(a),Math.sin(a)])}},
+ draw(dt){
+  const X=50,Y=60,W=700,H=240;dt*=this.spd;
+  if(this.openP)this.t+=dt;
+  for(const q of this.parts){q[0]+=q[2]*.25*dt;q[1]+=q[3]*.25*dt*(W/H)*.5;const lim=this.openP?1:.49;if(q[0]<0){q[0]=0;q[2]=Math.abs(q[2])}if(q[0]>lim){q[0]=lim;q[2]=-Math.abs(q[2])}if(q[1]<0){q[1]=0;q[3]=Math.abs(q[3])}if(q[1]>1){q[1]=1;q[3]=-Math.abs(q[3])}}
+  const nl=this.parts.filter(q=>q[0]<.5).length;
+  if(this.openP){this.acc+=dt;if(this.acc>.25){this.acc=0;this.hist.push(nl/this.N);if(this.hist.length>200)this.hist.shift();if(this.t>1.5&&nl===this.N)this.allL++}}
+  rect(X,Y,W,H,CL.gas,CL.fg,4,8);
+  if(!this.openP)line(X+W/2,Y,X+W/2,Y+H,CL.warn,6);
+  const r=this.N>100?3.5:this.N>60?4.5:6;
+  for(const q of this.parts){ctx.beginPath();ctx.arc(X+8+q[0]*(W-16),Y+8+q[1]*(H-16),r,0,6.3);ctx.fillStyle=q[0]<.5?CL.hot:CL.cold;ctx.fill()}
+  txt(nl+'',X+W/4,Y+H+30,22,CL.hot,'center','700');txt((this.N-nl)+'',X+W*3/4,Y+H+30,22,CL.cold,'center','700');
+  // graph
+  const gx=X,gy=350,gw=W,gh=110;rect(gx,gy,gw,gh,null,CL.line,2);line(gx,gy+gh/2,gx+gw,gy+gh/2,CL.line,1,[4,4]);txt(t('frac'),gx,gy-8,15,CL.muted,'left');txt('100%',gx-6,gy+12,12,CL.muted,'right','500');txt('50%',gx-6,gy+gh/2+4,12,CL.muted,'right','500');txt('0',gx-6,gy+gh,12,CL.muted,'right','500');
+  ctx.beginPath();this.hist.forEach((h,i)=>{const x=gx+gw*i/200,y=gy+gh-gh*h;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.strokeStyle=CL.accent;ctx.lineWidth=3;ctx.stroke();
+  const set=(i,v)=>{const e=$('#d'+i);if(e)e.textContent=v};
+  set(0,nl+' / '+this.N);set(1,this.allL);const lg=this.N*Math.log10(2);set(2,this.N<=20?'1 / '+Math.pow(2,this.N).toLocaleString('ru'):'1 / 10'+String(Math.round(lg)).replace(/\d/g,d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[d]));
+ },
+ ui(){return `<div class="tmc"><h3>${t('task')}</h3><ol>${t('s4task').map(x=>`<li>${x}</li>`).join('')}</ol></div>
+  <div class="tmc"><div class="tms"><span>${t('N')}</span><b id="nv">${this.N}</b><input type="range" min="4" max="200" step="2" value="${this.N}" data-ts="N"></div>
+  <div class="tms"><span>${t('spd')}</span><b id="sv">×${this.spd}</b><input type="range" min="0.5" max="4" step="0.5" value="${this.spd}" data-ts="spd"></div>
+  <div class="tmr"><button class="tmb" data-ta="open">${t('open')}</button><button class="tmb alt" data-ta="reset">${t('close')}</button></div></div>
+  <div class="tmc"><div class="tmo"><span>${t('left')}</span><span id="d0"></span><span>${t('allL')}</span><span id="d1"></span><span>${t('prob')}</span><span id="d2"></span></div></div>
+  <div class="tmc tmk"><h3>${t('concl')}</h3>${t('s4con')}</div>`},
+ act(a){if(a==='open')this.openP=true;if(a==='reset')this.init()},
+ sl(k,v){this[k]=+v;if(k==='N'){$('#nv').textContent=v;this.init()}else $('#sv').textContent='×'+v}
+};
+/* ===== Sim 5: heat exchange ===== */
+const S5={Th0:150,Tc0:20,Th:150,Tc:20,contact:false,fr:false,dS:0,W:0,Qh:0,hist:[],t:0,acc:0,C:400,
+ init(){this.Th=this.Th0;this.Tc=this.Tc0;this.contact=false;this.fr=false;this.dS=0;this.W=0;this.Qh=0;this.hist=[];this.t=0;this.acc=0},
+ draw(dt){
+  const C=this.C,Thk=this.Th+273.15,Tck=this.Tc+273.15;let q=0;
+  if(this.contact){q=40*(this.Th-this.Tc)*dt;this.Th-=q/C;this.Tc+=q/C;this.dS+=q*(1/Tck-1/Thk)}
+  if(this.fr&&!this.contact&&this.Tc>-40&&this.Th<400){const qc=400*dt,w=1.5*qc*(Thk/Tck-1);this.Tc-=qc/C;this.Th+=(qc+w)/C;this.W+=w;this.Qh+=qc+w;this.dS+=(qc+w)/Thk-qc/Tck}
+  this.t+=dt;this.acc+=dt;if(this.acc>.2){this.acc=0;this.hist.push([this.Th,this.Tc]);if(this.hist.length>220)this.hist.shift()}
+  const k=T=>clamp((T-0)/200,0,1);
+  const hx=80,cx=520,by=130,bw=200,bh=140;
+  rect(hx,by,bw,bh,tempCol(k(this.Th)),CL.fg,4,12);rect(cx,by,bw,bh,tempCol(k(this.Tc)),CL.fg,4,12);
+  txt(t('Thn'),hx+bw/2,by-14,17,CL.fg,'center','700');txt(t('Tcn'),cx+bw/2,by-14,17,CL.fg,'center','700');
+  txt(fmt(this.Th,1)+' °C',hx+bw/2,by+bh/2+10,34,'#fff','center','700');txt(fmt(this.Tc,1)+' °C',cx+bw/2,by+bh/2+10,34,'#fff','center','700');
+  if(this.contact){rect(hx+bw,by+bh/2-18,cx-hx-bw,36,CL.muted,CL.fg,3);if(q>0.001)arrow(hx+bw+10,by+bh/2,cx-10,by+bh/2,'#fff',5)}
+  else if(this.fr){rect(hx+bw+30,by+bh/2-50,cx-hx-bw-60,100,CL.s2,CL.fg,3,12);txt('❄ → 🔥',(hx+cx+bw)/2,by+bh/2-4,20,CL.fg,'center','700');txt('W',(hx+cx+bw)/2,by+bh/2+28,18,CL.warn,'center','700');
+   arrow(cx-4,by+bh+14,hx+bw+34,by+bh+14,CL.cold,4);arrow((hx+cx+bw)/2,by-28,(hx+cx+bw)/2,by+bh/2-52,CL.warn,5)}
+  const eqd=Math.abs(this.Th-this.Tc)<0.5&&this.contact;
+  if(eqd)txt(t('eq'),400,by+bh+44,18,CL.good,'center','700');
+  const gx=50,gy=330,gw=700,gh=130;rect(gx,gy,gw,gh,null,CL.line,2);txt('T, °C',gx,gy-8,14,CL.muted,'left');
+  const ymin=-40,ymax=200;[0,100,200].forEach(v=>{const y=gy+gh-gh*(v-ymin)/(ymax-ymin);line(gx,y,gx+gw,y,CL.line,1,[4,4]);txt(v,gx-6,y+4,12,CL.muted,'right','500')});
+  for(const [idx,col] of [[0,CL.hot],[1,CL.cold]]){ctx.beginPath();this.hist.forEach((h,i)=>{const x=gx+gw*i/220,y=gy+gh-gh*(clamp(h[idx],ymin,ymax)-ymin)/(ymax-ymin);i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.strokeStyle=col;ctx.lineWidth=3;ctx.stroke()}
+  const set=(i,v)=>{const e=$('#e'+i);if(e)e.textContent=v};
+  set(0,fmt(this.dS,1)+' '+t('JK'));set(1,fmt(this.W/1000,2)+' кДж');set(2,fmt(this.Qh/1000,2)+' кДж');
+ },
+ ui(){const sl=(k,lab,mn,mx)=>`<div class="tms"><span>${lab}</span><b id="sv_${k}">${this[k]} °C</b><input type="range" min="${mn}" max="${mx}" step="5" value="${this[k]}" data-ts="${k}"></div>`;
+  return `<div class="tmc"><h3>${t('task')}</h3><ol>${t('s5task').map(x=>`<li>${x}</li>`).join('')}</ol></div>
+  <div class="tmc">${sl('Th0',t('Th0'),60,200)}${sl('Tc0',t('Tc0'),-10,50)}
+  <div class="tmr"><button class="tmb ${this.contact?'on':''}" data-ta="contact">${this.contact?t('sep'):t('contact')}</button><button class="tmb cold ${this.fr?'on':''}" data-ta="fr">${this.fr?t('frOff'):t('fr')}</button><button class="tmb alt" data-ta="reset">${t('reset')}</button></div></div>
+  <div class="tmc"><div class="tmo"><span>${t('dS')}</span><span id="e0"></span><span>${t('Wd')}</span><span id="e1"></span><span>${t('Qh')}</span><span id="e2"></span></div></div>
+  <div class="tmc tmk"><h3>${t('concl')}</h3>${t('s5con')}</div>`},
+ act(a){if(a==='contact'){this.contact=!this.contact;if(this.contact)this.fr=false;buildPanel()}if(a==='fr'){this.fr=!this.fr;if(this.fr)this.contact=false;buildPanel()}if(a==='reset'){this.init();buildPanel()}},
+ sl(k,v){this[k]=+v;$('#sv_'+k).textContent=v+' °C';this.init()}
+};
+const SIMS=[S1,S2,S3,S4,S5];
+/* ===== shell ===== */
+function buildNav(){const e=$('#tmnav');if(e)e.innerHTML=t('tabs').map((x,i)=>`<button role="tab" aria-selected="${i===tab}" data-tt="${i}">${i+1}. ${x[0]}<small>${x[1]}</small></button>`).join('')}
+function buildPanel(){const e=$('#pn');if(e)e.innerHTML=SIMS[tab].ui()}
+document.addEventListener('pointerup',()=>{S1.hold=0;document.querySelectorAll('.termo [data-th].on').forEach(b=>b.classList.remove('on'))});
+document.addEventListener('pointercancel',()=>{S1.hold=0});
+S1.init();S2.init();S3.init();S4.init();S5.init();
+let raf=0,last=0;
+function frame(now){if(!H||!H.isConnected){raf=0;return}const dt=Math.min(.05,(now-last)/1000);last=now;colors();ctx.clearRect(0,0,800,500);try{SIMS[tab].draw(dt)}catch(e){console.error(e)}raf=requestAnimationFrame(frame)}
+function mount(host){
+  H=host;host.classList.add('termo');
+  host.innerHTML='<nav class="tmn" id="tmnav"></nav><div class="tmg"><div class="tmv"><canvas id="c" width="'+800*dpr+'" height="'+500*dpr+'"></canvas></div><div class="tmp" id="pn"></div></div>';
+  cv=$('#c');ctx=cv.getContext('2d');ctx.scale(dpr,dpr);
+  buildNav();buildPanel();
+  host.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+    if(b.dataset.tt!=null){tab=+b.dataset.tt;try{localStorage.setItem('ts_tab',tab)}catch(x){}S1.hold=0;buildNav();buildPanel();return}
+    if(b.dataset.ta)SIMS[tab].act(b.dataset.ta)});
+  host.addEventListener('input',e=>{const s=e.target.dataset&&e.target.dataset.ts;if(s)SIMS[tab].sl(s,e.target.value)});
+  host.addEventListener('pointerdown',e=>{const b=e.target.closest('[data-th]');if(b){S1.hold=+b.dataset.th;b.classList.add('on')}});
+  colors();if(!raf){last=performance.now();raf=requestAnimationFrame(frame)}
+}
+return {mount};
+
+})();
+const EXP=(function(){
+const REG={},LES={},ST={},TABN={};
+let H=null,cv=null,ctx=null,CL={},CD=null,CS=null,raf=0,last=0,lastRO='';
+const dpr=Math.min(2,window.devicePixelRatio||1);
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const fmt=(x,d)=>(+x).toFixed(d==null?0:d).replace('.',',');
+const PI=Math.PI,rnd=Math.random;
+function isDark(){const r=document.documentElement;return r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches)}
+function colors(){const s=getComputedStyle(document.documentElement),g=n=>s.getPropertyValue(n).trim(),d=isDark();CL={dark:d,bg:g('--surface'),fg:g('--fg'),muted:g('--muted'),line:g('--line'),accent:g('--accent'),hot:d?'#ff7a5c':'#d9482b',cold:d?'#6aa2ff':'#2b6cd9',good:g('--g'),warn:g('--y'),s2:g('--surface2'),soft:g('--accent-soft'),glass:d?'rgba(120,180,220,.28)':'rgba(120,180,220,.35)',water:d?'rgba(70,140,230,.55)':'rgba(90,160,240,.55)'}}
+function lerpC(a,b,k){return `rgb(${Math.round(a[0]+(b[0]-a[0])*k)},${Math.round(a[1]+(b[1]-a[1])*k)},${Math.round(a[2]+(b[2]-a[2])*k)})`}
+function tempCol(k){k=clamp(k,0,1);return k<.5?lerpC([50,110,220],[225,140,30],k*2):lerpC([225,140,30],[215,55,40],(k-.5)*2)}
+function txt(s,x,y,sz,col,al,w){ctx.font=(w||'600')+' '+sz+'px Onest,Segoe UI,system-ui,sans-serif';ctx.fillStyle=col||CL.fg;ctx.textAlign=al||'left';ctx.textBaseline='alphabetic';ctx.fillText(s,x,y)}
+function line(x1,y1,x2,y2,col,w,dash){ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.strokeStyle=col||CL.fg;ctx.lineWidth=w||2;ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([])}
+function arrow(x1,y1,x2,y2,col,w){const a=Math.atan2(y2-y1,x2-x1),hd=Math.max(8,(w||3)*3.2);line(x1,y1,x2-Math.cos(a)*hd*.6,y2-Math.sin(a)*hd*.6,col,w||3);ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-hd*Math.cos(a-.42),y2-hd*Math.sin(a-.42));ctx.lineTo(x2-hd*Math.cos(a+.42),y2-hd*Math.sin(a+.42));ctx.closePath();ctx.fillStyle=col||CL.fg;ctx.fill()}
+function rect(x,y,w,h,fill,stroke,lw,r){ctx.beginPath();if(r&&ctx.roundRect)ctx.roundRect(x,y,w,h,r);else ctx.rect(x,y,w,h);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw||2;ctx.stroke()}}
+function circ(x,y,r,fill,stroke,lw){ctx.beginPath();ctx.arc(x,y,Math.max(0,r),0,6.2832);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw||2;ctx.stroke()}}
+function poly(pts,fill,stroke,lw,close,dash){ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));if(close)ctx.closePath();if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw||2;ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([])}}
+function axes(X,Y,W,Hh,xm,ym,xl,yl,nx,ny,xf,yf,y0){
+  y0=y0||0;line(X,Y+Hh,X+W,Y+Hh,CL.fg,2);line(X,Y,X,Y+Hh,CL.fg,2);
+  txt(xl||'',X+W,Y+Hh+32,14,CL.muted,'right','500');txt(yl||'',X-6,Y-8,14,CL.muted,'left','500');
+  nx=nx==null?5:nx;ny=ny==null?4:ny;xf=xf||(v=>fmt(v,v<10&&v%1?1:0));yf=yf||(v=>fmt(v,v<10&&v%1?1:0));
+  for(let i=1;i<=nx;i++){const v=xm*i/nx,x=X+W*i/nx;line(x,Y+Hh,x,Y+Hh+5,CL.fg,1.5);txt(xf(v),x,Y+Hh+19,12,CL.muted,'center','500')}
+  for(let i=0;i<=ny;i++){const v=y0+(ym-y0)*i/ny,y=Y+Hh-Hh*i/ny;if(i>0||y0<0){line(X-5,y,X,y,CL.fg,1.5);if(i>0)line(X,y,X+W,y,CL.line,1,[3,4]);txt(yf(v),X-8,y+4,12,CL.muted,'right','500')}}
+  return {x:v=>X+W*v/xm,y:v=>Y+Hh-Hh*(v-y0)/(ym-y0)}
+}
+const tx=k=>CD[S.lg].x[k];
+function reg(id,d){REG[id]=d}
+function st(id){if(!ST[id]){const d=REG[id],s={p:{},m:0};d.P.forEach(q=>s.p[q[0]]=q[4]);ST[id]=s;const o=CD;CD=d;d.init&&d.init(s);CD=o}return ST[id]}
+/* ---- 1. Броуновское движение ---- */
+reg('brown',{
+ ru:{n:'Броуновское движение',t:['Нагрейте среду: молекулы движутся быстрее.','Увеличьте размер частицы: как изменится её дрожание?','Проследите траекторию крупной частицы.'],c:'Крупная частица получает беспорядочные удары невидимых молекул со всех сторон. Удары неравномерны, поэтому частица хаотично движется. Чем выше температура и меньше частица, тем заметнее движение.',p:['Температура среды','Размер частицы'],m:[],a:[],x:{v:'Скорость молекул',d:'Путь частицы за 1 с',T:'Температура',u:'м/с',px:'усл. ед.'}},
+ kk:{n:'Броундық қозғалыс',t:['Ортаны қыздырыңыз: молекулалар жылдамырақ қозғалады.','Бөлшектің өлшемін үлкейтіңіз: оның дірілі қалай өзгереді?','Ірі бөлшектің траекториясын бақылаңыз.'],c:'Ірі бөлшекке көзге көрінбейтін молекулалар барлық жақтан ретсіз соққы береді. Соққылар біркелкі емес, сондықтан бөлшек ретсіз қозғалады. Температура жоғары және бөлшек кіші болған сайын қозғалыс айқынырақ.',p:['Ортаның температурасы','Бөлшектің өлшемі'],m:[],a:[],x:{v:'Молекула жылдамдығы',d:'Бөлшектің 1 с-тағы жолы',T:'Температура',u:'м/с',px:'шартты бірл.'}},
+ P:[['T',0,100,1,20,'°C'],['R',8,40,1,16,'']],A:[],
+ init(s){s.sm=[];for(let i=0;i<170;i++){const a=rnd()*6.283,k=.5+rnd();s.sm.push([70+rnd()*660,50+rnd()*400,Math.cos(a)*k,Math.sin(a)*k])}s.b=[400,250,0,0];s.tr=[];s.path=0;s.pw=0;s.pt=0},
+ draw(s,dt){
+  const sc=130*Math.sqrt((s.p.T+273)/293),R=s.p.R,M=(R/10)**2*6,b=s.b;
+  rect(60,40,680,420,CL.s2,CL.fg,3,10);
+  for(const q of s.sm){q[0]+=q[2]*sc*dt;q[1]+=q[3]*sc*dt;if(q[0]<64){q[0]=64;q[2]=Math.abs(q[2])}if(q[0]>736){q[0]=736;q[2]=-Math.abs(q[2])}if(q[1]<44){q[1]=44;q[3]=Math.abs(q[3])}if(q[1]>456){q[1]=456;q[3]=-Math.abs(q[3])}
+   const dx=q[0]-b[0],dy=q[1]-b[1],d=Math.hypot(dx,dy);
+   if(d<R+3&&d>0){const nx=dx/d,ny=dy/d,u1=q[2]*sc*nx+q[3]*sc*ny,u2=b[2]*nx+b[3]*ny;if(u1-u2<0){const n1=(u1*(1-M)+2*M*u2)/(1+M),n2=(u2*(M-1)+2*u1)/(1+M);q[2]+=(n1-u1)*nx/sc;q[3]+=(n1-u1)*ny/sc;b[2]+=(n2-u2)*nx;b[3]+=(n2-u2)*ny}q[0]=b[0]+nx*(R+3.2);q[1]=b[1]+ny*(R+3.2)}
+   circ(q[0],q[1],3,CL.cold)}
+  b[0]+=b[2]*dt;b[1]+=b[3]*dt;if(b[0]<60+R){b[0]=60+R;b[2]=Math.abs(b[2])}if(b[0]>740-R){b[0]=740-R;b[2]=-Math.abs(b[2])}if(b[1]<40+R){b[1]=40+R;b[3]=Math.abs(b[3])}if(b[1]>460-R){b[1]=460-R;b[3]=-Math.abs(b[3])}
+  const sp=Math.hypot(b[2],b[3]);if(sp>160){b[2]*=160/sp;b[3]*=160/sp}
+  s.pw+=Math.hypot(b[2],b[3])*dt;s.pt+=dt;if(s.pt>=1){s.path=s.pw;s.pw=0;s.pt=0}
+  s.tr.push([b[0],b[1]]);if(s.tr.length>700)s.tr.shift();
+  poly(s.tr,null,CL.hot,2);circ(b[0],b[1],R,CL.warn,CL.fg,3);
+ },
+ read(s){return [[tx('T'),fmt(s.p.T+273)+' K'],[tx('v'),fmt(500*Math.sqrt((s.p.T+273)/293))+' '+tx('u')],[tx('d'),fmt(s.path)+' px']]}
+});
+/* ---- 1. Диффузия ---- */
+reg('diff1',{
+ ru:{n:'Диффузия',t:['Уберите перегородку и следите за перемешиванием.','Повторите опыт при другой температуре.','Сравните время перемешивания.'],c:'Диффузия – самопроизвольное перемешивание веществ из-за теплового движения молекул. При нагревании молекулы быстрее, и диффузия идёт быстрее.',p:['Температура'],m:[],a:['Убрать перегородку'],x:{T:'Температура',mix:'Перемешивание',t:'Время опыта'}},
+ kk:{n:'Диффузия',t:['Қалқаны алып, араласуын бақылаңыз.','Тәжірибені басқа температурада қайталаңыз.','Араласу уақытын салыстырыңыз.'],c:'Диффузия – молекулалардың жылулық қозғалысы салдарынан заттардың өздігінен араласуы. Қыздырғанда молекулалар жылдамдайды, диффузия тез жүреді.',p:['Температура'],m:[],a:['Қалқаны алу'],x:{T:'Температура',mix:'Араласу',t:'Тәжірибе уақыты'}},
+ P:[['T',0,100,1,20,'°C']],A:['open'],
+ init(s){s.open=false;s.t=0;s.pr=[];for(let i=0;i<220;i++){const left=i<110,a=rnd()*6.283;s.pr.push([left?70+rnd()*320:410+rnd()*320,50+rnd()*400,Math.cos(a),Math.sin(a),left])}},
+ act(s,a){if(a==='open')s.open=true},
+ draw(s,dt){
+  const v=90*Math.sqrt((s.p.T+273)/293);rect(60,40,680,420,CL.s2,CL.fg,3,10);
+  if(s.open)s.t+=dt;let rr=0;
+  for(const q of s.pr){if(rnd()<2.5*dt*v/90){const a=rnd()*6.283;q[2]=Math.cos(a);q[3]=Math.sin(a)}
+   q[0]+=q[2]*v*dt;q[1]+=q[3]*v*dt;const lim=s.open?[64,736]:(q[4]?[64,396]:[404,736]);
+   if(q[0]<lim[0]){q[0]=lim[0];q[2]=Math.abs(q[2])}if(q[0]>lim[1]){q[0]=lim[1];q[2]=-Math.abs(q[2])}if(q[1]<44){q[1]=44;q[3]=Math.abs(q[3])}if(q[1]>456){q[1]=456;q[3]=-Math.abs(q[3])}
+   if(q[4]&&q[0]>400)rr++;circ(q[0],q[1],5,q[4]?CL.hot:CL.cold)}
+  if(!s.open)line(400,40,400,460,CL.warn,6);s.mix=clamp(rr/55*100,0,100)
+ },
+ read(s){return [[tx('T'),fmt(s.p.T)+' °C'],[tx('mix'),fmt(s.mix||0)+' %'],[tx('t'),fmt(s.t,1)+' c']]}
+});
+/* ---- 1. Шкалы температуры ---- */
+reg('tscale',{
+ ru:{n:'Температурные шкалы',t:['Двигайте ползунок: смотрите три шкалы одновременно.','Найдите температуры таяния льда и кипения воды.','Что значит 0 К?'],c:'Шкалы связаны формулами: T = t + 273 (К и °C); F = 1,8·t + 32. Нуль Кельвина (−273 °C) – самая низкая температура, при ней прекращается тепловое движение.',p:['Температура по Цельсию'],m:[],a:[],x:{K:'По Кельвину',F:'По Фаренгейту',C:'По Цельсию',ice:'таяние льда',boil:'кипение воды',abs:'абсолютный нуль'}},
+ kk:{n:'Температура шкалалары',t:['Жүгірткіні жылжытыңыз: үш шкаланы қатар бақылаңыз.','Мұздың еру және судың қайнау температураларын табыңыз.','0 К нені білдіреді?'],c:'Шкалалар формулалармен байланысқан: T = t + 273 (К және °C); F = 1,8·t + 32. Нөл Кельвин (−273 °C) – ең төмен температура, онда жылулық қозғалыс тоқтайды.',p:['Цельсий бойынша температура'],m:[],a:[],x:{K:'Кельвин бойынша',F:'Фаренгейт бойынша',C:'Цельсий бойынша',ice:'мұздың еруі',boil:'судың қайнауы',abs:'абсолюттік нөл'}},
+ P:[['t',-273,200,1,20,'°C']],A:[],init(s){},
+ draw(s,dt){
+  const t=s.p.t,y0=405,y1=50,m=v=>y0-(y0-y1)*(v+280)/(480);
+  rect(300,y1-14,40,y0-y1+40,CL.s2,CL.fg,3,20);circ(320,y0+34,34,CL.hot,CL.fg,3);rect(310,m(t),20,y0+10-m(t),CL.hot,null);
+  const pts=[[-273,tx('abs')],[0,tx('ice')],[100,tx('boil')]];
+  for(let v=-250;v<=200;v+=50){const y=m(v);line(340,y,352,y,CL.fg,2);txt(fmt(v),360,y+5,14,CL.fg,'left');line(300,y,288,y,CL.fg,2);txt(fmt(v+273),280,y+5,14,CL.cold,'right');txt(fmt(1.8*v+32),420,y+5,14,CL.warn,'left','500')}
+  txt('°C',372,y1-22,16,CL.fg,'left');txt('K',270,y1-22,16,CL.cold,'right');txt('°F',430,y1-22,16,CL.warn,'left');
+  for(const [v,n] of pts){const y=m(v);line(300,y,700,y,CL.muted,1.5,[5,4]);txt(n,720,y+5,15,CL.fg,'right')}
+  arrow(160,m(t),288,m(t),CL.accent,4);txt(fmt(t)+' °C',150,m(t)+6,22,CL.accent,'right','700');
+ },
+ read(s){const t=s.p.t;return [[tx('C'),fmt(t)+' °C'],[tx('K'),fmt(t+273)+' K'],[tx('F'),fmt(1.8*t+32,1)+' °F']]}
+});
+/* ---- 2. Виды теплопередачи ---- */
+reg('heatx',{
+ ru:{n:'Виды теплопередачи',t:['Теплопроводность: нагрейте стержень, сравните материалы.','Конвекция: смотрите движение тёплой воды вверх.','Излучение: сравните нагрев чёрной и блестящей пластин.'],c:'Теплопроводность – передача энергии при контакте, конвекция – перенос тёплыми потоками жидкости и газа, излучение – перенос энергии электромагнитными волнами (возможно в вакууме).',p:['Теплопроводность материала','Мощность нагрева','Расстояние до лампы'],m:['Теплопроводность','Конвекция','Излучение'],a:[],x:{t:'Время',T1:'Температура на конце стержня',w:'Нагрев воды',b:'Чёрная пластина',s:'Блестящая пластина',rod:'Стержень',hot:'тёплая вода поднимается',cold:'холодная опускается'}},
+ kk:{n:'Жылу берудің түрлері',t:['Жылу өткізгіштік: өзекті қыздырыңыз, материалдарды салыстырыңыз.','Конвекция: жылы судың жоғары көтерілуін бақылаңыз.','Сәулелену: қара және жылтыр пластиналардың қызуын салыстырыңыз.'],c:'Жылу өткізгіштік – жанасқанда энергияның берілуі, конвекция – сұйық пен газдың жылы ағындарымен тасымалдау, сәулелену – электромагниттік толқындармен энергия беру (вакуумда да болады).',p:['Материалдың жылу өткізгіштігі','Қыздыру қуаты','Шамға дейінгі қашықтық'],m:['Жылу өткізгіштік','Конвекция','Сәулелену'],a:[],x:{t:'Уақыт',T1:'Өзек ұшындағы температура',w:'Судың қызуы',b:'Қара пластина',s:'Жылтыр пластина',rod:'Өзек',hot:'жылы су көтеріледі',cold:'суық су төмен түседі'}},
+ P:[['k',.2,3,.1,1,''],['P',1,10,1,6,''],['d',10,60,5,25,'см']],A:[],M:1,
+ show(s,k){return s.m===0?k==='k':s.m===1?k==='P':k==='P'||k==='d'},
+ init(s){s.T=new Array(40).fill(20);s.t=0;s.pr=[];for(let i=0;i<70;i++)s.pr.push([rnd(),rnd()]);s.Tb=20;s.Ts=20;s.wT=20},
+ onmode(s){s.T=new Array(40).fill(20);s.t=0;s.Tb=20;s.Ts=20;s.wT=20},
+ draw(s,dt){
+  s.t+=dt;
+  if(s.m===0){const a=s.p.k*30,n=Math.ceil(dt*a*3)+1,h=dt/n;for(let r=0;r<n;r++){s.T[0]=420;const T=s.T.slice();for(let i=1;i<39;i++)T[i]=s.T[i]+a*h*(s.T[i-1]-2*s.T[i]+s.T[i+1]);T[39]=s.T[39]+a*h*(s.T[38]-s.T[39]);T[0]=420;s.T=T}
+   for(let i=0;i<40;i++)rect(110+i*15,225,16,50,tempCol((s.T[i]-20)/400),null);rect(110,225,600,50,null,CL.fg,3,6);
+   for(let k=0;k<6;k++){const x=170+k*100,i=Math.round((x-110)/15),fall=s.T[i]>70;circ(x,fall?400:300,7,CL.warn,CL.fg,2);line(x,275,x,fall?400:293,CL.muted,2)}
+   for(let i=0;i<4;i++){const fx=60+i*14,fh=22+rnd()*30;ctx.beginPath();ctx.moveTo(fx-9,320);ctx.quadraticCurveTo(fx,320-fh,fx+9,320);ctx.fillStyle=CL.hot;ctx.fill()}rect(40,320,60,12,CL.muted,CL.fg,2,3);
+   txt(tx('rod'),410,200,16,CL.muted,'center');s.v1=s.T[39]}
+  else if(s.m===1){const P=s.p.P,x0=270,y0=90,w=260,h=330;rect(x0,y0,w,h,CL.water,CL.fg,4,12);
+   for(let i=0;i<4;i++){const fx=x0+90+i*28,fh=(10+rnd()*20)*P/6;ctx.beginPath();ctx.moveTo(fx-10,y0+h+14);ctx.quadraticCurveTo(fx,y0+h+14-fh,fx+10,y0+h+14);ctx.fillStyle=CL.hot;ctx.fill()}rect(x0+60,y0+h+14,140,12,CL.muted,CL.fg,2,3);
+   for(const q of s.pr){const u=Math.PI*Math.sin(2*PI*q[0])*Math.cos(PI*q[1]),v=-2*PI*Math.cos(2*PI*q[0])*Math.sin(PI*q[1]);q[0]+=u*dt*.03*P;q[1]+=v*dt*.03*P*h/w*0+v*dt*.03*P*.6;if(q[0]<.02)q[0]=.02+rnd()*.03;if(q[0]>.98)q[0]=.95;if(q[1]<.03||q[1]>.97){q[1]=clamp(q[1],.04,.96);q[0]=rnd()}
+    const warm=clamp(1-Math.abs(q[0]-.5)*2,0,1)*(1-q[1]*.4);circ(x0+q[0]*w,y0+h-q[1]*h,5,tempCol(.25+warm*.7*P/10))}
+   txt('↑ '+tx('hot'),x0+w/2,y0-10,15,CL.hot,'center');txt('↓ '+tx('cold'),x0-10,y0+h/2,14,CL.cold,'right');s.v1=s.wT=20+P*8*(1-Math.exp(-s.t/6))}
+  else{const P=s.p.P*10,d=s.p.d,k=1-Math.exp(-s.t/5);s.Tb=20+P*.9*k*(25/d)**2*.6;s.Ts=20+P*.9*k*(25/d)**2*.6*.12;
+   circ(110,250,34,CL.warn,CL.fg,3);for(let i=0;i<8;i++){const a=i*.785;line(110+Math.cos(a)*42,250+Math.sin(a)*42,110+Math.cos(a)*54,250+Math.sin(a)*54,CL.warn,3)}
+   const px=140+d*9.5;for(const dy of[-110,110]){for(let i=0;i<5;i++){const yy=250+dy*.45*(.3+i*.2)*(dy<0?-1:1)*-1;const ph=(s.t*120+i*40)%(px-150);line(150+ph,250+(dy*.0)+(dy>0?1:-1)*(ph/(px-150))*(Math.abs(dy)-20)*.6*0,Math.min(px-4,170+ph),250,CL.warn,2.5,[6,6])}}
+   for(const [yy,col,T,n] of[[130,'#222',s.Tb,tx('b')],[370,'#d8dde0',s.Ts,tx('s')]]){rect(px,yy-40,16,80,col,CL.fg,3,3);rect(px+60,yy-50,22,100,CL.s2,CL.fg,2,11);rect(px+66,yy+45-(T-20)/1.2,10,(T-20)/1.2+5,CL.hot,null);txt(fmt(T)+' °C',px+95,yy+5,18,CL.fg,'left','700');txt(n,px,yy-52,14,CL.muted,'left')}
+   line(150,250,px,250,CL.warn,1.5,[4,5]);s.v1=s.Tb}
+ },
+ read(s){const L=[[tx('t'),fmt(s.t)+' c']];if(s.m===0)L.push([tx('T1'),fmt(s.v1)+' °C']);else if(s.m===1)L.push([tx('w'),fmt(s.v1)+' °C']);else{L.push([tx('b'),fmt(s.Tb)+' °C']);L.push([tx('s'),fmt(s.Ts)+' °C'])}return L}
+});
+/* ---- 2. Огниво (внутренняя энергия) ---- */
+reg('ienergy',{
+ ru:{n:'Изменение внутренней энергии',t:['Сожмите воздух: уменьшайте объём ползунком.','Следите за температурой и скоростью молекул.','При каком объёме вспыхивает вата?'],c:'При быстром сжатии газа внешняя сила совершает работу, внутренняя энергия растёт, газ нагревается. Так внутреннюю энергию можно изменить, совершив работу, не передавая тепла.',p:['Объём воздуха под поршнем'],m:[],a:[],x:{T:'Температура воздуха',U:'Рост внутренней энергии',fire:'Вата вспыхнула!',V:'Объём'}},
+ kk:{n:'Ішкі энергияның өзгеруі',t:['Ауаны сығыңыз: көлемді жүгірткімен азайтыңыз.','Температураны және молекулалар жылдамдығын бақылаңыз.','Қандай көлемде мақта тұтанады?'],c:'Газды тез сыққанда сыртқы күш жұмыс атқарады, ішкі энергия артады, газ қызады. Ішкі энергияны жылу бермей-ақ, жұмыс атқару арқылы өзгертуге болады.',p:['Поршень астындағы ауа көлемі'],m:[],a:[],x:{T:'Ауа температурасы',U:'Ішкі энергияның өсуі',fire:'Мақта тұтанды!',V:'Көлем'}},
+ P:[['V',12,100,1,100,'%']],A:[],
+ init(s){s.fire=false;s.pr=[];for(let i=0;i<30;i++){const a=rnd()*6.283;s.pr.push([rnd(),rnd(),Math.cos(a),Math.sin(a)])}},
+ draw(s,dt){
+  const V=s.p.V,T=293*Math.pow(100/V,.4),x0=250,x1=550,yb=430,H=V/100*320,yp=yb-H;if(T>523)s.fire=true;s.T=T;
+  rect(x0,yp,x1-x0,H,lerpC([232,241,238],[255,170,120],clamp((T-293)/330,0,1)),null);if(CL.dark)rect(x0,yp,x1-x0,H,'rgba(0,0,0,.45)');
+  const sp=Math.sqrt(T/293)*.5;for(const q of s.pr){q[0]+=q[2]*sp*dt;q[1]+=q[3]*sp*dt*320/Math.max(60,H);if(q[0]<0||q[0]>1){q[2]*=-1;q[0]=clamp(q[0],0,1)}if(q[1]<0||q[1]>1){q[3]*=-1;q[1]=clamp(q[1],0,1)}circ(x0+8+q[0]*(x1-x0-16),yp+8+q[1]*(H-16),5,tempCol((T-293)/330))}
+  line(x0,yb-330,x0,yb,CL.fg,5);line(x1,yb-330,x1,yb,CL.fg,5);line(x0-3,yb,x1+3,yb,CL.fg,5);rect(x0+2,yp-16,x1-x0-4,16,CL.muted,CL.fg,2);line(400,yp-16,400,yp-80,CL.fg,6);rect(375,yp-96,50,16,CL.muted,CL.fg,2);
+  if(s.fire){for(let i=0;i<6;i++){const fx=355+i*18,fh=20+rnd()*30;ctx.beginPath();ctx.moveTo(fx-9,yb-2);ctx.quadraticCurveTo(fx,yb-2-fh,fx+9,yb-2);ctx.fillStyle=i%2?CL.hot:CL.warn;ctx.fill()}txt(tx('fire'),400,yb+36,22,CL.hot,'center','700')}else circ(400,yb-8,10,'#e7e0cf',CL.fg,2);
+  rect(640,80,24,300,CL.s2,CL.fg,2,12);rect(645,380-(T-250)/450*280,14,(T-250)/450*280,CL.hot,null);circ(652,392,16,CL.hot,CL.fg,2);txt(fmt(T-273)+' °C',652,60,18,CL.fg,'center','700')
+ },
+ read(s){return [[tx('V'),fmt(s.p.V)+' %'],[tx('T'),fmt(s.T)+' K ('+fmt(s.T-273)+' °C)'],[tx('U'),fmt(.2078*(s.T-293),1)+' Дж']]}
+});
+/* ---- 3. Удельная теплоёмкость ---- */
+const SUBS=[['water',4200,'#3b82d6'],['oil',1700,'#c9a227'],['alu',920,'#7d8793'],['steel',500,'#556270'],['cu',380,'#c26a3a']];
+reg('heatcap',{
+ ru:{n:'Нагревание веществ',t:['Выберите вещество, запустите нагрев.','Сравните графики: у какого вещества температура растёт быстрее?','Проверьте формулу Q = cmΔt.'],c:'Количество теплоты Q = c·m·(t₂ − t₁). У разных веществ удельная теплоёмкость c разная: чем она меньше, тем быстрее нагревается вещество.',p:['Масса','Мощность нагревателя'],m:['Вода','Подсолн. масло','Алюминий','Сталь','Медь'],a:['Старт / Пауза'],x:{t:'Время',T:'Температура',Q:'Теплота Q = Pt',c:'Уд. теплоёмкость c',dT:'Нагрев Δt',min:'мин'}},
+ kk:{n:'Заттарды қыздыру',t:['Затты таңдап, қыздыруды іске қосыңыз.','Графиктерді салыстырыңыз: қай заттың температурасы тез өседі?','Q = cmΔt формуласын тексеріңіз.'],c:'Жылу мөлшері Q = c·m·(t₂ − t₁). Әртүрлі заттардың меншікті жылу сыйымдылығы c әртүрлі: c неғұрлым аз болса, зат соғұрлым тез қызады.',p:['Масса','Қыздырғыш қуаты'],m:['Су','Күнбағыс майы','Алюминий','Болат','Мыс'],a:['Іске қосу / Тоқтату'],x:{t:'Уақыт',T:'Температура',Q:'Жылу мөлшері Q = Pt',c:'Меншікті жылу сыйымдылығы c',dT:'Қызу Δt',min:'мин'}},
+ P:[['m',.1,2,.1,1,'кг'],['P',100,1000,50,500,'Вт']],A:['run'],M:1,
+ init(s){s.t=0;s.run=false},act(s,a){if(a==='run')s.run=!s.run},
+ draw(s,dt){
+  const c=SUBS[s.m][1],m=s.p.m,P=s.p.P,tmax=900;
+  const Tt=(ci,t)=>Math.min(100,20+P*t/(ci*m));
+  if(s.run&&Tt(c,s.t)<100)s.t=Math.min(tmax,s.t+dt*60);
+  const g=axes(330,50,430,330,tmax/60,100,L2('мин','мин'),'t, °C',5,5,v=>fmt(v),v=>fmt(v));
+  SUBS.forEach((q,i)=>{const pts=[];for(let t=0;t<=tmax;t+=15)pts.push([g.x(t/60),g.y(Tt(q[1],t))]);poly(pts,null,q[2],i===s.m?5:2);ctx.globalAlpha=1});
+  const T=Tt(c,s.t);circ(g.x(s.t/60),g.y(T),9,CL.fg);
+  rect(60,150,170,240,CL.glass,CL.fg,4,10);const hh=60+m*40;rect(64,390-hh,162,hh-4,SUBS[s.m][2],null);ctx.globalAlpha=1;
+  rect(70,396,150,14,CL.muted,CL.fg,2,3);if(s.run&&T<100)for(let i=0;i<4;i++){const fx=90+i*35,fh=14+rnd()*18;ctx.beginPath();ctx.moveTo(fx-9,396);ctx.quadraticCurveTo(fx,396-fh,fx+9,396);ctx.fillStyle=CL.hot;ctx.fill()}
+  const th=40+(T-20)/80*200;rect(135,390-th,16,th,CL.hot,null);rect(131,90,24,300,null,CL.fg,2,8);txt(fmt(T)+' °C',145,75,20,CL.fg,'center','700');
+  SUBS.forEach((q,i)=>{txt(CD[S.lg].m[i],g.x(tmax/60)-4,270+i*18,13,q[2],'right','700')});
+  s.T=T
+ },
+ read(s){const c=SUBS[s.m][1];return [[tx('t'),fmt(s.t/60,1)+' '+tx('min')],[tx('T'),fmt(s.T,1)+' °C'],[tx('c'),fmt(c)+' Дж/(кг·°C)'],[tx('Q'),fmt(s.p.P*s.t/1000,1)+' кДж'],[tx('dT'),fmt(s.T-20,1)+' °C']]}
+});
+function L2(a,b){return S.lg==='kk'?b:a}
+/* ---- 4. Энергия топлива ---- */
+const FUELS=[['дрова','отын-ағаш',10],['уголь','көмір',27],['спирт','спирт',27],['керосин','керосин',46],['бензин','бензин',46],['газ','газ',44]];
+reg('fuel',{
+ ru:{n:'Сгорание топлива',t:['Выберите топливо и массу, нажмите «Сжечь».','Сравните нагрев воды при одной массе разного топлива.','Запишите Q = qm.'],c:'Количество теплоты при сгорании топлива Q = q·m, где q – удельная теплота сгорания. У газа, бензина, керосина q больше, чем у дров, поэтому такая же масса топлива даёт больше тепла. Нагревателю достаётся только часть Q (КПД).',p:['Масса топлива','Масса воды'],m:['Дрова','Уголь','Спирт','Керосин','Бензин','Природный газ'],a:['Сжечь'],x:{q:'Удельная теплота сгорания q',Q:'Выделилось Q = qm',Qp:'Получила вода (КПД 30 %)',dT:'Нагрев воды Δt',MJ:'МДж/кг'}},
+ kk:{n:'Отынның жануы',t:['Отын мен массаны таңдап, «Жағу» батырмасын басыңыз.','Бірдей массалы әртүрлі отында судың қызуын салыстырыңыз.','Q = qm жазып алыңыз.'],c:'Отын жанғанда бөлінетін жылу мөлшері Q = q·m, мұнда q – жанудың меншікті жылуы. Газ, бензин, керосиннің q шамасы отыннан көп, сондықтан бірдей массадан көп жылу алынады. Қыздырғышқа Q-дың бір бөлігі ғана жетеді (ПӘК).',p:['Отын массасы','Су массасы'],m:['Отын (ағаш)','Көмір','Спирт','Керосин','Бензин','Табиғи газ'],a:['Жағу'],x:{q:'Жанудың меншікті жылуы q',Q:'Бөлінген жылу Q = qm',Qp:'Су алған жылу (ПӘК 30 %)',dT:'Судың қызуы Δt',MJ:'МДж/кг'}},
+ P:[['m',10,300,10,100,'г'],['M',.5,5,.5,2,'кг']],A:['burn'],M:1,
+ init(s){s.b=0;s.go=false},act(s,a){if(a==='burn'){s.b=0;s.go=true}},onmode(s){s.b=0;s.go=false},
+ draw(s,dt){
+  if(s.go){s.b=Math.min(1,s.b+dt/4);if(s.b>=1)s.go=false}
+  const q=FUELS[s.m][2]*1e6,Q=q*s.p.m/1000,Qp=.3*Q,dTf=Math.min(80,Qp/(4200*s.p.M)),dT=dTf*s.b;s.Q=Q;s.Qp=Qp;s.dT=dTf;
+  rect(60,200,200,190,CL.glass,CL.fg,4,10);rect(64,250,192,136,CL.water,null);
+  const T=20+dT,th=30+dT/80*200;rect(150,380-th,16,th,CL.hot,null);rect(146,120,24,260,null,CL.fg,2,8);txt(fmt(T)+' °C',158,105,20,CL.fg,'center','700');
+  rect(80,400,160,26,CL.muted,CL.fg,2,3);const mass=(1-s.b)*20;rect(120,396-mass,80,mass+4,'#7a5a35',null,0,3);
+  if(s.go)for(let i=0;i<6;i++){const fx=100+i*24,fh=28+rnd()*50;ctx.beginPath();ctx.moveTo(fx-12,396);ctx.quadraticCurveTo(fx,396-fh,fx+12,396);ctx.fillStyle=i%2?CL.hot:CL.warn;ctx.fill()}
+  const g=axes(340,60,420,300,6,50,'','q, '+tx('MJ'),0,5);
+  FUELS.forEach((f,i)=>{const w=50,x=350+i*68,h=f[2]/50*300;rect(x,360-h,w,h,i===s.m?CL.accent:CL.s2,CL.fg,2,4);txt(f[2],x+w/2,360-h-6,14,CL.fg,'center');txt(L2(f[0],f[1]),x+w/2,382,11,CL.muted,'center','500')})
+ },
+ read(s){return [[tx('q'),FUELS[s.m][2]+' '+tx('MJ')],[tx('Q'),fmt(s.Q/1e6,2)+' МДж'],[tx('Qp'),fmt(s.Qp/1e6,2)+' МДж'],[tx('dT'),fmt(s.dT,1)+' °C'+(s.dT>=80?' (≥)':'')]]}
+});
+/* ---- 5. Калориметр: смешивание ---- */
+reg('calor',{
+ ru:{n:'Смешивание воды разной температуры',t:['Задайте массы и температуры двух порций воды.','Нажмите «Смешать»: сравните Q отданное и Q полученное.','Увеличьте потери: как изменится результат?'],c:'Уравнение теплового баланса: Q_отд = Q_пол, то есть cm₁(t₁ − t) = cm₂(t − t₂). В реальном опыте часть теплоты теряется, поэтому Q_пол немного меньше.',p:['Масса горячей воды','Температура горячей','Масса холодной','Температура холодной','Потери теплоты'],m:[],a:['Смешать'],x:{tf:'Температура смеси t',q1:'Отдано Q₁',q2:'Получено Q₂',d:'Разность Q₁ − Q₂',hot:'горячая',cold:'холодная',mix:'смесь'}},
+ kk:{n:'Әртүрлі температуралы суды араластыру',t:['Екі су мөлшерінің массасы мен температурасын беріңіз.','«Араластыру» батырмасын басып, берілген және алынған Q-ды салыстырыңыз.','Шығынды арттырыңыз: нәтиже қалай өзгереді?'],c:'Жылулық баланс теңдеуі: Q_берілген = Q_алынған, яғни cm₁(t₁ − t) = cm₂(t − t₂). Нақты тәжірибеде жылудың бір бөлігі жоғалады, сондықтан Q_алынған сәл аз.',p:['Ыстық су массасы','Ыстық су температурасы','Суық су массасы','Суық су температурасы','Жылу шығыны'],m:[],a:['Араластыру'],x:{tf:'Қоспа температурасы t',q1:'Берілген Q₁',q2:'Алынған Q₂',d:'Айырмасы Q₁ − Q₂',hot:'ыстық',cold:'суық',mix:'қоспа'}},
+ P:[['m1',.1,1,.05,.3,'кг'],['T1',40,95,1,80,'°C'],['m2',.1,1,.05,.3,'кг'],['T2',5,35,1,15,'°C'],['l',0,15,1,5,'%']],A:['mix'],
+ init(s){s.mx=0;s.go=false},act(s,a){if(a==='mix'){s.mx=0;s.go=true}},
+ draw(s,dt){
+  const p=s.p,lam=p.l/100,Tf=((1-lam)*p.m1*p.T1+p.m2*p.T2)/((1-lam)*p.m1+p.m2);s.Tf=Tf;s.Q1=4200*p.m1*(p.T1-Tf);s.Q2=4200*p.m2*(Tf-p.T2);
+  if(s.go){s.mx=Math.min(1,s.mx+dt/2.2);if(s.mx>=1)s.go=false}
+  const bk=(x,y,m,T,lab,col,k)=>{const h=40+m*150*k;rect(x,y,130,200,CL.glass,CL.fg,3,8);rect(x+3,y+200-h,124,h-3,col,null);rect(x+60,y-80,10,100+0,CL.s2,CL.fg,1);const hh=clamp((T)/100,0,1)*95;rect(x+61,y+20-hh,8,hh,CL.hot,null);txt(fmt(T,1)+' °C',x+65,y-92,18,CL.fg,'center','700');txt(lab+', '+fmt(m,2)+' кг',x+65,y+224,15,CL.muted,'center')};
+  const m=s.mx;
+  if(m<1){const kk=1-m;bk(90,150,p.m1,p.T1,tx('hot'),tempCol((p.T1-5)/90),kk);bk(280,150,p.m2,p.T2,tx('cold'),tempCol((p.T2-5)/90),kk)}
+  if(m>0){const T=m<1?p.T1+(Tf-p.T1)*m:Tf;bk(560,150,p.m1+p.m2,T,tx('mix'),tempCol((T-5)/90),(p.m1+p.m2)/ (p.m1+p.m2)*Math.min(1,.4+m*.6)*(m<1?m:1));arrow(430,250,540,250,CL.accent,5)}
+  txt('Q₁ → Q₂',400,430,18,CL.accent,'center','700')
+ },
+ read(s){return [[tx('tf'),fmt(s.Tf,1)+' °C'],[tx('q1'),fmt(s.Q1/1000,1)+' кДж'],[tx('q2'),fmt(s.Q2/1000,1)+' кДж'],[tx('d'),fmt((s.Q1-s.Q2)/1000,1)+' кДж']]}
+});
+/* ---- 6/8. Кривая нагревания ---- */
+function hcurve(id,T0def,ru,kk){
+ const X={ru:{ph:['лёд','плавление','вода','кипение','пар'],t:'Время',T:'Температура',Q:'Подведено Q',ph0:'Состояние',Tb:'Температура кипения',lam:'Плавление Q = λm',L:'Кипение Q = Lm',min:'мин'},kk:{ph:['мұз','еру','су','қайнау','бу'],t:'Уақыт',T:'Температура',Q:'Берілген Q',ph0:'Күйі',Tb:'Қайнау температурасы',lam:'Еру Q = λm',L:'Қайнау Q = Lm',min:'мин'}};
+ const c1=2100,c2=4200,c3=2000,lam=3.34e5,Lv=2.26e6;
+ const Tbf=p=>1/(1/373.15-Math.log(p/101.3)/4890)-273.15;
+ function calc(s){const T0=s.p.T0,m=s.p.m,Tb=Tbf(s.p.p);const seg=[];let Q=0,T=T0,ph=T0<0?0:(T0<Tb?2:4);
+  const a=[];if(T0<0){a.push([0,c1*m*(0-T0),T0,0])}if(T0<=0){a.push([1,lam*m,0,0])}if(T0<Tb){a.push([2,c2*m*(Tb-Math.max(0,T0)),Math.max(0,T0),Tb])}a.push([3,Lv*m,Tb,Tb]);const Ts=Math.max(Tb,T0);a.push([4,c3*m*(Math.max(Ts+60,150)-Ts),Ts,Math.max(Ts+60,150)]);
+  let q=0;const out=[];for(const z of a){out.push({ph:z[0],q0:q,q1:q+z[1],T0:z[2],T1:z[3]});q+=z[1]}return {segs:out,Qt:q,Tb}}
+ function Tof(cal,Q){for(const z of cal.segs){if(Q<=z.q1||z===cal.segs[cal.segs.length-1]){const k=(Q-z.q0)/(z.q1-z.q0);return {T:z.T0+(z.T1-z.T0)*clamp(k,0,1),ph:z.ph}}}}
+ reg(id,{ru:Object.assign({x:X.ru.x},ru,{x:X.ru}),kk:Object.assign({},kk,{x:X.kk}),
+ P:[['m',.1,1,.1,.5,'кг'],['P',200,2000,100,1000,'Вт'],['p',50,300,10,101,'кПа'],['T0',-30,90,5,T0def,'°C']],A:['run'],
+ init(s){s.Q=0;s.run=false;s.pr=[];for(let i=0;i<40;i++)s.pr.push([rnd(),rnd(),rnd()*6.28])},act(s,a){if(a==='run')s.run=!s.run;if(a==='rst')s.Q=0},
+ draw(s,dt){
+  const cal=calc(s),P=s.p.P;const tmax=cal.Qt/P;if(s.run&&s.Q<cal.Qt)s.Q=Math.min(cal.Qt,s.Q+P*dt*tmax/14);
+  const r=Tof(cal,s.Q),T=r.T,ph=r.ph;s.T=T;s.ph=ph;s.cal=cal;
+  const tTop=Math.max(150,cal.segs[cal.segs.length-1].T1);const y0=Math.min(0,Math.floor(s.p.T0/10)*10);const g=axes(330,50,430,330,tmax/60,tTop,'t, '+tx('min'),'t, °C',5,5,v=>fmt(v,tmax/60<8?1:0),v=>fmt(v),y0);
+  const pts=[];for(const z of cal.segs){pts.push([g.x(z.q0/P/60),g.y(z.T0)]);pts.push([g.x(z.q1/P/60),g.y(z.T1)])}poly(pts,null,CL.accent,4);
+  cal.segs.forEach(z=>{if(z.ph===1||z.ph===3){txt(z.ph===1?tx('lam'):tx('L'),g.x((z.q0+z.q1)/2/P/60),g.y(z.T0)-10,13,CL.muted,'center','600')}});
+  if(cal.segs.length){line(g.x(0),g.y(0),g.x(tmax/60),g.y(0),CL.line,1,[4,4])}
+  circ(g.x(s.Q/P/60),g.y(T),9,CL.hot,CL.fg,2);
+  // vessel
+  rect(60,130,220,260,CL.glass,CL.fg,4,10);const lvl=ph===0||ph===1?120:ph===4?10:110;
+  if(ph<=1){const f=ph===0?1:1-(s.Q-cal.segs.find(z=>z.ph===1).q0)/(lam*s.p.m);for(let i=0;i<3;i++)for(let j=0;j<5;j++)if(rnd()<.995){rect(90+j*34+(rnd()-.5)*1.5*(T0def<0?1:0),270+i*34-0*f,28,28,'rgba(180,220,255,.85)',CL.fg,1.5,3)}rect(64,384-90*(1-f)*0-40,212,2,null,null);if(ph===1){rect(64,330,212,56,CL.water,null)}}
+  else if(ph===2||ph===3){rect(64,260,212,126,CL.water,null);if(ph===3)for(let i=0;i<8;i++)circ(80+rnd()*180,270+rnd()*100,2+rnd()*4,'#fff')}
+  if(ph===4||ph===3){for(const q of s.pr){q[2]+=dt*3;circ(70+((q[0]+Math.sin(q[2])*.02)%1)*200,140+((q[1])%1)*115+Math.cos(q[2]*2)*4,4,CL.hot)}}
+  rect(100,400,140,14,CL.muted,CL.fg,2,3);if(s.run&&s.Q<cal.Qt)for(let i=0;i<4;i++){const fx=118+i*34,fh=12+rnd()*18;ctx.beginPath();ctx.moveTo(fx-9,400);ctx.quadraticCurveTo(fx,400-fh,fx+9,400);ctx.fillStyle=CL.hot;ctx.fill()}
+  txt(fmt(T)+' °C',170,110,22,CL.fg,'center','700');txt(tx('ph')[ph]||'',170,440,18,CL.accent,'center','700')
+ },
+ read(s){const cal=s.cal;return [[tx('ph0'),tx('ph')[s.ph]],[tx('T'),fmt(s.T)+' °C'],[tx('t'),fmt(s.Q/s.p.P/60,1)+' '+tx('min')],[tx('Q'),fmt(s.Q/1000)+' кДж'],[tx('Tb'),fmt(cal.Tb,1)+' °C']]}
+ })}
+const hcRu6={n:'Плавление льда и нагревание воды',t:['Запустите нагрев: лёд плавится при 0 °C – на графике «полочка».','Изменяйте массу и мощность: как меняется длина полочки?','Подсчитайте Q = λm для плавления.'],c:'Во время плавления кристаллического вещества температура не меняется – вся теплота идёт на разрушение кристаллической решётки: Q = λ·m, где λ – удельная теплота плавления (у льда 3,34·10⁵ Дж/кг).',p:['Масса','Мощность нагревателя','Давление','Начальная температура'],m:[],a:['Старт / Пауза']};
+const hcKk6={n:'Мұздың еруі және судың қызуы',t:['Қыздыруды іске қосыңыз: мұз 0 °C-та ериді – графикте «тұғыр» пайда болады.','Масса мен қуатты өзгертіңіз: тұғыр ұзындығы қалай өзгереді?','Еру үшін Q = λm есептеңіз.'],c:'Кристалл заттың еру кезінде температура өзгермейді – жылудың бәрі кристалл торды бұзуға жұмсалады: Q = λ·m, мұнда λ – меншікті еру жылуы (мұз үшін 3,34·10⁵ Дж/кг).',p:['Масса','Қыздырғыш қуаты','Қысым','Бастапқы температура'],m:[],a:['Іске қосу / Тоқтату']};
+const hcRu8={n:'Кипение: температура и теплота парообразования',t:['Нагрейте воду до кипения: найдите «полочку» кипения.','Измените давление: как меняется температура кипения?','Подсчитайте Q = Lm для превращения воды в пар.'],c:'При кипении температура жидкости не меняется, теплота идёт на превращение жидкости в пар: Q = L·m (L – удельная теплота парообразования). Температура кипения растёт с давлением.',p:['Масса','Мощность нагревателя','Давление','Начальная температура'],m:[],a:['Старт / Пауза']};
+const hcKk8={n:'Қайнау: температура және булану жылуы',t:['Суды қайнағанша қыздырыңыз: қайнау «тұғырын» табыңыз.','Қысымды өзгертіңіз: қайнау температурасы қалай өзгереді?','Судың буға айналуы үшін Q = Lm есептеңіз.'],c:'Қайнау кезінде сұйықтың температурасы өзгермейді, жылу сұйықтың буға айналуына жұмсалады: Q = L·m (L – меншікті булану жылуы). Қайнау температурасы қысыммен артады.',p:['Масса','Қыздырғыш қуаты','Қысым','Бастапқы температура'],m:[],a:['Іске қосу / Тоқтату']};
+hcurve('hcurve6',-20,hcRu6,hcKk6);hcurve('hcurve8',20,hcRu8,hcKk8);
+/* ---- 7. Насыщенный пар ---- */
+reg('vapor',{
+ ru:{n:'Испарение и насыщенный пар',t:['Откройте сосуд: жидкость испаряется, пар уходит.','Закройте сосуд: число молекул пара растёт, пока пар не станет насыщенным.','Нагрейте: плотность насыщенного пара растёт.'],c:'В закрытом сосуде число молекул, вылетающих из жидкости, и возвращающихся в неё сравнивается – наступает динамическое равновесие, пар становится насыщенным. С ростом температуры плотность насыщенного пара растёт.',p:['Температура','Объём пара'],m:['Открытый сосуд','Закрытый сосуд'],a:[],x:{T:'Температура',ev:'Вылетает за 1 с',co:'Возвращается за 1 с',phi:'Относительная влажность',sat:'Пар насыщенный',uns:'Пар ненасыщенный'}},
+ kk:{n:'Булану және қаныққан бу',t:['Ыдысты ашыңыз: сұйық буланып, бу кетеді.','Ыдысты жабыңыз: бу қанығғанша бу молекулалары саны өседі.','Қыздырыңыз: қаныққан будың тығыздығы артады.'],c:'Жабық ыдыста сұйықтан ұшып шығатын және оған қайтатын молекулалар саны теңеседі – динамикалық тепе-теңдік орнап, бу қаныққан болады. Температура артқанда қаныққан будың тығыздығы өседі.',p:['Температура','Бу көлемі'],m:['Ашық ыдыс','Жабық ыдыс'],a:[],x:{T:'Температура',ev:'1 с-та ұшып шығады',co:'1 с-та қайтады',phi:'Салыстырмалы ылғалдылық',sat:'Бу қаныққан',uns:'Бу қанықпаған'}},
+ P:[['T',10,90,5,30,'°C'],['V',50,100,5,100,'%']],A:[],M:1,
+ init(s){s.pr=[];s.lvl=1;s.ev=0;s.co=0;s.evA=0;s.coA=0;s.acc=0;for(let i=0;i<8;i++)s.pr.push([rnd(),rnd(),rnd()*6.28])},
+ onmode(s){s.pr=s.pr.slice(0,6);s.lvl=1},
+ draw(s,dt){
+  const T=s.p.T,V=s.p.V/100,re=6+60*Math.pow((T-10)/80,1.6)+4,Nsat=(10+95*Math.pow((T-10)/80,1.7))*V,open=s.m===0;
+  const x0=200,x1=600,yb=430,ytop=70,yv=ytop+(1-V)*0*0;const hv=330*V,ytv=yb-110-hv+110*0;
+  // vessel
+  rect(x0,ytop,x1-x0,yb-ytop,CL.glass,CL.fg,4,6);if(!open)rect(x0-4,ytop-14,x1-x0+8,16,CL.muted,CL.fg,2,3);
+  const surf=yb-110*s.lvl;rect(x0+4,surf,x1-x0-8,yb-surf-3,CL.water,null);
+  // piston limit: vapour region height
+  const yTopV=ytop+(1-V)*(surf-ytop);if(V<1)rect(x0+3,ytop,x1-x0-6,yTopV-ytop,CL.s2,null);
+  // stochastic exchange
+  let nv=s.pr.length;let evR=re,coR;
+  if(open){coR=0;if(nv>4&&rnd()<dt*3)s.pr.splice(Math.floor(rnd()*nv),1)}
+  else coR=re*(nv/Math.max(Nsat,1));
+  s.acc+=dt;s.evA+=evR*dt;s.coA+=coR*dt;
+  if(s.acc>=1){s.ev=s.evA;s.co=s.coA;s.evA=0;s.coA=0;s.acc=0}
+  if(rnd()<evR*dt*.6&&nv<130&&(open||nv<Nsat+12))s.pr.push([rnd(),rnd(),rnd()*6.28]);
+  if(!open&&nv>Nsat+.5&&rnd()<dt*(nv-Nsat)*1.3)s.pr.splice(Math.floor(rnd()*s.pr.length),1);
+  if(open)s.lvl=Math.max(.35,s.lvl-dt*.004*(evR/30));
+  const sp=.3+T/150;for(const q of s.pr){q[0]+=Math.cos(q[2])*sp*dt*.4;q[1]+=Math.sin(q[2])*sp*dt*.4*1.2;if(q[0]<.02||q[0]>.98)q[2]=PI-q[2];if(q[1]<.02||q[1]>.98)q[2]=-q[2];q[0]=clamp(q[0],.02,.98);q[1]=clamp(q[1],.02,.98);if(rnd()<.01)q[2]=rnd()*6.28;
+   circ(x0+10+q[0]*(x1-x0-20),yTopV+10+q[1]*(surf-yTopV-20),5,CL.cold)}
+  for(let i=0;i<24;i++)circ(x0+20+((i*37)%360)+Math.sin(s.acc*6+i)*2,surf+15+((i*53)%80)*(1-0*i),4,'rgba(255,255,255,.55)');
+  line(x0+4,surf,x1-4,surf,CL.fg,1.5,[5,4]);
+  const phi=clamp(s.pr.length/Math.max(Nsat,1)*100,0,100);s.phi=open?clamp(s.pr.length/Math.max(Nsat,1)*100,0,100):phi;
+  // arrows
+  arrow(130,surf-6,130,surf-80,CL.hot,4);txt(tx('ev'),130,surf-90,13,CL.hot,'center');if(!open){arrow(670,surf-80,670,surf-6,CL.cold,4);txt(tx('co'),670,surf-90,13,CL.cold,'center')}
+  txt(s.phi>=96?tx('sat'):tx('uns'),400,52,20,s.phi>=96?CL.good:CL.warn,'center','700')
+ },
+ read(s){return [[tx('T'),fmt(s.p.T)+' °C'],[tx('ev'),fmt(s.ev)],[tx('co'),fmt(s.co)],[tx('phi'),fmt(s.phi)+' %']]}
+});
+/* ---- 10. Тепловой двигатель ---- */
+const ENG=[['ДВС (бензин)','ІДҚ (бензин)',.28,44,3.1],['Дизель','Дизель',.35,42.7,3.2],['Паровая турбина (уголь)','Бу турбинасы (көмір)',.38,27,2.9]];
+reg('engine4',{
+ ru:{n:'Четырёхтактный двигатель и его КПД',t:['Следите за четырьмя тактами: впуск, сжатие, рабочий ход, выпуск.','Выберите тип двигателя: сравните долю полезной работы.','Оцените выбросы CO₂ при заданной мощности.'],c:'Только часть энергии топлива превращается в полезную работу, остальное уходит с выхлопом и в охлаждение. Сжигание топлива выбрасывает CO₂ и вредные вещества, поэтому важно повышать КПД и беречь топливо.',p:['Частота вращения (замедл.)','Полезная мощность'],m:['ДВС (бензин)','Дизель','Паровая турбина'],a:[],x:{st:['Впуск','Сжатие','Рабочий ход','Выпуск'],eta:'КПД двигателя',fuel:'Расход топлива',co2:'Выбросы CO₂',use:'полезная работа',exh:'выхлоп',cool:'охлаждение',kg:'кг/ч'}},
+ kk:{n:'Төрт тактілі қозғалтқыш және оның ПӘК-і',t:['Төрт тактіні бақылаңыз: сору, сығу, жұмыс жүрісі, шығару.','Қозғалтқыш түрін таңдаңыз: пайдалы жұмыс үлесін салыстырыңыз.','Берілген қуатта CO₂ шығарындыларын бағалаңыз.'],c:'Отын энергиясының бір бөлігі ғана пайдалы жұмысқа айналады, қалғаны түтінмен және салқындатумен кетеді. Отынның жануы CO₂ және зиянды заттарды шығарады, сондықтан ПӘК-ті арттырып, отынды үнемдеу маңызды.',p:['Айналу жиілігі (баяулатылған)','Пайдалы қуат'],m:['ІДҚ (бензин)','Дизель','Бу турбинасы'],a:[],x:{st:['Сору','Сығу','Жұмыс жүрісі','Шығару'],eta:'Қозғалтқыш ПӘК-і',fuel:'Отын шығыны',co2:'CO₂ шығарындысы',use:'пайдалы жұмыс',exh:'түтін',cool:'салқындату',kg:'кг/сағ'}},
+ P:[['n',1,10,1,4,''],['W',10,200,10,60,'кВт']],A:[],M:1,
+ init(s){s.th=0},
+ draw(s,dt){
+  s.th=(s.th+dt*s.p.n*40)%720;const th=s.th,r=50,l=150,rad=th*PI/180,cx=250,cyC=420;
+  const py=cyC-(r*Math.cos(rad)+Math.sqrt(l*l-(r*Math.sin(rad))**2));const stroke=Math.floor(th/180);
+  rect(190,110,120,210,CL.glass,CL.fg,4,4);const ytop=110,yp=py-40+150-120+ (0);
+  const pistonY=clamp(py+10,170,300)+0,gasTop=ytop+4;
+  const gcol=[ 'rgba(120,180,255,.35)','rgba(255,180,90,.4)','rgba(255,90,40,.5)','rgba(160,160,160,.45)'][stroke];rect(194,gasTop,112,pistonY-gasTop,gcol,null);
+  rect(192,pistonY,116,22,CL.muted,CL.fg,2,3);line(250,pistonY+22,250+r*Math.sin(rad)*0+ r*Math.sin(rad),cyC-r*Math.cos(rad)-0+0,CL.fg,6);
+  circ(250,cyC,r,null,CL.fg,3);circ(250+r*Math.sin(rad),cyC-r*Math.cos(rad),8,CL.warn,CL.fg,2);circ(250,cyC,6,CL.fg);
+  // valves
+  rect(210,96,22,16,stroke===0?CL.good:CL.s2,CL.fg,2,3);rect(268,96,22,16,stroke===3?CL.good:CL.s2,CL.fg,2,3);if(stroke===2&&th%180<40){for(let i=0;i<5;i++)line(250,120,250+(rnd()-.5)*60,150+rnd()*30,CL.warn,3)}
+  txt(tx('st')[stroke],250,70,22,CL.accent,'center','700');for(let i=0;i<4;i++)circ(180+i*45,95-0*i-50+0,0,null);
+  txt(Math.round(th)+'°',250,490,16,CL.muted,'center');
+  const e=ENG[s.m],eta=e[2],Wk=s.p.W;const fuel=Wk*3600/1000/(eta*e[3]);s.f=fuel;s.co=fuel*e[4];s.eta=eta;
+  const bx=450,by=90,bh=300;const parts=[[tx('use'),eta,CL.good],[tx('exh'),(1-eta)*.62,CL.hot],[tx('cool'),(1-eta)*.38,CL.cold]];let yy=by+bh;
+  parts.forEach(p=>{const h=p[1]*bh;yy-=h;rect(bx,yy,80,h,p[2],CL.fg,2);txt(fmt(p[1]*100)+' %',bx+90,yy+h/2+5,16,p[2],'left','700');txt(p[0],bx+170,yy+h/2+5,14,CL.muted,'left','500')});
+  txt('100 %',bx+40,by-12,16,CL.fg,'center','700')
+ },
+ read(s){return [[tx('eta'),fmt(s.eta*100)+' %'],[tx('fuel'),fmt(s.f,1)+' '+tx('kg')],[tx('co2'),fmt(s.co,1)+' '+tx('kg')]]}
+});
+/* ---- 11. КПД ---- */
+reg('effic',{
+ ru:{n:'КПД теплового двигателя',t:['Задайте массу топлива и полезную работу: найдите η = A/Q.','Сравните с максимальным КПД по Карно.','Попробуйте получить η больше предела: что покажет программа?'],c:'КПД η = A_полезн / Q₁ = (Q₁ − Q₂)/Q₁. Он всегда меньше 100 % и не превышает (T₁ − T₂)/T₁ – предела, который задаёт температура нагревателя и холодильника.',p:['Масса топлива','Полезная работа','Температура нагревателя','Температура холодильника'],m:['Бензин','Дизель','Уголь'],a:[],x:{Q1:'Энергия топлива Q₁ = qm',eta:'КПД η = A/Q₁',car:'Предел по Карно',Q2:'Отдано холодильнику Q₂',bad:'Невозможно: η больше предела по Карно!'}},
+ kk:{n:'Жылу қозғалтқышының ПӘК-і',t:['Отын массасы мен пайдалы жұмысты беріңіз: η = A/Q табыңыз.','Карно бойынша ең үлкен ПӘК-пен салыстырыңыз.','η-ны шектен жоғары алып көріңіз: бағдарлама не көрсетеді?'],c:'ПӘК η = A_пайдалы / Q₁ = (Q₁ − Q₂)/Q₁. Ол әрқашан 100 %-дан аз және қыздырғыш пен суытқыш температурасы анықтайтын (T₁ − T₂)/T₁ шегінен аспайды.',p:['Отын массасы','Пайдалы жұмыс','Қыздырғыш температурасы','Суытқыш температурасы'],m:['Бензин','Дизель','Көмір'],a:[],x:{Q1:'Отын энергиясы Q₁ = qm',eta:'ПӘК η = A/Q₁',car:'Карно шегі',Q2:'Суытқышқа берілген Q₂',bad:'Мүмкін емес: η Карно шегінен жоғары!'}},
+ P:[['m',1,20,1,5,'кг'],['A',10,600,10,80,'МДж'],['T1',500,1500,50,900,'К'],['T2',280,400,10,320,'К']],A:[],M:1,
+ init(s){},
+ draw(s,dt){
+  const q=[44,42.7,27][s.m],Q1=q*s.p.m,A=s.p.A,eta=A/Q1,car=1-s.p.T2/s.p.T1;s.Q1=Q1;s.eta=eta;s.car=car;s.Q2=Q1-A;const bad=eta>car||A>Q1;
+  const bx=80,by=70,bh=330,sc=bh/Math.max(Q1,A,1)*.95;
+  rect(bx,by+bh-Q1*sc,100,Q1*sc,CL.hot,CL.fg,2,4);txt('Q₁',bx+50,by+bh+22,18,CL.hot,'center','700');
+  rect(bx+140,by+bh-A*sc,100,A*sc,bad?CL.warn:CL.good,CL.fg,2,4);txt('A',bx+190,by+bh+22,18,CL.good,'center','700');
+  const Q2=Math.max(0,Q1-A);rect(bx+280,by+bh-Q2*sc,100,Q2*sc,CL.cold,CL.fg,2,4);txt('Q₂',bx+330,by+bh+22,18,CL.cold,'center','700');
+  line(bx-10,by+bh,bx+390,by+bh,CL.fg,2);
+  const gx=520,gw=220;txt('η',gx,100,18,CL.fg,'left','700');rect(gx,120,gw,40,CL.s2,CL.fg,2,6);rect(gx,120,gw*clamp(eta,0,1),40,bad?CL.warn:CL.good,null,0,6);txt(fmt(eta*100,1)+' %',gx+gw/2,148,20,'#fff','center','700');
+  txt(tx('car'),gx,200,16,CL.fg,'left','700');rect(gx,214,gw,40,CL.s2,CL.fg,2,6);rect(gx,214,gw*car,40,CL.accent,null,0,6);txt(fmt(car*100,1)+' %',gx+gw/2,242,20,'#fff','center','700');
+  line(gx+gw*clamp(car,0,1),110,gx+gw*clamp(car,0,1),265,CL.hot,3,[5,4]);
+  if(bad)txt(tx('bad'),gx,320,17,CL.hot,'left','700')
+ },
+ read(s){return [[tx('Q1'),fmt(s.Q1,0)+' МДж'],[tx('eta'),fmt(s.eta*100,1)+' %'],[tx('car'),fmt(s.car*100,1)+' %'],[tx('Q2'),fmt(Math.max(0,s.Q2),0)+' МДж']]}
+});
+const chg=(q)=>q>0?'#d9482b':q<0?'#2b6cd9':'#9aa5a3';
+function sym(x,y,q,r){txt(q>0?'+':q<0?'−':'',x,y+r*.45,r*1.6,'#fff','center','700')}
+/* ---- 12. Электроскоп ---- */
+reg('electro',{
+ ru:{n:'Электроскоп и электризация',t:['Поднесите заряженную палочку к электроскопу, не касаясь.','Коснитесь палочкой: что происходит с листочками?','Заземлите электроскоп рукой и уберите палочку: каким стал заряд?'],c:'Заряд одного знака отталкивается, разных знаков – притягивается. При касании заряд переходит на проводник, при приближении без касания заряды перераспределяются (электризация через влияние).',p:['Расстояние до палочки'],m:['Стеклянная палочка (+)','Эбонитовая палочка (−)'],a:['Коснуться палочкой','Заземлить / отпустить','Убрать палочку'],x:{ang:'Угол между листочками',net:'Заряд электроскопа',pos:'положительный',neg:'отрицательный',zero:'нейтрален',gnd:'Заземление',on:'есть',off:'нет'}},
+ kk:{n:'Электроскоп және электрлену',t:['Зарядталған таяқшаны жақындатыңыз, тигізбей.','Таяқшамен тигізіңіз: жапырақшаларға не болады?','Электроскопты қолмен жерлеп, таяқшаны алыңыз: заряд қандай болды?'],c:'Бір таңбалы зарядтар тебіседі, әртүрлі таңбалылар тартылады. Тигізгенде заряд өткізгішке ауысады, жақындатқанда (тигізбей) зарядтар қайта таралады (ықпал арқылы электрлену).',p:['Таяқшаға дейінгі қашықтық'],m:['Шыны таяқша (+)','Эбонит таяқша (−)'],a:['Таяқшамен тигізу','Жерлеу / босату','Таяқшаны алу'],x:{ang:'Жапырақшалар арасындағы бұрыш',net:'Электроскоп заряды',pos:'оң',neg:'теріс',zero:'бейтарап',gnd:'Жерлеу',on:'бар',off:'жоқ'}},
+ P:[['d',1,30,1,12,'см']],A:['touch','gnd','off'],M:1,
+ init(s){s.Qe=0;s.gnd=false;s.ang=0},onmode(s){s.Qe=0;s.gnd=false},
+ act(s,a){const rs=s.m?-1:1;if(a==='touch'&&s.p.d<=6){s.Qe=clamp(s.Qe+rs*.9,-1.2,1.2);s.p.d=1;return true}if(a==='gnd')s.gnd=!s.gnd;if(a==='off'){s.p.d=30;return true}},
+ draw(s,dt){
+  const rs=s.m?-1:1,d=s.p.d,f=d>=30?0:clamp(1.3*Math.exp(-(d-1)/7),0,1.3);
+  if(s.gnd)s.Qe=-rs*f*.8*(f>0?1:0)+(f>0?0:s.Qe*0);if(s.gnd&&f===0)s.Qe=s.Qe;
+  const top=s.gnd?0:rs*f*.5,Lc=s.Qe*.5+top;const target=Math.min(70,Math.abs(Lc)*80);s.ang+=(target-s.ang)*Math.min(1,dt*8);
+  // electroscope
+  const cx=520,cy=170;rect(cx-70,cy+40,140,200,CL.glass,CL.fg,4,12);line(cx,cy+16,cx,cy+110,CL.fg,6);circ(cx,cy,28,CL.s2,CL.fg,4);
+  const a=s.ang*PI/180;for(const sg of[-1,1]){line(cx,cy+110,cx+sg*Math.sin(a)*70,cy+110+Math.cos(a)*70,'#b8860b',5)}
+  const lq=Lc;txt('',0,0,1);const sk=(x,y,q)=>txt(q>0?'+':'−',x,y,18,chg(q),'center','700');
+  if(Math.abs(Lc)>.03){for(const sg of[-1,1])sk(cx+sg*Math.sin(a)*70+sg*12,cy+110+Math.cos(a)*70+4,Lc)}
+  const topq=s.Qe*.5+(s.gnd?0:-rs*f*.5);if(Math.abs(topq)>.05){sk(cx-10,cy-4,topq);sk(cx+10,cy+8,topq)}
+  if(s.gnd){line(cx,cy+240,cx,cy+262,CL.fg,3);line(cx-20,cy+262,cx+20,cy+262,CL.fg,3);line(cx-12,cy+270,cx+12,cy+270,CL.fg,3);line(cx-5,cy+278,cx+5,cy+278,CL.fg,3)}
+  // rod
+  const tip=cx-36-d*9,ry=cy-6;poly([[tip-260,ry-14],[tip,ry-14],[tip,ry+14],[tip-260,ry+14]],rs>0?'#cfe3ee':'#4a3b32',CL.fg,3,true);
+  for(let i=0;i<5;i++)sk(tip-20-i*22,ry+6,rs);
+  s.net=s.Qe;
+ },
+ read(s){const q=s.Qe;return [[tx('net'),Math.abs(q)<.03?tx('zero'):q>0?tx('pos'):tx('neg')],[tx('ang'),fmt(s.ang*2)+'°'],[tx('gnd'),s.gnd?tx('on'):tx('off')]]}
+});
+reg('conductor',{
+ ru:{n:'Проводники и диэлектрики',t:['Поднесите палочку к лёгкому шарику: он притянется.','Коснитесь: что произойдёт с проводником и с диэлектриком?','Сравните поведение после касания.'],c:'Нейтральные тела притягиваются к заряженной палочке: в проводнике заряды перемещаются, в диэлектрике поляризуются. После касания проводник получает заряд палочки и отталкивается, диэлектрик заряд не передаёт и остаётся притянутым.',p:['Расстояние до палочки'],m:['Проводник (фольга)','Диэлектрик (бумага)'],a:['Коснуться шариком','Заново'],x:{st:'Состояние',att:'притягивается',rep:'отталкивается',neu:'нейтрален'}},
+ kk:{n:'Өткізгіштер және диэлектриктер',t:['Таяқшаны жеңіл шарикке жақындатыңыз: ол тартылады.','Тигізіңіз: өткізгіш пен диэлектрикке не болады?','Тигізгеннен кейінгі жағдайды салыстырыңыз.'],c:'Бейтарап денелер зарядталған таяқшаға тартылады: өткізгіште зарядтар орын ауыстырады, диэлектрикте поляризацияланады. Тигізгеннен кейін өткізгіш таяқша зарядын алып, тебіледі, диэлектрик зарядты бермей, тартылып тұрады.',p:['Таяқшаға дейінгі қашықтық'],m:['Өткізгіш (фольга)','Диэлектрик (қағаз)'],a:['Шарикпен тигізу','Қайтадан'],x:{st:'Күйі',att:'тартылады',rep:'тебіледі',neu:'бейтарап'}},
+ P:[['d',2,20,1,10,'см']],A:['touch','again'],M:1,
+ init(s){s.th=0;s.vel=0;s.touched=false;s.stick=false},onmode(s){s.touched=false;s.stick=false;s.th=0},
+ act(s,a){if(a==='again'){s.touched=false;s.stick=false;return}if(a==='touch'&&s.th<-.02){if(s.m===0)s.touched=true;else s.stick=true}},
+ draw(s,dt){
+  const L=260,px=500,py=50,d=s.p.d;let target;
+  if(s.touched)target=clamp(1.2/(1+d*.15),.1,.6);else target=-clamp(2.2/(d*.35+1),.05,.55);
+  if(s.stick)target=-.35;
+  s.th+=(target-s.th)*Math.min(1,dt*6);
+  const bx=px+Math.sin(s.th)*L,by=py+Math.cos(s.th)*L;
+  line(px-60,py,px+60,py,CL.fg,5);line(px,py,bx,by,CL.muted,2);
+  circ(bx,by,22,s.m===0?'#c0c8cc':'#efe9d6',CL.fg,3);
+  if(s.touched||s.stick){txt(s.touched?'+':'',bx,by+8,24,'#fff','center','700')}
+  const tip=px-120-d*12;poly([[tip-240,by-14],[tip,by-14],[tip,by+14],[tip-240,by+14]],'#cfe3ee',CL.fg,3,true);for(let i=0;i<4;i++)txt('+',tip-20-i*22,by+6,18,CL.hot,'center','700');
+  if(!s.touched&&!s.stick){txt('−',bx-9,by+5,16,CL.cold,'center','700');txt('+',bx+9,by+5,16,CL.hot,'center','700')}
+ },
+ read(s){return [[tx('st'),s.touched?tx('rep'):s.stick||s.th<-.03?tx('att'):tx('neu')]]}
+});
+/* ---- 13. Закон Кулона ---- */
+reg('coulomb',{
+ ru:{n:'Закон Кулона',t:['Меняйте заряды и расстояние: как меняется сила?','Увеличьте расстояние вдвое – сила уменьшится в 4 раза.','Поместите заряды в воду или керосин. Соедините шарики и проверьте сохранение заряда.'],c:'F = k·|q₁q₂| / (ε·r²). Сила прямо пропорциональна произведению зарядов и обратно пропорциональна квадрату расстояния; в среде она в ε раз меньше. При соединении шариков суммарный заряд сохраняется: q₁ + q₂ = const.',p:['Заряд q₁','Заряд q₂','Расстояние r'],m:['Вакуум (ε = 1)','Керосин (ε = 2)','Вода (ε = 81)'],a:['Соединить шарики'],x:{F:'Сила взаимодействия F',q:'q₁ + q₂',kind:'Взаимодействие',att:'притяжение',rep:'отталкивание',none:'нет'}},
+ kk:{n:'Кулон заңы',t:['Зарядтар мен қашықтықты өзгертіңіз: күш қалай өзгереді?','Қашықтықты екі есе арттырыңыз – күш 4 есе азаяды.','Зарядтарды суға немесе керосинге салыңыз. Шариктерді қосып, заряд сақталуын тексеріңіз.'],c:'F = k·|q₁q₂| / (ε·r²). Күш зарядтар көбейтіндісіне тура және қашықтық квадратына кері пропорционал; ортада ол ε есе аз. Шариктерді қосқанда жиынтық заряд сақталады: q₁ + q₂ = const.',p:['q₁ заряды','q₂ заряды','Қашықтық r'],m:['Вакуум (ε = 1)','Керосин (ε = 2)','Су (ε = 81)'],a:['Шариктерді қосу'],x:{F:'Әрекеттесу күші F',q:'q₁ + q₂',kind:'Әрекеттесу',att:'тартылу',rep:'тебілу',none:'жоқ'}},
+ P:[['q1',-10,10,1,4,'нКл'],['q2',-10,10,1,-3,'нКл'],['r',2,20,1,6,'см']],A:['share'],M:1,
+ init(s){},
+ act(s,a){if(a==='share'){const q=(s.p.q1+s.p.q2)/2;s.p.q1=q;s.p.q2=q;return true}},
+ draw(s,dt){
+  const {q1,q2,r}=s.p,eps=[1,2,81][s.m],F=90*Math.abs(q1*q2)/(eps*r*r);s.F=F;
+  const cx=400,x1=cx-r*15,x2=cx+r*15,y=130;
+  rect(60,y+34,680,6,CL.s2,null,0,3);
+  for(const [x,q] of[[x1,q1],[x2,q2]]){const R=14+Math.sqrt(Math.abs(q))*5;circ(x,y,R,chg(q),CL.fg,3);if(q)sym(x,y,q,R)}
+  const L=F>0?18+34*Math.log10(1+F):0;const att=q1*q2<0;
+  if(F>0){if(att){arrow(x1+20,y,x1+20+L,y,CL.fg,5);arrow(x2-20,y,x2-20-L,y,CL.fg,5)}else{arrow(x1-20,y,x1-20-L,y,CL.fg,5);arrow(x2+20,y,x2+20+L,y,CL.fg,5)}}
+  line(x1,y+60,x2,y+60,CL.muted,2);arrow(x1+(x2-x1)/2-1,y+60,x2,y+60,CL.muted,2);arrow(x1+(x2-x1)/2+1,y+60,x1,y+60,CL.muted,2);txt('r = '+r+' см',cx,y+86,16,CL.muted,'center');
+  const fmax=90*Math.abs(q1*q2)/(eps*4)||1,g=axes(90,260,620,170,20,Math.max(fmax,.001),'r, см','F, мкН',5,4,v=>fmt(v),v=>fmt(v,fmax<1?2:fmax<10?1:0));
+  const pts=[];for(let rr=2;rr<=20;rr+=.25)pts.push([g.x(rr),g.y(90*Math.abs(q1*q2)/(eps*rr*rr))]);if(F>0){poly(pts,null,CL.accent,4);circ(g.x(r),g.y(F),8,CL.hot,CL.fg,2)}
+ },
+ read(s){const q=s.p.q1*s.p.q2;return [[tx('F'),fmt(s.F,s.F<10?2:1)+' мкН'],[tx('kind'),q===0?tx('none'):q<0?tx('att'):tx('rep')],[tx('q'),fmt(s.p.q1+s.p.q2,1)+' нКл']]}
+});
+/* ---- 14. Электрическое поле ---- */
+function Ef(qs,x,y){let ex=0,ey=0;for(const c of qs){const dx=x-c[0],dy=y-c[1],r2=dx*dx+dy*dy+25,r=Math.sqrt(r2);ex+=c[2]*dx/(r2*r);ey+=c[2]*dy/(r2*r)}return [ex,ey]}
+reg('efield',{
+ ru:{n:'Электрическое поле зарядов',t:['Задайте заряды Q₁ и Q₂ разных или одинаковых знаков.','Перемещайте пробный заряд: как меняется напряжённость?','Найдите точку, где E близка к нулю (одинаковые заряды).'],c:'Напряжённость E = F/q показывает силу, действующую на единичный положительный заряд. Линии поля выходят из положительных зарядов и входят в отрицательные; чем гуще линии, тем сильнее поле. Поля зарядов складываются векторно.',p:['Заряд Q₁','Заряд Q₂','Пробный заряд: x','Пробный заряд: y'],m:[],a:[],x:{E:'Напряжённость в точке',ang:'Направление',q1:'Q₁',q2:'Q₂'}},
+ kk:{n:'Зарядтардың электр өрісі',t:['Q₁ және Q₂ зарядтарын таңбалары әртүрлі немесе бірдей етіп беріңіз.','Сынақ зарядты жылжытыңыз: кернеулік қалай өзгереді?','E нөлге жақын нүктені табыңыз (бірдей зарядтар).'],c:'Кернеулік E = F/q бірлік оң зарядқа әсер ететін күшті көрсетеді. Өріс сызықтары оң зарядтан шығып, теріс зарядқа кіреді; сызықтар қалың болған сайын өріс күшті. Зарядтардың өрістері векторлық қосылады.',p:['Q₁ заряды','Q₂ заряды','Сынақ заряд: x','Сынақ заряд: y'],m:[],a:[],x:{E:'Нүктедегі кернеулік',ang:'Бағыты',q1:'Q₁',q2:'Q₂'}},
+ P:[['Q1',-8,8,1,5,'нКл'],['Q2',-8,8,1,-5,'нКл'],['x',40,760,10,400,''],['y',40,460,10,110,'']],A:[],
+ init(s){},
+ draw(s,dt){
+  const qs=[[250,250,s.p.Q1],[550,250,s.p.Q2]].filter(c=>c[2]!==0);
+  for(let gx=50;gx<=750;gx+=50)for(let gy=50;gy<=460;gy+=50){const e=Ef(qs,gx,gy),m=Math.hypot(e[0],e[1]);if(m<1e-6)continue;const L=24*Math.tanh(m*9000)+3,ux=e[0]/m,uy=e[1]/m;arrow(gx-ux*L/2,gy-uy*L/2,gx+ux*L/2,gy+uy*L/2,CL.line,2)}
+  // field lines
+  for(const c of qs){const sg=c[2]>0?1:-1;if(qs.some(o=>o[2]>0)&&sg<0)continue;for(let k=0;k<14;k++){const a=k/14*6.283;let x=c[0]+Math.cos(a)*12,y=c[1]+Math.sin(a)*12;const pts=[[x,y]];for(let i=0;i<500;i++){const e=Ef(qs,x,y),m=Math.hypot(e[0],e[1])||1;x+=sg*e[0]/m*4;y+=sg*e[1]/m*4;pts.push([x,y]);if(x<0||x>800||y<0||y>500)break;if(qs.some(o=>o!==c&&Math.hypot(x-o[0],y-o[1])<10))break}poly(pts,null,CL.accent,1.6)}}
+  for(const c of qs){circ(c[0],c[1],16,chg(c[2]),CL.fg,3);sym(c[0],c[1],c[2],16)}
+  const px=s.p.x,py=s.p.y,e=Ef(qs,px,py),m=Math.hypot(e[0],e[1]);s.Em=m*2.25e8*1e-3;s.ang=Math.atan2(-e[1],e[0])*180/PI;
+  if(m>1e-9){const L=30+60*Math.tanh(m*6000);arrow(px,py,px+e[0]/m*L,py+e[1]/m*L,CL.hot,5)}circ(px,py,8,'#fff',CL.hot,3);txt('+',px,py+5,13,CL.hot,'center','700')
+ },
+ read(s){return [[tx('E'),fmt(s.Em,s.Em<10?2:0)+' кВ/м'],[tx('ang'),fmt(s.ang)+'°']]}
+});
+/* ---- 15. Потенциал ---- */
+reg('potential',{
+ ru:{n:'Работа поля и разность потенциалов',t:['Задайте напряжение между пластинами и расстояние.','Отпустите заряд: он движется вдоль поля и набирает энергию.','Проверьте: A = qU и E = U/d.'],c:'Разность потенциалов U = φ₁ − φ₂ = A/q. Работа поля по перемещению заряда A = qU не зависит от формы пути. В однородном поле E = U/d, потенциал меняется линейно.',p:['Напряжение U','Расстояние между пластинами d','Заряд q'],m:[],a:['Отпустить заряд','Вернуть'],x:{E:'Напряжённость E = U/d',A:'Работа поля A = qU',f:'Потенциал в точке',Ek:'Кинетическая энергия'}},
+ kk:{n:'Өрістің жұмысы және потенциалдар айырымы',t:['Пластиналар арасындағы кернеу мен қашықтықты беріңіз.','Зарядты босатыңыз: ол өріс бойымен қозғалып, энергия жинайды.','Тексеріңіз: A = qU және E = U/d.'],c:'Потенциалдар айырымы U = φ₁ − φ₂ = A/q. Зарядты орын ауыстырудағы өріс жұмысы A = qU жол пішініне байланысты емес. Біртекті өрісте E = U/d, потенциал сызықтық өзгереді.',p:['Кернеу U','Пластиналар арасы d','Заряд q'],m:[],a:['Зарядты босату','Қайтару'],x:{E:'Кернеулік E = U/d',A:'Өріс жұмысы A = qU',f:'Нүктедегі потенциал',Ek:'Кинетикалық энергия'}},
+ P:[['U',50,500,10,200,'В'],['d',2,20,1,10,'см'],['q',-10,10,1,5,'нКл']],A:['go','back'],
+ init(s){s.x=0;s.go=false},
+ act(s,a){if(a==='go')s.go=true;if(a==='back'){s.go=false;s.x=0}},
+ draw(s,dt){
+  const {U,d,q}=s.p,xl=170,xr=630,Eold=U/(d/100);
+  rect(xl-14,70,14,230,CL.hot,CL.fg,2,3);rect(xr,70,14,230,CL.cold,CL.fg,2,3);txt('+',xl-7,60,20,CL.hot,'center','700');txt('−',xr+7,60,24,CL.cold,'center','700');
+  for(let i=0;i<6;i++)arrow(xl+8,95+i*40,xr-4,95+i*40,'rgba(150,150,150,.5)',2);
+  for(let k=1;k<5;k++){const x=xl+(xr-xl)*k/5;line(x,70,x,300,CL.muted,1.5,[5,5]);txt(fmt(U*(1-k/5))+' В',x,318,13,CL.muted,'center','500')}
+  txt(fmt(U)+' В',xl-7,318,13,CL.hot,'center','700');txt('0',xr+7,318,13,CL.cold,'center','700');
+  if(s.go){s.x=Math.min(1,s.x+dt*.4)}
+  const dir=q>0?1:-1,pos=q>0?s.x:1-s.x;const bx=xl+(xr-xl)*(q>=0?s.x:1-s.x),by=185;if(q===0){}
+  circ(bx,by,14,chg(q),CL.fg,3);if(q)sym(bx,by,q,14);
+  s.f=U*(1-(bx-xl)/(xr-xl));s.Ek=Math.abs(q)*U*s.x;s.A=Math.abs(q)*U;
+  // energy bar
+  line(xl,160-0,xl,160,CL.fg,0);
+  const g=axes(170,350,460,110,d,U,'x, см','φ, В',5,2,v=>fmt(v,1),v=>fmt(v));poly([[g.x(0),g.y(U)],[g.x(d),g.y(0)]],null,CL.accent,4);circ(g.x((bx-xl)/(xr-xl)*d),g.y(s.f),7,CL.hot,CL.fg,2);
+  rect(690,70,30,230,CL.s2,CL.fg,2,6);const h=230*Math.min(1,s.Ek/Math.max(s.A,1e-9));rect(690,300-h,30,h,CL.good,null,0,6);txt('Eк',705,60,14,CL.fg,'center','700')
+ },
+ read(s){return [[tx('E'),fmt(s.p.U/(s.p.d/100)/1000,1)+' кВ/м'],[tx('A'),fmt(s.A/1000,2)+' мкДж'],[tx('f'),fmt(s.f)+' В'],[tx('Ek'),fmt(s.Ek/1000,2)+' мкДж']]}
+});
+/* ---- 16. Конденсатор ---- */
+reg('capac',{
+ ru:{n:'Плоский конденсатор',t:['Меняйте площадь пластин и расстояние между ними.','Вставьте диэлектрик: как изменится ёмкость?','Проверьте q = CU и W = CU²/2.'],c:'Ёмкость плоского конденсатора C = ε·ε₀·S/d: растёт с площадью и диэлектрической проницаемостью, уменьшается с расстоянием. Заряд q = CU, энергия W = CU²/2.',p:['Площадь пластин S','Расстояние d','Напряжение U'],m:['Воздух (ε = 1)','Бумага (ε = 3,5)','Стекло (ε = 7)'],a:[],x:{C:'Ёмкость C',q:'Заряд q = CU',W:'Энергия W = CU²/2'}},
+ kk:{n:'Жазық конденсатор',t:['Пластиналардың ауданы мен арасын өзгертіңіз.','Диэлектрик салыңыз: сыйымдылық қалай өзгереді?','q = CU және W = CU²/2 тексеріңіз.'],c:'Жазық конденсатордың электр сыйымдылығы C = ε·ε₀·S/d: ауданмен және диэлектрлік өтімділікпен артады, қашықтықпен кемиді. Заряд q = CU, энергия W = CU²/2.',p:['Пластина ауданы S','Арақашықтық d','Кернеу U'],m:['Ауа (ε = 1)','Қағаз (ε = 3,5)','Шыны (ε = 7)'],a:[],x:{C:'Сыйымдылық C',q:'Заряд q = CU',W:'Энергия W = CU²/2'}},
+ P:[['S',20,200,10,100,'см²'],['d',1,10,1,3,'мм'],['U',1,100,1,50,'В']],A:[],M:1,
+ init(s){},
+ draw(s,dt){
+  const eps=[1,3.5,7][s.m],{S,d,U}=s.p,C=.885*eps*S/d,q=C*U,W=C*U*U/2e3;s.C=C;s.q=q;s.W=W;
+  const w=70+Math.sqrt(S)*13,gap=14+d*9,cx=230,top=250-w/2*0+150,y1=210-gap/2,y2=210+gap/2;
+  rect(cx-w/2,y1-12,w,12,CL.hot,CL.fg,2,2);rect(cx-w/2,y2,w,12,CL.cold,CL.fg,2,2);if(eps>1)rect(cx-w/2,y1,w,gap,eps>5?'rgba(120,190,230,.45)':'rgba(230,210,150,.55)',null);
+  const n=clamp(Math.round(q/130),2,16);for(let i=0;i<n;i++){const x=cx-w/2+8+(w-16)*(i+.5)/n;txt('+',x,y1+2,14,CL.hot,'center','700');txt('−',x,y2+14,14,CL.cold,'center','700');arrow(x,y1+4,x,y2-2,'rgba(140,140,140,.7)',1.5)}
+  line(cx,y1-12,cx,70,CL.fg,3);line(cx,y2+12,cx,350,CL.fg,3);line(cx,70,90,70,CL.fg,3);line(cx,350,90,350,CL.fg,3);line(90,70,90,180,CL.fg,3);line(90,240,90,350,CL.fg,3);
+  line(70,180,110,180,CL.fg,4);line(78,192,102,192,CL.fg,2.5);line(78,240,102,240,CL.fg,2.5);txt(fmt(U)+' В',60,215,16,CL.fg,'right','700');
+  const g=axes(430,90,320,300,10,Math.max(.885*eps*S/1*1.0,10),'d, мм','C, пФ',5,4,v=>fmt(v),v=>fmt(v));const pts=[];for(let dd=1;dd<=10;dd+=.25)pts.push([g.x(dd),g.y(.885*eps*S/dd)]);poly(pts,null,CL.accent,4);circ(g.x(d),g.y(C),8,CL.hot,CL.fg,2)
+ },
+ read(s){return [[tx('C'),fmt(s.C,1)+' пФ'],[tx('q'),fmt(s.q/1000,2)+' нКл'],[tx('W'),fmt(s.W,2)+' мкДж'.replace('мкДж','нДж')]]}
+});
+/* ---- 17. Простая цепь ---- */
+function loopPath(pts,t){let L=0;const seg=[];for(let i=0;i<pts.length;i++){const a=pts[i],b=pts[(i+1)%pts.length],l=Math.hypot(b[0]-a[0],b[1]-a[1]);seg.push([a,b,l]);L+=l}t=((t%L)+L)%L;for(const z of seg){if(t<=z[2]){const k=t/z[2];return [z[0][0]+(z[1][0]-z[0][0])*k,z[0][1]+(z[1][1]-z[0][1])*k]}t-=z[2]}return pts[0]}
+function meter(x,y,l,val,col){circ(x,y,24,CL.bg,CL.fg,3);txt(l,x,y-5,16,col||CL.fg,'center','700');txt(val,x,y+14,13,CL.fg,'center','600')}
+function lamp(x,y,glow){const g=clamp(glow,0,1);if(g>0){ctx.beginPath();ctx.arc(x,y,24+g*36,0,6.3);ctx.fillStyle=`rgba(255,220,90,${.15+g*.35})`;ctx.fill()}circ(x,y,24,g>0?`rgba(255,${230-g*20},${160-g*100},${.5+g*.5})`:CL.bg,CL.fg,3);line(x-16,y-16,x+16,y+16,CL.fg,2.5);line(x+16,y-16,x-16,y+16,CL.fg,2.5)}
+function cell(x,y,vert){if(vert){line(x-26,y-8,x+26,y-8,CL.fg,5);line(x-14,y+8,x+14,y+8,CL.fg,3);txt('+',x+34,y-8,16,CL.hot,'left','700');txt('−',x+34,y+18,18,CL.cold,'left','700')}else{line(x-8,y-26,x-8,y+26,CL.fg,5);line(x+8,y-14,x+8,y+14,CL.fg,3)}}
+reg('circ1',{
+ ru:{n:'Электрическая цепь: ток и напряжение',t:['Замкните ключ: в цепи появляется ток.','Меняйте ЭДС источника и сопротивление лампы.','Найдите I по формуле I = U/R и сверьте с амперметром.'],c:'Электрическая цепь состоит из источника тока, потребителя, ключа и проводов. Амперметр включают последовательно (измеряет силу тока), вольтметр – параллельно потребителю (измеряет напряжение). Ток течёт только в замкнутой цепи.',p:['Напряжение источника','Сопротивление лампы'],m:[],a:['Замкнуть / разомкнуть ключ'],x:{I:'Сила тока I',U:'Напряжение на лампе U',P:'Мощность лампы P',sw:'Ключ',on:'замкнут',off:'разомкнут'}},
+ kk:{n:'Электр тізбегі: ток және кернеу',t:['Кілтті жалғаңыз: тізбекте ток пайда болады.','Ток көзінің кернеуін және шам кедергісін өзгертіңіз.','I-ді I = U/R формуласымен табып, амперметрмен салыстырыңыз.'],c:'Электр тізбегі ток көзінен, тұтынушыдан, кілттен және сымдардан тұрады. Амперметр тізбектей қосылады (ток күшін өлшейді), вольтметр тұтынушымен параллель қосылады (кернеуді өлшейді). Ток тек тұйық тізбекте жүреді.',p:['Ток көзінің кернеуі','Шамның кедергісі'],m:[],a:['Кілтті жалғау / ажырату'],x:{I:'Ток күші I',U:'Шамдағы кернеу U',P:'Шам қуаты P',sw:'Кілт',on:'жалғанған',off:'ажыратылған'}},
+ P:[['U',1.5,12,1.5,6,'В'],['R',5,100,5,20,'Ом']],A:['sw'],
+ init(s){s.on=false;s.t=0},act(s,a){if(a==='sw')s.on=!s.on},
+ draw(s,dt){
+  const I=s.on?s.p.U/s.p.R:0,P=I*I*s.p.R;s.I=I;s.Pw=P;s.t+=dt*I*260;
+  const pts=[[150,130],[650,130],[650,360],[150,360]];poly(pts,null,CL.fg,4,true);
+  rect(135,225,30,60,CL.bg,null);cell(150,255,true);
+  // switch
+  circ(380,360,5,CL.fg);circ(450,360,5,CL.fg);line(380,360,s.on?450:440,s.on?360:325,CL.fg,4);
+  lamp(560,130,s.on?clamp(P/2,.15,1):0);
+  meter(300,130,'A',fmt(I,2),CL.hot);
+  // voltmeter loop above lamp
+  line(520,130,520,60,CL.fg,2.5);line(600,130,600,60,CL.fg,2.5);line(520,60,600,60,CL.fg,2.5);rect(536,40,48,40,CL.bg,null);meter(560,60,'V',fmt(s.on?s.p.U:0,1),CL.cold);
+  if(s.on){const N=26,L=2*(500+230);for(let i=0;i<N;i++){const p=loopPath(pts,s.t+i*L/N);circ(p[0],p[1],4,CL.warn)}}
+  txt('I →',210,112,16,CL.muted,'center')
+ },
+ read(s){return [[tx('sw'),s.on?tx('on'):tx('off')],[tx('I'),fmt(s.I,2)+' А'],[tx('U'),fmt(s.on?s.p.U:0,1)+' В'],[tx('P'),fmt(s.Pw,2)+' Вт']]}
+});
+/* ---- 18. Сопротивление проводника ---- */
+const MAT=[['медь','мыс',.017,'#c26a3a'],['алюминий','алюминий',.028,'#a9b3bb'],['железо','темір',.10,'#6b7480'],['нихром','нихром',1.1,'#8a7a62'],['вольфрам','вольфрам',.055,'#4f5764']];
+reg('wireR',{
+ ru:{n:'Сопротивление проводника',t:['Меняйте длину и сечение: как меняется R?','Сравните материалы при одинаковых размерах.','Проверьте R = ρl/S.'],c:'Сопротивление проводника R = ρ·l/S: прямо пропорционально длине, обратно – площади поперечного сечения и зависит от материала (удельное сопротивление ρ). Нихром подходит для нагревателей, медь – для проводов.',p:['Длина l','Площадь сечения S'],m:['Медь','Алюминий','Железо','Нихром','Вольфрам'],a:[],x:{rho:'Удельное сопротивление ρ',R:'Сопротивление R',cmp:'Сравнение материалов (тот же l, S)'}},
+ kk:{n:'Өткізгіштің кедергісі',t:['Ұзындық пен қимасын өзгертіңіз: R қалай өзгереді?','Бірдей өлшемде материалдарды салыстырыңыз.','R = ρl/S формуласын тексеріңіз.'],c:'Өткізгіш кедергісі R = ρ·l/S: ұзындыққа тура, көлденең қима ауданына кері пропорционал және материалға (меншікті кедергі ρ) байланысты. Нихром қыздырғыштарға, мыс сымдарға жарайды.',p:['Ұзындығы l','Қима ауданы S'],m:['Мыс','Алюминий','Темір','Нихром','Вольфрам'],a:[],x:{rho:'Меншікті кедергі ρ',R:'Кедергі R',cmp:'Материалдарды салыстыру (l, S бірдей)'}},
+ P:[['l',.5,10,.5,2,'м'],['S',.1,2,.1,.5,'мм²']],A:[],M:1,
+ init(s){},
+ draw(s,dt){
+  const mt=MAT[s.m],R=mt[2]*s.p.l/s.p.S;s.R=R;const len=60+s.p.l*58,th=4+Math.sqrt(s.p.S)*12;
+  const x0=100,y=120;rect(x0,y-th/2,len,th,mt[3],CL.fg,2,th/2);line(x0-40,y,x0,y,CL.fg,3);line(x0+len,y,x0+len+40,y,CL.fg,3);
+  line(x0,y+th/2+22,x0+len,y+th/2+22,CL.muted,2);txt('l = '+fmt(s.p.l,1)+' м',x0+len/2,y+th/2+44,16,CL.muted,'center');
+  rect(700,y-th/2-4,12,th+8,CL.s2,CL.muted,1,0);circ(706,y,Math.sqrt(s.p.S)*14,mt[3],CL.fg,2);txt('S',706,y+Math.sqrt(s.p.S)*14+22,15,CL.muted,'center');
+  txt('R = '+fmt(R,R<1?3:R<10?2:1)+' Ом',400,60,26,CL.accent,'center','700');
+  const rs=MAT.map(m=>m[2]*s.p.l/s.p.S),mx=Math.max(...rs,.01);txt(tx('cmp'),100,230,15,CL.muted,'left');
+  MAT.forEach((m,i)=>{const h=Math.max(3,rs[i]/mx*180),x=110+i*125;rect(x,430-h,70,h,m[3],i===s.m?CL.accent:CL.fg,i===s.m?5:2,4);txt(fmt(rs[i],rs[i]<1?3:2)+' Ом',x+35,425-h,13,CL.fg,'center');txt(L2(m[0],m[1]),x+35,452,13,CL.muted,'center','500')})
+ },
+ read(s){return [[tx('rho'),fmt(MAT[s.m][2],3)+' Ом·мм²/м'],[tx('R'),fmt(s.R,3)+' Ом']]}
+});
+reg('rheo',{
+ ru:{n:'Реостат',t:['Двигайте ползунок реостата: следите за током и яркостью лампы.','Найдите положение, при котором ток минимален.','Определите, как реостат регулирует силу тока.'],c:'Реостат изменяет сопротивление цепи за счёт длины включённой части проволоки. Чем больше включённое сопротивление, тем меньше сила тока и тусклее лампа: I = U/(R_лампы + R_реостата).',p:['Положение ползунка'],m:[],a:[],x:{Rr:'Сопротивление реостата',I:'Сила тока I',U:'Напряжение на лампе'}},
+ kk:{n:'Реостат',t:['Реостат жүгірткісін жылжытыңыз: ток пен шам жарықтығын бақылаңыз.','Ток ең аз болатын орынды табыңыз.','Реостаттың ток күшін қалай реттейтінін анықтаңыз.'],c:'Реостат қосылған сым бөлігінің ұзындығына байланысты тізбек кедергісін өзгертеді. Қосылған кедергі көп болған сайын ток күші аз, шам күңгірт: I = U/(R_шам + R_реостат).',p:['Жүгірткі орны'],m:[],a:[],x:{Rr:'Реостат кедергісі',I:'Ток күші I',U:'Шамдағы кернеу'}},
+ P:[['x',0,100,5,50,'%']],A:[],
+ init(s){},
+ draw(s,dt){
+  const Rr=50*s.p.x/100,I=6/(10+Rr);s.Rr=Rr;s.I=I;s.U=I*10;
+  rect(200,170,300,60,'#e8d9c2',CL.fg,3,30);for(let i=0;i<30;i++)line(215+i*9.5,172,215+i*9.5,228,'#b08968',2.5);
+  line(200,150,500,150,CL.fg,6);const sx=200+300*s.p.x/100;rect(sx-12,138,24,34,CL.muted,CL.fg,2,4);line(sx,172,sx,200,CL.accent,4);
+  line(200,200,150,200,CL.fg,3);line(150,200,150,350,CL.fg,3);line(150,350,300,350,CL.fg,3);cell(300,350,false);line(308,350,640,350,CL.fg,3);line(640,350,640,150,CL.fg,3);lamp(640,100,clamp((I-.08)/.5,0,1));line(640,124,640,150,CL.fg,3);line(640,76,640,40,CL.fg,3);line(640,40,500,40,CL.fg,3);line(500,40,500,150,CL.fg,3);
+  meter(350,40,'A',fmt(I,2),CL.hot);
+  txt('R = '+fmt(Rr,0)+' Ом',350,270,20,CL.accent,'center','700');txt('0',200,255,14,CL.muted,'center');txt('50 Ом',500,255,14,CL.muted,'center')
+ },
+ read(s){return [[tx('Rr'),fmt(s.Rr)+' Ом'],[tx('I'),fmt(s.I,2)+' А'],[tx('U'),fmt(s.U,1)+' В']]}
+});
+/* ---- 19. Закон Ома ---- */
+reg('ohm',{
+ ru:{n:'Закон Ома: исследование',t:['Режим 1: изменяйте U, записывайте измерения – постройте график I(U).','Режим 2: изменяйте R при постоянном U – график I(R).','Добавьте погрешность измерений и проведите «лучшую» прямую.'],c:'Сила тока прямо пропорциональна напряжению и обратно пропорциональна сопротивлению: I = U/R. График I(U) – прямая через начало координат (вольт-амперная характеристика), график I(R) – гипербола.',p:['Напряжение U','Сопротивление R','Погрешность измерений'],m:['I(U): R = const','I(R): U = const'],a:['Записать измерение','Очистить таблицу'],x:{I:'Сила тока I',U:'U',R:'R',n:'Измерений'}},
+ kk:{n:'Ом заңы: зерттеу',t:['1-режим: U-ды өзгертіп, өлшеулерді жазыңыз – I(U) графигін салыңыз.','2-режим: U тұрақты кезде R-ді өзгертіңіз – I(R) графигі.','Өлшеу қателігін қосып, «ең жақсы» түзуді жүргізіңіз.'],c:'Ток күші кернеуге тура және кедергіге кері пропорционал: I = U/R. I(U) графигі – координаталар басынан өтетін түзу (вольт-амперлік сипаттама), I(R) графигі – гипербола.',p:['Кернеу U','Кедергі R','Өлшеу қателігі'],m:['I(U): R = const','I(R): U = const'],a:['Өлшеуді жазу','Кестені тазалау'],x:{I:'Ток күші I',U:'U',R:'R',n:'Өлшеулер'}},
+ P:[['U',0,12,.5,6,'В'],['R',2,50,1,10,'Ом'],['e',0,5,.5,0,'%']],A:['rec','clr'],M:1,
+ show(s,k){return s.m===0?k!=='R'||true:true},
+ init(s){s.pts=[[],[]]},onmode(s){},
+ act(s,a){if(a==='clr')s.pts[s.m]=[];if(a==='rec'&&s.pts[s.m].length<14){const I=s.p.U/s.p.R*(1+(rnd()-.5)*2*s.p.e/100),x=s.m===0?s.p.U:s.p.R;s.pts[s.m].push([x,I])}},
+ draw(s,dt){
+  const {U,R}=s.p,I=U/R,m=s.m;s.I=I;
+  line(70,70,70,200,CL.fg,3);line(70,200,230,200,CL.fg,3);line(230,200,230,70,CL.fg,3);line(70,70,230,70,CL.fg,3);cell(150,70,false);rect(110,184,80,32,CL.s2,CL.fg,2,3);txt(fmt(R)+' Ом',150,206,15,CL.fg,'center','700');
+  meter(70,135,'A',fmt(I,2),CL.hot);meter(150,250,'V',fmt(U,1),CL.cold);line(110,200,110,250,CL.fg,2);line(190,200,190,250,CL.fg,2);line(110,250,126,250,CL.fg,2);line(174,250,190,250,CL.fg,2);
+  const xm=m===0?12:50,ym=m===0?Math.max(.5,12/R):Math.max(.5,U/2);
+  const g=axes(330,50,420,300,xm,ym,m===0?'U, В':'R, Ом','I, А',6,5,v=>fmt(v),v=>fmt(v,v<10?1:0));
+  const pts=[];if(m===0){pts.push([g.x(0),g.y(0)],[g.x(12),g.y(12/R)])}else for(let r=2;r<=50;r+=1)pts.push([g.x(r),g.y(U/r)]);poly(pts,null,CL.muted,2,false,[6,5]);
+  for(const q of s.pts[m])circ(g.x(q[0]),g.y(q[1]),6,CL.hot,CL.fg,1.5);
+  circ(g.x(m===0?U:R),g.y(I),8,CL.accent,CL.fg,2);
+  s.n=s.pts[m].length;
+  // table
+  txt((m===0?'U, В':'R, Ом')+'   |   I, А',340,395,13,CL.muted,'left','700');s.pts[m].slice(-4).forEach((q,i)=>txt(fmt(q[0],1)+'   |   '+fmt(q[1],3),340,414+i*17,13,CL.fg,'left','600'))
+ },
+ read(s){return [[tx('I'),fmt(s.I,3)+' А'],[tx('n'),s.n+'']]}
+});
+/* ---- 20/21. Последовательное и параллельное ---- */
+function net(par,id,ru,kk){
+ reg(id,{ru:Object.assign(ru,{x:{R:'Общее сопротивление',I:'Общий ток I',U1:'Напряжения/токи',cut:'Резистор R₂ отключён',ok:'Цепь целая',Ii:'Токи в ветвях',Ui:'Напряжения на резисторах'}}),kk:Object.assign(kk,{x:{R:'Жалпы кедергі',I:'Жалпы ток I',U1:'Кернеулер/токтар',cut:'R₂ резисторы ажыратылған',ok:'Тізбек бүтін',Ii:'Тармақтардағы токтар',Ui:'Резисторлардағы кернеулер'}}),
+ P:[['R1',1,50,1,10,'Ом'],['R2',1,50,1,20,'Ом'],['R3',1,50,1,30,'Ом'],['U',3,24,1,12,'В']],A:['cut'],
+ init(s){s.cut=false;s.t=0},act(s,a){if(a==='cut')s.cut=!s.cut},
+ draw(s,dt){
+  const {R1,R2,R3,U}=s.p,Rs=[R1,R2,R3];let I,Is,Us,Rt;
+  if(!par){Rt=R1+R2+R3;I=s.cut?0:U/Rt;Is=[I,I,I];Us=Rs.map(r=>I*r)}else{const on=[1,s.cut?0:1,1];Is=Rs.map((r,i)=>on[i]*U/r);I=Is[0]+Is[1]+Is[2];Rt=I>0?U/I:Infinity;Us=Rs.map((r,i)=>on[i]?U:0)}
+  s.Rt=Rt;s.I=I;s.Is=Is;s.Us=Us;s.t+=dt;
+  const res=(x,y,i,vert)=>{const w=vert?30:80,h=vert?80:30;rect(x-w/2,y-h/2,w,h,s.cut&&i===1?CL.s2:CL.bg,s.cut&&i===1?CL.muted:CL.fg,3,4);txt('R'+(i+1),x,y-(vert?0:0)+5,15,CL.fg,'center','700');txt(Rs[i]+' Ом',x+(vert?44:0),y+(vert?5:32),13,CL.muted,vert?'left':'center','600')};
+  if(!par){
+   const pts=[[130,120],[670,120],[670,380],[130,380]];poly(pts,null,CL.fg,4,true);cell(130,250,true);rect(215,100,110,40,CL.bg,null);rect(375,100,110,40,CL.bg,null);rect(535,100,110,40,CL.bg,null);
+   [270,430,590].forEach((x,i)=>res(x,120,i,false));meter(130,170,'A',fmt(I,2),CL.hot);
+   if(s.cut){rect(405,102,50,36,CL.bg,null);line(405,120,420,120,CL.fg,3);line(440,120,455,120,CL.fg,3);line(420,120,432,102,CL.hot,3)}
+   if(I>0){const sp=I*140;for(let i=0;i<30;i++){const p=loopPath(pts,s.t*sp+i*1620/30);circ(p[0],p[1],3.5,CL.warn)}}
+   [270,430,590].forEach((x,i)=>txt('U'+(i+1)+' = '+fmt(Us[i],1)+' В',x,175,14,CL.cold,'center','700'))
+  }else{
+   line(130,130,670,130,CL.fg,4);line(130,370,670,370,CL.fg,4);line(130,130,130,370,CL.fg,4);cell(130,250,true);rect(110,215,40,70,CL.bg,null);cell(130,250,true);
+   [300,450,600].forEach((x,i)=>{line(x,130,x,205,CL.fg,3);line(x,295,x,370,CL.fg,3);circ(x,130,5,CL.fg);circ(x,370,5,CL.fg);res(x,250,i,true);if(s.cut&&i===1){rect(x-20,180,40,40,CL.bg,null);line(x,160,x,185,CL.fg,3);line(x,215,x,205,CL.fg,3);line(x-14,200,x+14,172,CL.hot,3)}
+    txt('I'+(i+1)+' = '+fmt(Is[i],2)+' А',x,395,14,CL.hot,'center','700');
+    if(Is[i]>0){const sp=Is[i]*60;for(let k=0;k<8;k++){const yy=130+((s.t*sp+k*30)%240);if(yy>200&&yy<300)continue;circ(x,yy>300?yy+(370-300)*0:yy,3.5,CL.warn)}}});
+   meter(130,170,'A',fmt(I,2),CL.hot);if(I>0){const sp=I*60;for(let k=0;k<10;k++){const xx=130+((s.t*sp*1.6+k*54)%540);circ(xx,130,3.5,CL.warn)}}
+   txt('U = '+fmt(U)+' В',400,110,16,CL.cold,'center','700')}
+ },
+ read(s){const L=[[tx('R'),isFinite(s.Rt)?fmt(s.Rt,1)+' Ом':'∞'],[tx('I'),fmt(s.I,2)+' А']];if(par)L.push([tx('Ii'),s.Is.map(x=>fmt(x,2)).join(' ; ')+' А']);else L.push([tx('Ui'),s.Us.map(x=>fmt(x,1)).join(' ; ')+' В']);L.push([s.cut?tx('cut'):tx('ok'),'']);return L}
+ })}
+net(false,'net_s',{n:'Последовательное соединение',t:['Соберите цепь из трёх резисторов подряд: ток один и тот же.','Найдите, как распределяются напряжения.','«Отключите» R₂: что произойдёт со всей цепью?'],c:'При последовательном соединении I = I₁ = I₂ = I₃; U = U₁ + U₂ + U₃; R = R₁ + R₂ + R₃. Напряжение распределяется пропорционально сопротивлениям; разрыв в одном месте останавливает ток во всей цепи.',p:['R₁','R₂','R₃','Напряжение источника'],m:[],a:['Отключить / включить R₂']},{n:'Тізбектей жалғау',t:['Үш резисторды қатарынан жалғап тізбек жинаңыз: ток бірдей.','Кернеулердің қалай бөлінетінін табыңыз.','R₂ резисторын «ажыратыңыз»: бүкіл тізбекке не болады?'],c:'Тізбектей жалғауда I = I₁ = I₂ = I₃; U = U₁ + U₂ + U₃; R = R₁ + R₂ + R₃. Кернеу кедергілерге пропорционал бөлінеді; бір жерде үзілсе, бүкіл тізбектегі ток тоқтайды.',p:['R₁','R₂','R₃','Ток көзінің кернеуі'],m:[],a:['R₂-ні ажырату / қосу']});
+net(true,'net_p',{n:'Параллельное соединение',t:['Соедините три резистора параллельно: напряжение одинаково.','Найдите токи в ветвях и общий ток.','«Отключите» R₂: изменятся ли токи в других ветвях?'],c:'При параллельном соединении U = U₁ = U₂ = U₃; I = I₁ + I₂ + I₃; 1/R = 1/R₁ + 1/R₂ + 1/R₃. Общее сопротивление меньше наименьшего; отключение одной ветви не влияет на остальные.',p:['R₁','R₂','R₃','Напряжение источника'],m:[],a:['Отключить / включить R₂']},{n:'Параллель жалғау',t:['Үш резисторды параллель жалғаңыз: кернеу бірдей.','Тармақтардағы токтарды және жалпы токты табыңыз.','R₂ резисторын «ажыратыңыз»: басқа тармақтардағы токтар өзгере ме?'],c:'Параллель жалғауда U = U₁ = U₂ = U₃; I = I₁ + I₂ + I₃; 1/R = 1/R₁ + 1/R₂ + 1/R₃. Жалпы кедергі ең кіші кедергіден аз; бір тармақты ажырату қалғандарына әсер етпейді.',p:['R₁','R₂','R₃','Ток көзінің кернеуі'],m:[],a:['R₂-ні ажырату / қосу']});
+/* ---- 22. Закон Джоуля–Ленца ---- */
+reg('joule',{
+ ru:{n:'Закон Джоуля–Ленца',t:['Задайте U и R, запустите нагрев воды спиралью.','Увеличьте силу тока вдвое (уменьшите R): Q вырастет в 4 раза.','Рассчитайте Q = I²Rt и сравните с нагревом воды.'],c:'Количество теплоты в проводнике Q = I²·R·t. При увеличении силы тока вдвое выделяемое тепло растёт в 4 раза. Мощность тока P = UI = I²R.',p:['Напряжение U','Сопротивление спирали R','Масса воды'],m:[],a:['Старт / Пауза'],x:{I:'Сила тока I',P:'Мощность P',Q:'Количество теплоты Q',dT:'Нагрев воды Δt',t:'Время',min:'мин'}},
+ kk:{n:'Джоуль–Ленц заңы',t:['U мен R беріп, спиральмен суды қыздыруды іске қосыңыз.','Ток күшін екі есе арттырыңыз (R-ді азайтыңыз): Q 4 есе өседі.','Q = I²Rt есептеп, судың қызуымен салыстырыңыз.'],c:'Өткізгіштегі жылу мөлшері Q = I²·R·t. Ток күшін екі есе арттырғанда бөлінетін жылу 4 есе өседі. Ток қуаты P = UI = I²R.',p:['Кернеу U','Спираль кедергісі R','Су массасы'],m:[],a:['Іске қосу / Тоқтату'],x:{I:'Ток күші I',P:'Қуат P',Q:'Жылу мөлшері Q',dT:'Судың қызуы Δt',t:'Уақыт',min:'мин'}},
+ P:[['U',2,24,1,12,'В'],['R',2,50,1,12,'Ом'],['m',100,500,50,200,'г']],A:['run'],
+ init(s){s.t=0;s.run=false},act(s,a){if(a==='run')s.run=!s.run},
+ draw(s,dt){
+  const {U,R,m}=s.p,I=U/R,P=U*I,tmax=300;if(s.run&&s.t<tmax)s.t=Math.min(tmax,s.t+dt*25);
+  const Q=P*s.t,dT=Q/(4200*m/1000),T=Math.min(99,20+dT);s.I=I;s.P=P;s.Q=Q;s.dT=T-20;
+  rect(70,170,220,220,CL.glass,CL.fg,4,10);rect(74,230,212,156,CL.water,null);
+  const pts=[];for(let i=0;i<=14;i++)pts.push([100+i*13,i%2?330:350]);poly(pts,null,tempCol(clamp(I/1.6,0,1)),5);line(100,350,100,170,CL.fg,3);line(282,340,282,170,CL.fg,3);if(I>0){ctx.beginPath();ctx.arc(190,340,50+Math.min(30,P/10),0,6.3);ctx.fillStyle='rgba(255,140,60,.12)';ctx.fill()}
+  const th=30+(T-20)/80*180;rect(150,400-0*th,0,0,null);rect(180,100,18,170,CL.s2,CL.fg,2,8);rect(184,270-th*.9,10,th*.9,CL.hot,null);txt(fmt(T,1)+' °C',189,85,18,CL.fg,'center','700');
+  const g=axes(380,60,380,300,tmax/60,Math.max(100,T),'t, '+tx('min'),'t, °C',5,5,v=>fmt(v),v=>fmt(v));const pp=[];for(let t=0;t<=tmax;t+=10)pp.push([g.x(t/60),g.y(Math.min(99,20+P*t/(4.2*m)))]);poly(pp,null,CL.muted,3,false,[6,5]);
+  const pr=[];for(let t=0;t<=s.t;t+=5)pr.push([g.x(t/60),g.y(Math.min(99,20+P*t/(4.2*m)))]);if(pr.length>1)poly(pr,null,CL.hot,5);circ(g.x(s.t/60),g.y(T),8,CL.hot,CL.fg,2)
+ },
+ read(s){return [[tx('I'),fmt(s.I,2)+' А'],[tx('P'),fmt(s.P)+' Вт'],[tx('t'),fmt(s.t/60,1)+' '+tx('min')],[tx('Q'),fmt(s.Q/1000,1)+' кДж'],[tx('dT'),fmt(s.dT,1)+' °C']]}
+});
+/* ---- 23. Сопротивление и температура / электролиз ---- */
+const MT=[['медь','мыс',.0043,'#c26a3a'],['вольфрам','вольфрам',.0045,'#4f5764'],['железо','темір',.006,'#7a838f'],['константан','константан',.00002,'#a58f6b']];
+reg('rtemp',{
+ ru:{n:'Сопротивление металлов и температура',t:['Нагревайте проводник: следите за R и силой тока.','Сравните металлы: у какого R меняется сильнее?','Объясните, почему лампа вспыхивает при включении.'],c:'С ростом температуры сопротивление металлов растёт: R = R₀(1 + α(t − t₀)), ведь усиливаются колебания ионов решётки и электронам труднее двигаться. У константана α очень мала – его используют в эталонных резисторах.',p:['Температура проводника'],m:['Медь','Вольфрам','Железо','Константан'],a:[],x:{R:'Сопротивление R',I:'Сила тока при U = 12 В',k:'R/R₀'}},
+ kk:{n:'Металдар кедергісі және температура',t:['Өткізгішті қыздырыңыз: R мен ток күшін бақылаңыз.','Металдарды салыстырыңыз: қайсысының R-і көбірек өзгереді?','Қосқанда лампа неге жарқ ететінін түсіндіріңіз.'],c:'Температура артқанда металдар кедергісі өседі: R = R₀(1 + α(t − t₀)), өйткені тор иондарының тербелісі күшейіп, электрондарға қозғалу қиындайды. Константанның α өте аз – оны эталон резисторларда қолданады.',p:['Өткізгіш температурасы'],m:['Мыс','Вольфрам','Темір','Константан'],a:[],x:{R:'Кедергі R',I:'U = 12 В кезіндегі ток күші',k:'R/R₀'}},
+ P:[['T',0,2500,50,20,'°C']],A:[],M:1,
+ init(s){},
+ draw(s,dt){
+  const T=s.p.T,R0=10,rf=(i,t)=>R0*(1+MT[i][2]*(t-20)),R=rf(s.m,T),I=12/R;s.R=R;s.I=I;
+  const gl=clamp((T-500)/2000,0,1);const col=T>500?`rgb(255,${Math.round(210-gl*110)},${Math.round(120-gl*100)})`:CL.muted;
+  if(gl>0){ctx.beginPath();ctx.arc(150,160,40+gl*50,0,6.3);ctx.fillStyle=`rgba(255,200,80,${.12+gl*.3})`;ctx.fill()}
+  circ(150,160,50,CL.glass,CL.fg,3);line(132,205,132,275,CL.fg,3);line(168,205,168,275,CL.fg,3);rect(124,275,52,18,CL.muted,CL.fg,2,3);
+  ctx.beginPath();for(let i=0;i<=10;i++){const x=125+(i%2?50:0),y=135+i*8;i?ctx.lineTo(x,y):ctx.moveTo(x,y)}ctx.strokeStyle=col;ctx.lineWidth=5;ctx.stroke();
+  meter(150,360,'A',fmt(I,2),CL.hot);txt(fmt(T)+' °C',150,440,22,CL.fg,'center','700');
+  const g=axes(350,60,400,330,2500,Math.max(rf(1,2500),120)*1,'t, °C','R, Ом',5,4,v=>fmt(v),v=>fmt(v));
+  MT.forEach((q,i)=>{poly([[g.x(0),g.y(rf(i,0))],[g.x(2500),g.y(rf(i,2500))]],null,q[3],i===s.m?5:2);txt(L2(q[0],q[1]),g.x(2500)-4,g.y(rf(i,2500))-8,13,q[3],'right','700')});circ(g.x(T),g.y(R),9,CL.hot,CL.fg,2)
+ },
+ read(s){return [[tx('R'),fmt(s.R,1)+' Ом'],[tx('k'),fmt(s.R/10,2)],[tx('I'),fmt(s.I,2)+' А']]}
+});
+reg('electro_l',{
+ ru:{n:'Электролиз: химическое действие тока',t:['Включите ток: на катоде оседает медь.','Увеличьте силу тока: как меняется скорость роста слоя?','Проверьте закон Фарадея m = kIt.'],c:'При электролизе ионы меди движутся к катоду и осаждаются на нём. Масса выделившегося вещества m = k·I·t: прямо пропорциональна заряду, прошедшему через раствор (для меди k = 0,33 мг/Кл).',p:['Сила тока'],m:[],a:['Старт / Пауза'],x:{t:'Время',q:'Заряд q = It',m:'Масса меди m = kIt',min:'мин'}},
+ kk:{n:'Электролиз: токтың химиялық әсері',t:['Токты қосыңыз: катодқа мыс отырады.','Ток күшін арттырыңыз: қабаттың өсу жылдамдығы қалай өзгереді?','Фарадей заңын тексеріңіз: m = kIt.'],c:'Электролиз кезінде мыс иондары катодқа қарай жылжып, оған отырады. Бөлінген заттың массасы m = k·I·t: ерітінді арқылы өткен зарядқа тура пропорционал (мыс үшін k = 0,33 мг/Кл).',p:['Ток күші'],m:[],a:['Іске қосу / Тоқтату'],x:{t:'Уақыт',q:'Заряд q = It',m:'Мыс массасы m = kIt',min:'мин'}},
+ P:[['I',.2,3,.1,1,'А']],A:['run'],
+ init(s){s.t=0;s.run=false;s.ions=[];for(let i=0;i<40;i++)s.ions.push([rnd(),rnd()])},act(s,a){if(a==='run')s.run=!s.run},
+ draw(s,dt){
+  const I=s.p.I;if(s.run&&s.t<1800)s.t=Math.min(1800,s.t+dt*90);const q=I*s.t,m=.33*q;s.q=q;s.m=m;
+  rect(80,160,330,230,CL.water,CL.fg,4,10);const th=m/700*30;rect(110,150,18,200,'#9aa0a6',CL.fg,2,2);rect(110-th,150,th,200,'#c26a3a',null);rect(362,150,18,200-Math.min(m/700*30,30)*0,'#c26a3a',CL.fg,2,2);
+  txt('−',119,135,24,CL.cold,'center','700');txt('+',371,135,24,CL.hot,'center','700');line(119,150,119,100,CL.fg,3);line(371,150,371,100,CL.fg,3);line(119,100,371,100,CL.fg,3);cell(245,100,false);
+  for(const p of s.ions){if(s.run){p[0]-=dt*I*.25;if(p[0]<0)p[0]=1}const x=140+p[0]*210,y=170+p[1]*200;circ(x,y,5,'#c26a3a');txt('2+',x+8,y-4,9,CL.fg,'left')}
+  const g=axes(470,80,290,300,30,Math.max(600,.33*I*1800),'t, '+tx('min'),'m, мг',5,4,v=>fmt(v),v=>fmt(v));poly([[g.x(0),g.y(0)],[g.x(30),g.y(.33*I*1800)]],null,CL.muted,3,false,[6,5]);const pr=[];for(let t=0;t<=s.t;t+=30)pr.push([g.x(t/60),g.y(.33*I*t)]);if(pr.length>1)poly(pr,null,'#c26a3a',5);circ(g.x(s.t/60),g.y(m),8,CL.hot,CL.fg,2)
+ },
+ read(s){return [[tx('t'),fmt(s.t/60,1)+' '+tx('min')],[tx('q'),fmt(s.q)+' Кл'],[tx('m'),fmt(s.m)+' мг']]}
+});
+/* ---- 24. Постоянные магниты ---- */
+function Bf(poles,x,y){let bx=0,by=0;for(const p of poles){const dx=x-p[0],dy=y-p[1],r2=dx*dx+dy*dy+80,r=Math.sqrt(r2);bx+=p[2]*dx/(r2*r);by+=p[2]*dy/(r2*r)}return [bx,by]}
+function bar(cx,cy,flip){const w=150,h=36;rect(cx-w/2,cy-h/2,w/2,h,flip?CL.cold:CL.hot,CL.fg,3,0);rect(cx,cy-h/2,w/2,h,flip?CL.hot:CL.cold,CL.fg,3,0);txt(flip?'S':'N',cx-w/4,cy+7,20,'#fff','center','700');txt(flip?'N':'S',cx+w/4,cy+7,20,'#fff','center','700')}
+reg('magnet',{
+ ru:{n:'Магнитное поле постоянных магнитов',t:['Включите «опилки»: увидите форму поля магнита.','Сравните один магнит и два магнита (притяжение, отталкивание).','Определите, откуда выходят линии поля и куда входят.'],c:'Магнитное поле существует вокруг постоянных магнитов. Линии поля замкнуты: вне магнита идут от северного полюса к южному. Разноимённые полюса притягиваются, одноимённые отталкиваются.',p:['Расстояние между магнитами'],m:['Один магнит','Два магнита: разноимённые полюса рядом (притяжение)','Два магнита: одноимённые полюса рядом (отталкивание)'],a:['Опилки / стрелки компаса'],x:{f:'Взаимодействие',att:'притяжение',rep:'отталкивание',one:'один магнит',view:'Показ'}},
+ kk:{n:'Тұрақты магниттердің магнит өрісі',t:['«Үгінді» режимін қосыңыз: магнит өрісінің пішінін көресіз.','Бір магнитті және екі магнитті (тартылу, тебілу) салыстырыңыз.','Өріс сызықтары қайдан шығып, қайда кіретінін анықтаңыз.'],c:'Магнит өрісі тұрақты магниттердің айналасында болады. Өріс сызықтары тұйық: магниттен тыс жерде солтүстік полюстен оңтүстікке бағытталады. Аттас полюстер тебіледі, әртүрлі аттас полюстер тартылады.',p:['Магниттер арасындағы қашықтық'],m:['Бір магнит','Екі магнит: әртүрлі аттас полюстер қатар (тартылу)','Екі магнит: аттас полюстер қатар (тебілу)'],a:['Үгінді / компас жебелері'],x:{f:'Әрекеттесу',att:'тартылу',rep:'тебілу',one:'бір магнит',view:'Көрсету'}},
+ P:[['d',3,20,1,8,'см']],A:['view'],M:1,
+ show(s,k){return s.m>0},
+ init(s){s.fil=false;s.fp=[];for(let i=0;i<900;i++)s.fp.push([20+rnd()*760,20+rnd()*460])},
+ act(s,a){if(a==='view')s.fil=!s.fil},
+ draw(s,dt){
+  const gap=s.p.d*10;let poles,mags;
+  if(s.m===0){poles=[[325,250,1],[475,250,-1]];mags=[[400,250,false]]}
+  else{const c2=230+75+gap+75;mags=[[230,250,false],[c2,250,s.m===2]];
+   poles=[[155,250,1],[305,250,-1]];if(s.m===1)poles.push([c2-75,250,1],[c2+75,250,-1]);else poles.push([c2-75,250,-1],[c2+75,250,1])}
+  if(s.m>0)mags[0][0]=230;
+  if(s.fil){ctx.lineCap='round';for(const q of s.fp){const b=Bf(poles,q[0],q[1]),m=Math.hypot(b[0],b[1]);if(m<1e-7)continue;const a=.25+Math.min(.7,m*3500);ctx.globalAlpha=Math.min(1,a);const ux=b[0]/m*5,uy=b[1]/m*5;line(q[0]-ux,q[1]-uy,q[0]+ux,q[1]+uy,CL.fg,1.6)}ctx.globalAlpha=1}
+  else{for(let gx=50;gx<=760;gx+=50)for(let gy=50;gy<=470;gy+=50){const b=Bf(poles,gx,gy),m=Math.hypot(b[0],b[1]);if(m<1e-7)continue;const ux=b[0]/m,uy=b[1]/m;line(gx-ux*14,gy-uy*14,gx,gy,CL.cold,4);arrow(gx,gy,gx+ux*14,gy+uy*14,CL.hot,4)}}
+  for(const p of poles.filter(p=>p[2]>0)){for(let k=0;k<12;k++){const a=k/12*6.283;let x=p[0]+Math.cos(a)*14,y=p[1]+Math.sin(a)*14;const pts=[[x,y]];for(let i=0;i<600;i++){const b=Bf(poles,x,y),m=Math.hypot(b[0],b[1])||1;x+=b[0]/m*4;y+=b[1]/m*4;pts.push([x,y]);if(x<0||x>800||y<0||y>500)break;if(poles.some(o=>o[2]<0&&Math.hypot(x-o[0],y-o[1])<12))break}poly(pts,null,CL.accent,1.8)}}
+  for(const m of mags)bar(m[0],m[1],m[2]);
+ },
+ read(s){return [[tx('f'),s.m===0?tx('one'):s.m===1?tx('att'):tx('rep')],[tx('view'),s.fil?'опилки':'стрелки']]}
+});
+/* ---- 25. Поле тока, катушка, электромагнит ---- */
+reg('wirefield',{
+ ru:{n:'Магнитное поле тока. Электромагнит',t:['Провод с током: меняйте направление и силу тока.','Электромагнит: увеличьте число витков и ток.','Вставьте стальной сердечник и сосчитайте поднятые скрепки.'],c:'Вокруг проводника с током существует магнитное поле: линии – окружности, направление по правилу буравчика. Катушка с током создаёт поле как магнит; поле усиливается при увеличении тока, числа витков и при введении железного сердечника – получается электромагнит.',p:['Сила тока (знак – направление)','Число витков N','Сила тока I'],m:['Прямой провод','Катушка / электромагнит'],a:['Вставить / вынуть сердечник','Сменить направление тока'],x:{B:'Индукция поля B',pins:'Поднято скрепок',pol:'Полюс справа',core:'Сердечник',on:'сталь',off:'нет'}},
+ kk:{n:'Токтың магнит өрісі. Электромагнит',t:['Тогы бар сым: ток бағыты мен күшін өзгертіңіз.','Электромагнит: орам санын және токты арттырыңыз.','Болат өзекше салып, көтерілген қыстырғыштарды санаңыз.'],c:'Тогы бар өткізгіштің айналасында магнит өрісі болады: сызықтары – шеңберлер, бағыты бұрғы ережесімен анықталады. Тогы бар катушка магнит секілді өріс жасайды; өріс ток, орам саны артқанда және темір өзекше енгізгенде күшейеді – электромагнит шығады.',p:['Ток күші (таңба – бағыты)','Орам саны N','Ток күші I'],m:['Түзу сым','Катушка / электромагнит'],a:['Өзекшені салу / алу','Ток бағытын ауыстыру'],x:{B:'Өріс индукциясы B',pins:'Көтерілген қыстырғыштар',pol:'Оң жақтағы полюс',core:'Өзекше',on:'болат',off:'жоқ'}},
+ P:[['I',-10,10,1,5,'А'],['N',10,200,10,100,''],['J',0,5,.5,2,'А']],A:['core','flip'],M:1,
+ show(s,k){return s.m===0?k==='I':k!=='I'},
+ init(s){s.core=false;s.fl=1;s.pin=[];for(let i=0;i<12;i++)s.pin.push([560+i*13,0]);s.lift=new Array(12).fill(0)},
+ act(s,a){if(a==='core')s.core=!s.core;if(a==='flip')s.fl*=-1},
+ draw(s,dt){
+  if(s.m===0){const I=s.p.I,cx=400,cy=250;
+   for(const r of[50,100,150,200]){circ(cx,cy,r,null,CL.accent,1.6)}
+   circ(cx,cy,16,CL.s2,CL.fg,3);if(I>0){circ(cx,cy,4,CL.fg)}else if(I<0){line(cx-8,cy-8,cx+8,cy+8,CL.fg,3);line(cx-8,cy+8,cx+8,cy-8,CL.fg,3)}
+   if(I!==0)for(const r of[100,200])for(let k=0;k<8;k++){const a=k/8*6.283,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r,sg=I>0?-1:1,tx2=-Math.sin(a)*sg,ty=Math.cos(a)*sg;
+    ctx.save();ctx.translate(x,y);ctx.rotate(Math.atan2(ty,tx2));poly([[16,0],[-16,-6],[-16,6]],CL.hot,CL.fg,1.5,true);poly([[-16,-6],[-16,6],[-30,0]],'#eee',CL.fg,1.5,true);ctx.restore()}
+   s.B=Math.abs(I)*4e-6*1e6;txt(I>0?'I ⊙':I<0?'I ⊗':'I = 0',cx,cy+240,18,CL.fg,'center','700')}
+  else{const N=s.p.N,I=s.p.J*(1),mu=s.core?500:1,B=Math.min(2000,4*PI*1e-7*mu*N*I/.2*1000);s.B=B;
+   const x0=250,x1=550,y=230;if(s.core)rect(x0-30,y-20,x1-x0+60,40,'#8d96a0',CL.fg,2,6);
+   const nt=Math.round(8+N/10);for(let i=0;i<nt;i++){const x=x0+8+(x1-x0-16)*i/(nt-1);ctx.beginPath();ctx.ellipse(x,y,9,44,0,0,6.283);ctx.strokeStyle='#b5651d';ctx.lineWidth=3;ctx.stroke()}
+   const dir=s.fl;const pn=dir>=0?'right':'left';
+   if(I>0){const lines=Math.min(8,2+Math.round(Math.log10(B+1)*2.2));for(let k=1;k<=lines;k++){const rr=30+k*22;ctx.beginPath();ctx.ellipse(400,y,(x1-x0)/2+ (s.core?30:0)+rr*.9,rr+14,0,0,6.283);ctx.setLineDash([]);ctx.strokeStyle=`rgba(40,120,200,${.3+B/2000*.6})`;ctx.lineWidth=1.6;ctx.stroke();}
+    arrow(400+dir*30,y-120,400-dir*30,y-120,CL.accent,4)}
+   txt(dir>=0?'N':'S',x1+(s.core?44:22),y+7,22,dir>=0?CL.hot:CL.cold,'left','700');txt(dir>=0?'S':'N',x0-(s.core?44:22),y+7,22,dir>=0?CL.cold:CL.hot,'right','700');
+   line(x0,y+44,x0,330,CL.fg,3);line(x1,y+44,x1,330,CL.fg,3);line(x0,330,330,330,CL.fg,3);line(470,330,x1,330,CL.fg,3);rect(375,318,50,24,CL.bg,null);cell(400,330,false);txt(fmt(I,1)+' А',400,378,16,CL.muted,'center','600');
+   const need=B/45;let lifted=0;const tipx=dir>=0?x1+(s.core?30:0):x0-(s.core?30:0),sgn=dir>=0?1:-1;
+   for(let i=0;i<12;i++){const hit=i<need;if(hit)lifted++;
+    const px=hit?tipx+sgn*(8+(i%3)*9):tipx+sgn*(70+i*24),py=hit?y+10+Math.floor(i/3)*13+(i%3)*0:y+200;
+    line(px-8,py,px+8,py,hit?'#6b7480':'#9aa4ad',4)}
+   s.pins=lifted}
+ },
+ read(s){const L=[[tx('B'),s.m===0?fmt(s.B,1)+' мкТл (на 5 см)':fmt(s.B,s.B<10?2:0)+' мТл']];if(s.m===1){L.push([tx('pins'),s.pins+'']);L.push([tx('core'),s.core?tx('on'):tx('off')])}return L}
+});
+/* ---- 26a. Сила Ампера и двигатель ---- */
+reg('ampere',{
+ ru:{n:'Сила Ампера. Электродвигатель',t:['Пропустите ток по проводнику в магнитном поле: он движется.','Поменяйте направление тока или полюса: куда направлена сила?','Режим «рамка»: рамка с током вращается – принцип электродвигателя.'],c:'На проводник с током в магнитном поле действует сила Ампера F = B·I·l·sinα; направление – по правилу левой руки. Вращение рамки с током в магнитном поле (с коллектором, меняющим направление тока) – принцип электродвигателя.',p:['Сила тока I (знак – направление)','Индукция поля B'],m:['Проводник на рельсах','Рамка с током (двигатель)'],a:['Поменять полюса магнита'],x:{F:'Сила Ампера F = BIl',dir:'Направление силы',L:'влево',R:'вправо',none:'нет силы',w:'Угловая скорость'}},
+ kk:{n:'Ампер күші. Электр қозғалтқышы',t:['Магнит өрісіндегі өткізгіш арқылы ток жіберіңіз: ол қозғалады.','Ток бағытын немесе магнит полюстерін ауыстырыңыз: күш қайда бағытталған?','«Рамка» режимі: тогы бар рамка айналады – электр қозғалтқышының принципі.'],c:'Магнит өрісіндегі тогы бар өткізгішке Ампер күші әсер етеді F = B·I·l·sinα; бағыты сол қол ережесімен анықталады. Тогы бар рамканың магнит өрісінде айналуы (токтың бағытын өзгертетін коллектормен) – электр қозғалтқышының принципі.',p:['Ток күші I (таңба – бағыты)','Өріс индукциясы B'],m:['Рельстегі өткізгіш','Тогы бар рамка (қозғалтқыш)'],a:['Магнит полюстерін ауыстыру'],x:{F:'Ампер күші F = BIl',dir:'Күш бағыты',L:'солға',R:'оңға',none:'күш жоқ',w:'Бұрыштық жылдамдық'}},
+ P:[['I',-10,10,1,5,'А'],['B',.1,1,.1,.5,'Тл']],A:['flip'],M:1,
+ init(s){s.bd=1;s.x=400;s.v=0;s.th=0;s.w=0},act(s,a){if(a==='flip')s.bd*=-1},onmode(s){s.x=400;s.v=0;s.w=0},
+ draw(s,dt){
+  const {I,B}=s.p,cross=(x,y)=>{line(x-6,y-6,x+6,y+6,CL.muted,1.6);line(x-6,y+6,x+6,y-6,CL.muted,1.6)},dotp=(x,y)=>circ(x,y,4,CL.muted);
+  if(s.m===0){const Fx=-Math.sign(I)*s.bd,mag=B*Math.abs(I);s.Fx=Fx;s.mag=mag;
+   s.v+=Fx*mag*160*dt;s.v*=1-1.4*dt;s.x+=s.v*dt;if(s.x<190){s.x=190;s.v=0}if(s.x>610){s.x=610;s.v=0}
+   rect(130,130,540,240,'rgba(140,160,200,.10)',null);for(let gx=160;gx<=640;gx+=60)for(let gy=150;gy<=350;gy+=50)s.bd>0?cross(gx,gy):dotp(gx,gy);
+   line(130,160,670,160,CL.fg,5);line(130,340,670,340,CL.fg,5);const x=s.x;line(x,150,x,350,CL.warn,9);
+   if(I!==0){const up=I>0?-1:1;arrow(x,250-up*10,x,250+up*60*0-up*50,CL.hot,4);txt('I',x-18,330,18,CL.hot,'center','700')}
+   if(Fx!==0){const L=30+mag*22;arrow(x,250,x+Fx*L,250,CL.good,6);txt('F',x+Fx*(L+14),240,18,CL.good,'center','700')}
+   txt(s.bd>0?'B ⊗':'B ⊙',150,120,18,CL.fg,'left','700');
+   rect(60,396,60,50,CL.hot,CL.fg,2,3);txt('N',90,430,22,'#fff','center','700');rect(120,396,60,50,CL.cold,CL.fg,2,3);txt('S',150,430,22,'#fff','center','700');}
+  else{const sg=Math.sign(I),tau=sg*B*Math.abs(I)*Math.abs(Math.cos(s.th))*5;s.w+=(tau-s.w*.9)*dt*2;s.th+=s.w*dt;const cx=400,cy=250,R=110;
+   rect(60,150,100,200,CL.hot,CL.fg,3,6);txt('N',110,260,36,'#fff','center','700');rect(640,150,100,200,CL.cold,CL.fg,3,6);txt('S',690,260,36,'#fff','center','700');
+   for(let k=0;k<4;k++)arrow(190,190+k*40,230,190+k*40,CL.muted,2);for(let k=0;k<4;k++)arrow(570,190+k*40,610,190+k*40,CL.muted,2);
+   circ(cx,cy,R,null,CL.line,2,[4,4]);const ax=cx+R*Math.cos(s.th),ay=cy-R*Math.sin(s.th),bx=cx-R*Math.cos(s.th),by=cy+R*Math.sin(s.th);
+   line(ax,ay,bx,by,CL.warn,9);circ(cx,cy,8,CL.fg);
+   const right=Math.cos(s.th)>=0;const ends=[[ax,ay,Math.cos(s.th)],[bx,by,-Math.cos(s.th)]];
+   for(const [x,y,c] of ends){const out=(c>0)?sg>0:sg<=0;if(I!==0){circ(x,y,13,CL.bg,CL.fg,2);if(out)circ(x,y,4,CL.fg);else{line(x-6,y-6,x+6,y+6,CL.fg,2);line(x-6,y+6,x+6,y-6,CL.fg,2)}const up=out?-1:1;if(Math.abs(c)>.1)arrow(x,y,x,y+up*55*Math.min(1,Math.abs(c)+.3)*(sg>0||true?1:1),CL.good,4)}}
+   s.mag=0;s.Fx=0;txt(sg>0?'↺':sg<0?'↻':'',cx,cy+R+50,32,CL.accent,'center','700')}
+ },
+ read(s){return s.m===0?[[tx('F'),fmt(s.mag*.2,2)+' Н'],[tx('dir'),s.Fx<0?tx('L'):s.Fx>0?tx('R'):tx('none')]]:[[tx('w'),fmt(s.w*9.55)+' об/мин']]}
+});
+/* ---- 26b. Электромагнитная индукция ---- */
+reg('induct',{
+ ru:{n:'Электромагнитная индукция',t:['Двигайте магнит через катушку: стрелка гальванометра отклоняется.','Двигайте быстрее / медленнее; увеличьте число витков.','Остановите магнит внутри катушки. Поменяйте полюс магнита.'],c:'При изменении магнитного потока через замкнутый контур в нём возникает индукционный ток. Стрелка отклоняется, только когда магнит движется: ЭДС тем больше, чем быстрее изменяется поток и чем больше витков. При смене направления движения или полюса направление тока меняется.',p:['Положение магнита','Число витков'],m:[],a:['Автодвижение','Поменять полюс магнита'],x:{E:'ЭДС индукции',dir:'Отклонение',R:'вправо',L:'влево',none:'нет',v:'Скорость магнита'}},
+ kk:{n:'Электромагниттік индукция',t:['Магнитті катушка арқылы жылжытыңыз: гальванометр тілі ауытқиды.','Жылдамырақ / баяулау қозғалтыңыз; орам санын арттырыңыз.','Магнитті катушка ішінде тоқтатыңыз. Магнит полюсін ауыстырыңыз.'],c:'Тұйық контур арқылы өтетін магнит ағыны өзгергенде онда индукциялық ток пайда болады. Магнит қозғалғанда ғана тіл ауытқиды: ағын неғұрлым тез өзгерсе және орам көп болса, ЭҚК соғұрлым үлкен. Қозғалыс бағыты немесе полюс өзгергенде ток бағыты да өзгереді.',p:['Магнит орны','Орам саны'],m:[],a:['Автоқозғалыс','Магнит полюсін ауыстыру'],x:{E:'Индукция ЭҚК-і',dir:'Ауытқу',R:'оңға',L:'солға',none:'жоқ',v:'Магнит жылдамдығы'}},
+ P:[['x',-300,300,5,-300,'мм'],['N',50,500,50,200,'']],A:['auto','flip'],
+ init(s){s.auto=false;s.fl=1;s.px=-300;s.E=0;s.t=0;s.hist=[];s.v=0},
+ act(s,a){if(a==='auto')s.auto=!s.auto;if(a==='flip')s.fl*=-1;},
+ draw(s,dt){
+  s.t+=dt;if(s.auto)s.p.x=Math.round(300*Math.sin(s.t*1.6)); const x=s.p.x;const vx=(x-s.px)/Math.max(dt,.001);s.px=x;s.v+=(vx-s.v)*Math.min(1,dt*10);
+  const phi=xx=>Math.exp(-((xx/90)**2)),dphi=(phi(x)-phi(x-vx*dt))/Math.max(dt,.001);const E=-s.p.N*dphi*s.fl*.5;s.E+=(E-s.E)*Math.min(1,dt*12);
+  s.hist.push(s.E);if(s.hist.length>260)s.hist.shift();
+  const cy=210;ctx.beginPath();for(let i=0;i<14;i++){const xx=345+i*8;ctx.ellipse(xx,cy,10,54,0,0,6.283);}ctx.strokeStyle='#b5651d';ctx.lineWidth=2.5;ctx.stroke();
+  const mx=400+x*.75;rect(mx-60,cy-18,60,36,s.fl>0?CL.hot:CL.cold,CL.fg,3);rect(mx,cy-18,60,36,s.fl>0?CL.cold:CL.hot,CL.fg,3);txt(s.fl>0?'N':'S',mx-30,cy+7,18,'#fff','center','700');txt(s.fl>0?'S':'N',mx+30,cy+7,18,'#fff','center','700');
+  // galvanometer
+  const gx=620,gy=300;line(345,cy+54,345,330,CL.fg,3);line(455,cy+54,455,330,CL.fg,3);line(345,330,gx-60,330,CL.fg,3);line(gx+60,330,455,330,CL.fg,3);
+  ctx.beginPath();ctx.arc(gx,gy+30,70,PI*1.05,PI*1.95);ctx.strokeStyle=CL.fg;ctx.lineWidth=4;ctx.stroke();const ang=clamp(s.E/300,-1,1)*PI*.42;line(gx,gy+30,gx+Math.sin(ang)*66,gy+30-Math.cos(ang)*66,CL.hot,4);circ(gx,gy+30,6,CL.fg);txt('G',gx,gy+68,18,CL.fg,'center','700');
+  const g=axes(60,370,680,100,6,2,'t, c','',0,0);line(60,420,740,420,CL.line,1,[4,4]);const pts=s.hist.map((e,i)=>[60+680*i/260,420-clamp(e/400,-1,1)*48]);poly(pts,null,CL.accent,3);txt('ЭДС',64,385,13,CL.muted,'left')
+ },
+ read(s){return [[tx('E'),fmt(s.E)+' мВ'],[tx('dir'),Math.abs(s.E)<8?tx('none'):s.E>0?tx('R'):tx('L')],[tx('v'),fmt(Math.abs(s.v)/10)+' см/с']]}
+});
+/* ---- 26c. Генератор ---- */
+reg('gener',{
+ ru:{n:'Генератор переменного тока',t:['Вращайте рамку: ЭДС изменяется по синусоиде.','Увеличьте частоту вращения, число витков, поле: как меняется амплитуда?','Определите период по графику.'],c:'При вращении рамки в магнитном поле магнитный поток меняется, в рамке возникает ЭДС индукции e = E_max·sin(ωt), E_max = N·B·S·ω. Чем быстрее вращение, больше витков и индукция, тем больше ЭДС. Так работают генераторы электростанций.',p:['Число витков N','Индукция B','Частота вращения f'],m:[],a:[],x:{E:'Амплитуда E_max',T:'Период T',e:'ЭДС сейчас'}},
+ kk:{n:'Айнымалы ток генераторы',t:['Рамканы айналдырыңыз: ЭҚК синусоида бойынша өзгереді.','Айналу жиілігін, орам санын, өрісті арттырыңыз: амплитуда қалай өзгереді?','Графиктен периодты анықтаңыз.'],c:'Рамка магнит өрісінде айналғанда магнит ағыны өзгеріп, рамкада индукция ЭҚК-і пайда болады e = E_max·sin(ωt), E_max = N·B·S·ω. Айналу жылдам, орам көп және индукция үлкен болған сайын ЭҚК көп. Электр станциялардың генераторлары осылай жұмыс істейді.',p:['Орам саны N','Индукция B','Айналу жиілігі f'],m:[],a:[],x:{E:'Амплитуда E_max',T:'Период T',e:'Қазіргі ЭҚК'}},
+ P:[['N',10,100,10,50,''],['B',.1,1,.1,.5,'Тл'],['f',.5,5,.5,1,'Гц']],A:[],
+ init(s){s.th=0;s.t=0;s.hist=[]},
+ draw(s,dt){
+  const {N,B,f}=s.p,w=2*PI*f,Em=N*B*.01*w;s.Em=Em;const vis=.35;s.th+=w*vis*dt;s.t+=dt*vis;
+  const e=Em*Math.sin(s.th);s.e=e;s.hist.push(e/Em);if(s.hist.length>400)s.hist.shift();
+  rect(60,60,90,160,CL.hot,CL.fg,3,6);txt('N',105,150,30,'#fff','center','700');rect(310,60,90,160,CL.cold,CL.fg,3,6);txt('S',355,150,30,'#fff','center','700');
+  for(let k=0;k<4;k++)arrow(160,90+k*38,300,90+k*38,CL.muted,2);
+  const cx=230,cy=140,w2=Math.abs(Math.cos(s.th))*70+4;rect(cx-w2,cy-50,2*w2,100,'rgba(255,200,80,.25)',CL.warn,6,2);circ(cx,cy,5,CL.fg);line(cx,cy-70,cx,cy+70,CL.fg,2);
+  circ(550,130,40,CL.bg,CL.fg,3);const gl=Math.abs(e)/Math.max(Em,1e-6)*clamp(Em/6,.2,1);ctx.beginPath();ctx.arc(550,130,34+gl*30,0,6.3);ctx.fillStyle=`rgba(255,220,90,${gl*.5})`;ctx.fill();line(534,114,566,146,CL.fg,2.5);line(566,114,534,146,CL.fg,2.5);line(400,130,510,130,CL.fg,3);line(590,130,720,130,CL.fg,3);line(720,130,720,230,CL.fg,3);
+  line(60,290,60,460,CL.fg,2);txt('E',72,300,14,CL.muted,'left','500');txt('t',736,368,14,CL.muted,'right','500');const cy2=375;line(60,cy2,740,cy2,CL.line,1.5,[4,4]);const pts=s.hist.map((v,i)=>[60+680*i/400,cy2-v*75*Math.min(1,Em/Math.max(Em,1e-9))]);poly(pts,null,CL.accent,3);
+  txt('+E_max',64,cy2-80,12,CL.muted,'left');txt('−E_max',64,cy2+90,12,CL.muted,'left');circ(60+680*(s.hist.length-1)/400,cy2-s.hist[s.hist.length-1]*75,6,CL.hot)
+ },
+ read(s){return [[tx('E'),fmt(s.Em,2)+' В'],[tx('T'),fmt(1/s.p.f,2)+' с'],[tx('e'),fmt(s.e,2)+' В']]}
+});
+/* ===== ОПТИКА ===== */
+const D2R=PI/180;
+function ang(cx,cy,r,a0,a1,col){ctx.beginPath();ctx.arc(cx,cy,r,a0,a1);ctx.strokeStyle=col||CL.muted;ctx.lineWidth=2;ctx.stroke()}
+/* 27a. Тень и полутень */
+reg('shadow',{
+ ru:{n:'Тень и полутень. Прямолинейное распространение света',t:['Точечный источник: на экране только тень.','Увеличьте размер источника: появляется полутень.','Приближайте предмет к экрану – как меняются тень и полутень?'],c:'В прозрачной однородной среде свет распространяется прямолинейно. Точечный источник даёт резкую тень; протяжённый источник даёт область полной тени и область полутени.',p:['Размер источника','Расстояние источник – предмет'],m:['Точечный источник','Протяжённый источник'],a:[],x:{u:'Размер тени',pn:'Ширина полутени',sc:'Экран',ob:'Предмет'}},
+ kk:{n:'Көлеңке және жартылай көлеңке. Жарықтың түзу сызықты таралуы',t:['Нүктелік жарық көзі: экранда тек көлеңке болады.','Көз өлшемін үлкейтіңіз: жартылай көлеңке пайда болады.','Денені экранға жақындатыңыз – көлеңке мен жартылай көлеңке қалай өзгереді?'],c:'Мөлдір біртекті ортада жарық түзу сызықты таралады. Нүктелік көз айқын көлеңке береді; ұзындығы бар көз толық көлеңке және жартылай көлеңке аймақтарын береді.',p:['Көз өлшемі','Көз – дене арақашықтығы'],m:['Нүктелік жарық көзі','Ұзындығы бар жарық көзі'],a:[],x:{u:'Көлеңке өлшемі',pn:'Жартылай көлеңке ені',sc:'Экран',ob:'Дене'}},
+ P:[['r',5,60,5,35,'мм'],['a',100,400,10,300,'мм']],A:[],M:1,
+ show(s,k){return k==='a'||s.m===1},
+ draw(s,dt){
+  const r=s.m?s.p.r*.9:1.5,sx=100,sy=250,ox=sx+s.p.a,sc=700,H=45;
+  const at=(px,py,qx,qy,x)=>py+(qy-py)*(x-px)/(qx-px);
+  const uT=at(sx,sy+r,ox,sy-H,sc),uB=at(sx,sy-r,ox,sy+H,sc),pT=at(sx,sy-r,ox,sy-H,sc),pB=at(sx,sy+r,ox,sy+H,sc);
+  rect(sc-3,40,6,420,CL.line,null);
+  if(pB>pT){rect(sc-3,pT,6,pB-pT,'rgba(120,120,120,.35)',null)}
+  const um=uB-uT;if(um>0)rect(sc-3,uT,6,um,'#222',null);
+  // beams
+  ctx.globalAlpha=.16;poly([[sx,sy-r],[ox,sy-H],[sc,pT],[sc,40],[sx,40]].slice(0,3).concat([[sc,pT]]),CL.warn,null,0,true);poly([[sx,sy+r],[ox,sy+H],[sc,pB]],CL.warn,null,0,true);ctx.globalAlpha=1;
+  const lines=[[sx,sy-r,ox,sy-H,sc],[sx,sy+r,ox,sy+H,sc],[sx,sy-r,ox,sy+H,sc],[sx,sy+r,ox,sy-H,sc]];
+  for(const [a,b,c,d,e] of lines){const y=at(a,b,c,d,e);line(a,b,e,y,CL.warn,1.8)}
+  line(sx,sy,sc,sy,CL.warn,1.2,[5,5]);
+  rect(ox-5,sy-H,10,2*H,'#555',CL.fg,2,2);circ(sx,sy,Math.max(r,4),CL.warn,CL.fg,2);
+  txt(tx('ob'),ox,sy-H-10,14,CL.muted,'center');txt(tx('sc'),sc,34,14,CL.muted,'center');
+  s.um=Math.max(0,um);s.pw=Math.max(0,(pB-pT)-Math.max(0,um))/2;
+ },
+ read(s){return [[tx('u'),fmt(s.um/4,1)+' см'],[tx('pn'),fmt(s.pw/4,1)+' см']]}
+});
+/* 27b. Затмения */
+reg('eclipse',{
+ ru:{n:'Солнечное и лунное затмения',t:['Солнечное затмение: Луна между Солнцем и Землёй.','Смещайте Луну: когда затмение полное, частичное, отсутствует?','Лунное затмение: Луна попадает в тень Земли.'],c:'Солнечное затмение происходит, когда Луна оказывается между Солнцем и Землёй: в области тени затмение полное, в области полутени – частичное. Лунное затмение: Луна попадает в тень Земли. Размеры и расстояния на схеме не в масштабе.',p:['Смещение Луны от линии Солнце–Земля'],m:['Солнечное затмение','Лунное затмение'],a:[],x:{r:'Результат',tot:'Полное затмение',par:'Частичное затмение',no:'Затмения нет',sun:'Солнце',earth:'Земля',moon:'Луна'}},
+ kk:{n:'Күн және Ай тұтылуы',t:['Күн тұтылуы: Ай Күн мен Жердің арасында.','Айды жылжытыңыз: қашан толық, жартылай тұтылу болады, қашан болмайды?','Ай тұтылуы: Ай Жердің көлеңкесіне түседі.'],c:'Ай Күн мен Жердің арасында тұрғанда Күн тұтылады: көлеңке аймағында толық, жартылай көлеңке аймағында жартылай тұтылу байқалады. Ай тұтылғанда Ай Жердің көлеңкесіне түседі. Схемада өлшемдер мен қашықтықтар масштабсыз.',p:['Айдың Күн–Жер сызығынан ығысуы'],m:['Күн тұтылуы','Ай тұтылуы'],a:[],x:{r:'Нәтиже',tot:'Толық тұтылу',par:'Жартылай тұтылу',no:'Тұтылу жоқ',sun:'Күн',earth:'Жер',moon:'Ай'}},
+ P:[['o',-40,40,1,0,'']],A:[],M:1,
+ draw(s,dt){
+  const o=s.p.o,Rs=40,sx=90,sy=250;let ex,mx,Re,Rm,res;
+  if(s.m===0){mx=300;Rm=24;ex=520;Re=34;const my=sy+o,d=mx-sx;
+   const ax=(x)=>sy+(my-sy)*(x-sx)/d,uh=x=>Rm-(x-mx)*(Rs-Rm)/d,ph=x=>Rm+(x-mx)*(Rs+Rm)/d;
+   const e=ex,ya=ax(e);
+   poly([[mx,my-Rm],[900,ax(900)-uh(900)*0+0]],null,null,0);
+   // penumbra and umbra regions
+   poly([[mx,my-Rm],[860,ax(860)-ph(860)],[860,ax(860)+ph(860)],[mx,my+Rm]],'rgba(120,120,120,.25)',null,0,true);
+   const uend=mx+Rm*d/(Rs-Rm);const ux=Math.min(uend,860);poly([[mx,my-Rm],[ux,ax(ux)-uh(ux)],[ux,ax(ux)+uh(ux)],[mx,my+Rm]],'rgba(20,20,20,.65)',null,0,true);
+   const dd=Math.abs(ya-sy),uw=Math.max(0,uh(e));res=dd<=uw+Re?'tot':dd<=ph(e)+Re?'par':'no';
+   line(sx,sy-Rs,860,ax(860)-ph(860)+0,CL.warn,1.5,[4,4]);line(sx,sy+Rs,860,ax(860)+ph(860),CL.warn,1.5,[4,4]);
+   circ(sx,sy,Rs,CL.warn,CL.fg,2);circ(ex,sy,Re,'#3b82c4',CL.fg,2);circ(mx,my,Rm,'#aaa',CL.fg,2);
+   txt(tx('sun'),sx,sy+Rs+22,15,CL.fg,'center');txt(tx('earth'),ex,sy+Re+22,15,CL.fg,'center');txt(tx('moon'),mx,my+Rm+22,15,CL.fg,'center');
+  } else {ex=300;Re=34;mx=540;Rm=24;const my=sy+o*3,d=ex-sx;
+   const uh=x=>Re-(x-ex)*(Rs-Re)/d,ph=x=>Re+(x-ex)*(Rs+Re)/d;
+   poly([[ex,sy-Re],[860,sy-ph(860)],[860,sy+ph(860)],[ex,sy+Re]],'rgba(120,120,120,.25)',null,0,true);
+   poly([[ex,sy-Re],[860,sy-uh(860)],[860,sy+uh(860)],[ex,sy+Re]],'rgba(20,20,20,.65)',null,0,true);
+   const dm=Math.abs(my-sy),u=uh(mx),p=ph(mx);res=dm+Rm<=u?'tot':dm-Rm<u?'par':dm-Rm<p?'par':'no';
+   circ(sx,sy,Rs,CL.warn,CL.fg,2);circ(ex,sy,Re,'#3b82c4',CL.fg,2);circ(mx,my,Rm,dm+Rm<=u?'#8a3a2a':'#bbb',CL.fg,2);
+   txt(tx('sun'),sx,sy+Rs+22,15,CL.fg,'center');txt(tx('earth'),ex,sy+Re+22,15,CL.fg,'center');txt(tx('moon'),mx,Math.min(480,my+Rm+22),15,CL.fg,'center')}
+  s.res=res;
+ },
+ read(s){return [[tx('r'),tx(s.res)]]}
+});
+/* 28a. Закон отражения / плоское зеркало */
+reg('reflect',{
+ ru:{n:'Отражение света. Плоское зеркало',t:['Меняйте угол падения и сравнивайте с углом отражения.','Постройте нормаль и отметьте углы α и β.','Режим «изображение»: где находится изображение предмета в зеркале?'],c:'Закон отражения: падающий луч, отражённый луч и перпендикуляр к зеркалу в точке падения лежат в одной плоскости; угол отражения равен углу падения (β = α). Изображение в плоском зеркале мнимое, прямое, равное предмету и находится на таком же расстоянии за зеркалом, как предмет перед ним.',p:['Угол падения α','Расстояние от предмета до зеркала'],m:['Закон отражения','Изображение в зеркале'],a:[],x:{a:'Угол падения α',b:'Угол отражения β',d:'Предмет – зеркало',f:'Изображение – зеркало'}},
+ kk:{n:'Жарықтың шағылуы. Жазық айна',t:['Түсу бұрышын өзгертіп, шағылу бұрышымен салыстырыңыз.','Нормаль жүргізіп, α және β бұрыштарын белгілеңіз.','«Кескін» режимі: айнадағы дененің кескіні қайда орналасады?'],c:'Шағылу заңы: түскен сәуле, шағылған сәуле және түсу нүктесіне айнаға жүргізілген перпендикуляр бір жазықтықта жатады; шағылу бұрышы түсу бұрышына тең (β = α). Жазық айнадағы кескін жорамал, тік, дененің өлшеміндей және айнаның артында дене айнаның алдында тұрған қашықтықта орналасады.',p:['Түсу бұрышы α','Дене мен айна арасы'],m:['Шағылу заңы','Айнадағы кескін'],a:[],x:{a:'Түсу бұрышы α',b:'Шағылу бұрышы β',d:'Дене – айна',f:'Кескін – айна'}},
+ P:[['al',0,85,1,35,'°'],['d',5,30,1,15,'см']],A:[],M:1,
+ show(s,k){return s.m===0?k==='al':k==='d'},
+ draw(s,dt){
+  if(s.m===0){const a=s.p.al*D2R,mx=400,my=380,L=260;
+   rect(100,my,600,16,'#8d96a0',CL.fg,2);for(let i=0;i<30;i++)line(110+i*20,my+16,100+i*20,my+30,CL.muted,1.5);
+   line(mx,my,mx,my-300,CL.muted,2,[6,5]);
+   const x1=mx-L*Math.sin(a),y1=my-L*Math.cos(a),x2=mx+L*Math.sin(a),y2=y1;
+   arrow(x1,y1,mx-2*Math.sin(a),my-2*Math.cos(a),CL.warn,4);arrow(mx,my,x2,y2,CL.hot,4);
+   ang(mx,my,90,-PI/2-a,-PI/2,CL.accent);ang(mx,my,110,-PI/2,-PI/2+a,CL.good);
+   txt('α',mx-62*Math.sin(a/2)-18,my-95*Math.cos(a/2),20,CL.accent,'center','700');txt('β',mx+62*Math.sin(a/2)+18,my-115*Math.cos(a/2),20,CL.good,'center','700');
+   txt('N',mx+10,my-300,16,CL.muted,'left');s.a=s.p.al}
+  else{const d=s.p.d*10,mxx=420,ho=90;
+   rect(mxx-5,70,10,390,'#aeb7c1',CL.fg,2,2);for(let i=0;i<19;i++)line(mxx+5,80+i*20,mxx+17,70+i*20,CL.muted,1.5);
+   const xo=mxx-d,xi=mxx+d,yb=400;
+   line(xo,yb,xo,yb-ho,CL.hot,6);circ(xo,yb-ho,9,CL.warn,CL.fg,2);
+   line(xi,yb,xi,yb-ho,CL.hot,6,[6,5]);circ(xi,yb-ho,9,null,CL.fg,2);
+   const ex=70,ey=330;circ(ex,ey,14,CL.bg,CL.fg,2);circ(ex+4,ey,5,CL.fg);
+   const yi=yb-ho,ym=ey+(yi-ey)*(mxx-ex)/(xi-ex);
+   line(xo,yi,mxx,ym,CL.warn,2.5);line(mxx,ym,ex+14,ey,CL.warn,2.5);line(mxx,ym,xi,yi,CL.muted,2,[6,5]);
+   line(xo,yb+14,mxx,yb+14,CL.accent,2);txt(fmt(s.p.d)+' см',(xo+mxx)/2,yb+34,14,CL.accent,'center');
+   line(mxx,yb+14,xi,yb+14,CL.muted,2,[6,5]);txt(fmt(s.p.d)+' см',(mxx+xi)/2,yb+34,14,CL.muted,'center')}
+ },
+ read(s){return s.m===0?[[tx('a'),fmt(s.p.al)+'°'],[tx('b'),fmt(s.p.al)+'°']]:[[tx('d'),fmt(s.p.d)+' см'],[tx('f'),fmt(s.p.d)+' см']]}
+});
+/* 28b. Полное внутреннее отражение */
+reg('tir',{
+ ru:{n:'Полное внутреннее отражение',t:['Луч идёт из стекла в воздух. Увеличивайте угол падения.','Найдите предельный угол: при каком α преломлённый луч исчезает?','Выберите другой показатель преломления: как меняется предельный угол?'],c:'При переходе света из оптически более плотной среды в менее плотную угол преломления больше угла падения. При угле падения, не меньшем предельного α₀ (sin α₀ = 1/n), преломлённого луча нет – весь свет отражается: полное внутреннее отражение. Применяется в световодах и призмах.',p:['Показатель преломления n','Угол падения α'],m:[],a:[],x:{a0:'Предельный угол α₀',a:'Угол падения α',b:'Угол преломления β',st:'Состояние',tir:'полное отражение',ref:'есть преломление',g:'стекло',air:'воздух'}},
+ kk:{n:'Толық ішкі шағылу',t:['Сәуле шыныдан ауаға өтеді. Түсу бұрышын арттырыңыз.','Шекті бұрышты табыңыз: α қанша болғанда сынған сәуле жоғалады?','Басқа сыну көрсеткішін таңдаңыз: шекті бұрыш қалай өзгереді?'],c:'Жарық оптикалық тығыздығы көп ортадан аз ортаға өткенде сыну бұрышы түсу бұрышынан үлкен болады. Түсу бұрышы шекті α₀ бұрышынан кем болмағанда (sin α₀ = 1/n) сынған сәуле болмайды – жарықтың бәрі шағылады: толық ішкі шағылу. Жарық өткізгіштерде, призмаларда қолданылады.',p:['Сыну көрсеткіші n','Түсу бұрышы α'],m:[],a:[],x:{a0:'Шекті бұрыш α₀',a:'Түсу бұрышы α',b:'Сыну бұрышы β',st:'Күйі',tir:'толық шағылу',ref:'сыну бар',g:'шыны',air:'ауа'}},
+ P:[['n',1.2,2.5,.05,1.5,''],['al',0,85,1,30,'°']],A:[],
+ draw(s,dt){
+  const n=s.p.n,a=s.p.al*D2R,mx=400,my=250,L=230,ac=Math.asin(1/n);
+  rect(60,my,680,230,'rgba(110,170,220,.22)',null);line(60,my,740,my,CL.fg,2.5);line(mx,my-220,mx,my+230,CL.muted,2,[6,5]);
+  txt(tx('g')+' (n = '+fmt(n,2)+')',70,my+30,16,CL.cold,'left','700');txt(tx('air')+' (n = 1)',70,my-14,16,CL.muted,'left','700');
+  const sx=mx-L*Math.sin(a),sy=my+L*Math.cos(a);
+  line(mx-L*Math.sin(ac),my+L*Math.cos(ac),mx,my,CL.accent,1.6,[5,5]);
+  arrow(sx,sy,mx-2*Math.sin(a),my+2*Math.cos(a),CL.warn,4);
+  const tir=n*Math.sin(a)>=1;
+  ctx.globalAlpha=tir?1:clamp(.25+.75*(a/ac)**3,.25,1);arrow(mx,my,mx+L*Math.sin(a),my+L*Math.cos(a),CL.hot,tir?5:3);ctx.globalAlpha=1;
+  let b=0;if(!tir){b=Math.asin(n*Math.sin(a));arrow(mx,my,mx+L*Math.sin(b),my-L*Math.cos(b),CL.good,4)}
+  s.ac=ac/D2R;s.b=b/D2R;s.tir=tir;
+  ang(mx,my,70,PI/2,PI/2+a,CL.warn);txt('α',mx-50*Math.sin(a/2)-14,my+84*Math.cos(a/2),18,CL.warn,'center','700');
+ },
+ read(s){return [[tx('a0'),fmt(s.ac,1)+'°'],[tx('a'),fmt(s.p.al)+'°'],[tx('b'),s.tir?'—':fmt(s.b,1)+'°'],[tx('st'),s.tir?tx('tir'):tx('ref')]]}
+});
+/* 29a. Закон преломления */
+reg('snell',{
+ ru:{n:'Преломление света. Закон преломления',t:['Измените угол падения и запишите угол преломления.','Найдите отношение sin α / sin β для разных углов: оно постоянно.','Сравните воду, стекло, алмаз: n = sin α / sin β.'],c:'На границе двух сред свет меняет направление – преломляется. Закон: падающий луч, преломлённый луч и перпендикуляр лежат в одной плоскости; sin α / sin β = n – относительный показатель преломления. Переходя в более плотную среду, луч приближается к перпендикуляру.',p:['Угол падения α','Показатель преломления n'],m:[],a:[],x:{a:'Угол падения α',b:'Угол преломления β',sa:'sin α',sb:'sin β',n:'sin α / sin β'}},
+ kk:{n:'Жарықтың сынуы. Сыну заңы',t:['Түсу бұрышын өзгертіп, сыну бұрышын жазып алыңыз.','Әртүрлі бұрыштар үшін sin α / sin β қатынасын табыңыз: ол тұрақты.','Суды, шыныны, алмазды салыстырыңыз: n = sin α / sin β.'],c:'Екі орта шекарасында жарық бағытын өзгертеді – сынады. Заң: түскен сәуле, сынған сәуле және перпендикуляр бір жазықтықта жатады; sin α / sin β = n – салыстырмалы сыну көрсеткіші. Тығыздау ортаға өткенде сәуле перпендикулярға жақындайды.',p:['Түсу бұрышы α','Сыну көрсеткіші n'],m:[],a:[],x:{a:'Түсу бұрышы α',b:'Сыну бұрышы β',sa:'sin α',sb:'sin β',n:'sin α / sin β'}},
+ P:[['al',0,85,1,50,'°'],['n',1,2.5,.05,1.5,'']],A:[],
+ draw(s,dt){
+  const n=s.p.n,a=s.p.al*D2R,b=Math.asin(Math.sin(a)/n),mx=400,my=250,L=220;s.b=b/D2R;
+  rect(60,my,680,230,'rgba(110,170,220,.22)',null);line(60,my,740,my,CL.fg,2.5);line(mx,my-220,mx,my+230,CL.muted,2,[6,5]);
+  arrow(mx-L*Math.sin(a),my-L*Math.cos(a),mx-2*Math.sin(a),my-2*Math.cos(a),CL.warn,4);
+  ctx.globalAlpha=.35;arrow(mx,my,mx+L*Math.sin(a),my-L*Math.cos(a),CL.hot,2);ctx.globalAlpha=1;
+  arrow(mx,my,mx+L*Math.sin(b),my+L*Math.cos(b),CL.good,4);
+  ang(mx,my,70,-PI/2-a,-PI/2,CL.warn);txt('α',mx-50*Math.sin(a/2)-14,my-84*Math.cos(a/2),18,CL.warn,'center','700');
+  ang(mx,my,70,PI/2-b,PI/2,CL.good);txt('β',mx+50*Math.sin(b/2)+14,my+88*Math.cos(b/2),18,CL.good,'center','700');
+  txt('n = 1',70,my-14,16,CL.muted,'left','700');txt('n = '+fmt(n,2),70,my+30,16,CL.cold,'left','700');
+ },
+ read(s){const a=s.p.al*D2R;return [[tx('a'),fmt(s.p.al)+'°'],[tx('b'),fmt(s.b,1)+'°'],[tx('sa'),fmt(Math.sin(a),3)],[tx('sb'),fmt(Math.sin(s.b*D2R),3)],[tx('n'),a===0?'—':fmt(Math.sin(a)/Math.sin(s.b*D2R),2)]]}
+});
+/* 29b. Плоскопараллельная пластина */
+reg('plate',{
+ ru:{n:'Плоскопараллельная пластина',t:['Луч проходит сквозь пластину и выходит параллельно падающему.','Увеличьте толщину и угол: как меняется смещение луча?','Сравните стекло и воду.'],c:'Луч, прошедший через плоскопараллельную пластину, выходит параллельно падающему, но смещается: Δ = d·sin(α − β)/cos β. Смещение растёт с толщиной пластины, углом падения и показателем преломления.',p:['Угол падения α','Показатель преломления n','Толщина пластины d'],m:[],a:[],x:{a:'Угол падения α',b:'Угол преломления β',s:'Смещение луча',par:'Выходящий луч параллелен падающему'}},
+ kk:{n:'Жазық параллель пластина',t:['Сәуле пластинадан өтіп, түскен сәулеге параллель шығады.','Қалыңдық пен бұрышты арттырыңыз: сәуленің ығысуы қалай өзгереді?','Шыны мен суды салыстырыңыз.'],c:'Жазық параллель пластинадан өткен сәуле түскен сәулеге параллель шығады, бірақ ығысады: Δ = d·sin(α − β)/cos β. Ығысу пластина қалыңдығы, түсу бұрышы және сыну көрсеткіші артқанда өседі.',p:['Түсу бұрышы α','Сыну көрсеткіші n','Пластина қалыңдығы d'],m:[],a:[],x:{a:'Түсу бұрышы α',b:'Сыну бұрышы β',s:'Сәуле ығысуы',par:'Шыққан сәуле түскенге параллель'}},
+ P:[['al',0,80,1,50,'°'],['n',1.2,2,.05,1.5,''],['d',1,8,.5,4,'см']],A:[],
+ draw(s,dt){
+  const n=s.p.n,a=s.p.al*D2R,b=Math.asin(Math.sin(a)/n),t=s.p.d*30,y1=200,y2=y1+t,mx=400;
+  rect(60,y1,680,t,'rgba(110,170,220,.28)',CL.fg,2);
+  const px=mx,sx=px-140*Math.tan(a)*1,ex=px+t*Math.tan(b);
+  const x0=px-y1*0+(-130*Math.tan(a));
+  arrow(px-130*Math.tan(a),y1-130,px,y1-2,CL.warn,4);
+  line(px,y1,ex,y2,CL.warn,4);
+  const exL=130*Math.tan(a);arrow(ex,y2,ex+exL,y2+130,CL.warn,4);
+  line(px,y1,px+(y2+130-y1)*Math.tan(a),y2+130,CL.muted,2,[6,5]);
+  line(px,y1-80,px,y2+80,CL.muted,1.4,[4,5]);line(ex,y1-0,ex,y2+80,CL.muted,1.4,[4,5]);
+  const d=(ex+exL)-(px+(y2+130-y1)*Math.tan(a));s.sh=s.p.d*Math.sin(a-b)/Math.cos(b);s.b=b/D2R;
+  txt('n = '+fmt(n,2),70,y1+22,16,CL.cold,'left','700');
+ },
+ read(s){return [[tx('a'),fmt(s.p.al)+'°'],[tx('b'),fmt(s.b,1)+'°'],[tx('s'),fmt(s.sh,2)+' см']]}
+});
+/* 30–31. Тонкая линза: построение изображения */
+function lensImg(F,d){const k=1/F-1/d;if(Math.abs(k)<1e-3)return null;const fi=1/k;return {fi,m:-fi/d}}
+function imgDesc(fi,m,mir){const real=mir?fi>0:fi>0;const t=[];t.push(fi>0?'real':'virt');t.push(m<0?'inv':'up');t.push(Math.abs(m)>1.02?'big':Math.abs(m)<.98?'small':'same');return t}
+reg('lens',{
+ ru:{n:'Тонкая линза. Построение изображения',t:['Двигайте предмет и наблюдайте за изображением.','Постройте три луча: параллельный, через центр, через фокус.','Найдите положения предмета, когда изображение уменьшенное, равное, увеличенное, мнимое.'],c:'Формула тонкой линзы: 1/F = 1/d + 1/f, оптическая сила D = 1/F (дптр). Собирающая линза (F > 0) даёт действительное перевёрнутое изображение при d > F и мнимое прямое увеличенное при d < F. Рассеивающая линза даёт мнимое прямое уменьшенное изображение. Увеличение Γ = |f| / d.',p:['Фокусное расстояние F','Расстояние до предмета d'],m:['Собирающая линза','Рассеивающая линза'],a:[],x:{d:'Расстояние d',f:'Расстояние f',g:'Увеличение Γ',D:'Оптическая сила D',im:'Изображение',real:'действительное',virt:'мнимое',inv:'перевёрнутое',up:'прямое',big:'увеличенное',small:'уменьшенное',same:'равное',inf:'на бесконечности (лучи параллельны)'}},
+ kk:{n:'Жұқа линза. Кескін салу',t:['Затты жылжытып, кескінді бақылаңыз.','Үш сәуле салыңыз: параллель, центр арқылы, фокус арқылы.','Кескін кішірейген, тең, үлкейген, жорамал болатын зат орнын табыңыз.'],c:'Жұқа линза формуласы: 1/F = 1/d + 1/f, оптикалық күші D = 1/F (дптр). Жинағыш линза (F > 0) d > F болғанда шын төңкерілген, d < F болғанда жорамал тік үлкейген кескін береді. Шашыратқыш линза жорамал тік кішірейген кескін береді. Үлкейту Γ = |f| / d.',p:['Фокус аралығы F','Затқа дейінгі қашықтық d'],m:['Жинағыш линза','Шашыратқыш линза'],a:[],x:{d:'Қашықтық d',f:'Қашықтық f',g:'Үлкейту Γ',D:'Оптикалық күш D',im:'Кескін',real:'шын',virt:'жорамал',inv:'төңкерілген',up:'тік',big:'үлкейген',small:'кішірейген',same:'тең',inf:'шексіздікте (сәулелер параллель)'}},
+ P:[['F',5,20,1,10,'см'],['d',2,40,1,25,'см']],A:[],M:1,
+ draw(s,dt){
+  const F=s.m?-s.p.F:s.p.F,d=s.p.d,K=10,lx=400,ay=250,H=45;
+  line(40,ay,760,ay,CL.muted,1.5);
+  // lens
+  const lc=s.m?'rgba(120,180,230,.45)':'rgba(120,180,230,.45)';
+  poly(s.m?[[lx-12,ay-130],[lx+12,ay-130],[lx+3,ay],[lx+12,ay+130],[lx-12,ay+130],[lx-3,ay]]:[[lx,ay-130],[lx+14,ay-60],[lx+14,ay+60],[lx,ay+130],[lx-14,ay+60],[lx-14,ay-60]],lc,CL.fg,2,true);
+  for(const sg of [-1,1]){const x=lx+sg*Math.abs(F)*K;circ(x,ay,4,CL.fg);txt('F',x,ay+20,14,CL.muted,'center','700');const x2=lx+sg*2*Math.abs(F)*K;if(x2>20&&x2<780){circ(x2,ay,3,CL.muted);txt('2F',x2,ay+20,12,CL.muted,'center')}}
+  const xo=lx-d*K,yo=ay-H;arrow(xo,ay,xo,yo,CL.warn,6);
+  const im=lensImg(F,d);s.im=im;
+  if(!im){const xt=xo;line(xt,yo,lx,yo,CL.warn,2);line(lx,yo,760,yo+0,CL.warn,0.1);line(xt,yo,lx,ay,CL.warn,2);line(lx,ay,760,ay+(ay-yo)*(760-lx)/(lx-xt)*-1,CL.warn,2);return}
+  const xi=lx+im.fi*K,yi=ay-im.m*H;
+  const virt=im.fi<0,ex=760;
+  const ext=(x0,y0,x1,y1,toX)=>[toX,y0+(y1-y0)*(toX-x0)/(x1-x0)];
+  // ray1: parallel then through image tip
+  line(xo,yo,lx,yo,CL.hot,2.5);let p=ext(lx,yo,xi,yi,ex);if(virt){line(lx,yo,p[0],p[1],CL.hot,2.5);const q=ext(lx,yo,xi,yi,xi);line(lx,yo,q[0],q[1],CL.hot,1.8,[5,5])}else{line(lx,yo,xi,yi,CL.hot,2.5);const q=ext(lx,yo,xi,yi,Math.max(xi,ex));line(xi,yi,Math.min(q[0],ex),clamp(q[1],-50,550),CL.hot,2.5)}
+  // ray2: through centre
+  line(xo,yo,lx,ay,CL.good,2.5);let c=ext(xo,yo,lx,ay,ex);line(lx,ay,c[0],c[1],CL.good,2.5);if(virt)line(lx,ay,xi,yi,CL.good,1.8,[5,5]);
+  // ray3: through F then parallel at yi
+  line(xo,yo,lx,yi,CL.accent,2.5);line(lx,yi,ex,yi,CL.accent,2.5);if(virt)line(lx,yi,xi,yi,CL.accent,1.8,[5,5]);
+  if(xi>20&&xi<780){line(xi,ay,xi,yi,CL.cold,6,virt?[7,5]:[]);circ(xi,yi,5,CL.cold)}
+  s.d=d;
+ },
+ read(s){const F=s.m?-s.p.F:s.p.F,im=s.im;if(!im)return [[tx('d'),fmt(s.p.d)+' см'],[tx('f'),'∞'],[tx('D'),fmt(100/F,1)+' дптр'],[tx('im'),tx('inf')]];
+  const t=imgDesc(im.fi,im.m);return [[tx('d'),fmt(s.p.d)+' см'],[tx('f'),fmt(Math.abs(im.fi),1)+' см'],[tx('g'),fmt(Math.abs(im.m),2)],[tx('D'),fmt(100/F,1)+' дптр'],[tx('im'),t.map(tx).join(', ')]]}
+});
+/* 32. Сферические зеркала */
+reg('mirror',{
+ ru:{n:'Сферические зеркала',t:['Вогнутое зеркало: двигайте предмет и найдите изображение.','Постройте три луча (параллельный, через фокус, через вершину).','Выпуклое зеркало: какое изображение оно даёт?'],c:'Для сферического зеркала 1/F = 1/d + 1/f, F = R/2. Вогнутое зеркало (F > 0) при d > F даёт действительное перевёрнутое изображение, при d < F – мнимое прямое увеличенное. Выпуклое зеркало всегда даёт мнимое прямое уменьшенное изображение.',p:['Фокусное расстояние F','Расстояние до предмета d'],m:['Вогнутое зеркало','Выпуклое зеркало'],a:[],x:{d:'Расстояние d',f:'Расстояние f',g:'Увеличение Γ',D:'Оптическая сила D',im:'Изображение',real:'действительное',virt:'мнимое',inv:'перевёрнутое',up:'прямое',big:'увеличенное',small:'уменьшенное',same:'равное',inf:'на бесконечности (лучи параллельны)'}},
+ kk:{n:'Сфералық айналар',t:['Ойыс айна: затты жылжытып, кескінді табыңыз.','Үш сәулені салыңыз (параллель, фокус арқылы, төбесі арқылы).','Дөңес айна қандай кескін береді?'],c:'Сфералық айна үшін 1/F = 1/d + 1/f, F = R/2. Ойыс айна (F > 0) d > F болғанда шын төңкерілген, d < F болғанда жорамал тік үлкейген кескін береді. Дөңес айна әрқашан жорамал тік кішірейген кескін береді.',p:['Фокус аралығы F','Затқа дейінгі қашықтық d'],m:['Ойыс айна','Дөңес айна'],a:[],x:{d:'Қашықтық d',f:'Қашықтық f',g:'Үлкейту Γ',D:'Оптикалық күш D',im:'Кескін',real:'шын',virt:'жорамал',inv:'төңкерілген',up:'тік',big:'үлкейген',small:'кішірейген',same:'тең',inf:'шексіздікте (сәулелер параллель)'}},
+ P:[['F',5,20,1,10,'см'],['d',2,45,1,25,'см']],A:[],M:1,
+ draw(s,dt){
+  const F=s.m?-s.p.F:s.p.F,d=s.p.d,K=10,vx=620,ay=250,H=45;
+  line(40,ay,780,ay,CL.muted,1.5);
+  const R=2*Math.abs(F)*K,half=Math.min(190,R*.95),aa=Math.asin(half/R);
+  ctx.beginPath();if(!s.m)ctx.arc(vx-R,ay,R,-aa,aa);else ctx.arc(vx+R,ay,R,PI-aa,PI+aa);ctx.strokeStyle=CL.fg;ctx.lineWidth=6;ctx.stroke();
+  for(let i=-5;i<=5;i++){const y=ay+i*half/5.4,xx=vx+(s.m?-(R-Math.sqrt(R*R-(y-ay)**2)):-(R-Math.sqrt(R*R-(y-ay)**2))*-1);line(xx+(s.m?-0:0)+ (s.m?-4:4),y,xx+(s.m?-0:0)+(s.m?-12:12),y+8,CL.muted,1.5)}
+  const fx=vx-F*K,cx=vx-2*F*K;circ(fx,ay,4,CL.fg);txt('F',fx,ay+20,14,CL.muted,'center','700');if(cx>20&&cx<780){circ(cx,ay,3,CL.muted);txt('C',cx,ay+20,13,CL.muted,'center','700')}
+  const xo=vx-d*K,yo=ay-H;arrow(xo,ay,xo,yo,CL.warn,6);const im=lensImg(F,d);s.im=im;if(!im)return;
+  const xi=vx-im.fi*K,yi=ay-im.m*H,virt=im.fi<0;
+  const ext=(x0,y0,x1,y1,toX)=>[toX,y0+(y1-y0)*(toX-x0)/(x1-x0)];
+  line(xo,yo,vx,yo,CL.hot,2.5);line(xo,yo,vx,ay,CL.good,2.5);line(xo,yo,vx,yi,CL.accent,2.5);
+  // reflected
+  if(!virt){line(vx,yo,xi,yi,CL.hot,2.5);const q=ext(vx,yo,xi,yi,40);line(xi,yi,q[0],q[1],CL.hot,2.5);
+   const dx=vx-xo,dy=ay-yo;const q2=ext(vx,ay,vx-dx,ay+dy,40);line(vx,ay,q2[0],q2[1],CL.good,2.5);line(vx,yi,40,yi,CL.accent,2.5)}
+  else{const q=ext(vx,yo,xi,yi,40);line(vx,yo,q[0],q[1],CL.hot,2.5);line(vx,yo,xi,yi,CL.hot,1.8,[5,5]);
+   const dx=vx-xo,dy=ay-yo,q2=ext(vx,ay,vx-dx,ay+dy,40);line(vx,ay,q2[0],q2[1],CL.good,2.5);line(vx,ay,xi,yi,CL.good,1.8,[5,5]);
+   line(vx,yi,40,yi,CL.accent,2.5);line(vx,yi,xi,yi,CL.accent,1.8,[5,5])}
+  if(xi>20&&xi<790){line(xi,ay,xi,yi,CL.cold,6,virt?[7,5]:[]);circ(xi,yi,5,CL.cold)}
+ },
+ read(s){const F=s.m?-s.p.F:s.p.F,im=s.im;if(!im)return [[tx('d'),fmt(s.p.d)+' см'],[tx('f'),'∞'],[tx('D'),fmt(100/F,1)+' дптр'],[tx('im'),tx('inf')]];
+  const t=imgDesc(im.fi,im.m);return [[tx('d'),fmt(s.p.d)+' см'],[tx('f'),fmt(Math.abs(im.fi),1)+' см'],[tx('g'),fmt(Math.abs(im.m),2)],[tx('D'),fmt(100/F,1)+' дптр'],[tx('im'),t.map(tx).join(', ')]]}
+});
+/* 33. Лабораторная: определение фокусного расстояния линзы */
+reg('lenslab',{
+ ru:{n:'Л.Р. Определение фокусного расстояния линзы',t:['Поставьте предмет на расстоянии d от линзы.','Перемещайте экран до получения чёткого изображения.','Нажмите «Записать» и вычислите F и D. Повторите для других d.'],c:'Измерьте расстояние d от предмета до линзы и f от линзы до экрана при чётком изображении. F = d·f/(d + f), D = 1/F. Для надёжности выполните 3 опыта при разных d и найдите среднее значение.',p:['Расстояние предмет – линза d','Положение экрана f'],m:[],a:['Записать результат','Сбросить таблицу'],x:{sh:'Резкость',yes:'чёткое изображение',no:'размыто',F:'F (из опыта)',D:'D (из опыта)',avg:'Среднее F',n:'опыт'}},
+ kk:{n:'Л.Ж. Линзаның фокус аралығын анықтау',t:['Затты линзадан d қашықтыққа қойыңыз.','Айқын кескін алғанша экранды жылжытыңыз.','«Жазу» батырмасын басып, F және D есептеңіз. Басқа d үшін қайталаңыз.'],c:'Заттан линзаға дейінгі d және айқын кескін кезінде линзадан экранға дейінгі f қашықтықтарын өлшеңіз. F = d·f/(d + f), D = 1/F. Сенімділік үшін әртүрлі d кезінде 3 тәжірибе жасап, орташа мәнін табыңыз.',p:['Зат – линза арақашықтығы d','Экран орны f'],m:[],a:['Нәтижені жазу','Кестені тазалау'],x:{sh:'Айқындық',yes:'айқын кескін',no:'бұлыңғыр',F:'F (тәжірибеден)',D:'D (тәжірибеден)',avg:'Орташа F',n:'тәжірибе'}},
+ P:[['d',20,50,1,30,'см'],['f',5,70,.5,10,'см']],A:['rec','clr'],
+ init(s){s.rows=[]},
+ act(s,a){if(a==='clr')s.rows=[];if(a==='rec'&&s.sharp&&s.rows.length<3&&!s.rows.some(r=>r.d===s.p.d)){const F=s.p.d*s.p.f/(s.p.d+s.p.f);s.rows.push({d:s.p.d,f:s.p.f,F})}},
+ draw(s,dt){
+  const Fh=12,d=s.p.d,f=s.p.f,K=6.2,lx=300,ay=250;
+  const fi=d*Fh/(d-Fh),sharp=Math.abs(f-fi)<=.6;s.sharp=sharp;s.fi=fi;
+  rect(40,ay+70,720,8,'#9aa4ad',CL.fg,1.5,2);for(let i=0;i<=70;i+=5){line(lx+i*K,ay+78,lx+i*K,ay+84+(i%10?0:6),CL.muted,1.2)}
+  for(let i=0;i<=50;i+=10){line(lx-i*K,ay+78,lx-i*K,ay+90,CL.muted,1.2);}
+  const xo=lx-d*K;if(xo<20){}
+  // lamp and object
+  rect(Math.max(10,xo-28),ay+30,22,40,'#777',CL.fg,2,3);line(xo,ay+70,xo,ay-10,CL.warn,7);circ(xo,ay-14,8,CL.warn,CL.fg,2);
+  // lens
+  poly([[lx,ay-90],[lx+11,ay-40],[lx+11,ay+40],[lx,ay+90],[lx-11,ay+40],[lx-11,ay-40]],'rgba(120,180,230,.5)',CL.fg,2,true);
+  // screen
+  const sxp=lx+f*K;rect(sxp-4,ay-100,8,170,'#eee',CL.fg,2,2);
+  const bl=Math.abs(f-fi);const rr=clamp(bl*1.6,0,28);
+  // rays
+  const tipY=ay-14;ctx.globalAlpha=.55;line(xo,tipY,lx,ay-60,CL.warn,1.5);line(xo,tipY,lx,ay+55,CL.warn,1.5);
+  const fx=lx+fi*K,fy=ay+14*(fi/d);line(lx,ay-60,fx,fy,CL.warn,1.5);line(lx,ay+55,fx,fy,CL.warn,1.5);
+  line(lx,ay-60,Math.max(fx,sxp)+20,fy+(fy-(ay-60))*((Math.max(fx,sxp)+20-fx)/(fx-lx)),CL.warn,1.5);line(lx,ay+55,Math.max(fx,sxp)+20,fy+(fy-(ay+55))*((Math.max(fx,sxp)+20-fx)/(fx-lx)),CL.warn,1.5);ctx.globalAlpha=1;
+  // image on screen
+  const iy=ay+14*(fi/d)*1;ctx.save();ctx.shadowColor=CL.warn;ctx.shadowBlur=rr;ctx.globalAlpha=clamp(1-rr/34,.25,1);line(sxp-0,ay+10*0+2,sxp,iy+0,CL.hot,0.1);const hh=14*(fi/d)*3;line(sxp,ay-0,sxp,ay+Math.max(6,hh*1.0),CL.hot,Math.max(5,6+rr*.3));circ(sxp,ay+Math.max(6,hh),6+rr*.4,CL.warn);ctx.restore();
+  if(sharp)txt('✓',sxp,ay-112,26,CL.good,'center','700');
+  txt('d = '+fmt(d)+' см',(xo+lx)/2,ay+118,15,CL.accent,'center');txt('f = '+fmt(f,1)+' см',(lx+sxp)/2,ay+138,15,CL.accent,'center');
+ },
+ read(s){const L=[[tx('sh'),s.sharp?tx('yes'):tx('no')]];s.rows.forEach((r,i)=>L.push([tx('n')+' '+(i+1),`d=${fmt(r.d)}, f=${fmt(r.f,1)} → F=${fmt(r.F,1)} см, D=${fmt(100/r.F,1)} дптр`]));if(s.rows.length>1){const m=s.rows.reduce((a,r)=>a+r.F,0)/s.rows.length;L.push([tx('avg'),fmt(m,1)+' см ('+fmt(100/m,1)+' дптр)'])}return L}
+});
+/* 34. Глаз и дефекты зрения */
+reg('eye',{
+ ru:{n:'Глаз как оптическая система. Дефекты зрения',t:['Нормальный глаз: двигайте предмет, изображение на сетчатке чёткое.','Близорукость: удалите предмет (изображение перед сетчаткой). Дальнозоркость: приблизьте предмет к 25 см (за сетчаткой).','Подберите очки: какая линза исправляет дефект?'],c:'Хрусталик глаза – собирающая линза; изображение должно получаться на сетчатке. При близорукости изображение далёкого предмета получается перед сетчаткой – исправляют рассеивающими линзами (D < 0). При дальнозоркости – за сетчаткой, исправляют собирающими линзами (D > 0).',p:['Расстояние до предмета','Оптическая сила очков D'],m:['Нормальное зрение','Близорукость','Дальнозоркость'],a:[],x:{fp:'Дальняя точка',np:'Ближняя точка',st:'Изображение',on:'на сетчатке – видно чётко',bef:'перед сетчаткой – размыто',aft:'за сетчаткой – размыто',inf:'∞'}},
+ kk:{n:'Көз – оптикалық жүйе. Көру кемістіктері',t:['Қалыпты көз: затты жылжытыңыз, торлы қабықтағы кескін айқын.','Миопия: затты алыстатыңыз (кескін торлы қабықтың алдында). Гиперметропия: затты 25 см-ге жақындатыңыз (кескін артында).','Көзілдірік таңдаңыз: қандай линза кемістікті түзетеді?'],c:'Көздің хрусталигі – жинағыш линза; кескін торлы қабықта пайда болуы керек. Жақыннан көрмеушілікте (миопия) алыстағы заттың кескіні торлы қабықтың алдында шығады – шашыратқыш линзамен түзетеді (D < 0). Алыстан көрмеушілікте (гиперметропия) – торлы қабықтың артында, жинағыш линзамен түзетеді (D > 0).',p:['Затқа дейінгі қашықтық','Көзілдірік оптикалық күші D'],m:['Қалыпты көру','Миопия','Гиперметропия'],a:[],x:{fp:'Алыс нүкте',np:'Жақын нүкте',st:'Кескін',on:'торлы қабықта – айқын көрінеді',bef:'торлы қабықтың алдында – бұлыңғыр',aft:'торлы қабықтың артында – бұлыңғыр',inf:'∞'}},
+ P:[['d',10,400,5,100,'см'],['Dg',-5,5,.5,0,'дптр']],A:[],M:1,
+ draw(s,dt){
+  const v=.017,P0=1/v,base=[0,2,-1][s.m],Pmin=P0+base,Pmax=Pmin+4,d=s.p.d/100,Dg=s.p.Dg;
+  const need=1/d+P0-Dg,Pe=clamp(need,Pmin,Pmax),tot=Pe+Dg,k=tot-1/d,vf=k>0?1/k:1;
+  s.vf=vf;const dv=(vf-v)*1000;s.on=Math.abs(dv)<.12;s.dv=dv;
+  const lx=300,ay=250,sc=19.4,rx=lx+v*1000*sc,fx=rx+dv*70;
+  // eyeball: cornea at lx-40, retina at rx
+  const ecx=(lx-40+rx)/2,erx=(rx-lx+40)/2;
+  ctx.beginPath();ctx.ellipse(ecx,ay,erx,92,0,0,6.283);ctx.fillStyle='rgba(240,235,220,.14)';ctx.fill();ctx.strokeStyle=CL.fg;ctx.lineWidth=3;ctx.stroke();
+  ctx.beginPath();ctx.ellipse(ecx,ay,erx,92,0,-1.0,1.0);ctx.strokeStyle=CL.hot;ctx.lineWidth=7;ctx.stroke();
+  const th=clamp(8+(Pe-Pmin)*3.2,6,26);ctx.beginPath();ctx.ellipse(lx,ay,th,52,0,0,6.283);ctx.fillStyle='rgba(120,180,230,.55)';ctx.fill();ctx.strokeStyle=CL.fg;ctx.lineWidth=2;ctx.stroke();
+  if(Dg!==0){const gx=lx-75;poly(Dg>0?[[gx,ay-72],[gx+9,ay-30],[gx+9,ay+30],[gx,ay+72],[gx-9,ay+30],[gx-9,ay-30]]:[[gx-9,ay-72],[gx+9,ay-72],[gx+3,ay],[gx+9,ay+72],[gx-9,ay+72],[gx-3,ay]],'rgba(160,220,160,.5)',CL.fg,2,true)}
+  const ox=60,oy=ay-70;line(ox,ay,ox,oy,CL.warn,7);circ(ox,oy-4,6,CL.warn);
+  const e1=ay-45,e2=ay+45;line(ox,oy,lx,e1,CL.warn,2);line(ox,oy,lx,e2,CL.warn,2);
+  const py=ay+60*clamp(.017/d*4,.1,.9)*0+ 10;
+  const fxc=Math.min(fx,790),fk=(fxc-lx)/(fx-lx),ey1=e1+(py-e1)*fk,ey2=e2+(py-e2)*fk;
+  line(lx,e1,Math.min(fxc,rx),e1+(py-e1)*(Math.min(fxc,rx)-lx)/(fx-lx),CL.warn,2);line(lx,e2,Math.min(fxc,rx),e2+(py-e2)*(Math.min(fxc,rx)-lx)/(fx-lx),CL.warn,2);
+  if(fxc>rx){line(rx,e1+(py-e1)*(rx-lx)/(fx-lx),fxc,ey1,CL.warn,1.6,[5,5]);line(rx,e2+(py-e2)*(rx-lx)/(fx-lx),fxc,ey2,CL.warn,1.6,[5,5])}
+  circ(fxc,ey1,5,s.on?CL.good:CL.hot);
+  txt(S.lg==='kk'?'торлы қабық':'сетчатка',rx,ay-112,13,CL.muted,'center');
+  s.fp=base===0?Infinity:1/(P0+base-P0+0)*0+ (base>0?1/base:Infinity);s.np=1/(Pmax-P0);
+ },
+ read(s){const f=[Infinity,1/2,Infinity][s.m],hyp=s.m===2;const fp=s.m===1?'50 см':tx('inf');const np=fmt(s.np*100)+' см';return [[tx('fp'),fp],[tx('np'),np],[tx('st'),s.on?tx('on'):s.dv<0?tx('bef'):tx('aft')]]}
+});
+Object.assign(LES,{1:['brown','diff1','tscale'],2:['heatx','ienergy'],3:['heatcap'],4:['fuel'],5:['calor'],6:['hcurve6'],7:['vapor'],8:['hcurve8'],10:['engine4'],11:['effic'],12:['electro','conductor'],13:['coulomb'],14:['efield'],15:['potential'],16:['capac'],17:['circ1'],18:['wireR','rheo'],19:['ohm'],20:['net_s'],21:['net_p'],22:['joule'],23:['rtemp','electro_l'],24:['magnet'],25:['wirefield'],26:['ampere','induct','gener'],27:['shadow','eclipse'],28:['reflect','tir'],29:['snell','plate'],30:['lens'],31:['lens'],32:['mirror'],33:['lenslab'],34:['eye']});
+const TT={ru:{task:'Опыт',concl:'Вывод',reset:'Сброс'},kk:{task:'Тәжірибе',concl:'Қорытынды',reset:'Бастапқы күй'}};
+let N=0;
+const ids=n=>LES[n]||[];
+const curId=()=>{const a=ids(N);return a[clamp(TABN[N]||0,0,a.length-1)]};
+const pv=(P,v)=>{const sp=P[3];return fmt(v,sp<.1?2:sp<1?1:0)+(P[5]?' '+P[5]:'')};
+function buildNav(){const e=H.querySelector('#tmnav'),a=ids(N);e.innerHTML=a.length>1?a.map((id,i)=>`<button role="tab" aria-selected="${i===(TABN[N]||0)}" data-et="${i}">${i+1}. ${REG[id][S.lg].n}</button>`).join(''):`<div class="tmh">${REG[a[0]][S.lg].n}</div>`}
+function buildPanel(){
+  const id=curId(),d=REG[id],s=st(id),L=d[S.lg],T=TT[S.lg];CD=d;
+  let h=`<div class="tmc"><h3>${T.task}</h3><ol>${L.t.map(x=>`<li>${x}</li>`).join('')}</ol></div><div class="tmc">`;
+  if(d.M)h+=`<div class="tmr" style="margin-bottom:.5em">${L.m.map((m,i)=>`<button class="tmb alt ${s.m===i?'on':''}" data-em="${i}">${m}</button>`).join('')}</div>`;
+  d.P.forEach((P,i)=>{if(d.show&&!d.show(s,P[0]))return;h+=`<div class="tms"><span>${L.p[i]}</span><b id="ev_${P[0]}">${pv(P,s.p[P[0]])}</b><input type="range" min="${P[1]}" max="${P[2]}" step="${P[3]}" value="${s.p[P[0]]}" data-ek="${P[0]}"></div>`});
+  h+=`<div class="tmr">`+(d.A||[]).map((a,i)=>`<button class="tmb" data-ea="${a}">${L.a[i]}</button>`).join('')+`<button class="tmb alt" data-ea="__reset">${T.reset}</button></div></div><div class="tmc"><div class="tmo" id="ero"></div></div><div class="tmc tmk"><h3>${T.concl}</h3>${L.c}</div>`;
+  H.querySelector('#pn').innerHTML=h;lastRO='';
+}
+function frame(now){
+  if(!H||!H.isConnected){raf=0;return}
+  const dt=Math.min(.05,(now-last)/1000);last=now;colors();
+  const id=curId(),d=REG[id];if(d){const s=st(id);CD=d;ctx.clearRect(0,0,800,500);try{d.draw(s,dt);const r=d.read(s),html=r.map(x=>`<span>${x[0]}</span><span>${x[1]}</span>`).join('');if(html!==lastRO){lastRO=html;const e=H.querySelector('#ero');if(e)e.innerHTML=html}}catch(e){console.error(id,e)}}
+  raf=requestAnimationFrame(frame)
+}
+function mount(host,n){
+  H=host;N=n;host.classList.add('termo');
+  host.innerHTML='<nav class="tmn" id="tmnav"></nav><div class="tmg"><div class="tmv"><canvas id="c" width="'+800*dpr+'" height="'+500*dpr+'"></canvas></div><div class="tmp" id="pn"></div></div>';
+  cv=host.querySelector('#c');ctx=cv.getContext('2d');ctx.scale(dpr,dpr);
+  buildNav();buildPanel();
+  host.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const id=curId(),d=REG[id],s=st(id);CD=d;
+    if(b.dataset.et!=null){TABN[N]=+b.dataset.et;buildNav();buildPanel();return}
+    if(b.dataset.em!=null){s.m=+b.dataset.em;d.onmode&&d.onmode(s);buildPanel();return}
+    if(b.dataset.ea){const a=b.dataset.ea;if(a==='__reset'){d.init&&d.init(s);buildPanel()}else if(d.act&&d.act(s,a))buildPanel()}});
+  host.addEventListener('input',e=>{const k=e.target.dataset&&e.target.dataset.ek;if(!k)return;const id=curId(),d=REG[id],s=st(id);CD=d;s.p[k]=+e.target.value;const P=d.P.find(q=>q[0]===k);const o=H.querySelector('#ev_'+k);if(o)o.textContent=pv(P,s.p[k]);if(d.onp&&d.onp(s,k))buildPanel()});
+  colors();if(!raf){last=performance.now();raf=requestAnimationFrame(frame)}
+}
+return {mount,has:n=>!!LES[n],REG,LES};
+})();
+
+function renderStage(){$('#stage').innerHTML=S.scr==='tc'?teacherHTML():stageHTML();const th=$('#termo-host');if(th){if(S.n===9)TERMO.mount(th);else EXP.mount(th,S.n)}sync()}
 
 /* ---------- светофор (блок) ---------- */
 function trafficBlock(){
