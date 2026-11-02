@@ -288,6 +288,7 @@ textarea{min-height:10em;resize:vertical}
 .termo .tmo span:nth-child(odd){color:var(--muted)}
 .termo .tmo span:nth-child(even){font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
 .termo .tmh{font-weight:700;font-size:1.05em;padding:.2em .1em}
+.termo .tmt{margin-top:.2em}.termo .tblw{overflow-x:auto}.termo .tbl{font-size:1em}.termo .tbl td,.termo .tbl th{min-width:3em;font-size:.78em;padding:.3em .3em}.termo .tmeta2{color:var(--muted);margin-bottom:.5em}
 .termo .tml{margin-top:.5em;padding:.5em .7em;border-radius:.7em;background:var(--surface2);font-weight:600}
 </style>
 </head>
@@ -1033,7 +1034,7 @@ const TERMO=(function(){
 const TX={ru:{
 ttl:'Симуляторы опытов: термодинамика',sub:'Первый закон термодинамики · работа газа и пара · необратимость · второй закон',
 tabs:[['Газ под поршнем','1-й закон'],['Пар и пробка','работа пара'],['Цикл и КПД','p–V диаграмма'],['Диффузия газа','необратимость'],['Теплообмен','2-й закон']],
-reset:'Сброс',task:'Опыт',concl:'Вывод',
+reset:'Сброс',task:'Опыт',concl:'Вывод',tTtl:'Таблица наблюдений',tCond:'Условия опыта',tObs:'Наблюдение / вывод',tRec:'Записать показания',tAdd:'Добавить строку',tClr:'Очистить таблицу',tHint:'Проведите опыт, нажмите «Записать показания», затем в последнем столбце сделайте вывод. Ячейки можно править.',
 T:'Температура T',p:'Давление p',V:'Объём V',Q:'Теплота Q (получена газом)',A:'Работа газа A',dU:'Изменение ΔU',kj:'Дж',K:'К',kpa:'кПа',L:'л',
 m1:'Изобарный (p = const)',m2:'Изохорный (V = const)',m3:'Изотермический (T = const)',m4:'Адиабатный (Q = 0)',
 heat:'🔥 Нагревать (держать)',cool:'❄ Охлаждать (держать)',exp:'↑ Расширять (держать)',cmp:'↓ Сжимать (держать)',
@@ -1061,7 +1062,7 @@ JK:'Дж/К',C:'°C'},
 kk:{
 ttl:'Тәжірибе симуляторлары: термодинамика',sub:'Термодинамиканың бірінші заңы · газ бен будың жұмысы · қайтымсыздық · екінші заң',
 tabs:[['Поршеньдегі газ','1-заң'],['Бу және тығын','будың жұмысы'],['Цикл және ПӘК','p–V диаграмма'],['Газ диффузиясы','қайтымсыздық'],['Жылу алмасу','2-заң']],
-reset:'Бастапқы күй',task:'Тәжірибе',concl:'Қорытынды',
+reset:'Бастапқы күй',task:'Тәжірибе',concl:'Қорытынды',tTtl:'Бақылау кестесі',tCond:'Тәжірибе жағдайы',tObs:'Бақылау / қорытынды',tRec:'Көрсеткіштерді жазу',tAdd:'Жол қосу',tClr:'Кестені тазалау',tHint:'Тәжірибе жасап, «Көрсеткіштерді жазу» батырмасын басыңыз, соңғы бағанда қорытынды жасаңыз. Ұяшықтарды түзетуге болады.',
 T:'Температура T',p:'Қысым p',V:'Көлем V',Q:'Жылу мөлшері Q (газ алған)',A:'Газдың жұмысы A',dU:'Өзгеріс ΔU',kj:'Дж',K:'К',kpa:'кПа',L:'л',
 m1:'Изобаралық (p = const)',m2:'Изохоралық (V = const)',m3:'Изотермиялық (T = const)',m4:'Адиабаталық (Q = 0)',
 heat:'🔥 Қыздыру (басып тұру)',cool:'❄ Суыту (басып тұру)',exp:'↑ Кеңейту (басып тұру)',cmp:'↓ Сығу (басып тұру)',
@@ -1321,8 +1322,16 @@ const S5={Th0:150,Tc0:20,Th:150,Tc:20,contact:false,fr:false,dS:0,W:0,Qh:0,hist:
 };
 const SIMS=[S1,S2,S3,S4,S5];
 /* ===== shell ===== */
+const TB=[[],[],[],[],[]];
+function condText(){const m=['m1','m2','m3','m4'];if(tab===0)return t(m[S1.mode]);if(tab===3)return 'N = '+S4.N;if(tab===4)return S5.Th0+' °C / '+S5.Tc0+' °C';return ''}
+function tblHdr(){const e=document.querySelectorAll('#pn .tmo > span:nth-child(odd)');return [...e].map(x=>x.textContent)}
+function buildTbl(){const e=$('#tmt');if(!e)return;const hd=tblHdr(),rows=TB[tab],nc=hd.length+2;
+  e.innerHTML=`<div class="tmc"><h3>${t('tTtl')}</h3><div class="tmeta2">${t('tHint')}</div><div class="tblw"><table class="tbl"><thead><tr><th>№</th><th>${t('tCond')}</th>${hd.map(x=>`<th>${x}</th>`).join('')}<th>${t('tObs')}</th></tr></thead><tbody>${rows.length?rows.map((r,i)=>`<tr><td>${i+1}</td>${Array.from({length:nc},(_,c)=>`<td contenteditable="true" data-tq="${i}-${c}">${(r[c]||'').replace(/</g,'&lt;')}</td>`).join('')}</tr>`).join(''):`<tr><td colspan="${nc+1}" style="opacity:.6">—</td></tr>`}</tbody></table></div><div class="tmr" style="margin-top:.6em"><button class="tmb" data-ta="rec">${t('tRec')}</button><button class="tmb alt" data-ta="add">${t('tAdd')}</button><button class="tmb alt" data-ta="clr">${t('tClr')}</button></div></div>`}
+function tblAct(a){const vals=[...document.querySelectorAll('#pn .tmo > span:nth-child(even)')].map(x=>x.textContent),n=vals.length+2;
+  if(a==='rec')TB[tab].push([condText()].concat(vals,['']));else if(a==='add')TB[tab].push(new Array(n).fill(''));else if(a==='clr')TB[tab]=[];
+  if(a==='clr')TB[tab].length=0;buildTbl()}
 function buildNav(){const e=$('#tmnav');if(e)e.innerHTML=t('tabs').map((x,i)=>`<button role="tab" aria-selected="${i===tab}" data-tt="${i}">${i+1}. ${x[0]}<small>${x[1]}</small></button>`).join('')}
-function buildPanel(){const e=$('#pn');if(e)e.innerHTML=SIMS[tab].ui()}
+function buildPanel(){const e=$('#pn');if(e)e.innerHTML=SIMS[tab].ui();buildTbl()}
 document.addEventListener('pointerup',()=>{S1.hold=0;document.querySelectorAll('.termo [data-th].on').forEach(b=>b.classList.remove('on'))});
 document.addEventListener('pointercancel',()=>{S1.hold=0});
 S1.init();S2.init();S3.init();S4.init();S5.init();
@@ -1330,13 +1339,13 @@ let raf=0,last=0;
 function frame(now){if(!H||!H.isConnected){raf=0;return}const dt=Math.min(.05,(now-last)/1000);last=now;colors();ctx.clearRect(0,0,800,500);try{SIMS[tab].draw(dt)}catch(e){console.error(e)}raf=requestAnimationFrame(frame)}
 function mount(host){
   H=host;host.classList.add('termo');
-  host.innerHTML='<nav class="tmn" id="tmnav"></nav><div class="tmg"><div class="tmv"><canvas id="c" width="'+800*dpr+'" height="'+500*dpr+'"></canvas></div><div class="tmp" id="pn"></div></div>';
+  host.innerHTML='<nav class="tmn" id="tmnav"></nav><div class="tmg"><div class="tmv"><canvas id="c" width="'+800*dpr+'" height="'+500*dpr+'"></canvas></div><div class="tmp" id="pn"></div></div><div id="tmt"></div>';
   cv=$('#c');ctx=cv.getContext('2d');ctx.scale(dpr,dpr);
   buildNav();buildPanel();
   host.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
     if(b.dataset.tt!=null){tab=+b.dataset.tt;try{localStorage.setItem('ts_tab',tab)}catch(x){}S1.hold=0;buildNav();buildPanel();return}
-    if(b.dataset.ta)SIMS[tab].act(b.dataset.ta)});
-  host.addEventListener('input',e=>{const s=e.target.dataset&&e.target.dataset.ts;if(s)SIMS[tab].sl(s,e.target.value)});
+    if(b.dataset.ta){const a=b.dataset.ta;if(a==='rec'||a==='add'||a==='clr')tblAct(a);else SIMS[tab].act(a)}});
+  host.addEventListener('input',e=>{const d=e.target.dataset||{};if(d.tq){const [r,c]=d.tq.split('-').map(Number);if(TB[tab][r])TB[tab][r][c]=e.target.textContent;return}if(d.ts)SIMS[tab].sl(d.ts,e.target.value)});
   host.addEventListener('pointerdown',e=>{const b=e.target.closest('[data-th]');if(b){S1.hold=+b.dataset.th;b.classList.add('on')}});
   colors();if(!raf){last=performance.now();raf=requestAnimationFrame(frame)}
 }
