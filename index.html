@@ -289,6 +289,14 @@ textarea{min-height:10em;resize:vertical}
 .termo .tmo span:nth-child(even){font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
 .termo .tmh{font-weight:700;font-size:1.05em;padding:.2em .1em}
 .termo .tmt{margin-top:.2em}.termo .tblw{overflow-x:auto}.termo .tbl{font-size:1em}.termo .tbl td,.termo .tbl th{min-width:3em;font-size:.78em;padding:.3em .3em}.termo .tmeta2{color:var(--muted);margin-bottom:.5em}
+.wk-n{display:flex;gap:.6em;flex-wrap:wrap;justify-content:space-between;align-items:center}
+.wk-prog{height:.5em;border-radius:1em;background:var(--surface2);overflow:hidden}.wk-prog i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.wk-chk{display:flex;gap:.7em;align-items:flex-start;text-align:left;width:100%;background:var(--surface);color:var(--fg);border:2px solid var(--line);border-radius:.9em;padding:.6em .8em;font:inherit;font-size:1.1em;cursor:pointer}
+.wk-chk .bx{flex:none;width:1.5em;height:1.5em;border:2px solid var(--accent);border-radius:.4em;display:grid;place-items:center;font-weight:700;color:var(--accent-fg)}
+.wk-chk[aria-checked=true]{background:var(--accent-soft);border-color:var(--accent)}.wk-chk[aria-checked=true] .bx{background:var(--accent)}
+.wk-chk[aria-checked=true] .tx{text-decoration:line-through;opacity:.7}
+.wk-role{display:inline-block;background:var(--surface2);border-radius:.7em;padding:.3em .8em;margin:.15em .3em .15em 0;font-weight:600}
+.wk-ok{border-color:var(--g)!important}.wk-no{border-color:var(--r)!important}
 .termo .tml{margin-top:.5em;padding:.5em .7em;border-radius:.7em;background:var(--surface2);font-weight:600}
 </style>
 </head>
@@ -364,7 +372,7 @@ ru:{
  gsize:'Размер группы',make:'Составить группы',roles:'Роли (4 чел.)',group:'Группа',roleNames:['организатор','исполнитель','регистратор','докладчик'],
  lightT:'Светофор',mode:['Можно обсуждать в группе','Шёпотом','Тишина'],modeHint:'Режим работы класса (нажмите на цвет)',self:'Самооценка класса',
  timerT:'Таймер',fsA:'Размер текста',theme:'Тема',pt:{auto:'Авто',clear:'Очистить',undo:'Отмена',eraser:'Ластик',blank:'Чистая доска',close:'Закрыть'},close:'Закрыть',
- stageFor:'Этап',scr:['Ученики','Учитель'],scrT:['Экран для учащихся (крупно, для доски)','Экран учителя (с пояснениями)'],tv:{stage:'Ход этапа',pass:'Паспорт урока',all:'Весь ход урока'},tb2:{tch:'Действия педагога',stu:'Действия учеников',ass:'Оценивание',res:'Ресурсы'},onBoard:'На экране у учащихся',goStage:'Открыть этап',twoScr:'Два экрана: откройте приложение во втором окне или на втором мониторе (в одном браузере) — в одном выберите «Ученики», в другом «Учитель»; этапы, схемы и ползунки синхронизируются.',passH:['Карточка Scaffold','Решение для данного урока'],crL:'Критерии и дескрипторы',live:'Связь с жизнью',equip:'Оборудование и ресурсы',codes:'Цели обучения',ref:'Справочная таблица',fig:'Рисунок',tabs:{sim:'Симуляторы опытов',content:'Содержание',dg:'Схема / график',tbl:'Таблица и график',tasks:'Задачи',solve:'Решение'},sol:{task:'Задача',given:'Дано',si:'СИ',formula:'Формула',calc:'Расчёт',answer:'Ответ',bg:'Фон: клетка / линейка / чисто',addrow:'+ строка',mm:'Миллиметровка'}},
+ stageFor:'Этап',scr:['Ученики','Учитель'],scrT:['Экран для учащихся (крупно, для доски)','Экран учителя (с пояснениями)'],tv:{stage:'Ход этапа',pass:'Паспорт урока',all:'Весь ход урока'},tb2:{tch:'Действия педагога',stu:'Действия учеников',ass:'Оценивание',res:'Ресурсы'},onBoard:'На экране у учащихся',goStage:'Открыть этап',twoScr:'Два экрана: откройте приложение во втором окне или на втором мониторе (в одном браузере) — в одном выберите «Ученики», в другом «Учитель»; этапы, схемы и ползунки синхронизируются.',passH:['Карточка Scaffold','Решение для данного урока'],crL:'Критерии и дескрипторы',live:'Связь с жизнью',equip:'Оборудование и ресурсы',codes:'Цели обучения',ref:'Справочная таблица',fig:'Рисунок',tabs:{wk:'Этапы работы',sim:'Симуляторы опытов',content:'Содержание',dg:'Схема / график',tbl:'Таблица и график',tasks:'Задачи',solve:'Решение'},sol:{task:'Задача',given:'Дано',si:'СИ',formula:'Формула',calc:'Расчёт',answer:'Ответ',bg:'Фон: клетка / линейка / чисто',addrow:'+ строка',mm:'Миллиметровка'}},
 kk:{
  app:'Физика 8',lessons:'Физика сабақтары, 8-сынып',quarter:['1-тоқсан','2-тоқсан','3-тоқсан','4-тоқсан'],lessonWord:'Сабақ',
  kinds:{new:'жаңа тақырып',lab:'зертх. жұмыс',sor:'БЖБ'},
@@ -406,7 +414,7 @@ kk:{
  gsize:'Топ өлшемі',make:'Топтарды құру',roles:'Рөлдер (4 оқушы)',group:'Топ',roleNames:['ұйымдастырушы','орындаушы','тіркеуші','баяндамашы'],
  lightT:'Бағдаршам',mode:['Топта талқылауға болады','Сыбырлап','Тыныштық'],modeHint:'Сыныптың жұмыс режимі (түсті басыңыз)',self:'Сыныптың өзін-өзі бағалауы',
  timerT:'Таймер',fsA:'Мәтін өлшемі',theme:'Тақырып',pt:{auto:'Авто',clear:'Тазалау',undo:'Болдырмау',eraser:'Өшіргіш',blank:'Таза тақта',close:'Жабу'},close:'Жабу',
- stageFor:'Кезең',scr:['Оқушылар','Мұғалім'],scrT:['Оқушыларға арналған экран (ірі, тақта үшін)','Мұғалім экраны (түсіндірмелермен)'],tv:{stage:'Кезең барысы',pass:'Сабақ паспорты',all:'Сабақтың бүкіл барысы'},tb2:{tch:'Педагогтің іс-әрекеті',stu:'Оқушының іс-әрекеті',ass:'Бағалау',res:'Ресурстар'},onBoard:'Оқушылардың экранында',goStage:'Кезеңді ашу',twoScr:'Екі экран: қолданбаны екінші терезеде немесе екінші мониторда (бір браузерде) ашыңыз — біреуінде «Оқушылар», екіншісінде «Мұғалім» таңдаңыз; кезеңдер, сызбалар және жүгірткілер синхрондалады.',passH:['Scaffold карточкасы','Осы сабаққа арналған шешім'],crL:'Критерийлер және дескрипторлар',live:'Өмірмен байланыс',equip:'Жабдық және ресурстар',codes:'Оқыту мақсаттары',ref:'Анықтамалық кесте',fig:'Сурет',tabs:{sim:'Тәжірибе симуляторлары',content:'Мазмұны',dg:'Сызба / график',tbl:'Кесте және график',tasks:'Есептер',solve:'Шешуі'},sol:{task:'Есеп',given:'Берілгені',si:'СИ',formula:'Формула',calc:'Есептеу',answer:'Жауабы',bg:'Фон: тор / жол / таза',addrow:'+ жол',mm:'Миллиметрлік қағаз'}}
+ stageFor:'Кезең',scr:['Оқушылар','Мұғалім'],scrT:['Оқушыларға арналған экран (ірі, тақта үшін)','Мұғалім экраны (түсіндірмелермен)'],tv:{stage:'Кезең барысы',pass:'Сабақ паспорты',all:'Сабақтың бүкіл барысы'},tb2:{tch:'Педагогтің іс-әрекеті',stu:'Оқушының іс-әрекеті',ass:'Бағалау',res:'Ресурстар'},onBoard:'Оқушылардың экранында',goStage:'Кезеңді ашу',twoScr:'Екі экран: қолданбаны екінші терезеде немесе екінші мониторда (бір браузерде) ашыңыз — біреуінде «Оқушылар», екіншісінде «Мұғалім» таңдаңыз; кезеңдер, сызбалар және жүгірткілер синхрондалады.',passH:['Scaffold карточкасы','Осы сабаққа арналған шешім'],crL:'Критерийлер және дескрипторлар',live:'Өмірмен байланыс',equip:'Жабдық және ресурстар',codes:'Оқыту мақсаттары',ref:'Анықтамалық кесте',fig:'Сурет',tabs:{wk:'Жұмыс кезеңдері',sim:'Тәжірибе симуляторлары',content:'Мазмұны',dg:'Сызба / график',tbl:'Кесте және график',tasks:'Есептер',solve:'Шешуі'},sol:{task:'Есеп',given:'Берілгені',si:'СИ',formula:'Формула',calc:'Есептеу',answer:'Жауабы',bg:'Фон: тор / жол / таза',addrow:'+ жол',mm:'Миллиметрлік қағаз'}}
 };
 const SIMN={
  'energy-forms-and-changes':['Формы энергии и их превращения','Энергия түрлері және олардың түрленуі'],
@@ -800,7 +808,7 @@ const DGNAME={tempscale:['Температурные шкалы','Темпера
 
 /* ---------- состояние ---------- */
 const S={scr:LS.get('ph8_scr','st'),tview:'stage',tab:0,dgi:0,dp:{},sol:{},sj:0,solbg:'grid',tbl:{},light:false,min:LS.get('ph8_rail',false),lg:LS.get('ph8_lg','ru'),n:LS.get('ph8_n',1),st:0,fs:LS.get('ph8_fs',1),theme:LS.get('ph8_theme',null),
-  seen:{},rev:{},ticks:{},tier:0,mode:-1,cnt:[0,0,0],pen:false};
+  seen:{},rev:{},ticks:{},wk:{},tier:0,mode:-1,cnt:[0,0,0],pen:false};
 if(!D.ru[S.n])S.n=1;
 const T=()=>UI[S.lg];
 const L=()=>D[S.lg][S.n];
@@ -917,17 +925,47 @@ function stageHTML(){
     b=`<div class="grid">${t.rq.map((q,j)=>`<div class="card qcard"><span class="n">${j+1}</span>${esc(q)}</div>`).join('')}</div>
     <div class="card"><span class="lab">${esc(t.reflLead)}</span>${trafficBlock()}</div>`;
   }
-  if(tabs.length&&tabs[tab]){const id=tabs[tab][0];if(id==='dg')b=dgView();else if(id==='tbl')b=tblView();else if(id==='solve')b=solView();else if(id==='ref')b=refView();else if(id==='sim')b='<div id="termo-host"></div>'}
+  if(tabs.length&&tabs[tab]){const id=tabs[tab][0];if(id==='dg')b=dgView();else if(id==='tbl')b=tblView();else if(id==='solve')b=solView();else if(id==='ref')b=refView();else if(id==='sim')b='<div id="termo-host"></div>';else if(id==='wk')b=wkView()}
   return `<div class="panel">${h}${b}</div><div class="nav"><button class="big alt" data-a="prev" ${i===0?'disabled style="opacity:.4"':''}>${ic('prev')} ${esc(t.prev)}</button><button class="big" data-a="next" ${i===6?'disabled style="opacity:.4"':''}>${esc(t.next)} ${ic('next')}</button></div>`;
 }
 
 function stageTabs(i,k){
   const t=T().tabs,has=!!DGMAP[S.n],rf=!!REFT[S.n],rt=[['ref',T().ref]],sm=(S.n===9||EXP.has(S.n))?[['sim',t.sim]]:[];
   if(i===0)return has?[['c',t.content],['dg',T().fig]]:[];
-  if(i===2)return [['c',t.content]].concat(has?[['dg',t.dg]]:[]).concat(sm).concat(rf?rt:[]).concat(k==='lab'?[['tbl',t.tbl]]:[]);
+  if(i===2)return [['c',t.content],['wk',t.wk]].concat(has?[['dg',t.dg]]:[]).concat(sm).concat(rf?rt:[]).concat(k==='lab'?[['tbl',t.tbl]]:[]);
   if(i===3)return (has?[['c',t.content],['dg',t.dg]]:[['c',t.content]]).concat(sm).filter((x,j,a)=>a.length>1);
   if(i===4)return [['c',t.tasks],['solve',t.solve]].concat(rf?rt:[]);
   return [];
+}
+
+const WK={ru:{names:['Подготовка','Выполнение','Запись и обсуждение','Проверка'],min:'мин',equip:'Оборудование и материалы',roles:'Роли в группе',rl:['Докладчик','Исследователь','Секретарь','Хронометрист'],what:'Что делаем',method:'Метод',tier:'Ступень поддержки группы',doing:'Ход работы – отмечайте выполненное',of:'из',check:'Проверьте себя: сначала решите, потом учитель открывает ответ',open:'Открыть ответ',hide:'Скрыть ответ',right:'Верно',wrong:'Ошибка',score:'Результат: верно',openAll:'Открыть все ответы',reset:'Начать заново',back:'← Предыдущий шаг',fwd:'Следующий шаг →',step:'Шаг',time:'Время на шаг'},
+kk:{names:['Дайындық','Орындау','Жазу және талқылау','Тексеру'],min:'мин',equip:'Жабдықтар мен материалдар',roles:'Топтағы рөлдер',rl:['Баяндамашы','Зерттеуші','Хатшы','Хронометрист'],what:'Не істейміз',method:'Әдіс',tier:'Топтың қолдау сатысы',doing:'Жұмыс барысы – орындалғанын белгілеңіз',of:'/',check:'Өзіңізді тексеріңіз: алдымен шешіңіз, содан кейін мұғалім жауапты ашады',open:'Жауапты ашу',hide:'Жауапты жасыру',right:'Дұрыс',wrong:'Қате',score:'Нәтиже: дұрыс',openAll:'Барлық жауапты ашу',reset:'Қайта бастау',back:'← Алдыңғы қадам',fwd:'Келесі қадам →',step:'Қадам',time:'Қадамға уақыт'}};
+const wkS=()=>S.wk[S.n]||(S.wk[S.n]={s:0,t:0,c:[],ok:[]});
+function wkMins(){const m=(TL()[2]||'').match(/(\d+)\D+(\d+)/),dur=m?+m[2]-+m[1]:15;return [.1,.4,.25,.25].map(x=>Math.max(1,Math.round(dur*x)))}
+function wkView(){
+  const t=T(),w=WK[S.lg],l=L(),W=wkS(),mins=wkMins(),tc=S.scr==='tc',n=w.names.length,s=Math.min(W.s,n-1);
+  const chips=`<div class="chips">${w.names.map((x,j)=>`<button data-a="wks-${j}" aria-pressed="${j===s}">${j+1}. ${esc(x)} · ${mins[j]} ${esc(w.min)}</button>`).join('')}</div><div class="wk-prog"><i style="width:${Math.round((s+1)/n*100)}%"></i></div>`;
+  let b='';
+  if(s===0){
+    b=`<div class="card"><span class="lab">${esc(w.what)}</span><div class="topic">${esc(l.t)}</div></div>
+    <div class="grid"><div class="card"><span class="lab">${esc(w.equip)}</span><div style="font-size:1.15em">${esc(l.res||'')}</div></div>
+    <div class="card"><span class="lab">${esc(w.roles)}</span><div>${w.rl.map(x=>`<span class="wk-role">${esc(x)}</span>`).join('')}</div></div></div>
+    ${l.tb?`<div class="warn"><b>${esc(t.tb)}:</b> ${esc(l.tb)}</div>`:''}`;
+  }else if(s===1){
+    const tiers=[l.t1,l.t2,l.t3],ti=Math.min(W.t,2);
+    b=`<div class="card"><span class="lab">${esc(w.method)}</span><div>${esc(l.m)}</div><span class="lab" style="margin-top:.4em">${esc(t.act)}</span><div style="font-size:1.2em">${esc(l.act)}</div></div>
+    <div><span class="lab">${esc(w.tier)}</span><div class="chips" style="margin:.3em 0">${t.tiers.map((x,j)=>`<button data-a="wkt-${j}" aria-pressed="${j===ti}">${esc(x)}</button>`).join('')}</div>
+    <div class="card tier t${ti+1}"><h3><span class="dot" style="background:var(--${['g','y','r'][ti]})"></span>${esc(t.tiers[ti])}</h3><div style="font-size:1.2em">${esc(tiers[ti])}</div></div></div>`;
+  }else if(s===2){
+    const done=l.s.filter((_,i)=>W.c[i]).length;
+    b=`<span class="lab">${esc(w.doing)} (${done} ${esc(w.of)} ${l.s.length})</span><div style="display:grid;gap:.5em">${l.s.map((x,i)=>`<button class="wk-chk" role="checkbox" aria-checked="${!!W.c[i]}" data-a="wkc-${i}"><span class="bx">${W.c[i]?'✓':''}</span><span class="tx">${esc(x)}</span></button>`).join('')}</div>`;
+  }else{
+    const sor=l.kind==='sor',labs=sor?t.taskLabS:t.taskLab,sc=l.tk.filter((_,j)=>W.ok[j]===1).length;
+    b=`<p class="tmeta" style="margin:0">${esc(w.check)}</p><div class="grid">${l.tk.map((x,j)=>{const on=S.rev[S.n+'a'+j]||tc,cl=W.ok[j]===1?'wk-ok':W.ok[j]===0?'wk-no':'';return `<div class="card tk ${cl}"><span class="lab">${j+1}. ${esc(labs[j])}</span><div class="q">${esc(x[0])}</div>${on?`<div class="ans">${esc(x[1])}</div><div class="row"><button class="big alt" data-a="wko-${j}-1" aria-pressed="${W.ok[j]===1}">✓ ${esc(w.right)}</button><button class="big alt" data-a="wko-${j}-0" aria-pressed="${W.ok[j]===0}">✗ ${esc(w.wrong)}</button></div>`:''}${tc?'':`<button class="big alt" data-a="ans-${j}">${esc(on?w.hide:w.open)}</button>`}</div>`}).join('')}</div>
+    <div class="row"><button class="big alt" data-a="ansall">${esc(w.openAll)}</button><button class="big alt" data-a="wkreset">${esc(w.reset)}</button><span class="chip" style="font-size:1em">${esc(w.score)}: ${sc} ${esc(w.of)} ${l.tk.length}</span></div>`;
+  }
+  const nav=`<div class="row" style="justify-content:space-between"><button class="big alt" data-a="wks-${Math.max(0,s-1)}" ${s===0?'disabled style="opacity:.4"':''}>${esc(w.back)}</button><button class="big" data-a="wks-${Math.min(n-1,s+1)}" ${s===n-1?'disabled style="opacity:.4"':''}>${esc(w.fwd)}</button></div>`;
+  return `<div style="display:grid;gap:.7em">${chips}${b}${nav}</div>`;
 }
 function dgKind(){const ks=DGMAP[S.n]||[];return ks[Math.min(S.dgi,ks.length-1)]}
 function dgParams(kind){const def=DG[kind];if(!S.dp[kind]){S.dp[kind]={};def.ctl.forEach(c=>S.dp[kind][c.k]=c.v)}return S.dp[kind]}
@@ -2586,6 +2624,11 @@ document.addEventListener('click',e=>{
   if(a.startsWith('tool-')){const k=a.slice(5);if(k==='pen'){penToggle(!S.pen)}else if(k==='light'){S.light=!S.light;render()}else openModal(k);return}
   if(a.startsWith('seen-')){const k=S.n+'d'+a.slice(5);S.seen[k]=!S.seen[k];renderStage();return}
   if(a.startsWith('revc-')){const k=S.n+'c'+a.slice(5);S.rev[k]=!S.rev[k];renderStage();return}
+  if(a.startsWith('wks-')){wkS().s=+a.slice(4);renderStage();return}
+  if(a.startsWith('wkt-')){wkS().t=+a.slice(4);renderStage();return}
+  if(a.startsWith('wkc-')){const W=wkS(),i=+a.slice(4);W.c[i]=!W.c[i];renderStage();return}
+  if(a.startsWith('wko-')){const m=a.match(/^wko-(\d+)-(\d)$/);if(m){const W=wkS(),j=+m[1],v=+m[2];W.ok[j]=W.ok[j]===v?undefined:v;renderStage()}return}
+  if(a==='wkreset'){S.wk[S.n]=null;L().tk.forEach((_,j)=>S.rev[S.n+'a'+j]=false);renderStage();return}
   if(a.startsWith('ans-')){const k=S.n+'a'+a.slice(4);S.rev[k]=!S.rev[k];renderStage();return}
   if(a==='ansall'){const on=!L().tk.every((_,j)=>S.rev[S.n+'a'+j]);L().tk.forEach((_,j)=>S.rev[S.n+'a'+j]=on);renderStage();return}
   if(a.startsWith('tick-')){const tk=S.ticks[S.n]||(S.ticks[S.n]=[]),i=+a.slice(5);tk[i]=!tk[i];
