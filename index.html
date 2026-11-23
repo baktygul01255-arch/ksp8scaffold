@@ -392,13 +392,14 @@ textarea{min-height:10em;resize:vertical}
 .sl-q{margin-bottom:.8em}.sl-qt{display:flex;gap:.6em;align-items:center;font-weight:700;margin-bottom:.3em}
 .sl-opts{display:flex;gap:.5em;flex-wrap:wrap}.sl-opt{font:inherit;font-weight:700;font-size:.9em;border:2px solid var(--line);background:var(--surface);color:var(--fg);border-radius:2em;padding:.3em 1em;cursor:pointer}
 .sl-opt.sel{border-color:var(--accent);background:var(--accent-soft)}.sl-opt.ok{border-color:var(--g);background:color-mix(in srgb,var(--g) 20%,var(--surface))}.sl-opt.no{border-color:var(--r);background:color-mix(in srgb,var(--r) 18%,var(--surface))}
-.sl-tasks{display:grid;grid-template-columns:1fr 1fr;gap:.8em}.sl-task{background:var(--surface);border:2px solid var(--line);border-radius:1em;padding:.7em .9em;display:grid;gap:.5em;align-content:start}
+.sl-tasks{display:grid;grid-template-columns:1fr 1fr;gap:.8em}.sl-task{font-size:.88em;background:var(--surface);border:2px solid var(--line);border-radius:1em;padding:.7em .9em;display:grid;gap:.5em;align-content:start}
 .sl-a{background:var(--accent-soft);border-radius:.6em;padding:.3em .7em;font-weight:700}
 .sl-rf{display:flex;gap:1em;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:2px solid var(--line);border-radius:1em;padding:.6em .9em;margin:.4em 0}
 .sl-hw{background:var(--accent-soft);border-radius:1em;padding:.7em .9em;display:grid;gap:.2em;margin-top:.6em}
 @media (max-width:900px){.sl-map{grid-template-columns:1fr 1fr;grid-template-areas:none}.sl-map>*{grid-area:auto!important}.sl-sun{grid-column:1/-1;width:9em;justify-self:center}.sl-two,.sl-tasks{grid-template-columns:1fr}.sl-body{padding:.6em 1em}}
 
 #sl-back{position:fixed;right:16px;bottom:16px;z-index:60;box-shadow:0 6px 18px rgba(0,0,0,.3);font-size:1em}
+.sl-rail{display:flex;align-items:center;justify-content:center;gap:.5em;width:100%;padding:.7em .6em;border-radius:.9em;font:inherit;font-size:1.05rem;cursor:pointer;border:2px solid var(--accent)}.sl-rail svg{width:1.4em;height:1.4em;flex:none}.rail.min .sl-rail span{display:none}
 </style>
 </head>
 <body>
@@ -939,6 +940,7 @@ function render(){
   $('#app').innerHTML=`
   <aside class="rail ${m?'min':''}">
     <button class="lessonbtn" data-a="lessons" aria-label="${esc(t.lessons)}"><span class="num">${S.n}</span><span class="tt hide-min"><span class="sec">${esc(l.sec)}</span><span class="ti">${esc(l.t)}</span></span></button>
+    ${slD()?`<button class="sl-launch sl-rail" data-a="tool-slides">${ic('slides')}<span>${S.lg==='kk'?'Сабақ слайдтары':'Слайды урока'}</span></button>`:''}
     <div class="seg seg3" role="group" aria-label="Screen">${[0,1].map(j=>`<button data-a="scr-${j}" aria-pressed="${(S.scr==='st')===(j===0)}" title="${esc(t.scrT[j])}" aria-label="${esc(t.scrT[j])}">${j===0?ic('board'):ic('users')}<span class="hide-min" style="margin-left:.3em">${esc(t.scr[j])}</span></button>`).join('')}</div>
     <div class="seg hide-min" role="group" aria-label="Язык / Тіл"><button data-a="lg-ru" aria-pressed="${S.lg==='ru'}">РУС</button><button data-a="lg-kk" aria-pressed="${S.lg==='kk'}">ҚАЗ</button></div>
     <div class="row4">
@@ -950,7 +952,7 @@ function render(){
     <div class="timerbar"><span class="tdisp" id="tdisp">00:00</span>
       <div class="trow"><button class="ibtn" data-a="t-toggle" id="ttog">${ic('play')}</button><button class="ibtn hide-min" data-a="t-reset">${ic('reset')}</button><button class="ibtn hide-min" data-a="t-m">−1</button><button class="ibtn hide-min" data-a="t-p">+1</button></div>
       <div class="prog hide-min"><i id="tprog"></i></div><span class="tmeta hide-min">${esc(t.stageFor)} ${S.st+1}/7 · ${dur[S.st]} ${esc(t.min)}</span></div>
-    <div class="tools">${tools.map(([a,i,n])=>`<button class="dockb" data-a="tool-${a}" aria-label="${esc(n)}" ${a==='pen'?`aria-pressed="${S.pen}"`:a==='light'?`aria-pressed="${S.light}"`:''}>${ic(i)}<span>${esc(n)}</span></button>`).join('')}${SLD[S.n]?`<button class="dockb sl-launch" data-a="tool-slides" style="grid-column:1/-1">${ic('slides')}<span>${S.lg==='kk'?'Сабақ слайдтары':'Слайды урока'}</span></button>`:''}</div>
+    <div class="tools">${tools.map(([a,i,n])=>`<button class="dockb" data-a="tool-${a}" aria-label="${esc(n)}" ${a==='pen'?`aria-pressed="${S.pen}"`:a==='light'?`aria-pressed="${S.light}"`:''}>${ic(i)}<span>${esc(n)}</span></button>`).join('')}</div>
     <div class="grow"></div>
     <button class="ibtn railtoggle" data-a="rail" aria-label="${m?'»':'«'}">${ic(m?'next':'prev')}<span class="hide-min">${S.lg==='kk'?'Жинау':'Свернуть'}</span></button>
   </aside>
@@ -2986,6 +2988,34 @@ const SLD={12:{
 }};
 const SLT={ru:{close:'Закрыть',prev:'← Назад',next:'Далее →',of:'из',theme:'Тема урока',goalsT:'Цели обучения',learn:'Что мы будем делать на уроке',think:'Подумайте и ответьте',hookT:'Вопрос урока',mc:'Конспект',mg:'Пропуски',showW:'Показать слова',hideW:'Скрыть слова',toMap:'← К схеме',tap:'Нажмите на блок, чтобы открыть его на весь экран.',done:'Записал(а)',doneOn:'✓ Записано',rec:'Записано',gpH:'Заполните пропуски в тетради по учебнику: откройте параграф по теме урока. Номер пропуска – номер в тетради. Слово открывает учитель.',steps:'Ход работы',chk:'Проверить',ans:'Показать ответ',clr:'Очистить',tapc:'Нажимайте на клетки, чтобы выбрать значение.',openA:'Открыть ответ',hideA:'Скрыть ответ',allA:'Открыть все ответы',task:'Задание',hw:'Домашнее задание',reflT:'Рефлексия: отметьте',rf:['понял','частично','не понял'],taskT:'Проверьте себя: сначала решите, потом учитель открывает ответ',ok:'✓',bad:'✗',match:'Совпало?',ct:'Нажмите на ячейку, чтобы выбрать значение. Строка «образец» заполнена.'},
  kk:{close:'Жабу',prev:'← Артқа',next:'Әрі қарай →',of:'/',theme:'Сабақ тақырыбы',goalsT:'Оқу мақсаттары',learn:'Сабақта не істейміз',think:'Ойланыңыз және жауап беріңіз',hookT:'Сабақ сұрағы',mc:'Конспект',mg:'Бос орындар',showW:'Сөздерді көрсету',hideW:'Сөздерді жасыру',toMap:'← Сызбаға',tap:'Блокты бүкіл экранға ашу үшін басыңыз.',done:'Жаздым',doneOn:'✓ Жазылды',rec:'Жазылды',gpH:'Бос орындарды дәптерде оқулық бойынша толтырыңыз: сабақ тақырыбы бойынша параграфты ашыңыз. Бос орынның нөмірі – дәптердегі нөмір. Сөзді мұғалім ашады.',steps:'Жұмыс барысы',chk:'Тексеру',ans:'Жауапты көрсету',clr:'Тазалау',tapc:'Мәнді таңдау үшін ұяшықтарды басыңыз.',openA:'Жауапты ашу',hideA:'Жауапты жасыру',allA:'Барлық жауапты ашу',task:'Тапсырма',hw:'Үй тапсырмасы',reflT:'Рефлексия: белгілеңіз',rf:['түсіндім','жартылай','түсінбедім'],taskT:'Өзіңізді тексеріңіз: алдымен шешіңіз, содан кейін мұғалім жауапты ашады',ok:'✓',bad:'✗',match:'Сәйкес келді ме?',ct:'Мәнді таңдау үшін ұяшықты басыңыз. «Үлгі» жолы толтырылған.'}};
+
+/* ---- общий набор слайдов для любого урока ---- */
+const slE=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function slAuto(s){let k=0;return slE(s).replace(/(^|[\s(«])([A-Za-zА-Яа-яЁёӘәІіҢңҒғҮүҰұҚқӨөҺһ-]{7,})/g,(m,a,w)=>{k++;return k%2===1&&k<=5?a+'{'+w+'}':m})}
+function slGen(){
+ const l=L(),lg=S.lg==='kk'?1:0,ru=!lg,it=nbItems(),ex=nbExtra(),W=NBT[S.lg];
+ const P=(a,b)=>[a,b];
+ const blocks=it.map((x,i)=>{const title=x.key||(x.body.split(' ').slice(0,3).join(' ')+'…');
+   const rows=['<p>'+(x.key?'{'+slE(x.key)+'} – '+slAuto(x.body):slAuto(x.body))+'</p>'].concat(x.rest.map(r=>'<p class="ck">'+slAuto(r)+'</p>'));
+   return {t:P(title,title),r:[rows,rows]}});
+ if(ex&&ex.tx){const rows=['<p class="sl-box">'+slE(ex.tx)+'</p>'];blocks.push({t:P(ex.h,ex.h),r:[rows,rows]})}
+ const flat=it.map(x=>(x.key?x.key+' – ':'')+x.body+(x.rest.length?'; '+x.rest.join('; '):''));
+ const pairs=flat.map((s,i)=>{const t=(i+1)+'. '+(it[i].key?'{'+slE(it[i].key)+'} – '+slAuto(it[i].body):slAuto(it[i].body))+it[i].rest.map(r=>'; '+slAuto(r)).join('');return P(t,t)});
+ const half=pairs.length>4?Math.ceil(pairs.length/2):pairs.length;
+ const types=['title','hook','goals','map','gp1'],names=[['Тема','Тақырып'],['Мотивация','Мотивация'],['Цели','Мақсаттар'],['Опорный конспект','Тірек конспект'],['Конспект · пропуски','Конспект · бос орындар']];
+ const gp=[[pairs.slice(0,Math.max(1,half)),pairs.slice(Math.max(1,half))]];
+ if(gp[0][1].length){types.push('gp2');names.push(['Конспект · пропуски 2','Конспект · бос орындар 2'])}
+ types.push('tab','tasks','refl');names.push(['Таблица понятий','Ұғымдар кестесі'],['Проверка','Тексеру'],['Рефлексия','Рефлексия']);
+ const own=ru?['Могу объяснить','Не уверен(а)','Нужна помощь']:['Түсіндіре аламын','Сенімсізбін','Көмек керек'];
+ return {names,types,center:P(l.t,l.t),blocks,gp,
+  tab:{h:ru?['Понятие','Моё объяснение (в тетради)','Оценка']:['Ұғым','Менің түсіндірмем (дәптерде)','Бағасы'],o:['',...own],rows:it.map((x,i)=>x.key||x.body.split(' ').slice(0,4).join(' ')+'…').concat(ex&&ex.tx?[ex.tx]:[])},
+  refl:(l.goals||[]).map(g=>{const s=(ru?'Я могу: ':'Мен істей аламын: ')+g.t;return P(s,s)}).concat([P(...(ru?['Я могу привести пример из жизни','Я могу привести пример из жизни']:['Мен өмірден мысал келтіре аламын','Мен өмірден мысал келтіре аламын']))])};
+}
+let _slg={};
+function slD(){if(SLD[S.n])return SLD[S.n];const k=S.n+S.lg;return _slg[k]||(_slg[k]=slGen())}
+function slTab(){const d=slD(),t=slT(),x=slX(),T=d.tab;
+ const rows=T.rows.map((r,i)=>{const v=x.c['tg'+i]||0;return `<tr><th>${esc(r)}</th><td class="sl-wr"></td><td><button class="sl-cell" data-a="sl-cy-tg${i}-${T.o.length}">${v?esc(T.o[v]):'＋'}</button></td></tr>`}).join('');
+ return `<div class="sl-hint">${S.lg==='kk'?'Әр ұғымды дәптерде өз сөзіңізбен жазыңыз, содан кейін бағаңызды белгілеңіз.':'Объясните каждое понятие своими словами в тетради, затем отметьте оценку.'}</div><table class="sl-tb"><thead><tr>${T.h.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table>`}
 const slT=()=>SLT[S.lg==='kk'?'kk':'ru'];
 const slX=()=>SLS[S.n]||(SLS[S.n]={i:0,cl:{o:null,mode:'c',done:[0,0,0,0,0,0]},rv:{},c:{},cc:{},q:{},qc:0,an:{},rf:{}});
 const slL=()=>S.lg==='kk'?1:0;
@@ -2996,9 +3026,9 @@ function slOpenAll(){return Object.keys(slX().rv).length}
 function slTitle(l,t){return `<div class="sl-c sl-title"><div class="sl-sec">${esc(l.sec||'')}</div><h1>${esc(l.t)}</h1><div class="sl-chips">${(l.goals||[]).map(g=>`<span class="sl-chip">${esc(g.c)}</span>`).join('')}</div><div class="sl-sub">${B('8 класс · физика','8-сынып · физика')}</div></div>`}
 function slHook(l,t){return `<div class="sl-c"><div class="sl-lab">${t.hookT}</div><div class="sl-hook">${esc(l.hook)}</div><div class="sl-lab" style="margin-top:1.2em">${t.think}</div><ol class="sl-big">${(l.dq||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div>`}
 function slGoals(l,t){return `<div class="sl-c"><div class="sl-lab">${t.goalsT}</div><ul class="sl-big sl-goals">${(l.goals||[]).map(g=>`<li><b>${esc(g.c)}</b> ${esc(g.t)}</li>`).join('')}</ul><div class="sl-lab" style="margin-top:1em">${t.learn}</div><ul class="sl-big">${(l.s||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`}
-function slBlk(i,x,mode){const d=SLD[S.n],lg=slL();let k=0;return d.blocks[i].r[lg].map((r,j)=>mode==='g'?slFill(r,`b${i}_${j}_`,'g'):slFill(r,'', 'c')).join('')}
+function slBlk(i,x,mode){const d=slD(),lg=slL();let k=0;return d.blocks[i].r[lg].map((r,j)=>mode==='g'?slFill(r,`b${i}_${j}_`,'g'):slFill(r,'', 'c')).join('')}
 function slMap(){
- const d=SLD[S.n],t=slT(),c=slX().cl,lg=slL(),B6=d.blocks;
+ const d=slD(),t=slT(),c=slX().cl,lg=slL(),B6=d.blocks;
  if(c.o==null){
   const tiles=B6.map((b,i)=>{const pv=b.r[lg][0].replace(/<[^>]+>/g,'').replace(/&nbsp;/g,' ').replace(/\{([^}]+)\}/g,(m,a)=>c.mode==='g'?'…':a);
    return `<button class="sl-tile sb${i+1}" data-a="sl-cb-${i}"><span class="sl-th"><span class="sl-n">${i+1}</span><b>${esc(b.t[lg])}</b></span><span class="sl-tp">${esc(pv.length>80?pv.slice(0,78)+'…':pv)}</span><span class="sl-ts ${c.done[i]?'on':''}">${c.done[i]?t.doneOn:''}</span></button>`}).join('');
@@ -3010,23 +3040,23 @@ function slMap(){
  return `<div class="sl-bar2"><button class="sl-btn" data-a="sl-cback">${t.toMap}</button><span class="sl-dots">${dots}</span><span class="sl-seg"><button data-a="sl-cm-c" aria-pressed="${c.mode==='c'}">${t.mc}</button><button data-a="sl-cm-g" aria-pressed="${c.mode==='g'}">${t.mg}</button></span>${c.mode==='g'?`<button class="sl-btn" data-a="sl-wall-b${i}">${t.showW}</button><button class="sl-btn" data-a="sl-wnone-b${i}">${t.hideW}</button>`:''}</div>
  <section class="sl-blk sb${i+1}"><div class="sl-bh"><span class="sl-n">${i+1}</span><h2>${esc(b.t[lg])}</h2><button class="sl-tick" data-a="sl-cd-${i}" aria-pressed="${!!c.done[i]}">${c.done[i]?t.doneOn:t.done}</button></div><div class="sl-bb">${slBlk(i,b,c.mode)}</div></section>`;
 }
-function slGp(n){const d=SLD[S.n],t=slT(),lg=slL(),set=d.gp[0][n-1];let num=n===1?1:1+d.gp[0][0].reduce((a,x)=>a+(x[0].match(/\{/g)||[]).length,0);
+function slGp(n){const d=slD(),t=slT(),lg=slL(),set=d.gp[0][n-1];let num=n===1?1:1+d.gp[0][0].reduce((a,x)=>a+(x[0].match(/\{/g)||[]).length,0);
  const body=set.map((p,j)=>{const html=slFill('<p>'+p[lg]+'</p>',`p${n}_${j}_`,'g',num);num+=(p[lg].match(/\{/g)||[]).length;return html}).join('');
  return `<div class="sl-c"><div class="sl-hint">${t.gpH}</div><div class="sl-gp">${body}</div><div class="sl-row"><button class="sl-btn pri" data-a="sl-wall-p${n}">${t.showW}</button><button class="sl-btn" data-a="sl-wnone-p${n}">${t.hideW}</button></div></div>`}
 function slCell(tk,r,c,opts,ans,fixed,st){const key=`${tk}${r}_${c}`,v=(slX().c[key]||0),has=v>0,chk=slX().cc[tk];let cls='sl-cell';
  if(fixed)return `<td class="sl-fx">${esc(opts[fixed])}</td>`;
  if(chk&&has)cls+=v===ans?' ok':' no';
  return `<td><button class="${cls}" data-a="sl-cy-${key}-${opts.length}">${has?esc(opts[v]):'＋'}</button></td>`}
-function slT1(){const d=SLD[S.n],t=slT(),lg=slL(),T1=d.t1,x=slX();
+function slT1(){const d=slD(),t=slT(),lg=slL(),T1=d.t1,x=slX();
  const rows=T1.rows.map((r,i)=>{const smp=r[2];return `<tr class="${smp?'sl-smp':''}"><th>${esc(r[0][lg])}</th>${[0,1,2].map(c=>{const opts=T1.o[c===2?1:0][lg],ans=r[1][c];return smp?`<td class="sl-fx">${esc(opts[ans])}</td>`:slCell('t1',i,c,opts,ans,0)}).join('')}</tr>`}).join('');
  return `<div class="sl-two"><div><div class="sl-lab">${t.steps}</div><ol class="sl-steps">${d.st[S.lg==='kk'?'kk':'ru'].map(s=>`<li>${esc(s)}</li>`).join('')}</ol><div class="sl-warn">${esc(d.safe[lg])}</div></div>
  <div><div class="sl-hint">${t.ct}</div><table class="sl-tb"><thead><tr>${T1.h[lg].map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table>
  <div class="sl-row"><button class="sl-btn pri" data-a="sl-tchk-t1">${t.chk}</button><button class="sl-btn" data-a="sl-tans-t1">${t.ans}</button><button class="sl-btn" data-a="sl-tclr-t1">${t.clr}</button></div></div></div>`}
-function slQ2(){const d=SLD[S.n],t=slT(),lg=slL(),x=slX();
+function slQ2(){const d=slD(),t=slT(),lg=slL(),x=slX();
  const qs=d.q2.map((q,i)=>`<div class="sl-q"><div class="sl-qt"><span class="sl-n">${i+1}</span>${esc(q[0][lg])}</div><div class="sl-opts">${q[1][lg].map((o,j)=>{const sel=x.q[i]===j,cls=x.qc&&sel?(j===q[2]?' ok':' no'):'';return `<button class="sl-opt${sel?' sel':''}${cls}" data-a="sl-q-${i}-${j}">${esc(o)}</button>`}).join('')}</div></div>`).join('');
  return `<div class="sl-two"><div><div class="sl-lab">${t.steps}</div><ol class="sl-steps">${(S.lg==='kk'?['Электроскоп, жіпке ілінген жеңіл гильза және зарядталған таяқшаны дайындаңыз.','Таяқшаны тигізбей жақындатып, бақылаңыз.','Содан кейін гильзаға таяқшамен тиіп, нәтижені бақылаңыз.','Әр бақылау үшін жауапты таңдаңыз.']:['Подготовьте электроскоп, лёгкую гильзу на нити и заряженную палочку.','Поднесите палочку, не касаясь, и наблюдайте.','Затем коснитесь гильзы палочкой и снова наблюдайте.','Выберите ответ для каждого наблюдения.']).map(s=>`<li>${esc(s)}</li>`).join('')}</ol><div class="sl-warn">${esc(d.safe[lg])}</div></div>
  <div>${qs}<div class="sl-row"><button class="sl-btn pri" data-a="sl-qchk">${t.chk}</button><button class="sl-btn" data-a="sl-qans">${t.ans}</button><button class="sl-btn" data-a="sl-qclr">${t.clr}</button></div></div></div>`}
-function slT3(){const d=SLD[S.n],t=slT(),lg=slL(),T3=d.t3,x=slX(),opts=T3.o[lg];
+function slT3(){const d=slD(),t=slT(),lg=slL(),T3=d.t3,x=slX(),opts=T3.o[lg];
  const rows=T3.rows.map((r,i)=>{const p=x.c['t3p'+i]||0,v=x.c['t3'+i+'_1']||0;const m=p&&v?(p===v?'✓':'✗'):'';
   return `<tr><th>${esc(r[0][lg])}</th><td><button class="sl-cell" data-a="sl-cy-t3p${i}-3">${p?esc(opts[p]):'＋'}</button></td>${slCell('t3',i,1,opts,r[1],0)}<td class="sl-m ${m==='✓'?'ok':m==='✗'?'no':''}">${m}</td></tr>`}).join('');
  return `<div class="sl-two"><div><div class="sl-lab">${t.steps}</div><ol class="sl-steps">${(S.lg==='kk'?['Алдымен әр зат туралы болжам жасаңыз.','Мұғалім көрсеткен тәсілмен затты тексеріңіз.','Нәтижені кестеге белгілеңіз.','Болжам мен нәтижені салыстырыңыз.']:['Сначала сделайте предположение о каждом предмете.','Проверьте предмет способом, который покажет учитель.','Отметьте результат проверки в таблице.','Сравните предположение с результатом.']).map(s=>`<li>${esc(s)}</li>`).join('')}</ol></div>
@@ -3034,13 +3064,13 @@ function slT3(){const d=SLD[S.n],t=slT(),lg=slL(),T3=d.t3,x=slX(),opts=T3.o[lg];
  <div class="sl-row"><button class="sl-btn pri" data-a="sl-tchk-t3">${t.chk}</button><button class="sl-btn" data-a="sl-tans-t3">${t.ans}</button><button class="sl-btn" data-a="sl-tclr-t3">${t.clr}</button></div></div></div>`}
 function slTasks(l,t){const x=slX(),lab=l.kind==='sor'?T().taskLabS:T().taskLab;
  return `<div class="sl-c"><div class="sl-hint">${t.taskT}</div><div class="sl-tasks">${l.tk.map((q,j)=>`<div class="sl-task"><div class="sl-qt"><span class="sl-n">${j+1}</span>${esc(q[0])}</div>${x.an[j]?`<div class="sl-a">${esc(q[1])}</div>`:''}<button class="sl-btn" data-a="sl-an-${j}">${x.an[j]?t.hideA:t.openA}</button></div>`).join('')}</div><div class="sl-row"><button class="sl-btn" data-a="sl-anall">${t.allA}</button></div></div>`}
-function slRefl(l,t){const x=slX(),d=SLD[S.n],lg=slL();
+function slRefl(l,t){const x=slX(),d=slD(),lg=slL();
  return `<div class="sl-c"><div class="sl-lab">${t.reflT}</div>${d.refl.map((r,i)=>`<div class="sl-rf"><div>${esc(r[lg])}</div><span class="sl-opts">${t.rf.map((o,j)=>`<button class="sl-opt${x.rf[i]===j?' sel':''}" data-a="sl-rf-${i}-${j}">${esc(o)}</button>`).join('')}</span></div>`).join('')}<div class="sl-hw"><span class="sl-lab">${t.hw}</span>${esc(l.hw||'')}</div></div>`}
 function slRender(){
- const d=SLD[S.n];if(!d||MODAL!=='slides')return;const t=slT(),l=L(),x=slX(),n=d.types.length,i=Math.min(x.i,n-1),ty=d.types[i],lg=slL();
+ const d=slD();if(!d||MODAL!=='slides')return;const t=slT(),l=L(),x=slX(),n=d.types.length,i=Math.min(x.i,n-1),ty=d.types[i],lg=slL();
  let b='';
  if(ty==='title')b=slTitle(l,t);else if(ty==='hook')b=slHook(l,t);else if(ty==='goals')b=slGoals(l,t);else if(ty==='map')b=slMap();
- else if(ty==='gp1')b=slGp(1);else if(ty==='gp2')b=slGp(2);else if(ty==='t1')b=slT1();else if(ty==='q2')b=slQ2();else if(ty==='t3')b=slT3();
+ else if(ty==='tab')b=slTab();else if(ty==='gp1')b=slGp(1);else if(ty==='gp2')b=slGp(2);else if(ty==='t1')b=slT1();else if(ty==='q2')b=slQ2();else if(ty==='t3')b=slT3();
  else if(ty==='tasks')b=slTasks(l,t);else if(ty==='refl')b=slRefl(l,t);
  const dots=d.names.map((nm,j)=>`<button class="sl-pg" data-a="sl-go-${j}" aria-pressed="${j===i}" title="${esc(nm[lg])}">${j+1}</button>`).join('');
  const ttl=ty==='title'?'':d.names[i][lg];
@@ -3053,11 +3083,11 @@ function slRender(){
  const nb=ov.querySelector('.sl-body');if(nb&&keep&&ov.dataset.i==String(i))nb.scrollTop=keep;ov.dataset.i=i;
 }
 function slBack(on){let e=document.getElementById('sl-back');if(e)e.remove();if(!on)return;e=document.createElement('button');e.id='sl-back';e.className='sl-btn pri';e.dataset.a='sl-open';e.textContent=B('↩ К слайдам урока','↩ Сабақ слайдтарына');document.body.appendChild(e)}
-function openSlides(){if(!SLD[S.n])return;slBack(false);MODAL='slides';$('#mroot').innerHTML='';slRender()}
+function openSlides(){if(!slD())return;slBack(false);MODAL='slides';$('#mroot').innerHTML='';slRender()}
 function slAct(a){
  if(a==='sl-open'){openSlides();return}
  if(a==='sl-sim'){MODAL=null;$('#mroot').innerHTML='';slBack(true);render();return}
- const x=slX(),d=SLD[S.n],n=d.types.length,c=x.cl;let m;
+ const x=slX(),d=slD(),n=d.types.length,c=x.cl;let m;
  if(a==='sl-prev'){x.i=Math.max(0,x.i-1)}else if(a==='sl-next'){x.i=Math.min(n-1,x.i+1)}
  else if(m=a.match(/^sl-go-(\d+)$/)){x.i=+m[1]}
  else if(m=a.match(/^sl-lg-(ru|kk)$/)){S.lg=m[1];LS.set('ph8_lg',S.lg);render()}
