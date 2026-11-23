@@ -142,7 +142,7 @@ body.m-st .rail{font-size:calc(.82em / 1.22)}
 .dg .fr{fill:var(--r)}.dg .fa{fill:var(--accent)}.dg .fg{fill:var(--g)}.dg .fy{fill:var(--y)}.dg .fs{fill:var(--surface)}.dg .fs0{fill:var(--fg);opacity:.9}
 .dg .t{fill:var(--fg);font:500 20px var(--sans)}.dg .tb{fill:var(--fg);font:700 24px var(--sans)}.dg .tm{fill:var(--muted);font:500 18px var(--sans)}.dg .tw{fill:#fff;font:700 24px var(--sans)}
 .tabs{display:flex;gap:.4em;flex-wrap:wrap}
-.tabs button{padding:.45em 1.1em;border-radius:2em;border:2px solid var(--line);background:var(--surface);font-weight:700;min-height:2.8em}
+.tabs button{padding:.45em 1.1em;border-radius:2em;border:2px solid var(--line);background:var(--surface);font-weight:700;min-height:2.4em}
 .tabs button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
 .ctls{display:grid;gap:.6em 1.2em;grid-template-columns:repeat(auto-fit,minmax(min(100%,16em),1fr));align-items:end}
 .ctl{display:flex;flex-direction:column;gap:.2em;font-size:.85em}
@@ -159,7 +159,7 @@ body.m-st .rail{font-size:calc(.82em / 1.22)}
 .solgrid .wide{grid-column:1/-1}
 .solgrid .ws{height:100%}
 @media(max-width:700px){.solgrid{grid-template-columns:1fr}}
-.tbl{width:100%;border-collapse:collapse;font-size:1.05em}
+.tbl{width:100%;border-collapse:collapse;font-size:1em}
 .tbl td,.tbl th{border:2px solid var(--line);padding:.35em .5em;min-width:3em;height:2.4em;text-align:center}
 .tbl th{background:var(--surface2);font-weight:700}
 .tbl [contenteditable]:focus{outline:2px solid var(--accent)}
@@ -212,7 +212,7 @@ details.tips ul{margin:.3em 0 .5em;padding-left:1.2em}
 .simcard{display:flex;gap:.8em;align-items:center;justify-content:space-between;flex-direction:row;flex-wrap:wrap}
 .simcard .nm{font-weight:500;min-width:0;flex:1 1 12em}
 .slot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) auto;gap:.5em;align-items:center}
-.slot input,textarea,select,.num-in{background:var(--surface);border:2px solid var(--line);border-radius:.7em;padding:.5em .7em;min-height:2.8em;width:100%;min-width:0}
+.slot input,textarea,select,.num-in{background:var(--surface);border:2px solid var(--line);border-radius:.7em;padding:.5em .7em;min-height:2.4em;width:100%;min-width:0}
 textarea{min-height:10em;resize:vertical}
 @media(max-width:620px){.slot{grid-template-columns:1fr}}
 /* модалки */
@@ -312,6 +312,16 @@ textarea{min-height:10em;resize:vertical}
 .nb-tb{width:100%;border-collapse:collapse;font-size:.88em}.nb-tb th,.nb-tb td{border:2px solid var(--line);padding:.5em .6em;vertical-align:top;text-align:left}.nb-tb th{background:var(--surface2)}.nb-th{opacity:.6;font-style:italic}
 .nb-lines{height:5.4em;background:repeating-linear-gradient(transparent 0 1.7em,var(--line) 1.7em calc(1.7em + 2px))}
 @media (max-width:900px){.nb-br{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+.cat-pool{display:flex;flex-wrap:wrap;gap:.5em;min-height:3em}
+.cat-chip{font:inherit;font-weight:700;border:2px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:.35em 1em;cursor:pointer}
+.cat-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.cat-chip.shake{animation:catsh .35s;border-color:var(--r)}
+@keyframes catsh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.cat-zones{display:grid;grid-template-columns:1fr 1fr;gap:.7em}
+.cat-z{font:inherit;color:var(--fg);text-align:left;min-height:10em;border:3px dashed var(--line);border-radius:1em;background:var(--surface2);padding:.6em .8em;display:flex;flex-direction:column;gap:.5em;cursor:pointer}
+.cat-z.hot{border-color:var(--accent);background:var(--accent-soft)}
+.cat-z b{font-size:1.05em}.cat-in{display:flex;flex-wrap:wrap;gap:.4em}
+.cat-w{border:2px solid var(--g);background:var(--surface);border-radius:999px;padding:.1em .75em;font-weight:700;font-size:.95em}
 .srt-grid{display:grid;gap:.6em;align-items:stretch}
 .srt-slot{position:relative;min-height:9em;border:3px dashed var(--line);border-radius:1em;padding:.5em .4em .4em;background:var(--surface2);display:flex;flex-direction:column;cursor:pointer}
 .srt-slot.hot{border-color:var(--accent);background:var(--accent-soft)}.srt-slot.ok{border:3px solid var(--g)}.srt-slot.no{border:3px solid var(--r)}
@@ -321,6 +331,74 @@ textarea{min-height:10em;resize:vertical}
 .srt-card .tx{font-size:.72em;line-height:1.3;overflow-wrap:break-word;hyphens:auto}.srt-card{min-width:0}.srt-svg{width:100%;height:8.5em;display:block}
 @media (max-width:900px){.srt-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 .termo .tml{margin-top:.5em;padding:.5em .7em;border-radius:.7em;background:var(--surface2);font-weight:600}
+
+:root{--sb1:#2b6cb0;--sb2:#2f8a3a;--sb3:#7a45b8;--sb4:#4b4fc4;--sb5:#6c9a14;--sb6:#12849e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sb1:#7db4f2;--sb2:#8fd48a;--sb3:#c3a1f3;--sb4:#a6a8f7;--sb5:#c4e07b;--sb6:#6fd3e8}}
+:root[data-theme="dark"]{--sb1:#7db4f2;--sb2:#8fd48a;--sb3:#c3a1f3;--sb4:#a6a8f7;--sb5:#c4e07b;--sb6:#6fd3e8}
+.sl-launch{background:var(--accent)!important;color:var(--accent-fg)!important;border-color:var(--accent)!important;font-weight:700!important}
+.sl-ov{position:fixed;inset:0;z-index:90;background:var(--bg);color:var(--fg);display:flex;flex-direction:column;font-family:var(--sans);font-size:calc(clamp(17px,min(1.7vw,2.8vh),44px)*var(--fs))}
+.sl-top{display:flex;flex-wrap:wrap;align-items:center;gap:.6em;padding:.5em .9em;border-bottom:2px solid var(--line);background:var(--surface)}
+.sl-brand{font-family:var(--serif);font-size:.95em;flex:1 1 14em;min-width:0}
+.sl-pgs{display:flex;gap:.25em;flex-wrap:wrap}
+.sl-pg{width:2em;height:2em;border-radius:50%;border:2px solid var(--line);background:var(--surface);font-weight:700;font-size:.8em;color:var(--fg)}
+.sl-pg[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.sl-seg{display:inline-flex;border:2px solid var(--line);border-radius:.8em;overflow:hidden}
+.sl-seg button{background:transparent;border:0;padding:.3em .8em;font-weight:700;color:var(--fg);font:inherit;font-size:.85em}
+.sl-seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg)}
+.sl-btn{font:inherit;font-size:.85em;font-weight:700;border:2px solid var(--line);background:var(--surface);color:var(--fg);border-radius:.8em;padding:.35em .9em;cursor:pointer;min-height:2.4em}
+.sl-btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}.sl-btn[disabled]{opacity:.4;cursor:default}
+.sl-body{flex:1;overflow:auto;padding:.8em 1.6em 1em;max-width:none;width:100%;margin:0 auto;display:flex;flex-direction:column}.sl-body>*{flex:0 0 auto}.sl-body[data-ty=title]{justify-content:center}
+.sl-bot{display:flex;justify-content:space-between;align-items:center;gap:1em;padding:.5em 1.2em;border-top:2px solid var(--line);background:var(--surface);font-weight:700}
+.sl-h{font-family:var(--serif);font-size:1.35em;margin:.2em 0 .6em;color:var(--accent)}
+.sl-c{display:grid;gap:.7em}
+.sl-title{place-items:center;text-align:center;min-height:60vh;align-content:center}
+.sl-title h1{font-family:var(--serif);font-size:2.1em;line-height:1.15;margin:0;max-width:18em}
+.sl-sec{color:var(--muted);font-weight:700;letter-spacing:.04em}.sl-sub{color:var(--muted)}
+.sl-chips{display:flex;gap:.5em;flex-wrap:wrap;justify-content:center}.sl-chip{background:var(--accent-soft);border-radius:2em;padding:.15em .9em;font-weight:700;font-size:.85em}
+.sl-lab{font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;font-size:.8em}
+.sl-hook{font-family:var(--serif);font-size:1.7em;line-height:1.25;background:var(--surface);border:3px solid var(--accent);border-radius:1em;padding:.7em .9em}
+.sl-big{font-size:1.15em;line-height:1.45;margin:.2em 0;padding-left:1.3em}.sl-big li{margin:.25em 0}.sl-goals{list-style:none;padding:0}.sl-goals li b{background:var(--accent-soft);border-radius:.5em;padding:.05em .5em;margin-right:.4em}
+.sl-hint{color:var(--muted);font-size:.85em;margin-bottom:.4em}
+.sl-map{display:grid;grid-template-columns:1fr minmax(9em,12em) 1fr;grid-template-areas:"a c b" "d c e" "f c g";gap:.9em 1.4em;margin-top:.5em}
+.sl-map>.sl-tile:nth-of-type(1){grid-area:a}.sl-map>.sl-tile:nth-of-type(2){grid-area:b}.sl-map>.sl-tile:nth-of-type(3){grid-area:d}.sl-map>.sl-tile:nth-of-type(4){grid-area:e}.sl-map>.sl-tile:nth-of-type(5){grid-area:f}.sl-map>.sl-tile:nth-of-type(6){grid-area:g}
+.sl-sun{grid-area:c;align-self:center;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe98a,#f7c326 65%,#e8a90f);border:4px solid #f0b81a;color:#1b2a4a;display:grid;place-items:center;text-align:center;padding:12%;font-family:var(--serif);font-weight:700;font-size:.95em;line-height:1.1}
+.sb1{--bc:var(--sb1)}.sb2{--bc:var(--sb2)}.sb3{--bc:var(--sb3)}.sb4{--bc:var(--sb4)}.sb5{--bc:var(--sb5)}.sb6{--bc:var(--sb6)}
+.sl-tile{font:inherit;color:var(--fg);text-align:left;cursor:pointer;border:3px solid var(--bc);background:color-mix(in srgb,var(--bc) 8%,var(--surface));border-radius:1em;padding:0;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.sl-tile:hover{box-shadow:0 6px 16px rgba(0,0,0,.15)}
+.sl-th{display:flex;align-items:center;gap:.5em;padding:.4em .7em;background:color-mix(in srgb,var(--bc) 15%,var(--surface))}.sl-th b{color:var(--bc);font-family:var(--serif);font-size:.95em;line-height:1.1}
+.sl-n{flex:none;width:1.9em;height:1.9em;border-radius:50%;background:var(--bc,var(--accent));color:var(--surface);display:grid;place-items:center;font-weight:700;font-size:.85em}
+.sl-tp{padding:.4em .7em;color:var(--muted);font-size:.8em;line-height:1.3}.sl-ts{padding:0 .7em .5em;font-weight:700;font-size:.7em;color:var(--g)}
+.sl-bar2{display:flex;flex-wrap:wrap;gap:.5em;align-items:center;margin-bottom:.6em}
+.sl-dots{display:flex;gap:.3em}.sl-dot{width:2.1em;height:2.1em;border-radius:50%;border:3px solid var(--bc);background:var(--surface);color:var(--bc);font-weight:700;font-size:.8em}.sl-dot[aria-pressed="true"]{background:var(--bc);color:var(--surface)}
+.sl-blk{border:4px solid var(--bc);border-radius:1.2em;background:color-mix(in srgb,var(--bc) 7%,var(--surface));overflow:hidden;max-width:none;margin:0}
+.sl-bh{display:flex;align-items:center;gap:.7em;padding:.6em 1em;background:color-mix(in srgb,var(--bc) 16%,var(--surface))}.sl-bh h2{margin:0;flex:1;font-family:var(--serif);font-size:1.4em;color:var(--bc)}
+.sl-tick{border:2px solid var(--bc);background:var(--surface);color:var(--bc);border-radius:2em;font:inherit;font-weight:700;font-size:.7em;padding:.2em .9em;cursor:pointer}.sl-tick[aria-pressed="true"]{background:var(--bc);color:var(--surface)}
+.sl-bb{padding:1em 1.4em 1.4em;font-size:1.5em;line-height:1.45;display:grid;gap:.6em}.sl-bb p{margin:0}
+.sl-box{border:2px solid color-mix(in srgb,var(--bc) 50%,transparent);border-radius:.8em;padding:.3em .8em;text-align:center;background:var(--surface)}
+.ck{padding-left:1.4em;position:relative}.ck::before{content:"✓";position:absolute;left:0;color:var(--bc);font-weight:700}
+.sl-bb .kw,.sl-gp .kw{font-weight:700;color:var(--bc,var(--accent));text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:3px}
+.sl-gap{font:inherit;font-weight:700;color:var(--bc,var(--accent));background:color-mix(in srgb,var(--bc,var(--accent)) 14%,var(--surface));border:0;border-bottom:3px dashed var(--bc,var(--accent));border-radius:.4em .4em 0 0;padding:0 .4em;cursor:pointer;margin:0 .1em}
+.sl-gap sup{font-size:.6em;margin-right:.2em;opacity:.8}.sl-gap.on{background:transparent;border-bottom-style:solid}
+.sl-gp{--bc:var(--accent);display:grid;gap:.6em;font-size:1.05em;line-height:1.9}.sl-gp p{margin:0}
+.sl-row{display:flex;flex-wrap:wrap;gap:.6em;margin-top:.6em}
+.sl-two{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:1.4em;align-items:start}
+.sl-steps{margin:.3em 0;padding-left:1.3em;line-height:1.5}.sl-steps li{margin:.3em 0}
+.sl-warn{background:color-mix(in srgb,var(--y) 22%,var(--surface));border:2px solid var(--y);border-radius:.8em;padding:.4em .8em;font-size:.85em;margin-top:.6em}
+.sl-tb{width:100%;border-collapse:collapse;font-size:1em}.sl-tb th,.sl-tb td{border:2px solid var(--line);padding:.3em .45em;text-align:center}.sl-tb thead th{background:var(--surface2)}.sl-tb tbody th{text-align:left;background:var(--surface)}
+.sl-smp td,.sl-smp th{background:var(--surface2)!important}.sl-fx{font-weight:700;color:var(--muted)}
+.sl-cell{font:inherit;font-weight:700;width:100%;min-height:2.4em;border:2px dashed var(--line);border-radius:.6em;background:var(--surface);color:var(--fg);cursor:pointer}
+.sl-cell.ok{border:2px solid var(--g);background:color-mix(in srgb,var(--g) 18%,var(--surface))}.sl-cell.no{border:2px solid var(--r);background:color-mix(in srgb,var(--r) 16%,var(--surface))}
+.sl-m{font-weight:700;font-size:1.2em}.sl-m.ok{color:var(--g)}.sl-m.no{color:var(--r)}
+.sl-q{margin-bottom:.8em}.sl-qt{display:flex;gap:.6em;align-items:center;font-weight:700;margin-bottom:.3em}
+.sl-opts{display:flex;gap:.5em;flex-wrap:wrap}.sl-opt{font:inherit;font-weight:700;font-size:.9em;border:2px solid var(--line);background:var(--surface);color:var(--fg);border-radius:2em;padding:.3em 1em;cursor:pointer}
+.sl-opt.sel{border-color:var(--accent);background:var(--accent-soft)}.sl-opt.ok{border-color:var(--g);background:color-mix(in srgb,var(--g) 20%,var(--surface))}.sl-opt.no{border-color:var(--r);background:color-mix(in srgb,var(--r) 18%,var(--surface))}
+.sl-tasks{display:grid;grid-template-columns:1fr 1fr;gap:.8em}.sl-task{background:var(--surface);border:2px solid var(--line);border-radius:1em;padding:.7em .9em;display:grid;gap:.5em;align-content:start}
+.sl-a{background:var(--accent-soft);border-radius:.6em;padding:.3em .7em;font-weight:700}
+.sl-rf{display:flex;gap:1em;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:2px solid var(--line);border-radius:1em;padding:.6em .9em;margin:.4em 0}
+.sl-hw{background:var(--accent-soft);border-radius:1em;padding:.7em .9em;display:grid;gap:.2em;margin-top:.6em}
+@media (max-width:900px){.sl-map{grid-template-columns:1fr 1fr;grid-template-areas:none}.sl-map>*{grid-area:auto!important}.sl-sun{grid-column:1/-1;width:9em;justify-self:center}.sl-two,.sl-tasks{grid-template-columns:1fr}.sl-body{padding:.6em 1em}}
+
+#sl-back{position:fixed;right:16px;bottom:16px;z-index:60;box-shadow:0 6px 18px rgba(0,0,0,.3);font-size:1em}
 </style>
 </head>
 <body>
@@ -337,7 +415,7 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const LS={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const IC={
- menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',pen:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/>',
+ slides:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M9 8h6M9 12h4"/>', menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',pen:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/>',
  dice:'<rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="15.5" cy="8.5" r="1"/><circle cx="8.5" cy="15.5" r="1"/>',
  light:'<rect x="8" y="2" width="8" height="20" rx="3"/><circle cx="12" cy="7" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="17" r="1.2"/>',
  timer:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/>',link:'<path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/>',
@@ -872,7 +950,7 @@ function render(){
     <div class="timerbar"><span class="tdisp" id="tdisp">00:00</span>
       <div class="trow"><button class="ibtn" data-a="t-toggle" id="ttog">${ic('play')}</button><button class="ibtn hide-min" data-a="t-reset">${ic('reset')}</button><button class="ibtn hide-min" data-a="t-m">−1</button><button class="ibtn hide-min" data-a="t-p">+1</button></div>
       <div class="prog hide-min"><i id="tprog"></i></div><span class="tmeta hide-min">${esc(t.stageFor)} ${S.st+1}/7 · ${dur[S.st]} ${esc(t.min)}</span></div>
-    <div class="tools">${tools.map(([a,i,n])=>`<button class="dockb" data-a="tool-${a}" aria-label="${esc(n)}" ${a==='pen'?`aria-pressed="${S.pen}"`:a==='light'?`aria-pressed="${S.light}"`:''}>${ic(i)}<span>${esc(n)}</span></button>`).join('')}</div>
+    <div class="tools">${tools.map(([a,i,n])=>`<button class="dockb" data-a="tool-${a}" aria-label="${esc(n)}" ${a==='pen'?`aria-pressed="${S.pen}"`:a==='light'?`aria-pressed="${S.light}"`:''}>${ic(i)}<span>${esc(n)}</span></button>`).join('')}${SLD[S.n]?`<button class="dockb sl-launch" data-a="tool-slides" style="grid-column:1/-1">${ic('slides')}<span>${S.lg==='kk'?'Сабақ слайдтары':'Слайды урока'}</span></button>`:''}</div>
     <div class="grow"></div>
     <button class="ibtn railtoggle" data-a="rail" aria-label="${m?'»':'«'}">${ic(m?'next':'prev')}<span class="hide-min">${S.lg==='kk'?'Жинау':'Свернуть'}</span></button>
   </aside>
@@ -995,6 +1073,95 @@ function wkView(){
 }
 const CYL=["<svg class=\"srt-svg\" viewBox=\"10 55 240 465\" role=\"img\" font-family=\"var(--sans)\"><circle cx=\"66.0\" cy=\"282.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"150.3\" cy=\"210.9\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"114.4\" cy=\"234.4\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"135.3\" cy=\"275.4\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"60.6\" cy=\"183.4\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"160.0\" cy=\"232.4\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"150.1\" cy=\"180.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"107.7\" cy=\"267.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"78.7\" cy=\"294.4\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"168.8\" cy=\"183.7\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"51.4\" cy=\"245.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"173.8\" cy=\"226.1\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"77.0\" cy=\"231.1\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"51.9\" cy=\"206.8\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"106.7\" cy=\"240.0\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"79.2\" cy=\"207.9\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"77.3\" cy=\"235.6\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"86.8\" cy=\"182.6\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"160.2\" cy=\"247.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"134.1\" cy=\"202.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"181.0\" cy=\"284.1\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"64.2\" cy=\"220.3\" r=\"2.6\" fill=\"#4a90d9\"/><line x1=\"40\" y1=\"175\" x2=\"40\" y2=\"375\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><line x1=\"190\" y1=\"175\" x2=\"190\" y2=\"375\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><rect x=\"30\" y=\"135\" width=\"170\" height=\"40\" rx=\"3\" fill=\"var(--line)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"75\" y1=\"95\" x2=\"75\" y2=\"191\" stroke=\"var(--fg)\" stroke-width=\"4\" stroke-linecap=\"round\" /><rect x=\"59\" y=\"187\" width=\"32\" height=\"8\" rx=\"2\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"1\"/><line x1=\"155\" y1=\"95\" x2=\"155\" y2=\"175\" stroke=\"var(--fg)\" stroke-width=\"4\" stroke-linecap=\"round\" /><rect x=\"139\" y=\"171\" width=\"32\" height=\"8\" rx=\"2\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"1\"/><rect x=\"108\" y=\"95\" width=\"14\" height=\"40\" rx=\"0\" fill=\"var(--surface)\" stroke=\"var(--fg)\" stroke-width=\"2.2\"/><line x1=\"115\" y1=\"135\" x2=\"115\" y2=\"160\" stroke=\"var(--fg)\" stroke-width=\"3\" stroke-linecap=\"round\" /><rect x=\"44\" y=\"305\" width=\"142\" height=\"30\" rx=\"3\" fill=\"#aab3bd\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"44\" y1=\"314\" x2=\"186\" y2=\"314\" stroke=\"var(--fg)\" stroke-width=\"1.5\" stroke-linecap=\"round\" /><line x1=\"44\" y1=\"323\" x2=\"186\" y2=\"323\" stroke=\"var(--fg)\" stroke-width=\"1.5\" stroke-linecap=\"round\" /><line x1=\"115\" y1=\"335\" x2=\"155.31128874149275\" y2=\"485\" stroke=\"#7b8590\" stroke-width=\"7\" stroke-linecap=\"round\" /><line x1=\"115\" y1=\"335\" x2=\"155.31128874149275\" y2=\"485\" stroke=\"var(--fg)\" stroke-width=\"2.5\" stroke-linecap=\"round\" /><circle cx=\"115\" cy=\"465\" r=\"45\" fill=\"none\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><circle cx=\"115\" cy=\"465\" r=\"6\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"115\" y1=\"465\" x2=\"155.31128874149275\" y2=\"485\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><circle cx=\"155.31128874149275\" cy=\"485\" r=\"7\" fill=\"var(--surface)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"75\" y1=\"60\" x2=\"75.0\" y2=\"119.6\" stroke=\"#4a90d9\" stroke-width=\"5\" stroke-linecap=\"round\" /><polygon points=\"75.0,128.0 68.9,115.4 81.1,115.4\" fill=\"#4a90d9\"/><line x1=\"222\" y1=\"300\" x2=\"222.0\" y2=\"374.6\" stroke=\"#d2453d\" stroke-width=\"6\" stroke-linecap=\"round\" /><polygon points=\"222.0,383.0 215.9,370.4 228.1,370.4\" fill=\"#d2453d\"/></svg>", "<svg class=\"srt-svg\" viewBox=\"10 55 240 465\" role=\"img\" font-family=\"var(--sans)\"><circle cx=\"176.1\" cy=\"266.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"55.6\" cy=\"187.7\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"160.0\" cy=\"247.0\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"137.7\" cy=\"208.0\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"129.2\" cy=\"235.2\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"125.9\" cy=\"194.4\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"105.7\" cy=\"215.8\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"144.9\" cy=\"270.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"175.2\" cy=\"229.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"107.6\" cy=\"204.4\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"52.8\" cy=\"182.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"110.3\" cy=\"209.0\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"98.9\" cy=\"261.2\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"118.5\" cy=\"231.0\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"79.6\" cy=\"182.2\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"91.6\" cy=\"192.4\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"116.4\" cy=\"270.9\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"138.4\" cy=\"196.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"167.7\" cy=\"252.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"146.4\" cy=\"262.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"150.2\" cy=\"251.9\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"95.4\" cy=\"269.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"176.9\" cy=\"194.7\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"149.0\" cy=\"245.1\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"109.8\" cy=\"228.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"113.7\" cy=\"264.2\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"115.1\" cy=\"255.7\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"95.4\" cy=\"260.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"168.6\" cy=\"222.0\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"124.1\" cy=\"263.8\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"145.0\" cy=\"224.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"77.7\" cy=\"209.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"141.7\" cy=\"195.1\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"169.7\" cy=\"204.4\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"170.1\" cy=\"208.2\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"176.3\" cy=\"244.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"115.6\" cy=\"227.1\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"135.3\" cy=\"233.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"89.8\" cy=\"198.9\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"116.6\" cy=\"265.0\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"131.5\" cy=\"186.9\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"157.9\" cy=\"246.1\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"169.6\" cy=\"197.4\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"147.8\" cy=\"185.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"135.5\" cy=\"204.9\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"78.4\" cy=\"259.7\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"62.2\" cy=\"227.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"162.4\" cy=\"202.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"76.2\" cy=\"260.1\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"104.7\" cy=\"245.2\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"52.3\" cy=\"213.0\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"71.0\" cy=\"241.2\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"59.1\" cy=\"266.9\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"51.4\" cy=\"246.4\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"50.8\" cy=\"203.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"157.0\" cy=\"194.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"72.6\" cy=\"242.9\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"99.7\" cy=\"183.9\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"180.7\" cy=\"193.8\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"52.9\" cy=\"211.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"130.4\" cy=\"247.6\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"63.2\" cy=\"210.7\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"52.1\" cy=\"220.8\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"150.6\" cy=\"247.3\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"168.9\" cy=\"248.8\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"163.6\" cy=\"244.2\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"111.4\" cy=\"200.5\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"136.6\" cy=\"208.8\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"61.7\" cy=\"220.8\" r=\"2.6\" fill=\"#4a90d9\"/><circle cx=\"165.2\" cy=\"191.6\" r=\"2.6\" fill=\"#4a90d9\"/><line x1=\"40\" y1=\"175\" x2=\"40\" y2=\"375\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><line x1=\"190\" y1=\"175\" x2=\"190\" y2=\"375\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><rect x=\"30\" y=\"135\" width=\"170\" height=\"40\" rx=\"3\" fill=\"var(--line)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"75\" y1=\"95\" x2=\"75\" y2=\"175\" stroke=\"var(--fg)\" stroke-width=\"4\" stroke-linecap=\"round\" /><rect x=\"59\" y=\"171\" width=\"32\" height=\"8\" rx=\"2\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"1\"/><line x1=\"155\" y1=\"95\" x2=\"155\" y2=\"175\" stroke=\"var(--fg)\" stroke-width=\"4\" stroke-linecap=\"round\" /><rect x=\"139\" y=\"171\" width=\"32\" height=\"8\" rx=\"2\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"1\"/><rect x=\"108\" y=\"95\" width=\"14\" height=\"40\" rx=\"0\" fill=\"var(--surface)\" stroke=\"var(--fg)\" stroke-width=\"2.2\"/><line x1=\"115\" y1=\"135\" x2=\"115\" y2=\"160\" stroke=\"var(--fg)\" stroke-width=\"3\" stroke-linecap=\"round\" /><rect x=\"44\" y=\"275\" width=\"142\" height=\"30\" rx=\"3\" fill=\"#aab3bd\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"44\" y1=\"284\" x2=\"186\" y2=\"284\" stroke=\"var(--fg)\" stroke-width=\"1.5\" stroke-linecap=\"round\" /><line x1=\"44\" y1=\"293\" x2=\"186\" y2=\"293\" stroke=\"var(--fg)\" stroke-width=\"1.5\" stroke-linecap=\"round\" /><line x1=\"115\" y1=\"305\" x2=\"71.12517806303939\" y2=\"455\" stroke=\"#7b8590\" stroke-width=\"7\" stroke-linecap=\"round\" /><line x1=\"115\" y1=\"305\" x2=\"71.12517806303939\" y2=\"455\" stroke=\"var(--fg)\" stroke-width=\"2.5\" stroke-linecap=\"round\" /><circle cx=\"115\" cy=\"465\" r=\"45\" fill=\"none\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><circle cx=\"115\" cy=\"465\" r=\"6\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"115\" y1=\"465\" x2=\"71.12517806303939\" y2=\"455\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><circle cx=\"71.12517806303939\" cy=\"455\" r=\"7\" fill=\"var(--surface)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"222\" y1=\"353\" x2=\"222.0\" y2=\"278.4\" stroke=\"#d2453d\" stroke-width=\"6\" stroke-linecap=\"round\" /><polygon points=\"222.0,270.0 228.1,282.6 215.9,282.6\" fill=\"#d2453d\"/></svg>", "<svg class=\"srt-svg\" viewBox=\"10 55 240 465\" role=\"img\" font-family=\"var(--sans)\"><polygon points=\"115,182 128,205 152,198 142,222 168,235 140,242 148,268 120,250 100,272 98,244 66,252 86,226 62,208 92,206 96,184\" fill=\"#f0922b\" stroke=\"#c9640f\" stroke-width=\"2\" opacity=\".92\"/><polygon points=\"115,205 124,222 112,232 104,220\" fill=\"#ffd34d\"/><line x1=\"40\" y1=\"175\" x2=\"40\" y2=\"375\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><line x1=\"190\" y1=\"175\" x2=\"190\" y2=\"375\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><rect x=\"30\" y=\"135\" width=\"170\" height=\"40\" rx=\"3\" fill=\"var(--line)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"75\" y1=\"95\" x2=\"75\" y2=\"175\" stroke=\"var(--fg)\" stroke-width=\"4\" stroke-linecap=\"round\" /><rect x=\"59\" y=\"171\" width=\"32\" height=\"8\" rx=\"2\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"1\"/><line x1=\"155\" y1=\"95\" x2=\"155\" y2=\"175\" stroke=\"var(--fg)\" stroke-width=\"4\" stroke-linecap=\"round\" /><rect x=\"139\" y=\"171\" width=\"32\" height=\"8\" rx=\"2\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"1\"/><rect x=\"108\" y=\"95\" width=\"14\" height=\"40\" rx=\"0\" fill=\"var(--surface)\" stroke=\"var(--fg)\" stroke-width=\"2.2\"/><line x1=\"115\" y1=\"135\" x2=\"115\" y2=\"160\" stroke=\"var(--fg)\" stroke-width=\"3\" stroke-linecap=\"round\" /><polygon points=\"115,148 106,168 114,166 108,184 126,160 117,162\" fill=\"#ffd34d\" stroke=\"#c9640f\" stroke-width=\"1.5\"/><rect x=\"44\" y=\"250\" width=\"142\" height=\"30\" rx=\"3\" fill=\"#aab3bd\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"44\" y1=\"259\" x2=\"186\" y2=\"259\" stroke=\"var(--fg)\" stroke-width=\"1.5\" stroke-linecap=\"round\" /><line x1=\"44\" y1=\"268\" x2=\"186\" y2=\"268\" stroke=\"var(--fg)\" stroke-width=\"1.5\" stroke-linecap=\"round\" /><line x1=\"115\" y1=\"280\" x2=\"143.2842712474619\" y2=\"430\" stroke=\"#7b8590\" stroke-width=\"7\" stroke-linecap=\"round\" /><line x1=\"115\" y1=\"280\" x2=\"143.2842712474619\" y2=\"430\" stroke=\"var(--fg)\" stroke-width=\"2.5\" stroke-linecap=\"round\" /><circle cx=\"115\" cy=\"465\" r=\"45\" fill=\"none\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><circle cx=\"115\" cy=\"465\" r=\"6\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"115\" y1=\"465\" x2=\"143.2842712474619\" y2=\"430\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><circle cx=\"143.2842712474619\" cy=\"430\" r=\"7\" fill=\"var(--surface)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"222\" y1=\"245\" x2=\"222.0\" y2=\"319.6\" stroke=\"#d2453d\" stroke-width=\"6\" stroke-linecap=\"round\" /><polygon points=\"222.0,328.0 215.9,315.4 228.1,315.4\" fill=\"#d2453d\"/></svg>", "<svg class=\"srt-svg\" viewBox=\"10 55 240 465\" role=\"img\" font-family=\"var(--sans)\"><circle cx=\"79.6\" cy=\"192.5\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"101.1\" cy=\"198.8\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"56.9\" cy=\"228.6\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"171.0\" cy=\"276.9\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"150.5\" cy=\"206.9\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"119.9\" cy=\"213.5\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"71.1\" cy=\"192.8\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"76.7\" cy=\"292.2\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"159.1\" cy=\"277.6\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"155.3\" cy=\"203.4\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"89.5\" cy=\"255.9\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"146.1\" cy=\"283.4\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"165.9\" cy=\"190.5\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"129.2\" cy=\"261.3\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"115.8\" cy=\"201.5\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"111.5\" cy=\"190.8\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"173.2\" cy=\"284.7\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"121.4\" cy=\"216.3\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"169.8\" cy=\"249.3\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"166.2\" cy=\"282.6\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"116.1\" cy=\"230.1\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"128.3\" cy=\"232.2\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"69.6\" cy=\"216.9\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"156.9\" cy=\"185.2\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"54.2\" cy=\"255.8\" r=\"3\" fill=\"#8a8f96\"/><circle cx=\"85.6\" cy=\"244.7\" r=\"3\" fill=\"#8a8f96\"/><line x1=\"40\" y1=\"175\" x2=\"40\" y2=\"375\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><line x1=\"190\" y1=\"175\" x2=\"190\" y2=\"375\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><rect x=\"30\" y=\"135\" width=\"170\" height=\"40\" rx=\"3\" fill=\"var(--line)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"75\" y1=\"95\" x2=\"75\" y2=\"175\" stroke=\"var(--fg)\" stroke-width=\"4\" stroke-linecap=\"round\" /><rect x=\"59\" y=\"171\" width=\"32\" height=\"8\" rx=\"2\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"1\"/><line x1=\"155\" y1=\"95\" x2=\"155\" y2=\"191\" stroke=\"var(--fg)\" stroke-width=\"4\" stroke-linecap=\"round\" /><rect x=\"139\" y=\"187\" width=\"32\" height=\"8\" rx=\"2\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"1\"/><rect x=\"108\" y=\"95\" width=\"14\" height=\"40\" rx=\"0\" fill=\"var(--surface)\" stroke=\"var(--fg)\" stroke-width=\"2.2\"/><line x1=\"115\" y1=\"135\" x2=\"115\" y2=\"160\" stroke=\"var(--fg)\" stroke-width=\"3\" stroke-linecap=\"round\" /><rect x=\"44\" y=\"305\" width=\"142\" height=\"30\" rx=\"3\" fill=\"#aab3bd\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"44\" y1=\"314\" x2=\"186\" y2=\"314\" stroke=\"var(--fg)\" stroke-width=\"1.5\" stroke-linecap=\"round\" /><line x1=\"44\" y1=\"323\" x2=\"186\" y2=\"323\" stroke=\"var(--fg)\" stroke-width=\"1.5\" stroke-linecap=\"round\" /><line x1=\"115\" y1=\"335\" x2=\"74.68871125850725\" y2=\"485\" stroke=\"#7b8590\" stroke-width=\"7\" stroke-linecap=\"round\" /><line x1=\"115\" y1=\"335\" x2=\"74.68871125850725\" y2=\"485\" stroke=\"var(--fg)\" stroke-width=\"2.5\" stroke-linecap=\"round\" /><circle cx=\"115\" cy=\"465\" r=\"45\" fill=\"none\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><circle cx=\"115\" cy=\"465\" r=\"6\" fill=\"var(--fg)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"115\" y1=\"465\" x2=\"74.68871125850725\" y2=\"485\" stroke=\"var(--fg)\" stroke-width=\"5\" stroke-linecap=\"round\" /><circle cx=\"74.68871125850725\" cy=\"485\" r=\"7\" fill=\"var(--surface)\" stroke=\"var(--fg)\" stroke-width=\"2.5\"/><line x1=\"155\" y1=\"128\" x2=\"155.0\" y2=\"64.4\" stroke=\"#8a8f96\" stroke-width=\"5\" stroke-linecap=\"round\" /><polygon points=\"155.0,56.0 161.1,68.6 148.9,68.6\" fill=\"#8a8f96\"/><line x1=\"222\" y1=\"383\" x2=\"222.0\" y2=\"308.4\" stroke=\"#d2453d\" stroke-width=\"6\" stroke-linecap=\"round\" /><polygon points=\"222.0,300.0 228.1,312.6 215.9,312.6\" fill=\"#d2453d\"/></svg>"];
 const SORT={"10": [{"n": ["Такты ДВС", "ІЖҚ тактілері"], "svg": true, "c": [["Поршень идёт вниз, впускной клапан открыт: в цилиндр поступает смесь топлива и воздуха.", "Поршень төмен қозғалады, жұтқыш клапан ашық: цилиндрге отын мен ауа қоспасы кіреді."], ["Оба клапана закрыты, поршень идёт вверх и сжимает смесь: давление и температура растут.", "Екі клапан да жабық, поршень жоғары қозғалып, қоспаны сығады: қысым мен температура артады."], ["Свеча даёт искру, смесь сгорает, горячие газы расширяются и толкают поршень вниз: газ совершает работу.", "Шамнан ұшқын шығады, қоспа жанады, ыстық газдар ұлғайып, поршеньді төмен итереді: газ жұмыс істейді."], ["Выпускной клапан открыт, поршень идёт вверх и выталкивает отработанные газы.", "Шығарғыш клапан ашық, поршень жоғары қозғалып, пайдаланылған газдарды шығарады."]]}, {"n": ["Паровая турбина", "Бу турбинасы"], "c": [["В котле сгорает топливо и нагревает воду", "Қазандықта отын жанып, суды қыздырады"], ["Образуется пар высокого давления", "Жоғары қысымды бу пайда болады"], ["Пар вращает ротор турбины", "Бу турбина роторын айналдырады"], ["Ротор вращает генератор – вырабатывается электрический ток", "Ротор генераторды айналдырады – электр тогы өндіріледі"]]}, {"n": ["Превращения энергии", "Энергияның түрленуі"], "c": [["Химическая энергия топлива", "Отынның химиялық энергиясы"], ["Внутренняя энергия пара", "Будың ішкі энергиясы"], ["Механическая энергия ротора", "Ротордың механикалық энергиясы"], ["Электрическая энергия", "Электр энергиясы"]]}]};
+/* ===== урок 12: интерактивные опоры ===== */
+(function(){
+const rodS=(x,y,w,h,fill)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h/2}" class="s" style="fill:${fill}"/>`;
+const furS=(cx,cy)=>{let t='';for(let i=0;i<22;i++){const a=i/22*6.2832,x1=cx+Math.cos(a)*92,y1=cy+Math.sin(a)*66,x2=cx+Math.cos(a)*108,y2=cy+Math.sin(a)*79;t+=`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" class="s" style="stroke-width:3"/>`}
+  return t+`<ellipse cx="${cx}" cy="${cy}" rx="95" ry="68" class="s" style="fill:#c89b6b"/>`};
+const silkS=(cx,cy)=>`<rect x="${cx-95}" y="${cy-62}" width="190" height="124" rx="22" class="s" style="fill:#f3c3d4"/><path d="M${cx-80} ${cy-20}q20 -16 40 0t40 0t40 0M${cx-80} ${cy+18}q20 -16 40 0t40 0t40 0" class="s" style="stroke-width:2;opacity:.5"/>`;
+const eT=(x,y)=>`<circle cx="${x}" cy="${y}" r="17" class="fa"/><text x="${x}" y="${y+5}" class="tw" text-anchor="middle" style="font-size:15px">e⁻</text>`;
+const sgn=(x,y,ch,col)=>`<text x="${x}" y="${y}" class="tb" text-anchor="middle" style="fill:${col};font-size:30px">${ch}</text>`;
+const OFF=[[-45,-6],[0,-6],[45,-6],[-45,34],[0,34],[45,34]];
+const cap=(s,y=34,c='tm')=>tx(400,y,s,c);
+const fric={ctl:[{k:'pair',t:'choice',v:0,o:[{v:0,l:()=>B('Эбонит о мех','Эбонит жүнге')},{v:1,l:()=>B('Стекло о шёлк','Шыны жібекке')}]},
+  {k:'n',l:()=>B('Электронов перешло','Өткен электрондар'),min:0,max:6,step:1,v:0}],
+ svg(p){const g=p.pair===1,n=p.n;
+  const dn=g?B('Стеклянная палочка','Шыны таяқша'):B('Мех','Жүн'),ac=g?B('Шёлк','Жібек'):B('Эбонитовая палочка','Эбонит таяқша');
+  let s=g?rodS(85,209,230,52,'#cfe7f6'):furS(200,235);
+  s+=g?silkS(600,235):rodS(485,209,230,52,'#5b4636');
+  for(let i=0;i<n;i++){s+=sgn(200+OFF[i][0],235+OFF[i][1]+(g?0:0),'+',g?'#c0392b':'#7a0f0f');s+=sgn(600+OFF[i][0],235+OFF[i][1],'−',g?'#2b6cb0':'#9ad1ff')}
+  for(let i=0;i<n;i++)s+=eT(335+(i%3)*50,185+Math.floor(i/3)*44);
+  if(n>0)s+=ar(335,320,465,320,'sa','aa');
+  s+=tx(200,335,dn,'tb')+tx(600,335,ac,'tb');
+  s+=tx(200,368,n>0?B('заряд +','заряд +'):B('нейтрален (0)','бейтарап (0)'),'tm')+tx(600,368,n>0?B('заряд −','заряд −'):B('нейтрален (0)','бейтарап (0)'),'tm');
+  s+=cap(n>0?B(`электроны e⁻ переходят: ${dn} → ${ac}`,`электрондар e⁻ өтеді: ${dn} → ${ac}`):B('тела нейтральны: зарядов поровну','денелер бейтарап: зарядтар тең'),40,'tb');
+  return sv(s)},
+ note:()=>B('Опора 1 «с подписями»: при трении электроны переходят с одного тела на другое. Одно тело заряжается «−», другое «+», заряды равны по модулю. Сравните обе пары.','1-тірек «жазбалармен»: үйкелгенде электрондар бір денеден екіншісіне өтеді. Бір дене «−», екіншісі «+» зарядталады, зарядтар модулі бойынша тең. Екі жұпты салыстырыңыз.')};
+const ind={ctl:[{k:'q',t:'choice',v:-1,o:[{v:-1,l:()=>B('Палочка −','Таяқша −')},{v:1,l:()=>B('Палочка +','Таяқша +')}]},
+  {k:'t',t:'choice',v:0,o:[{v:0,l:()=>B('Без касания','Тигізбей')},{v:1,l:()=>B('Коснулись палочкой','Таяқшамен тиді')}]},
+  {k:'d',l:()=>B('Расстояние до гильзы, см','Гильзаға дейінгі қашықтық, см'),min:1,max:8,step:1,v:2}],
+ svg(p){const d=p.d,q=p.q,t=p.t===1,k=(9-d)/8,cx=590,cy=235,tip=cx-72-(d-1)*30;
+  const col=v=>v>0?'#c0392b':'#2b6cb0';
+  let s=ln(cx,64,cx,cy-58,'s');
+  s+=`<circle cx="${cx}" cy="${cy}" r="58" class="s" style="fill:#e9eef5"/>`;
+  s+=rodS(tip-280,209,280,52,'#5b4636');
+  for(let i=0;i<3;i++)s+=sgn(tip-24-i*32,243,q>0?'+':'−',q>0?'#ffb3a8':'#9ad1ff');
+  if(!t){const m=Math.max(1,Math.round(1+3*k));const ys=[-24,2,28,-40,40];
+    for(let i=0;i<m;i++){s+=sgn(cx-30,cy+ys[i]+10,q>0?'−':'+',col(-q));s+=sgn(cx+30,cy+ys[i]+10,q>0?'+':'−',col(q))}
+    const L=20+100*k;s+=ar(cx,372,cx-L,372,'sa','aa')+tx(cx-L/2,404,B('притяжение','тартылу'),'tm');
+  }else{for(let i=0;i<5;i++){const a=[[-26,-20],[10,-30],[28,6],[-14,22],[6,40]][i];s+=sgn(cx+a[0],cy+a[1]+10,q>0?'+':'−',col(q))}
+    const L=30+90*k;s+=ar(cx,372,cx+L,372,'sr','ar')+tx(cx+L/2,404,B('отталкивание','тебілу'),'tm')}
+  s+=tx(tip-140,296,B('Заряженная палочка','Зарядталған таяқша'),'tb');
+  s+=tx(cx,cy+100,B('гильза','гильза')+(t?B(' заряжена','  зарядталған'):B(' нейтральна','  бейтарап')),'tb');
+  s+=cap(t?B('после касания гильза заряжена так же, как палочка','тигеннен кейін гильза таяқшамен бірдей зарядталады'):B('заряды в гильзе перераспределились: ближе к палочке – противоположный знак','гильзадағы зарядтар қайта бөлінді: таяқшаға жақын жағы қарама-қарсы таңбалы'),40,'tm');
+  return sv(s)},
+ note:()=>B('Опора 1: без касания заряженная палочка притягивает нейтральную гильзу при любом знаке. После касания гильза заряжается одноимённо и отталкивается. Чем дальше палочка, тем слабее эффект.','1-тірек: тигізбей зарядталған таяқша бейтарап гильзаны кез келген таңбада тартады. Тигеннен кейін гильза бірдей аттас зарядталып, тебіледі. Таяқша алыс болған сайын әсер әлсіз.')};
+const WORDS=()=>[B('Мех','Жүн'),B('Эбонитовая палочка','Эбонит таяқша'),B('электроны e⁻','электрондар e⁻'),B('заряд +','заряд +'),B('заряд −','заряд −'),B('протоны','протондар'),B('нейтральный','бейтарап')];
+const PTS={1:[200,150],2:[600,150],3:[400,150],4:[200,330],5:[600,330]};
+const op2={ctl:[{k:'pt',t:'choice',v:1,o:[1,2,3,4,5].map(i=>({v:i,l:()=>String(i)}))},
+  {k:'w',t:'choice',v:-1,o:[0,1,2,3,4,5,6].map(i=>({v:i,l:()=>WORDS()[i]}))},
+  {k:'c',t:'choice',v:0,o:[{v:0,l:()=>B('Заполняю','Толтырамын')},{v:1,l:()=>B('Проверить','Тексеру')}]},
+  {k:'z',t:'choice',v:0,o:[{v:1,l:()=>B('Очистить','Тазалау')},{v:2,l:()=>B('Показать ответы','Жауаптарды көрсету')}]}],
+ svg(p){const a=S.op2||{},W=WORDS();
+  let s=furS(200,235)+rodS(485,209,230,52,'#5b4636');
+  for(let i=0;i<3;i++)s+=eT(335+i*50,205);
+  s+=ar(335,285,465,285,'sa','aa');
+  for(const k of [1,2,3,4,5]){const [x,y]=PTS[k];const lowerRow=k>3;
+    s+=ln(x,y+(lowerRow?-22:22),x,lowerRow?y-50:y+30,'sg0');
+    if(p.pt===k)s+=ci(x,y,26,'sy');
+    s+=ci(x,y,19,'fs')+`<circle cx="${x}" cy="${y}" r="19" class="s"/>`+tx(x,y+7,k,'tb');
+    const v=a[k],ok=v===k-1;
+    if(v!=null)s+=`<text x="${x}" y="${lowerRow?y+52:y-34}" text-anchor="middle" class="tb" style="font-size:21px;${p.c===1?`fill:var(${ok?'--g':'--r'})`:''}">${W[v]}</text>`;
+    else if(p.c===1)s+=`<text x="${x}" y="${lowerRow?y+52:y-34}" text-anchor="middle" class="tb" style="font-size:21px;fill:var(--r)">?</text>`}
+  return sv(s)},
+ note:()=>B('Опора 2: нажмите номер на схеме, затем слово из банка. «Проверить» покажет верные ответы зелёным, ошибки красным.','2-тірек: сызбадағы нөмірді, содан кейін сөздер банкінен сөзді басыңыз. «Тексеру» дұрыс жауапты жасылмен, қатені қызылмен көрсетеді.')};
+Object.assign(DG,{fric1:fric,ind1:ind,op2:op2});
+Object.assign(DGNAME,{fric1:['Опора 1: электризация трением','1-тірек: үйкеліспен электрлену'],ind1:['Опора 1: электризация через влияние','1-тірек: ықпал арқылы электрлену'],op2:['Опора 2: заполни схему','2-тірек: сызбаны толтыр']});
+DGMAP[12]=['fric1','ind1','op2','charges'];
+window.op2Hook=function(k,v,pp){S.op2=S.op2||{};
+  if(k==='w'){S.op2[pp.pt]=v;pp.w=-1;pp.c=0;if(pp.pt<5)pp.pt++}
+  else if(k==='z'){if(v===1){S.op2={};pp.c=0}else{S.op2={1:0,2:1,3:2,4:3,5:4};pp.c=1}pp.z=0}
+  else if(k==='c'){}};
+SORT['12']=[
+ {n:['Электризация трением','Үйкеліспен электрлену'],c:[['Тела нейтральны: положительных и отрицательных зарядов поровну','Денелер бейтарап: оң және теріс зарядтар тең'],['Эбонитовую палочку трут о мех','Эбонит таяқшаны жүнге үйкейді'],['Электроны переходят с меха на палочку','Электрондар жүннен таяқшаға өтеді'],['Палочка заряжена отрицательно (−), мех – положительно (+)','Таяқша теріс (−), жүн оң (+) зарядталған']]},
+ {n:['Электризация через влияние','Ықпал арқылы электрлену'],c:[['Заряженную палочку подносят к нейтральной гильзе, не касаясь','Зарядталған таяқшаны бейтарап гильзаға тигізбей жақындатады'],['Электроны в гильзе смещаются от палочки','Гильзадағы электрондар таяқшадан ығысады'],['Ближняя сторона гильзы заряжена +, дальняя –','Гильзаның таяқшаға жақын жағы +, алыс жағы – зарядталады'],['Гильза притягивается к палочке','Гильза таяқшаға тартылады']]},
+ {n:['Проводники и диэлектрики','Өткізгіштер мен диэлектриктер'],cat:true,zones:[['Проводники','Өткізгіштер'],['Диэлектрики','Диэлектриктер']],items:[['медь','мыс','c'],['стекло','шыны','d'],['графит','графит','c'],['резина','резеңке','d'],['раствор соли','тұз ерітіндісі','c'],['пластмасса','пластмасса','d'],['железо','темір','c'],['керамика','керамика','d'],['алюминий','алюминий','c'],['дерево','ағаш','d']]}];
+})();
+
+
+function catSt(){const k=S.n+'_'+(S.zk[S.n]||0);let z=S.zs[k];
+  if(!z){const n=srtSet().items.length;let o=[...Array(n).keys()];do{o.sort(()=>Math.random()-.5)}while(o.every((v,i)=>v===i));z=S.zs[k]={order:o,placed:{},sel:null,bad:null}}return z}
+function catView(){
+  const sets=SORT[S.n],set=srtSet(),z=catSt(),lg=S.lg==='kk'?1:0,items=set.items,n=items.length,got=Object.keys(z.placed).length;
+  const chips=sets.length>1?`<div class="chips">${sets.map((x,j)=>`<button data-a="zk-${j}" aria-pressed="${j===(S.zk[S.n]||0)}">${esc(x.n[lg])}</button>`).join('')}</div>`:'';
+  const pool=z.order.filter(i=>!z.placed[i]).map(i=>`<button class="cat-chip ${z.bad===i?'shake':''}" data-a="zp-${i}" aria-pressed="${z.sel===i}">${esc(items[i][lg])}</button>`).join('');
+  const zone=(k,j)=>`<button class="cat-z ${z.sel!=null?'hot':''}" data-a="zz${k}"><b>${esc(set.zones[j][lg])}</b><span class="cat-in">${items.map((it,i)=>z.placed[i]===k?`<span class="cat-w">${esc(it[lg])}</span>`:'').join('')}</span></button>`;
+  const msg=got===n?`<span class="chip" style="font-size:1em;background:var(--g);color:#fff">${B('Всё верно!','Бәрі дұрыс!')}</span>`:z.bad!=null?`<span class="chip" style="font-size:1em;background:var(--r);color:#fff">${B('Не подходит – попробуйте ещё','Сәйкес емес – қайталап көріңіз')}</span>`:`<span class="chip" style="font-size:1em">${B('Распределено','Бөлінді')}: ${got} ${B('из','/')} ${n}</span>`;
+  return `<div style="display:grid;gap:.7em">${chips}<p class="tmeta" style="margin:0;font-size:.95em">${B('Нажмите вещество, затем группу, к которой оно относится.','Затты, содан кейін ол жататын топты басыңыз.')}</p>
+  <div class="cat-pool">${pool||'<span class="tmeta">✓</span>'}</div>
+  <div class="cat-zones">${zone('c',0)}${zone('d',1)}</div>
+  <div class="row"><button class="big alt" data-a="zshuf">${B('Перемешать','Араластыру')}</button><button class="big alt" data-a="zzs">${B('Показать ответ','Жауапты көрсету')}</button>${msg}</div></div>`;
+}
 const SRT={ru:{hint:'Соберите в правильном порядке: коснитесь карточки, затем её места (или перетащите).',chk:'Проверить',shuf:'Перемешать',sol:'Показать ответ',score:'Верно',of:'из',done:'Отлично! Порядок верный.',slot:'Место'},
 kk:{hint:'Дұрыс ретімен жинаңыз: карточканы, содан кейін оның орнын басыңыз (немесе сүйреңіз).',chk:'Тексеру',shuf:'Араластыру',sol:'Жауапты көрсету',score:'Дұрыс',of:'/',done:'Тамаша! Реті дұрыс.',slot:'Орны'}};
 function srtSet(){const a=SORT[S.n]||[];return a[Math.min(S.zk[S.n]||0,a.length-1)]}
@@ -1002,6 +1169,7 @@ function srtSt(){const k=S.n+'_'+(S.zk[S.n]||0);let z=S.zs[k];const n=srtSet().c
   if(!z){let p=[...Array(n).keys()];do{p.sort(()=>Math.random()-.5)}while(p.every((v,i)=>v===i));z=S.zs[k]={pool:p,slots:Array(n).fill(null),chk:false,sel:null}}return z}
 function srtCard(set,i,extra,lg){const svg=set.svg?CYL[i]:'';return `${svg}<div class="tx" style="${set.svg?'':'font-size:.8em;font-weight:600'}">${esc(set.c[i][lg==='kk'?1:0])}</div>`}
 function srtView(){
+  if(srtSet().cat)return catView();
   const sets=SORT[S.n],set=srtSet(),z=srtSt(),w=SRT[S.lg],lg=S.lg,n=set.c.length;
   const chips=sets.length>1?`<div class="chips">${sets.map((x,j)=>`<button data-a="zk-${j}" aria-pressed="${j===(S.zk[S.n]||0)}">${esc(x.n[lg==='kk'?1:0])}</button>`).join('')}</div>`:'';
   const ok=z.slots.filter((v,j)=>v===j).length,full=z.slots.every(v=>v!=null);
@@ -2687,6 +2855,7 @@ function refreshTL(){document.querySelectorAll('[data-tl]').forEach(e=>{const p=
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-a]');if(!b)return;
   const a=b.dataset.a;
+  if(a.startsWith('sl-')){slAct(a);return}
   if(a==='ovclose'){if(e.target===b)closeModal();return}
   if(a==='close'){closeModal();return}
   if(a==='lessons'){openModal('lessons');return}
@@ -2695,7 +2864,7 @@ document.addEventListener('click',e=>{
   if(a.startsWith('gost-')){S.tview='stage';setStage(+a.slice(5));return}
   if(a.startsWith('tab-')){S.tab=+a.slice(4);renderStage();return}
   if(a.startsWith('dg-')){S.dgi=+a.slice(3);renderStage();return}
-  if(a.startsWith('dc-')){const m=a.match(/^dc-(\w+)-(-?\d+)$/);if(m){dgParams(dgKind())[m[1]]=+m[2];renderStage()}return}
+  if(a.startsWith('dc-')){const m=a.match(/^dc-(\w+)-(-?\d+)$/);if(m){const pp=dgParams(dgKind());pp[m[1]]=+m[2];if(dgKind()==='op2')op2Hook(m[1],+m[2],pp);renderStage()}return}
   if(a.startsWith('sj-')){S.sj=+a.slice(3);renderStage();return}
   if(a==='solbg'){S.solbg=S.solbg==='grid'?'lines':S.solbg==='lines'?'plain':'grid';renderStage();return}
   if(a==='addrow'){(S.tbl[S.n]||[]).push(['','','','','']);renderStage();return}
@@ -2708,11 +2877,14 @@ document.addEventListener('click',e=>{
   if(a.startsWith('st-')){setStage(+a.slice(3));return}
   if(a==='prev'){setStage(S.st-1);return}
   if(a==='next'){setStage(S.st+1);return}
-  if(a.startsWith('tool-')){const k=a.slice(5);if(k==='pen'){penToggle(!S.pen)}else if(k==='light'){S.light=!S.light;render()}else openModal(k);return}
+  if(a.startsWith('tool-')){const k=a.slice(5);if(k==='pen'){penToggle(!S.pen)}else if(k==='light'){S.light=!S.light;render()}else if(k==='slides')openSlides();else openModal(k);return}
   if(a.startsWith('seen-')){const k=S.n+'d'+a.slice(5);S.seen[k]=!S.seen[k];renderStage();return}
   if(a.startsWith('revc-')){const k=S.n+'c'+a.slice(5);S.rev[k]=!S.rev[k];renderStage();return}
   if(a.startsWith('nbv-')){(S.nb[S.n]||(S.nb[S.n]={v:'cl',r:99})).v=a.slice(4);renderStage();return}
   if(a.startsWith('nbr-')){const st=S.nb[S.n]||(S.nb[S.n]={v:'cl',r:99}),n=nbItems().length+1,k=a.slice(4);st.r=k==='0'?0:k==='a'?99:Math.min(n,(st.r>=99?0:st.r)+1);renderStage();return}
+  if(a.startsWith('zp-')){const z=catSt();z.sel=+a.slice(3);z.bad=null;renderStage();return}
+  if(a==='zzc'||a==='zzd'){const z=catSt(),it=srtSet().items;if(z.sel!=null){if(it[z.sel][2]===a.slice(2)){z.placed[z.sel]=a.slice(2);z.sel=null;z.bad=null}else z.bad=z.sel;renderStage()}return}
+  if(a==='zzs'){const z=catSt();srtSet().items.forEach((it,i)=>z.placed[i]=it[2]);z.sel=null;z.bad=null;renderStage();return}
   if(a.startsWith('zk-')){S.zk[S.n]=+a.slice(3);renderStage();return}
   if(a.startsWith('zc-')){const c=+a.slice(3),z=srtSt();if(z.slots.includes(c)){srtBack(c)}else{z.sel=z.sel===c?null:c;z.chk=false;renderStage()}return}
   if(a.startsWith('zs-')){const j=+a.slice(3),z=srtSt();if(z.sel!=null)srtPlace(z.sel,j);return}
@@ -2777,6 +2949,138 @@ document.addEventListener('keydown',e=>{
   if(MODAL||/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||''))return;
   if(e.key==='ArrowRight')setStage(S.st+1);if(e.key==='ArrowLeft')setStage(S.st-1);
 });
+/* ===================== СЛАЙДЫ УРОКА ===================== */
+const SLS={};
+const SLD={12:{
+ names:[['Тема','Тақырып'],['Мотивация','Мотивация'],['Цели','Мақсаттар'],['Опорный конспект','Тірек конспект'],['Конспект · пропуски 1','Конспект · бос орындар 1'],['Конспект · пропуски 2','Конспект · бос орындар 2'],['Практика · станция 1','Практика · 1-бекет'],['Практика · станция 2','Практика · 2-бекет'],['Практика · станция 3','Практика · 3-бекет'],['Проверка','Тексеру'],['Рефлексия','Рефлексия']],
+ types:['title','hook','goals','map','gp1','gp2','t1','q2','t3','tasks','refl'],
+ center:['Электрический заряд','Электр заряды'],
+ blocks:[
+ {t:['Электрический заряд','Электр заряды'],r:[['<p>Электрический заряд – {физическая величина}, характеризующая способность тел {взаимодействовать} через электрические силы.</p>','<p class="sl-box">Обозначение: <b>q</b> &nbsp;·&nbsp; Единица: {кулон} (Кл)</p>','<p>Два рода зарядов: {положительный} (+) и {отрицательный} (−)</p>'],['<p>Электр заряды – денелердің электр күштері арқылы {әрекеттесу} қабілетін сипаттайтын {физикалық шама}.</p>','<p class="sl-box">Белгіленуі: <b>q</b> &nbsp;·&nbsp; Өлшем бірлігі: {кулон} (Кл)</p>','<p>Зарядтың екі түрі: {оң} (+) және {теріс} (−)</p>']]},
+ {t:['Электризация тел','Денелердің электрленуі'],r:[['<p>Электризация – {перераспределение электронов}: тело приобретает электрический заряд.</p>','<p>Способы: 1) {трение} (стекло о шёлк, эбонит о мех); 2) {контакт} (касание заряженным телом); 3) {влияние} (индукция) – без касания.</p>','<p>При трении тела получают {разноимённые} заряды.</p>'],['<p>Электрлену – {электрондардың қайта бөлінуі}: дене электр зарядын алады.</p>','<p>Тәсілдері: 1) {үйкеліс} (шыны жібекке, эбонит жүнге); 2) {жанасу} (зарядталған денемен тигізу); 3) {ықпал} (индукция) – жанаспай.</p>','<p>Үйкелгенде денелер {әртүрлі аттас} зарядтар алады.</p>']]},
+ {t:['Основные свойства зарядов','Зарядтардың негізгі қасиеттері'],r:[['<p class="ck">Одноимённые заряды {отталкиваются}</p>','<p class="ck">Разноимённые заряды {притягиваются}</p>','<p class="ck">Закон сохранения заряда: в {изолированной} системе суммарный заряд {не изменяется}.</p>'],['<p class="ck">Аттас зарядтар {тебіледі}</p>','<p class="ck">Әртүрлі аттас зарядтар {тартылады}</p>','<p class="ck">Заряд сақталу заңы: {оқшауланған} жүйеде жалпы заряд {өзгермейді}.</p>']]},
+ {t:['Проводники и диэлектрики','Өткізгіштер мен диэлектриктер'],r:[['<p><b>Проводники</b> – вещества, в которых заряды {свободно перемещаются}. Примеры: металлы, графит, растворы солей.</p>','<p><b>Диэлектрики</b> – вещества, в которых заряды {не могут} свободно двигаться. Примеры: стекло, пластмасса, резина, керамика.</p>'],['<p><b>Өткізгіштер</b> – зарядтар {еркін қозғалатын} заттар. Мысалы: металдар, графит, тұз ерітінділері.</p>','<p><b>Диэлектриктер</b> – зарядтар еркін қозғала {алмайтын} заттар. Мысалы: шыны, пластмасса, резеңке, керамика.</p>']]},
+ {t:['Как проявляется электризация?','Электрлену қалай байқалады?'],r:[['<p class="ck">Притяжение лёгких предметов (бумажки к расчёске)</p>','<p class="ck">Волосы «встают дыбом», слышен треск</p>','<p class="ck">Одноимённо заряженные шарики отталкиваются</p>','<p><b>Вредная:</b> {искры}, помехи – у бензовоза цепочка отводит заряд в землю.</p>','<p><b>Полезная:</b> {фильтры}, копировальные аппараты.</p>'],['<p class="ck">Жеңіл заттардың тартылуы (тарақ пен қағаз кесінділері)</p>','<p class="ck">Шаш «тік тұрады», сыртылдаған дыбыс шығады</p>','<p class="ck">Аттас зарядталған шариктер тебіледі</p>','<p><b>Зиянды:</b> {ұшқын}, кедергілер – бензовозда шынжыр зарядты жерге ағызады.</p>','<p><b>Пайдалы:</b> {сүзгілер}, көшірме аппараттары.</p>']]},
+ {t:['Главное!','Негізгісі!'],r:[['<p class="ck">Электрический заряд бывает положительным (+) и отрицательным (−).</p>','<p class="ck">Заряженные тела взаимодействуют: притягиваются или отталкиваются.</p>','<p class="ck">Проводники проводят заряд, диэлектрики – нет.</p>','<p class="ck">Электризация – результат трения, контакта или влияния.</p>'],['<p class="ck">Электр заряды оң (+) және теріс (−) болады.</p>','<p class="ck">Зарядталған денелер әрекеттеседі: тартылады немесе тебіледі.</p>','<p class="ck">Өткізгіштер зарядты өткізеді, диэлектриктер – өткізбейді.</p>','<p class="ck">Электрлену – үйкеліс, жанасу немесе ықпал нәтижесі.</p>']]}],
+ gp:[[ [
+  ['1. Физическая величина, характеризующая способность тел взаимодействовать через электрические силы, называется {электрическим зарядом}. Обозначение – {q}, единица – {кулон} (Кл).','1. Денелердің электр күштері арқылы әрекеттесу қабілетін сипаттайтын физикалық шама {электр заряды} деп аталады. Белгіленуі – {q}, өлшем бірлігі – {кулон} (Кл).'],
+  ['2. Существуют два рода зарядов: {положительные} и {отрицательные}. Одноимённые заряды {отталкиваются}, разноимённые – {притягиваются}.','2. Зарядтың екі түрі бар: {оң} және {теріс}. Аттас зарядтар {тебіледі}, әртүрлі аттас зарядтар – {тартылады}.'],
+  ['3. Процесс приобретения телом электрического заряда называется {электризацией}. Способы: {трение}, {контакт}, {влияние} (индукция).','3. Дененің электр зарядын алу процесі {электрлену} деп аталады. Тәсілдері: {үйкеліс}, {жанасу}, {ықпал} (индукция).']],
+  [
+  ['4. При электризации происходит {перераспределение} электронов: тело, получившее лишние электроны, заряжается {отрицательно}, потерявшее электроны – {положительно}.','4. Электрленгенде электрондардың {қайта бөлінуі} жүреді: артық электрон алған дене {теріс}, электрон жоғалтқан дене {оң} зарядталады.'],
+  ['5. Вещества, в которых заряды свободно перемещаются, – {проводники} (например, {металлы}); вещества, в которых заряды не могут свободно двигаться, – {диэлектрики} (например, {стекло}).','5. Зарядтар еркін қозғалатын заттар – {өткізгіштер} (мысалы, {металдар}); зарядтар еркін қозғала алмайтын заттар – {диэлектриктер} (мысалы, {шыны}).'],
+  ['6. Закон сохранения заряда: в {изолированной} системе суммарный заряд {не изменяется}.','6. Заряд сақталу заңы: {оқшауланған} жүйеде жалпы заряд {өзгермейді}.']]]],
+ t1:{h:[['Тело','Заряд до трения','Заряд после трения','Электроны'],['Дене','Үйкелгенге дейінгі заряд','Үйкелгеннен кейінгі заряд','Электрондар']],
+  o:[[['','0','+','−'],['','0','+','−']],[['','пришли','ушли'],['','келді','кетті']]],
+  rows:[[['Эбонитовая палочка (образец)','Эбонит таяқша (үлгі)'],[1,3,1],true],[['Мех','Жүн'],[1,2,2]],[['Стеклянная палочка','Шыны таяқша'],[1,2,2]],[['Шёлк','Жібек'],[1,3,1]]]},
+ st:{ru:['Оборудование: эбонитовая и стеклянная палочки, мех, шёлк, бумажные кусочки.','Потрите эбонитовую палочку о мех, затем стеклянную – о шёлк.','Поднесите палочку к бумажным кусочкам.','Заполните таблицу: заряд до и после трения, куда ушли электроны.'],
+  kk:['Жабдықтар: эбонит және шыны таяқшалар, жүн, жібек, қағаз кесінділері.','Эбонит таяқшаны жүнге, шыны таяқшаны жібекке үйкеңіз.','Таяқшаны қағаз кесінділеріне жақындатыңыз.','Кестені толтырыңыз: үйкелгенге дейінгі және кейінгі заряд, электрондар қайда кетті.']},
+ safe:['Техника безопасности: заряженные предметы не подносить к лицу, провода не использовать.','Қауіпсіздік техникасы: зарядталған заттарды бетке жақындатпау, сымдарды пайдаланбау.'],
+ q2:[ [['Поднесите заряженную палочку к шарику электроскопа, не касаясь. Листочки:','Зарядталған таяқшаны электроскоп шарикіне тигізбей жақындатыңыз. Жапырақшалар:'],[['разошлись','не изменились'],['ашылды','өзгермеді']],0],
+  [['Поднесите палочку к лёгкой гильзе, не касаясь. Гильза:','Таяқшаны жеңіл гильзаға тигізбей жақындатыңыз. Гильза:'],[['притянулась','оттолкнулась','не изменилась'],['тартылды','тебілді','өзгермеді']],0],
+  [['Почему нейтральная гильза притянулась?','Бейтарап гильза неге тартылды?'],[['электроны в гильзе сместились','гильза получила заряд от палочки'],['гильзадағы электрондар ығысты','гильза таяқшадан заряд алды']],0],
+  [['Коснитесь гильзы палочкой. Гильза:','Гильзаға таяқшамен тиіңіз. Гильза:'],[['притянулась','оттолкнулась','не изменилась'],['тартылды','тебілді','өзгермеді']],1]],
+ t3:{h:[['Предмет','Предположение','Результат проверки','Совпало?'],['Зат','Болжам','Тексеру нәтижесі','Сәйкес келді ме?']],o:[['','проводник','диэлектрик'],['','өткізгіш','диэлектрик']],
+  rows:[[['медь','мыс'],1],[['стекло','шыны'],2],[['графит','графит'],1],[['резина','резеңке'],2],[['раствор соли','тұз ерітіндісі'],1],[['пластмасса','пластмасса'],2]]},
+ refl:[['Я могу объяснить электризацию переходом электронов','Мен электрленуді электрондардың өтуімен түсіндіре аламын'],['Я могу отличить проводник от диэлектрика','Мен өткізгішті диэлектриктен ажырата аламын'],['Я могу привести пример вредной и полезной электризации','Мен зиянды және пайдалы электрленуге мысал келтіре аламын']]
+}};
+const SLT={ru:{close:'Закрыть',prev:'← Назад',next:'Далее →',of:'из',theme:'Тема урока',goalsT:'Цели обучения',learn:'Что мы будем делать на уроке',think:'Подумайте и ответьте',hookT:'Вопрос урока',mc:'Конспект',mg:'Пропуски',showW:'Показать слова',hideW:'Скрыть слова',toMap:'← К схеме',tap:'Нажмите на блок, чтобы открыть его на весь экран.',done:'Записал(а)',doneOn:'✓ Записано',rec:'Записано',gpH:'Заполните пропуски в тетради по учебнику: откройте параграф по теме урока. Номер пропуска – номер в тетради. Слово открывает учитель.',steps:'Ход работы',chk:'Проверить',ans:'Показать ответ',clr:'Очистить',tapc:'Нажимайте на клетки, чтобы выбрать значение.',openA:'Открыть ответ',hideA:'Скрыть ответ',allA:'Открыть все ответы',task:'Задание',hw:'Домашнее задание',reflT:'Рефлексия: отметьте',rf:['понял','частично','не понял'],taskT:'Проверьте себя: сначала решите, потом учитель открывает ответ',ok:'✓',bad:'✗',match:'Совпало?',ct:'Нажмите на ячейку, чтобы выбрать значение. Строка «образец» заполнена.'},
+ kk:{close:'Жабу',prev:'← Артқа',next:'Әрі қарай →',of:'/',theme:'Сабақ тақырыбы',goalsT:'Оқу мақсаттары',learn:'Сабақта не істейміз',think:'Ойланыңыз және жауап беріңіз',hookT:'Сабақ сұрағы',mc:'Конспект',mg:'Бос орындар',showW:'Сөздерді көрсету',hideW:'Сөздерді жасыру',toMap:'← Сызбаға',tap:'Блокты бүкіл экранға ашу үшін басыңыз.',done:'Жаздым',doneOn:'✓ Жазылды',rec:'Жазылды',gpH:'Бос орындарды дәптерде оқулық бойынша толтырыңыз: сабақ тақырыбы бойынша параграфты ашыңыз. Бос орынның нөмірі – дәптердегі нөмір. Сөзді мұғалім ашады.',steps:'Жұмыс барысы',chk:'Тексеру',ans:'Жауапты көрсету',clr:'Тазалау',tapc:'Мәнді таңдау үшін ұяшықтарды басыңыз.',openA:'Жауапты ашу',hideA:'Жауапты жасыру',allA:'Барлық жауапты ашу',task:'Тапсырма',hw:'Үй тапсырмасы',reflT:'Рефлексия: белгілеңіз',rf:['түсіндім','жартылай','түсінбедім'],taskT:'Өзіңізді тексеріңіз: алдымен шешіңіз, содан кейін мұғалім жауапты ашады',ok:'✓',bad:'✗',match:'Сәйкес келді ме?',ct:'Мәнді таңдау үшін ұяшықты басыңыз. «Үлгі» жолы толтырылған.'}};
+const slT=()=>SLT[S.lg==='kk'?'kk':'ru'];
+const slX=()=>SLS[S.n]||(SLS[S.n]={i:0,cl:{o:null,mode:'c',done:[0,0,0,0,0,0]},rv:{},c:{},cc:{},q:{},qc:0,an:{},rf:{}});
+const slL=()=>S.lg==='kk'?1:0;
+function slGap(key,w,num){const on=!!slX().rv[key];return `<button class="sl-gap ${on?'on':''}" data-a="sl-g-${key}" style="min-width:${Math.max(3,Math.round(w.length*.65))}em">${num?`<sup>${num}</sup>`:''}${on?esc(w):'&nbsp;'}</button>`}
+function slFill(html,pre,mode,num0){let k=0;return html.replace(/\{([^}]+)\}/g,(m,a)=>{k++;return mode==='g'?slGap(pre+k,a,num0?num0+k-1:0):`<span class="kw">${esc(a)}</span>`})}
+function slOpenAll(){return Object.keys(slX().rv).length}
+/* --- слайды --- */
+function slTitle(l,t){return `<div class="sl-c sl-title"><div class="sl-sec">${esc(l.sec||'')}</div><h1>${esc(l.t)}</h1><div class="sl-chips">${(l.goals||[]).map(g=>`<span class="sl-chip">${esc(g.c)}</span>`).join('')}</div><div class="sl-sub">${B('8 класс · физика','8-сынып · физика')}</div></div>`}
+function slHook(l,t){return `<div class="sl-c"><div class="sl-lab">${t.hookT}</div><div class="sl-hook">${esc(l.hook)}</div><div class="sl-lab" style="margin-top:1.2em">${t.think}</div><ol class="sl-big">${(l.dq||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div>`}
+function slGoals(l,t){return `<div class="sl-c"><div class="sl-lab">${t.goalsT}</div><ul class="sl-big sl-goals">${(l.goals||[]).map(g=>`<li><b>${esc(g.c)}</b> ${esc(g.t)}</li>`).join('')}</ul><div class="sl-lab" style="margin-top:1em">${t.learn}</div><ul class="sl-big">${(l.s||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`}
+function slBlk(i,x,mode){const d=SLD[S.n],lg=slL();let k=0;return d.blocks[i].r[lg].map((r,j)=>mode==='g'?slFill(r,`b${i}_${j}_`,'g'):slFill(r,'', 'c')).join('')}
+function slMap(){
+ const d=SLD[S.n],t=slT(),c=slX().cl,lg=slL(),B6=d.blocks;
+ if(c.o==null){
+  const tiles=B6.map((b,i)=>{const pv=b.r[lg][0].replace(/<[^>]+>/g,'').replace(/&nbsp;/g,' ').replace(/\{([^}]+)\}/g,(m,a)=>c.mode==='g'?'…':a);
+   return `<button class="sl-tile sb${i+1}" data-a="sl-cb-${i}"><span class="sl-th"><span class="sl-n">${i+1}</span><b>${esc(b.t[lg])}</b></span><span class="sl-tp">${esc(pv.length>80?pv.slice(0,78)+'…':pv)}</span><span class="sl-ts ${c.done[i]?'on':''}">${c.done[i]?t.doneOn:''}</span></button>`}).join('');
+  return `<div class="sl-hint">${t.tap}</div><div class="sl-seg"><button data-a="sl-cm-c" aria-pressed="${c.mode==='c'}">${t.mc}</button><button data-a="sl-cm-g" aria-pressed="${c.mode==='g'}">${t.mg}</button></div>
+  <div class="sl-map"><div class="sl-sun">${esc(d.center[lg])}</div>${tiles}</div>`;
+ }
+ const i=c.o,b=B6[i];
+ const dots=B6.map((x,j)=>`<button class="sl-dot sb${j+1}" data-a="sl-cb-${j}" aria-pressed="${j===i}">${c.done[j]?'✓':j+1}</button>`).join('');
+ return `<div class="sl-bar2"><button class="sl-btn" data-a="sl-cback">${t.toMap}</button><span class="sl-dots">${dots}</span><span class="sl-seg"><button data-a="sl-cm-c" aria-pressed="${c.mode==='c'}">${t.mc}</button><button data-a="sl-cm-g" aria-pressed="${c.mode==='g'}">${t.mg}</button></span>${c.mode==='g'?`<button class="sl-btn" data-a="sl-wall-b${i}">${t.showW}</button><button class="sl-btn" data-a="sl-wnone-b${i}">${t.hideW}</button>`:''}</div>
+ <section class="sl-blk sb${i+1}"><div class="sl-bh"><span class="sl-n">${i+1}</span><h2>${esc(b.t[lg])}</h2><button class="sl-tick" data-a="sl-cd-${i}" aria-pressed="${!!c.done[i]}">${c.done[i]?t.doneOn:t.done}</button></div><div class="sl-bb">${slBlk(i,b,c.mode)}</div></section>`;
+}
+function slGp(n){const d=SLD[S.n],t=slT(),lg=slL(),set=d.gp[0][n-1];let num=n===1?1:1+d.gp[0][0].reduce((a,x)=>a+(x[0].match(/\{/g)||[]).length,0);
+ const body=set.map((p,j)=>{const html=slFill('<p>'+p[lg]+'</p>',`p${n}_${j}_`,'g',num);num+=(p[lg].match(/\{/g)||[]).length;return html}).join('');
+ return `<div class="sl-c"><div class="sl-hint">${t.gpH}</div><div class="sl-gp">${body}</div><div class="sl-row"><button class="sl-btn pri" data-a="sl-wall-p${n}">${t.showW}</button><button class="sl-btn" data-a="sl-wnone-p${n}">${t.hideW}</button></div></div>`}
+function slCell(tk,r,c,opts,ans,fixed,st){const key=`${tk}${r}_${c}`,v=(slX().c[key]||0),has=v>0,chk=slX().cc[tk];let cls='sl-cell';
+ if(fixed)return `<td class="sl-fx">${esc(opts[fixed])}</td>`;
+ if(chk&&has)cls+=v===ans?' ok':' no';
+ return `<td><button class="${cls}" data-a="sl-cy-${key}-${opts.length}">${has?esc(opts[v]):'＋'}</button></td>`}
+function slT1(){const d=SLD[S.n],t=slT(),lg=slL(),T1=d.t1,x=slX();
+ const rows=T1.rows.map((r,i)=>{const smp=r[2];return `<tr class="${smp?'sl-smp':''}"><th>${esc(r[0][lg])}</th>${[0,1,2].map(c=>{const opts=T1.o[c===2?1:0][lg],ans=r[1][c];return smp?`<td class="sl-fx">${esc(opts[ans])}</td>`:slCell('t1',i,c,opts,ans,0)}).join('')}</tr>`}).join('');
+ return `<div class="sl-two"><div><div class="sl-lab">${t.steps}</div><ol class="sl-steps">${d.st[S.lg==='kk'?'kk':'ru'].map(s=>`<li>${esc(s)}</li>`).join('')}</ol><div class="sl-warn">${esc(d.safe[lg])}</div></div>
+ <div><div class="sl-hint">${t.ct}</div><table class="sl-tb"><thead><tr>${T1.h[lg].map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table>
+ <div class="sl-row"><button class="sl-btn pri" data-a="sl-tchk-t1">${t.chk}</button><button class="sl-btn" data-a="sl-tans-t1">${t.ans}</button><button class="sl-btn" data-a="sl-tclr-t1">${t.clr}</button></div></div></div>`}
+function slQ2(){const d=SLD[S.n],t=slT(),lg=slL(),x=slX();
+ const qs=d.q2.map((q,i)=>`<div class="sl-q"><div class="sl-qt"><span class="sl-n">${i+1}</span>${esc(q[0][lg])}</div><div class="sl-opts">${q[1][lg].map((o,j)=>{const sel=x.q[i]===j,cls=x.qc&&sel?(j===q[2]?' ok':' no'):'';return `<button class="sl-opt${sel?' sel':''}${cls}" data-a="sl-q-${i}-${j}">${esc(o)}</button>`}).join('')}</div></div>`).join('');
+ return `<div class="sl-two"><div><div class="sl-lab">${t.steps}</div><ol class="sl-steps">${(S.lg==='kk'?['Электроскоп, жіпке ілінген жеңіл гильза және зарядталған таяқшаны дайындаңыз.','Таяқшаны тигізбей жақындатып, бақылаңыз.','Содан кейін гильзаға таяқшамен тиіп, нәтижені бақылаңыз.','Әр бақылау үшін жауапты таңдаңыз.']:['Подготовьте электроскоп, лёгкую гильзу на нити и заряженную палочку.','Поднесите палочку, не касаясь, и наблюдайте.','Затем коснитесь гильзы палочкой и снова наблюдайте.','Выберите ответ для каждого наблюдения.']).map(s=>`<li>${esc(s)}</li>`).join('')}</ol><div class="sl-warn">${esc(d.safe[lg])}</div></div>
+ <div>${qs}<div class="sl-row"><button class="sl-btn pri" data-a="sl-qchk">${t.chk}</button><button class="sl-btn" data-a="sl-qans">${t.ans}</button><button class="sl-btn" data-a="sl-qclr">${t.clr}</button></div></div></div>`}
+function slT3(){const d=SLD[S.n],t=slT(),lg=slL(),T3=d.t3,x=slX(),opts=T3.o[lg];
+ const rows=T3.rows.map((r,i)=>{const p=x.c['t3p'+i]||0,v=x.c['t3'+i+'_1']||0;const m=p&&v?(p===v?'✓':'✗'):'';
+  return `<tr><th>${esc(r[0][lg])}</th><td><button class="sl-cell" data-a="sl-cy-t3p${i}-3">${p?esc(opts[p]):'＋'}</button></td>${slCell('t3',i,1,opts,r[1],0)}<td class="sl-m ${m==='✓'?'ok':m==='✗'?'no':''}">${m}</td></tr>`}).join('');
+ return `<div class="sl-two"><div><div class="sl-lab">${t.steps}</div><ol class="sl-steps">${(S.lg==='kk'?['Алдымен әр зат туралы болжам жасаңыз.','Мұғалім көрсеткен тәсілмен затты тексеріңіз.','Нәтижені кестеге белгілеңіз.','Болжам мен нәтижені салыстырыңыз.']:['Сначала сделайте предположение о каждом предмете.','Проверьте предмет способом, который покажет учитель.','Отметьте результат проверки в таблице.','Сравните предположение с результатом.']).map(s=>`<li>${esc(s)}</li>`).join('')}</ol></div>
+ <div><div class="sl-hint">${t.ct}</div><table class="sl-tb"><thead><tr>${T3.h[lg].map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table>
+ <div class="sl-row"><button class="sl-btn pri" data-a="sl-tchk-t3">${t.chk}</button><button class="sl-btn" data-a="sl-tans-t3">${t.ans}</button><button class="sl-btn" data-a="sl-tclr-t3">${t.clr}</button></div></div></div>`}
+function slTasks(l,t){const x=slX(),lab=l.kind==='sor'?T().taskLabS:T().taskLab;
+ return `<div class="sl-c"><div class="sl-hint">${t.taskT}</div><div class="sl-tasks">${l.tk.map((q,j)=>`<div class="sl-task"><div class="sl-qt"><span class="sl-n">${j+1}</span>${esc(q[0])}</div>${x.an[j]?`<div class="sl-a">${esc(q[1])}</div>`:''}<button class="sl-btn" data-a="sl-an-${j}">${x.an[j]?t.hideA:t.openA}</button></div>`).join('')}</div><div class="sl-row"><button class="sl-btn" data-a="sl-anall">${t.allA}</button></div></div>`}
+function slRefl(l,t){const x=slX(),d=SLD[S.n],lg=slL();
+ return `<div class="sl-c"><div class="sl-lab">${t.reflT}</div>${d.refl.map((r,i)=>`<div class="sl-rf"><div>${esc(r[lg])}</div><span class="sl-opts">${t.rf.map((o,j)=>`<button class="sl-opt${x.rf[i]===j?' sel':''}" data-a="sl-rf-${i}-${j}">${esc(o)}</button>`).join('')}</span></div>`).join('')}<div class="sl-hw"><span class="sl-lab">${t.hw}</span>${esc(l.hw||'')}</div></div>`}
+function slRender(){
+ const d=SLD[S.n];if(!d||MODAL!=='slides')return;const t=slT(),l=L(),x=slX(),n=d.types.length,i=Math.min(x.i,n-1),ty=d.types[i],lg=slL();
+ let b='';
+ if(ty==='title')b=slTitle(l,t);else if(ty==='hook')b=slHook(l,t);else if(ty==='goals')b=slGoals(l,t);else if(ty==='map')b=slMap();
+ else if(ty==='gp1')b=slGp(1);else if(ty==='gp2')b=slGp(2);else if(ty==='t1')b=slT1();else if(ty==='q2')b=slQ2();else if(ty==='t3')b=slT3();
+ else if(ty==='tasks')b=slTasks(l,t);else if(ty==='refl')b=slRefl(l,t);
+ const dots=d.names.map((nm,j)=>`<button class="sl-pg" data-a="sl-go-${j}" aria-pressed="${j===i}" title="${esc(nm[lg])}">${j+1}</button>`).join('');
+ const ttl=ty==='title'?'':d.names[i][lg];
+ const hd=(ty==='title'||ty==='hook'||ty==='goals')?'':'';
+ const ov=document.getElementById('sl-root')||(()=>{const e=document.createElement('div');e.id='sl-root';e.className='sl-ov';$('#mroot').appendChild(e);return e})();
+ const keep=ov.querySelector('.sl-body')?ov.querySelector('.sl-body').scrollTop:0;
+ ov.innerHTML=`<div class="sl-top"><b class="sl-brand">${esc(l.t.length>46?l.t.slice(0,44)+'…':l.t)}</b><span class="sl-pgs">${dots}</span><span class="sl-seg"><button data-a="sl-lg-ru" aria-pressed="${S.lg!=='kk'}">РУС</button><button data-a="sl-lg-kk" aria-pressed="${S.lg==='kk'}">ҚАЗ</button></span><button class="sl-btn" data-a="sl-sim">${S.lg==='kk'?'Симуляторлар':'Симуляторы'}</button><button class="sl-btn" data-a="close">✕ ${t.close}</button></div>
+ <div class="sl-body" data-ty="${ty}">${ttl?`<h2 class="sl-h">${i+1}. ${esc(ttl)}</h2>`:''}${b}</div>
+ <div class="sl-bot"><button class="sl-btn" data-a="sl-prev" ${i===0?'disabled':''}>${t.prev}</button><span>${i+1} ${t.of} ${n}</span><button class="sl-btn pri" data-a="sl-next" ${i===n-1?'disabled':''}>${t.next}</button></div>`;
+ const nb=ov.querySelector('.sl-body');if(nb&&keep&&ov.dataset.i==String(i))nb.scrollTop=keep;ov.dataset.i=i;
+}
+function slBack(on){let e=document.getElementById('sl-back');if(e)e.remove();if(!on)return;e=document.createElement('button');e.id='sl-back';e.className='sl-btn pri';e.dataset.a='sl-open';e.textContent=B('↩ К слайдам урока','↩ Сабақ слайдтарына');document.body.appendChild(e)}
+function openSlides(){if(!SLD[S.n])return;slBack(false);MODAL='slides';$('#mroot').innerHTML='';slRender()}
+function slAct(a){
+ if(a==='sl-open'){openSlides();return}
+ if(a==='sl-sim'){MODAL=null;$('#mroot').innerHTML='';slBack(true);render();return}
+ const x=slX(),d=SLD[S.n],n=d.types.length,c=x.cl;let m;
+ if(a==='sl-prev'){x.i=Math.max(0,x.i-1)}else if(a==='sl-next'){x.i=Math.min(n-1,x.i+1)}
+ else if(m=a.match(/^sl-go-(\d+)$/)){x.i=+m[1]}
+ else if(m=a.match(/^sl-lg-(ru|kk)$/)){S.lg=m[1];LS.set('ph8_lg',S.lg);render()}
+ else if(m=a.match(/^sl-g-(.+)$/)){x.rv[m[1]]=!x.rv[m[1]]}
+ else if(m=a.match(/^sl-wall-(.+)$/)){const pre=m[1];document.querySelectorAll('.sl-gap').forEach(e=>{const k=e.dataset.a.slice(5);if(k.startsWith(pre))x.rv[k]=true})}
+ else if(m=a.match(/^sl-wnone-(.+)$/)){const pre=m[1];document.querySelectorAll('.sl-gap').forEach(e=>{const k=e.dataset.a.slice(5);if(k.startsWith(pre))delete x.rv[k]})}
+ else if(m=a.match(/^sl-cb-(\d)$/)){c.o=+m[1]}else if(a==='sl-cback'){c.o=null}
+ else if(m=a.match(/^sl-cm-(c|g)$/)){c.mode=m[1]}
+ else if(m=a.match(/^sl-cd-(\d)$/)){c.done[+m[1]]=c.done[+m[1]]?0:1}
+ else if(m=a.match(/^sl-cy-(.+)-(\d+)$/)){const k=m[1],nn=+m[2];x.c[k]=((x.c[k]||0)+1)%nn;x.cc[k.startsWith('t3')?'t3':'t1']=0}
+ else if(m=a.match(/^sl-tchk-(t1|t3)$/)){x.cc[m[1]]=1}
+ else if(m=a.match(/^sl-tclr-(t1|t3)$/)){Object.keys(x.c).filter(k=>k.startsWith(m[1])).forEach(k=>delete x.c[k]);x.cc[m[1]]=0}
+ else if(m=a.match(/^sl-tans-(t1|t3)$/)){if(m[1]==='t1')d.t1.rows.forEach((r,i)=>{if(!r[2])[0,1,2].forEach(cc=>x.c['t1'+i+'_'+cc]=r[1][cc])});else d.t3.rows.forEach((r,i)=>{x.c['t3'+i+'_1']=r[1];x.c['t3p'+i]=r[1]});x.cc[m[1]]=1}
+ else if(m=a.match(/^sl-q-(\d)-(\d)$/)){x.q[+m[1]]=+m[2];x.qc=0}
+ else if(a==='sl-qchk'){x.qc=1}else if(a==='sl-qclr'){x.q={};x.qc=0}else if(a==='sl-qans'){d.q2.forEach((q,i)=>x.q[i]=q[2]);x.qc=1}
+ else if(m=a.match(/^sl-an-(\d)$/)){x.an[+m[1]]=!x.an[+m[1]]}else if(a==='sl-anall'){L().tk.forEach((_,j)=>x.an[j]=true)}
+ else if(m=a.match(/^sl-rf-(\d)-(\d)$/)){x.rf[+m[1]]=+m[2]}
+ slRender();
+}
+document.addEventListener('keydown',e=>{if(MODAL!=='slides'||/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||''))return;
+ if(e.key==='ArrowRight'||e.key==='PageDown'){const b=document.querySelector('[data-a="sl-next"]:not([disabled])');if(b){e.preventDefault();b.click()}}
+ else if(e.key==='ArrowLeft'||e.key==='PageUp'){const b=document.querySelector('[data-a="sl-prev"]:not([disabled])');if(b){e.preventDefault();b.click()}}});
+
 applyTheme();applyFs();render();
 </script>
 
